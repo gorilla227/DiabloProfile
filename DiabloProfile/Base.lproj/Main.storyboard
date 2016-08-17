@@ -70,6 +70,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="LJL-0t-tb0" kind="show" identifier="ViewHeroDetailsSegue" id="so6-dP-ymA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwx-PA-Xe5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,24 +377,29 @@
                             <outlet property="delegate" destination="LJL-0t-tb0" id="0ir-UG-cqQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="HeroName" id="xzF-sS-eM2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="eht-Z2-IfF">
-                            <connections>
-                                <action selector="addToCollectionButtonOnClicked:" destination="LJL-0t-tb0" id="vtY-Gs-RAs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="HeroName" id="xzF-sS-eM2"/>
                     <connections>
                         <outlet property="addToCollectionButton" destination="eht-Z2-IfF" id="YsA-ln-p09"/>
                         <outlet property="hardcoreImageView" destination="FAo-lF-4JU" id="8GQ-lc-ZcY"/>
                         <outlet property="headView" destination="AjU-O1-Zi1" id="NfO-bo-pXD"/>
                         <outlet property="heroLevelClassLabel" destination="jjR-ew-OgC" id="rwE-2D-rgh"/>
                         <outlet property="heroNameLabel" destination="eBG-cq-9nt" id="UpH-LZ-EgH"/>
+                        <outlet property="removeButton" destination="v0h-pg-Ynv" id="Yfp-zW-dI0"/>
                         <outlet property="seasonImageView" destination="D9p-Ff-izN" id="sHH-87-ZyY"/>
                         <outlet property="titleBackgroundImageView" destination="euN-3e-SU3" id="zDL-ES-Dlx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21I-eo-oRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="bookmarks" id="eht-Z2-IfF">
+                    <connections>
+                        <action selector="addToCollectionButtonOnClicked:" destination="LJL-0t-tb0" id="vtY-Gs-RAs"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="trash" id="v0h-pg-Ynv">
+                    <connections>
+                        <action selector="removeButtonOnClicked:" destination="LJL-0t-tb0" id="Y05-p3-oRY"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1737" y="519"/>
         </scene>
@@ -475,4 +483,7 @@
         <image name="life-orb" width="194" height="162"/>
         <image name="seasonal-icon" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="so6-dP-ymA"/>
+    </inferredMetricsTieBreakers>
 </document>

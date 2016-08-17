@@ -16,7 +16,8 @@ class HeroDetailsVC: UITableViewController {
     @IBOutlet weak var hardcoreImageView: UIImageView!
     @IBOutlet weak var seasonImageView: UIImageView!
     @IBOutlet weak var headView: UIView!
-    @IBOutlet weak var addToCollectionButton: UIBarButtonItem!
+    @IBOutlet var addToCollectionButton: UIBarButtonItem!
+    @IBOutlet var removeButton: UIBarButtonItem!
     
     var heroData: [String: AnyObject]?
     var battleTag: String?
@@ -60,8 +61,9 @@ class HeroDetailsVC: UITableViewController {
         if let heroData = heroData {
             hero = Hero(dictionary: heroData, context: privateManagedObjectContext)
             hero?.battleTag = battleTag
-            
-            addToCollectionButton.enabled = !isHeroExistedInCollection()
+            navigationItem.rightBarButtonItem = addToCollectionButton
+        } else {
+            navigationItem.rightBarButtonItem = removeButton
         }
     }
     
@@ -105,6 +107,8 @@ class HeroDetailsVC: UITableViewController {
             if let isSeasonal = hero.seasonal?.boolValue {
                 seasonImageView.hidden = !isSeasonal
             }
+            
+            addToCollectionButton.enabled = !isHeroExistedInCollection()
             tableView.reloadData()
         }
     }
@@ -199,7 +203,11 @@ class HeroDetailsVC: UITableViewController {
     
     func mergeToMainManagedObjectContext(notification: NSNotification) {
         mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
-        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        if heroData == nil { // Show from HeroList
+            navigationController?.popViewControllerAnimated(true)
+        } else { // Show from AddVC_SelectHero
+            navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 
     /*
@@ -216,4 +224,8 @@ class HeroDetailsVC: UITableViewController {
         AppDelegate.saveContext(privateManagedObjectContext)
     }
 
+    @IBAction func removeButtonOnClicked(sender: AnyObject) {
+        mainManagedObjectContext.deleteObject(hero!)
+        AppDelegate.saveContext(mainManagedObjectContext)
+    }
 }

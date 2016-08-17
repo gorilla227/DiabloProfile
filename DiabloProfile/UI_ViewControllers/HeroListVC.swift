@@ -18,7 +18,7 @@ class HeroListVC: UITableViewController {
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.Level, ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.Level, ascending: false), NSSortDescriptor(key: Hero.Keys.ParagonLevel, ascending: false)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         frc.delegate = self
@@ -80,26 +80,30 @@ class HeroListVC: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
+            performSegueWithIdentifier("ViewHeroDetailsSegue", sender: hero)
+        }
+    }
 
-    /*
+
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
+                mainManagedObjectContext.deleteObject(hero)
+                AppDelegate.saveContext(mainManagedObjectContext)
+            }
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -116,15 +120,17 @@ class HeroListVC: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ViewHeroDetailsSegue" {
+            let heroDetialsVC = segue.destinationViewController as! HeroDetailsVC
+            heroDetialsVC.hero = sender as? Hero
+        }
     }
-    */
 
 }
 
@@ -142,7 +148,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .Insert:
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
         case .Delete:
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             break
         case .Update:
             break
