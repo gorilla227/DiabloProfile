@@ -19,11 +19,13 @@ class HeroListVC: UITableViewController {
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.Level, ascending: false)]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: Hero.Keys.BattleTag, cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         frc.delegate = self
         return frc
     }()
+    
+    let gameData = AppDelegate.gameData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +37,23 @@ class HeroListVC: UITableViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func configureCell(cell: UITableViewCell, hero: Hero) {
+        cell.textLabel?.text = hero.name
+        if let level = hero.level,
+            let heroClassKey = hero.heroClass,
+            let gameData = gameData, let heroClasses = gameData["class"] as? [String: [String: AnyObject]],
+            let heroClass = heroClasses[heroClassKey],
+            let heroClassName = heroClass["name"] {
+            
+            cell.detailTextLabel?.text = "\(level) \(heroClassName)"
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
         return fetchedResultsController.sections?.count ?? 0
     }
 
@@ -55,10 +65,9 @@ class HeroListVC: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HeroCell", forIndexPath: indexPath)
-
-        // Configure the cell...
-        cell.textLabel?.text = String(indexPath.section)
-        cell.detailTextLabel?.text = String(indexPath.row)
+        if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
+            configureCell(cell, hero: hero)
+        }
         return cell
     }
 
@@ -110,7 +119,25 @@ class HeroListVC: UITableViewController {
 }
 
 extension HeroListVC: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        tableView.reloadData()
+        tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+            break
+        case .Update:
+            break
+        case .Move:
+            break
+        }
     }
 }

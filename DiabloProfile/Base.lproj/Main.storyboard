@@ -375,9 +375,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="HeroName" id="xzF-sS-eM2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="eht-Z2-IfF"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="eht-Z2-IfF">
+                            <connections>
+                                <action selector="addToCollectionButtonOnClicked:" destination="LJL-0t-tb0" id="vtY-Gs-RAs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addToCollectionButton" destination="eht-Z2-IfF" id="YsA-ln-p09"/>
                         <outlet property="hardcoreImageView" destination="FAo-lF-4JU" id="8GQ-lc-ZcY"/>
                         <outlet property="headView" destination="AjU-O1-Zi1" id="NfO-bo-pXD"/>
                         <outlet property="heroLevelClassLabel" destination="jjR-ew-OgC" id="rwE-2D-rgh"/>

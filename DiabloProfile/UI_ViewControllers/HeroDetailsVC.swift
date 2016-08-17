@@ -16,6 +16,7 @@ class HeroDetailsVC: UITableViewController {
     @IBOutlet weak var hardcoreImageView: UIImageView!
     @IBOutlet weak var seasonImageView: UIImageView!
     @IBOutlet weak var headView: UIView!
+    @IBOutlet weak var addToCollectionButton: UIBarButtonItem!
     
     var heroData: [String: AnyObject]?
     var battleTag: String?
@@ -31,19 +32,25 @@ class HeroDetailsVC: UITableViewController {
     }()
     
     lazy var privateManagedObjectContext: NSManagedObjectContext = {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let backgroundManagedObjectContext = appDelegate.backgroundManagedObjectContext
         let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        moc.parentContext = self.mainManagedObjectContext
+        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        moc.parentContext = backgroundManagedObjectContext
         return moc
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100.0
         initializeHeroObject()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100.0
         tableView.layoutIfNeeded()
+        
         configureHeaderViewLayout()
         
         loadData()
@@ -53,7 +60,21 @@ class HeroDetailsVC: UITableViewController {
         if let heroData = heroData {
             hero = Hero(dictionary: heroData, context: privateManagedObjectContext)
             hero?.battleTag = battleTag
+            
+            addToCollectionButton.enabled = !isHeroExistedInCollection()
         }
+    }
+    
+    private func isHeroExistedInCollection() -> Bool {
+        if let hero = hero, let id = hero.id {
+            let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
+            fetchRequest.predicate = NSPredicate(format: "\(Hero.Keys.ID) == %@", id)
+            
+            var error: NSError?
+            let numOfExistedObject = mainManagedObjectContext.countForFetchRequest(fetchRequest, error: &error)
+            return numOfExistedObject > 0
+        }
+        return false
     }
     
     private func configureHeaderViewLayout() {
@@ -86,7 +107,6 @@ class HeroDetailsVC: UITableViewController {
             }
             tableView.reloadData()
         }
-        
     }
     
     private func titleBackgroundImage(classKey: String, genderKey: String) -> UIImage? {
@@ -176,6 +196,11 @@ class HeroDetailsVC: UITableViewController {
             return nil
         }
     }
+    
+    func mergeToMainManagedObjectContext(notification: NSNotification) {
+        mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -186,5 +211,9 @@ class HeroDetailsVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func addToCollectionButtonOnClicked(sender: AnyObject) {
+        AppDelegate.saveContext(privateManagedObjectContext)
+    }
 
 }
