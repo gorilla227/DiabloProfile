@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>class</key>
+	<dict>
+		<key>barbarian</key>
+		<dict>
+			<key>name</key>
+			<string>Barbarian</string>
+			<key>skillCategory</key>
+			<dict>
+				<key>primary</key>
+				<string>Primary</string>
+				<key>secondary</key>
+				<string>Secondary</string>
+				<key>defensive</key>
+				<string>Defensive</string>
+				<key>might</key>
+				<string>Might</string>
+				<key>tactics</key>
+				<string>Tactics</string>
+				<key>rage</key>
+				<string>Rage</string>
+			</dict>
+			<key>resource</key>
+			<array>
+				<string>Fury</string>
+			</array>
+		</dict>
+		<key>crusader</key>
+		<dict>
+			<key>name</key>
+			<string>Crusader</string>
+			<key>skillCategory</key>
+			<dict>
+				<key>primary</key>
+				<string>Primary</string>
+				<key>secondary</key>
+				<string>Secondary</string>
+				<key>defensive</key>
+				<string>Defensive</string>
+				<key>utility</key>
+				<string>Utility</string>
+				<key>laws</key>
+				<string>Laws</string>
+				<key>conviction</key>
+				<string>Conviction</string>
+			</dict>
+			<key>resource</key>
+			<array>
+				<string>Wrath</string>
+			</array>
+		</dict>
+		<key>demon-hunter</key>
+		<dict>
+			<key>name</key>
+			<string>Demon Hunter</string>
+			<key>skillCategory</key>
+			<dict>
+				<key>primary</key>
+				<string>Primary</string>
+				<key>secondary</key>
+				<string>Secondary</string>
+				<key>defensive</key>
+				<string>Defensive</string>
+				<key>archery</key>
+				<string>Archery</string>
+				<key>hunting</key>
+				<string>Hunting</string>
+				<key>devices</key>
+				<string>Devices</string>
+			</dict>
+			<key>resource</key>
+			<array>
+				<string>Hatred</string>
+				<string>Discipline</string>
+			</array>
+		</dict>
+		<key>monk</key>
+		<dict>
+			<key>name</key>
+			<string>Monk</string>
+			<key>skillCategory</key>
+			<dict>
+				<key>primary</key>
+				<string>Primary</string>
+				<key>secondary</key>
+				<string>Secondary</string>
+				<key>defensive</key>
+				<string>Defensive</string>
+				<key>techniques</key>
+				<string>Techniques</string>
+				<key>focus</key>
+				<string>Focus</string>
+				<key>mantras</key>
+				<string>Mantras</string>
+			</dict>
+			<key>resource</key>
+			<array>
+				<string>Spirit</string>
+			</array>
+		</dict>
+		<key>witch-doctor</key>
+		<dict>
+			<key>name</key>
+			<string>Witch Doctor</string>
+			<key>skillCategory</key>
+			<dict>
+				<key>primary</key>
+				<string>Primary</string>
+				<key>secondary</key>
+				<string>Secondary</string>
+				<key>defensive</key>
+				<string>Defensive</string>
+				<key>terror</key>
+				<string>Terror</string>
+				<key>decay</key>
+				<string>Decay</string>
+				<key>voodoo</key>
+				<string>Voodoo</string>
+			</dict>
+			<key>resource</key>
+			<array>
+				<string>Mana</string>
+			</array>
+		</dict>
+		<key>wizard</key>
+		<dict>
+			<key>name</key>
+			<string>Wizard</string>
+			<key>skillCategory</key>
+			<dict>
+				<key>primary</key>
+				<string>Primary</string>
+				<key>secondary</key>
+				<string>Secondary</string>
+				<key>defensive</key>
+				<string>Defensive</string>
+				<key>force</key>
+				<string>Force</string>
+				<key>conjuration</key>
+				<string>Conjuration</string>
+				<key>mastery</key>
+				<string>Mastery</string>
+			</dict>
+			<key>resource</key>
+			<array>
+				<string>Arcane Power</string>
+			</array>
+		</dict>
+	</dict>
+	<key>skills</key>
+	<dict>
+		<key>active</key>
+		<string>Active</string>
+		<key>passive</key>
+		<string>Passive</string>
+	</dict>
+	<key>gender</key>
+	<array>
+		<string>Male</string>
+		<string>Female</string>
+	</array>
+	<key>stats</key>
+	<dict>
+		<key>life</key>
+		<string>Life</string>
+		<key>damage</key>
+		<string>Damage</string>
+		<key>toughness</key>
+		<string>Toughness</string>
+		<key>healing</key>
+		<string>Recovery</string>
+		<key>attachSpeed</key>
+		<string>Attacks per Second</string>
+		<key>armor</key>
+		<string>Armor</string>
+		<key>strength</key>
+		<string>Strength</string>
+		<key>dexterity</key>
+		<string>Dexterity</string>
+		<key>vitality</key>
+		<string>Vitality</string>
+		<key>intelligence</key>
+		<string>Intelligence</string>
+		<key>physicalResist</key>
+		<string>Physical Resistance</string>
+		<key>fireResist</key>
+		<string>Fire Resistance</string>
+		<key>coldResist</key>
+		<string>Cold Resistance</string>
+		<key>lightningResist</key>
+		<string>Lightning Resistance</string>
+		<key>poisonResist</key>
+		<string>Poison Resistance</string>
+		<key>arcaneResist</key>
+		<string>Arcane Resistance</string>
+		<key>critDamage</key>
+		<string>Critical Hit Damage</string>
+		<key>blockChance</key>
+		<string>Chance to Block</string>
+		<key>blockAmountMin</key>
+		<string>Minmum Block Amount</string>
+		<key>blockAmountMax</key>
+		<string>Maximum Block Amount</string>
+		<key>damageIncrease</key>
+		<string>Damage Increase</string>
+		<key>critChance</key>
+		<string>Critical Hit Chance</string>
+		<key>damageReduction</key>
+		<string>Damage Reduction</string>
+		<key>thorns</key>
+		<string>Damage of Thorns</string>
+		<key>lifeSteal</key>
+		<string>Life Steal</string>
+		<key>lifePerKill</key>
+		<string>Life after Each Kill</string>
+		<key>goldFind</key>
+		<string>Gold Find Rate</string>
+		<key>magicFind</key>
+		<string>Magic Item Find Rate</string>
+		<key>lifeOnHit</key>
+		<string>Life on Hit</string>
+		<key>primaryResource</key>
+		<string>Primary Resource</string>
+		<key>secondaryResource</key>
+		<string>Secondary Resource</string>
+	</dict>
+</dict>
+</plist>

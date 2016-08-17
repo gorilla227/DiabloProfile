@@ -1,4 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="Hero" representedClassName=".Hero" syncable="YES">
+        <attribute name="battleTag" attributeType="String" syncable="YES"/>
+        <attribute name="dead" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="gender" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="hardcore" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="heroClass" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="lastUpdated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="level" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="paragonLevel" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="seasonal" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="seasonCreated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="activeSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroA" inverseEntity="Skill" syncable="YES"/>
+        <relationship name="passiveSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroP" inverseEntity="Skill" syncable="YES"/>
+        <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="hero" inverseEntity="Stats" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Rune" representedClassName=".Rune" parentEntity="Spell" syncable="YES">
+        <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="Skill" inverseName="rune" inverseEntity="Skill" syncable="YES"/>
+    </entity>
+    <entity name="Skill" representedClassName=".Skill" parentEntity="Spell" syncable="YES">
+        <attribute name="categorySlug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flavor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="iconURL" attributeType="String" syncable="YES"/>
+        <relationship name="heroA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="activeSkills" inverseEntity="Hero" syncable="YES"/>
+        <relationship name="heroP" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="passiveSkills" inverseEntity="Hero" syncable="YES"/>
+        <relationship name="rune" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Rune" inverseName="skill" inverseEntity="Rune" syncable="YES"/>
+    </entity>
+    <entity name="Spell" representedClassName=".Spell" syncable="YES">
+        <attribute name="fullDescription" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="simpleDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" attributeType="String" indexed="YES" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="slug"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Stats" representedClassName=".Stats" syncable="YES">
+        <attribute name="damage" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dexterity" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="healing" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="intelligence" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="life" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="primaryResource" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="secondaryResource" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="strength" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="toughness" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="vitality" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="stats" inverseEntity="Hero" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Hero" positionX="-63" positionY="-18" width="128" height="270"/>
+        <element name="Rune" positionX="-18" positionY="153" width="128" height="60"/>
+        <element name="Skill" positionX="-27" positionY="144" width="128" height="150"/>
+        <element name="Spell" positionX="-36" positionY="135" width="128" height="105"/>
+        <element name="Stats" positionX="-54" positionY="72" width="128" height="210"/>
+    </elements>
 </model>

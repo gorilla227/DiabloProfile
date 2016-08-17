@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        AppDelegate.saveContext(backgroundManagedObjectContext)
     }
 
     // MARK: - Core Data stack
@@ -63,9 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let mOptions = [NSMigratePersistentStoresAutomaticallyOption: true,
+                        NSInferMappingModelAutomaticallyOption: true]
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: mOptions)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -83,29 +85,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return coordinator
     }()
 
-    lazy var managedObjectContext: NSManagedObjectContext = {
+    lazy var backgroundManagedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+    }()
+    
+    lazy var mainManagedObjectContext: NSManagedObjectContext = {
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        managedObjectContext.parentContext = self.backgroundManagedObjectContext
         return managedObjectContext
     }()
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
-        if managedObjectContext.hasChanges {
-            do {
-                try managedObjectContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                abort()
+    class func saveContext (context: NSManagedObjectContext) {
+        context.performBlock { 
+            if context.hasChanges{
+                do {
+                    try context.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nserror = error as NSError
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
             }
         }
     }
-
+    
+    // MARK: - UpdateUI 
+    class func performUIUpdatesOnMain(updates: () -> Void) {
+        dispatch_async(dispatch_get_main_queue()) {
+            updates()
+        }
+    }
 }
 
