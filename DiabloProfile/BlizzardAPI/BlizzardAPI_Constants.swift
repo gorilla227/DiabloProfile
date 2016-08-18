@@ -48,6 +48,7 @@ extension BlizzardAPI {
             static let FullDescription = "description"
             static let SimpleDescription = "simpleDescription"
             static let Flavor = "flavor"
+            static let RuneType = "type"
         }
         
         struct StatsKeys {

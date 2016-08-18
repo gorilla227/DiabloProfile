@@ -131,6 +131,9 @@ extension BlizzardAPI {
                                 if let simpleDescription = rune[ResponseKeys.SkillRuneKeys.SimpleDescription] as? String {
                                     runeDict[Spell.Keys.SimpleDescription] = simpleDescription
                                 }
+                                if let runeType = rune[ResponseKeys.SkillRuneKeys.RuneType] as? String {
+                                    runeDict[Rune.Keys.RuneType] = runeType
+                                }
                                 skillDict[Skill.Keys.Rune] = runeDict
                             }
                             aSkills.append(skillDict)

@@ -23,6 +23,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Rune" representedClassName=".Rune" parentEntity="Spell" syncable="YES">
+        <attribute name="runeType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="Skill" inverseName="rune" inverseEntity="Skill" syncable="YES"/>
     </entity>
     <entity name="Skill" representedClassName=".Skill" parentEntity="Spell" syncable="YES">
@@ -60,7 +61,7 @@
     </entity>
     <elements>
         <element name="Hero" positionX="-63" positionY="-18" width="128" height="270"/>
-        <element name="Rune" positionX="-18" positionY="153" width="128" height="60"/>
+        <element name="Rune" positionX="-18" positionY="153" width="128" height="75"/>
         <element name="Skill" positionX="-27" positionY="144" width="128" height="150"/>
         <element name="Spell" positionX="-36" positionY="135" width="128" height="105"/>
         <element name="Stats" positionX="-54" positionY="72" width="128" height="210"/>

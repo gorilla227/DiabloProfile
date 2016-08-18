@@ -49,6 +49,14 @@ class Skill: Spell {
             self.rune = rune
         }
     }
+    
+    func skillIconImageURL() -> NSURL? {
+        if let iconURL = iconURL {
+            return NSURL(string: BlizzardAPI.SkillIconURLComponents.Head + iconURL + BlizzardAPI.SkillIconURLComponents.Tail)
+        } else {
+            return nil
+        }
+    }
 }
 
 extension Skill {

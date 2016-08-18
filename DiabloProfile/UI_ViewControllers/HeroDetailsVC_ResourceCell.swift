@@ -37,6 +37,13 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
                 resourceValueLabel.text = resourceValue
                 
                 resourceOrbImageView.image = resourceOrbImage(classKey)
+                
+                switch classKey {
+                case "monk", "crusader" :
+                    resourceValueLabel.textColor = UIColor.blackColor()
+                default:
+                    resourceValueLabel.textColor = UIColor.whiteColor()
+                }
             }
         }
     }

@@ -92,6 +92,34 @@ class Hero: NSManagedObject {
             self.stats = stats
         }
     }
+    
+    class func titleBackgroundImagePath(classKey classKey: String, genderKey: String) -> String {
+        let imageFilePath = "\(classKey)-\(genderKey)-background.jpg"
+        return imageFilePath
+    }
+    
+    func titleBackgroundImagePath() -> String? {
+        if let classKey = heroClass, let gender = gender?.boolValue {
+            let genderKey = gender ? "female" : "male"
+            return Hero.titleBackgroundImagePath(classKey: classKey, genderKey: genderKey)
+        } else {
+            return nil
+        }
+    }
+    
+    class func classIconImagePath(classKey classKey: String, genderKey: String) -> String {
+        let imageFilePath = "\(classKey)_\(genderKey).png"
+        return imageFilePath
+    }
+    
+    func classIconImagePath() -> String? {
+        if let classKey = heroClass, let gender = gender?.boolValue {
+            let genderKey = gender ? "female" : "male"
+            return Hero.classIconImagePath(classKey: classKey, genderKey: genderKey)
+        } else {
+            return nil
+        }
+    }
 }
 
 extension Hero {

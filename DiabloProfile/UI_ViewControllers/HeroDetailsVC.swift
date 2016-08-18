@@ -43,6 +43,7 @@ class HeroDetailsVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: privateManagedObjectContext)
         
         initializeHeroObject()
         
@@ -53,6 +54,15 @@ class HeroDetailsVC: UITableViewController {
         configureHeaderViewLayout()
         
         loadData()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("HeroDetailsVC Disappear")
+        
+        if let moc = hero?.managedObjectContext {
+            AppDelegate.saveContext(moc)
+        }
     }
     
     private func initializeHeroObject() {
@@ -93,10 +103,8 @@ class HeroDetailsVC: UITableViewController {
                 let className = heroClass["name"] {
                 heroLevelClassLabel.text = "\(hero.level!) (\(hero.paragonLevel!)) \(className)"
                 
-                if let gender = hero.gender?.boolValue {
-                    let genderKey = gender ? "female" : "male"
-                    let image = titleBackgroundImage(classKey, genderKey: genderKey)
-                    titleBackgroundImageView.image = image
+                if let imagePath = hero.titleBackgroundImagePath() {
+                    titleBackgroundImageView.image = UIImage(named: imagePath)
                 }
             }
             if let isHardcore = hero.hardcore?.boolValue {
@@ -109,11 +117,6 @@ class HeroDetailsVC: UITableViewController {
             addToCollectionButton.enabled = !isHeroExistedInCollection()
             tableView.reloadData()
         }
-    }
-    
-    private func titleBackgroundImage(classKey: String, genderKey: String) -> UIImage? {
-        let imageFileName = "\(classKey)-\(genderKey)-background.jpg"
-        return UIImage(named: imageFileName)
     }
 
     // MARK: - Table view data source
@@ -133,7 +136,7 @@ class HeroDetailsVC: UITableViewController {
         case 2: // Stats
             return 3
         case 3: // Active Skills
-            return 0
+            return hero?.activeSkills?.count ?? 0
         case 4: // Passive Skills
             return hero?.passiveSkills?.count ?? 0
         default:
@@ -175,10 +178,16 @@ class HeroDetailsVC: UITableViewController {
                 break
             }
             return cell
+        case 3: // Active Skills
+            let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
+            if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
+                cell.configureCell(skill, isActiveSkill: true)
+            }
+            return cell
         case 4: // Passive Skills
-            let cell = tableView.dequeueReusableCellWithIdentifier("PassiveSkillCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
             if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
-                configurePassiveSkillCell(cell, passiveSkill: skill)
+                cell.configureCell(skill, isActiveSkill: false)
             }
             return cell
         default:
@@ -195,38 +204,9 @@ class HeroDetailsVC: UITableViewController {
             }
         }
     }
-    
-    private func configurePassiveSkillCell(cell: UITableViewCell, passiveSkill: Skill) {
-        cell.textLabel?.text = passiveSkill.name
-        cell.detailTextLabel?.text = passiveSkill.fullDescription
-        
-        if let iconData = passiveSkill.icon {
-            cell.imageView?.image = UIImage(data: iconData)
-        } else if let iconURLString = passiveSkill.iconURL, let iconURL = NSURL(string: BlizzardAPI.SkillIconURLComponents.Head + iconURLString + BlizzardAPI.SkillIconURLComponents.Tail) {
-            BlizzardAPI.downloadImage(iconURL, completion: { (result, error) in
-                guard error == nil && result != nil else {
-                    // TODO: Handle error
-                    print(error?.domain, error?.localizedDescription)
-                    return
-                }
-                
-                passiveSkill.icon = result
-                if let moc = self.hero?.managedObjectContext {
-                    AppDelegate.saveContext(moc)
-                }
-                
-                AppDelegate.performUIUpdatesOnMain({
-                    cell.imageView?.image = UIImage(data: result!)
-                    cell.setNeedsLayout()
-                })
-            })
-        }
-    }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-//        case 0: // Life & Resource
-//            return "Life & Resource"
         case 1: // Attributes
             return "Attributes"
         case 2: // Stats
@@ -240,28 +220,12 @@ class HeroDetailsVC: UITableViewController {
         }
     }
     
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
-//            return 132
-//        } else {
-//            return tableView.rowHeight
-//        }
-//    }
-    
     func mergeToMainManagedObjectContext(notification: NSNotification) {
         mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
-        print(notification.userInfo)
-//        if let userInfo = notification.userInfo, let updated = userInfo["updated"] as? NSSet, let object = updated.anyObject() {
-//            if object.isKindOfClass(Skill) {
-//                return
-//            }
-//        }
-        AppDelegate.performUIUpdatesOnMain { 
-            if self.heroData == nil { // Show from HeroList
-                self.navigationController?.popViewControllerAnimated(true)
-            } else { // Show from AddVC_SelectHero
-                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-            }
+        print("mergeToMainManagedObjectContext", notification.object)
+
+        AppDelegate.performUIUpdatesOnMain {
+            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
         
     }
@@ -277,13 +241,14 @@ class HeroDetailsVC: UITableViewController {
     */
     
     @IBAction func addToCollectionButtonOnClicked(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
         AppDelegate.saveContext(privateManagedObjectContext)
     }
 
     @IBAction func removeButtonOnClicked(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
         mainManagedObjectContext.deleteObject(hero!)
         AppDelegate.saveContext(mainManagedObjectContext)
+        AppDelegate.performUIUpdatesOnMain { 
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
 }

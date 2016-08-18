@@ -105,14 +105,9 @@ class AddVC_SelectHero: UITableViewController {
             
             if let gender = hero[Hero.Keys.Gender] as? Bool {
                 let genderKey = gender ? "female" : "male"
-                cell.imageView?.image = classIconImage(heroClassKey, genderKey: genderKey)
+                cell.imageView?.image = UIImage(named: Hero.classIconImagePath(classKey: heroClassKey, genderKey: genderKey))
             }
         }
-    }
-    
-    private func classIconImage(classKey: String, genderKey: String) -> UIImage? {
-        let imageFileName = "\(classKey)_\(genderKey).png"
-        return UIImage(named: imageFileName)
     }
     
     // MARK: - Navigation

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(autoSaveBackgroundManagedObjectContext), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
         return true
     }
 
@@ -116,6 +117,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+    }
+    
+    func autoSaveBackgroundManagedObjectContext() {
+        AppDelegate.saveContext(backgroundManagedObjectContext)
+        print("Auto save BackgroundManagedObjectContext")
     }
     
     // MARK: - UpdateUI 

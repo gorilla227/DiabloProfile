@@ -47,16 +47,10 @@ class HeroListVC: UITableViewController {
             
             cell.detailTextLabel?.text = "\(level) \(heroClassName)"
             
-            if let gender = hero.gender?.boolValue {
-                let genderKey = gender ? "female" : "male"
-                cell.imageView?.image = classIconImage(heroClassKey, genderKey: genderKey)
+            if let classIconImagePath = hero.classIconImagePath() {
+                cell.imageView?.image = UIImage(named: classIconImagePath)
             }
         }
-    }
-    
-    private func classIconImage(classKey: String, genderKey: String) -> UIImage? {
-        let imageFileName = "\(classKey)_\(genderKey).png"
-        return UIImage(named: imageFileName)
     }
 
     // MARK: - Table view data source
