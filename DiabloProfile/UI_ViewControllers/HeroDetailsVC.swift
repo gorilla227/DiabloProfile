@@ -225,8 +225,8 @@ class HeroDetailsVC: UITableViewController {
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0: // Life & Resource
-            return "Life & Resource"
+//        case 0: // Life & Resource
+//            return "Life & Resource"
         case 1: // Attributes
             return "Attributes"
         case 2: // Stats
@@ -256,12 +256,14 @@ class HeroDetailsVC: UITableViewController {
 //                return
 //            }
 //        }
-        
-        if heroData == nil { // Show from HeroList
-            navigationController?.popViewControllerAnimated(true)
-        } else { // Show from AddVC_SelectHero
-            navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        AppDelegate.performUIUpdatesOnMain { 
+            if self.heroData == nil { // Show from HeroList
+                self.navigationController?.popViewControllerAnimated(true)
+            } else { // Show from AddVC_SelectHero
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
+        
     }
 
     /*
