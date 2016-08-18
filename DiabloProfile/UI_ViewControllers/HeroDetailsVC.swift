@@ -46,8 +46,6 @@ class HeroDetailsVC: UITableViewController {
         
         initializeHeroObject()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
         tableView.layoutIfNeeded()
@@ -122,18 +120,22 @@ class HeroDetailsVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 5
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section {
-        case 0:
+        case 0: // Life & Resource
             return 1
-        case 1:
+        case 1: // Attributes
             return 4
-        case 2:
+        case 2: // Stats
             return 3
+        case 3: // Active Skills
+            return 0
+        case 4: // Passive Skills
+            return hero?.passiveSkills?.count ?? 0
         default:
             return 0
         }
@@ -141,11 +143,11 @@ class HeroDetailsVC: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0:
+        case 0: // Life & Resource
             let cell = tableView.dequeueReusableCellWithIdentifier("ResourceCell", forIndexPath: indexPath) as! HeroDetailsVC_ResourceCell
             cell.configureCell(hero!)
             return cell
-        case 1:
+        case 1: // Attributes
             let cell = tableView.dequeueReusableCellWithIdentifier("StatCell", forIndexPath: indexPath)
             switch indexPath.row {
             case 0:
@@ -160,7 +162,7 @@ class HeroDetailsVC: UITableViewController {
                 break
             }
             return cell
-        case 2:
+        case 2: // Stats
             let cell = tableView.dequeueReusableCellWithIdentifier("StatCell", forIndexPath: indexPath)
             switch indexPath.row {
             case 0:
@@ -171,6 +173,12 @@ class HeroDetailsVC: UITableViewController {
                 configureStatCell(cell, statKey: Stats.Keys.Healing)
             default:
                 break
+            }
+            return cell
+        case 4: // Passive Skills
+            let cell = tableView.dequeueReusableCellWithIdentifier("PassiveSkillCell", forIndexPath: indexPath)
+            if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
+                configurePassiveSkillCell(cell, passiveSkill: skill)
             }
             return cell
         default:
@@ -187,22 +195,68 @@ class HeroDetailsVC: UITableViewController {
             }
         }
     }
+    
+    private func configurePassiveSkillCell(cell: UITableViewCell, passiveSkill: Skill) {
+        cell.textLabel?.text = passiveSkill.name
+        cell.detailTextLabel?.text = passiveSkill.fullDescription
+        
+        if let iconData = passiveSkill.icon {
+            cell.imageView?.image = UIImage(data: iconData)
+        } else if let iconURLString = passiveSkill.iconURL, let iconURL = NSURL(string: BlizzardAPI.SkillIconURLComponents.Head + iconURLString + BlizzardAPI.SkillIconURLComponents.Tail) {
+            BlizzardAPI.downloadImage(iconURL, completion: { (result, error) in
+                guard error == nil && result != nil else {
+                    // TODO: Handle error
+                    print(error?.domain, error?.localizedDescription)
+                    return
+                }
+                
+                passiveSkill.icon = result
+                if let moc = self.hero?.managedObjectContext {
+                    AppDelegate.saveContext(moc)
+                }
+                
+                AppDelegate.performUIUpdatesOnMain({
+                    cell.imageView?.image = UIImage(data: result!)
+                    cell.setNeedsLayout()
+                })
+            })
+        }
+    }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0:
+        case 0: // Life & Resource
             return "Life & Resource"
-        case 1:
+        case 1: // Attributes
             return "Attributes"
-        case 2:
+        case 2: // Stats
             return "Stats"
+        case 3: // Active Skills
+            return "Active Skills"
+        case 4: // Passive Skills
+            return "Passive Skills"
         default:
             return nil
         }
     }
     
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath == NSIndexPath(forRow: 0, inSection: 0) {
+//            return 132
+//        } else {
+//            return tableView.rowHeight
+//        }
+//    }
+    
     func mergeToMainManagedObjectContext(notification: NSNotification) {
         mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+        print(notification.userInfo)
+//        if let userInfo = notification.userInfo, let updated = userInfo["updated"] as? NSSet, let object = updated.anyObject() {
+//            if object.isKindOfClass(Skill) {
+//                return
+//            }
+//        }
+        
         if heroData == nil { // Show from HeroList
             navigationController?.popViewControllerAnimated(true)
         } else { // Show from AddVC_SelectHero
@@ -221,10 +275,12 @@ class HeroDetailsVC: UITableViewController {
     */
     
     @IBAction func addToCollectionButtonOnClicked(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
         AppDelegate.saveContext(privateManagedObjectContext)
     }
 
     @IBAction func removeButtonOnClicked(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
         mainManagedObjectContext.deleteObject(hero!)
         AppDelegate.saveContext(mainManagedObjectContext)
     }

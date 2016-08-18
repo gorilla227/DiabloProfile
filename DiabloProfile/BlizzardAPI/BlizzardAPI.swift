@@ -159,4 +159,28 @@ class BlizzardAPI {
             }
         }
     }
+    
+    class func downloadImage(url: NSURL, completion: (result: NSData?, error: NSError?) -> Void) {
+        let domain = "DownloadImage"
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            guard error == nil else {
+                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns error: \(error?.localizedDescription)"]]))
+                return
+            }
+            
+            guard let statusCode: Int = (response as? NSHTTPURLResponse)!.statusCode where statusCode >= 200 && statusCode < 300 else {
+                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns un-successful StatusCode"]]))
+                return
+            }
+            
+            guard let data = data else {
+                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Return empty data"]]))
+                return
+            }
+            
+            completion(result: data, error: nil)
+        }
+        
+        task.resume()
+    }
 }

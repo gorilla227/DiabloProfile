@@ -95,6 +95,11 @@ extension BlizzardAPI {
         static let HeroID_Token = "<id>"
     }
     
+    struct SkillIconURLComponents {
+        static let Head = "http://media.blizzard.com/d3/icons/skills/42/"
+        static let Tail = ".png"
+    }
+    
     struct PathKeys {
         static let CareerProfile = "CareerProfile"
         static let HeroProfile = "HeroProfile"
