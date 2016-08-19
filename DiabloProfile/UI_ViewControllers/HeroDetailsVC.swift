@@ -60,8 +60,8 @@ class HeroDetailsVC: UITableViewController {
         super.viewDidDisappear(animated)
         print("HeroDetailsVC Disappear")
         
-        if let moc = hero?.managedObjectContext {
-            AppDelegate.saveContext(moc)
+        if mainManagedObjectContext == hero?.managedObjectContext {
+            AppDelegate.saveContext(mainManagedObjectContext)
         }
     }
     

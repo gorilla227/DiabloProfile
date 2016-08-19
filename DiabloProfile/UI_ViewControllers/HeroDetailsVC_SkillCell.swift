@@ -16,6 +16,9 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
     @IBOutlet weak var runeIconImageView: UIImageView!
     @IBOutlet weak var runeNameLabel: UILabel!
     @IBOutlet weak var runeDescriptionLabel: UILabel!
+    
+    let activeSkillIcon_unloaded = UIImage(named: "activeskill_icon_unloaded.png")
+    let passiveSkillIcon_unloaded = UIImage(named: "passiveskill_icon_unloaded.png")
 
     func configureCell(skill: Skill, isActiveSkill: Bool) {
         // Set Skill
@@ -27,6 +30,7 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
             skillIconImageView.image = UIImage(data: skillIcon)
             setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {
+            skillIconImageView.image = isActiveSkill ? activeSkillIcon_unloaded : passiveSkillIcon_unloaded
             print("DownloadImage from Web")
             BlizzardAPI.downloadImage(skillIconURL, completion: { (result, error) in
                 guard error == nil && result != nil else {
