@@ -182,12 +182,14 @@ class HeroDetailsVC: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
             if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: true)
+                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor() : UIColor.darkGrayColor()
             }
             return cell
         case 4: // Passive Skills
             let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
             if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: false)
+                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor() : UIColor.darkGrayColor()
             }
             return cell
         default:
