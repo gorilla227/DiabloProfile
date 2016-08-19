@@ -19,11 +19,13 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
 
     func configureCell(skill: Skill, isActiveSkill: Bool) {
         // Set Skill
+//        print(skill.name, skillIconImageView)
         skillNameLabel.text = skill.name
         skillDescriptionLabel.text = isActiveSkill ? skill.simpleDescription : skill.fullDescription
         
         if let skillIcon = skill.icon {
             skillIconImageView.image = UIImage(data: skillIcon)
+            setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {
             print("DownloadImage from Web")
             BlizzardAPI.downloadImage(skillIconURL, completion: { (result, error) in
@@ -39,7 +41,6 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
                     self.setNeedsLayout()
                 })
             })
-
         }
         
         // Set Rune
@@ -56,5 +57,4 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
             runeView.hidden = true
         }
     }
-
 }

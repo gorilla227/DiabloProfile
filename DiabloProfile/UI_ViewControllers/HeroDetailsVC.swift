@@ -36,7 +36,6 @@ class HeroDetailsVC: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let backgroundManagedObjectContext = appDelegate.backgroundManagedObjectContext
         let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         moc.parentContext = backgroundManagedObjectContext
         return moc
     }()
@@ -44,6 +43,7 @@ class HeroDetailsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: privateManagedObjectContext)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveBackgroundManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
         
         initializeHeroObject()
         
@@ -224,12 +224,18 @@ class HeroDetailsVC: UITableViewController {
     
     func mergeToMainManagedObjectContext(notification: NSNotification) {
         mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
-        print("mergeToMainManagedObjectContext", notification.object)
+        print("mergeToMainManagedObjectContext")
 
         AppDelegate.performUIUpdatesOnMain {
             self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
-        
+    }
+    
+    func saveBackgroundManagedObjectContext(notification: NSNotification) {
+        if let moc = notification.object as? NSManagedObjectContext, let parentMOC = moc.parentContext {
+            AppDelegate.saveContext(parentMOC)
+            print("Save backgroundManagedObjectContext from HeroDetailsVC")
+        }
     }
 
     /*
