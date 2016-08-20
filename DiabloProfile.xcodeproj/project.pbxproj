@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1276C211D618C4200427BED /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1276C201D618C4200427BED /* GameData.plist */; };
+		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
 		B23641B21D6124EB0020B16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641B11D6124EB0020B16C /* AppDelegate.swift */; };
 		B23641B71D6124EB0020B16C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		A1276C201D618C4200427BED /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
+		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
 		B23641AE1D6124EB0020B16C /* DiabloProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiabloProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23641B11D6124EB0020B16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */,
 				B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */,
 				B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */,
+				A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */,
 			);
 			name = UI_ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				B2AE25CA1D6260C70046C6BA /* Spell+CoreDataProperties.swift in Sources */,
 				B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */,
 				B2AE25C71D6260C70046C6BA /* Stats.swift in Sources */,
+				A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */,
 				B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */,
 				B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */,
 				B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */,
