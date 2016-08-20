@@ -206,6 +206,12 @@ class HeroDetailsVC: UITableViewController {
             }
         }
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 3 || indexPath.section == 4 {
+            performSegueWithIdentifier("SkillDetailsSegue", sender: indexPath)
+        }
+    }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
@@ -238,15 +244,33 @@ class HeroDetailsVC: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SkillDetailsSegue" {
+            if let skillDetailsVC = segue.destinationViewController as? SkillDetailsVC, let indexPath = sender as? NSIndexPath{
+                switch indexPath.section {
+                case 3: // Active Skill
+                    if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
+                        skillDetailsVC.skill = skill
+                        skillDetailsVC.isActiveSkill = true
+                        skillDetailsVC.classKey = hero?.heroClass ?? ""
+                    }
+                case 4: // Passive Skill
+                    if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
+                        skillDetailsVC.skill = skill
+                        skillDetailsVC.isActiveSkill = false
+                        skillDetailsVC.classKey = hero?.heroClass ?? ""
+                    }
+                default:
+                    break
+                }
+            }
+        }
     }
-    */
     
     @IBAction func addToCollectionButtonOnClicked(sender: AnyObject) {
         AppDelegate.saveContext(privateManagedObjectContext)

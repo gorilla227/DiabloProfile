@@ -19,6 +19,9 @@
 		B23641CC1D61339E0020B16C /* BlizzardAPI_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */; };
 		B23641D01D613BDD0020B16C /* ConfigurationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */; };
 		B24BDB701D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */; };
+		B25F70F41D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */; };
+		B28DA6241D6790AE00C75CFD /* SkillDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */; };
+		B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */; };
 		B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */; };
 		B297A6301D63C92A00CE71A7 /* AddVC_SelectHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */; };
 		B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BC1D6260C70046C6BA /* Stats+CoreDataProperties.swift */; };
@@ -52,6 +55,9 @@
 		B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_Constants.swift; path = BlizzardAPI/BlizzardAPI_Constants.swift; sourceTree = "<group>"; };
 		B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationFunctions.swift; sourceTree = "<group>"; };
 		B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_ResourceCell.swift; path = UI_ViewControllers/HeroDetailsVC_ResourceCell.swift; sourceTree = "<group>"; };
+		B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_PassiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_PassiveSkillCell.swift; sourceTree = "<group>"; };
+		B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC.swift; path = UI_ViewControllers/SkillDetailsVC.swift; sourceTree = "<group>"; };
+		B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_ActiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_ActiveSkillCell.swift; sourceTree = "<group>"; };
 		B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_DataCoding.swift; path = BlizzardAPI/BlizzardAPI_DataCoding.swift; sourceTree = "<group>"; };
 		B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddVC_SelectHero.swift; path = UI_ViewControllers/AddVC_SelectHero.swift; sourceTree = "<group>"; };
 		B2AE25BC1D6260C70046C6BA /* Stats+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stats+CoreDataProperties.swift"; path = "DataModel/Stats+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 				A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */,
 				B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */,
 				B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */,
+				B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */,
+				B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */,
+				B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */,
 			);
 			name = UI_ViewControllers;
 			sourceTree = "<group>";
@@ -242,6 +251,7 @@
 				B23641BA1D6124EB0020B16C /* DiabloProfile.xcdatamodeld in Sources */,
 				B23641C91D61334C0020B16C /* BlizzardAPI.swift in Sources */,
 				B23641CC1D61339E0020B16C /* BlizzardAPI_Constants.swift in Sources */,
+				B25F70F41D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift in Sources */,
 				B297A6301D63C92A00CE71A7 /* AddVC_SelectHero.swift in Sources */,
 				B2AE25C91D6260C70046C6BA /* Rune.swift in Sources */,
 				B2AE25CB1D6260C70046C6BA /* Spell.swift in Sources */,
@@ -249,9 +259,11 @@
 				B2AE25CA1D6260C70046C6BA /* Spell+CoreDataProperties.swift in Sources */,
 				B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */,
 				B2AE25C71D6260C70046C6BA /* Stats.swift in Sources */,
+				B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */,
 				B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */,
 				B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */,
 				B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */,
+				B28DA6241D6790AE00C75CFD /* SkillDetailsVC.swift in Sources */,
 				B23641D01D613BDD0020B16C /* ConfigurationFunctions.swift in Sources */,
 				B2FF15201D629A1100FBAA7B /* AddVC_SearchBattleTag.swift in Sources */,
 				B2AE25CD1D6260C70046C6BA /* Hero.swift in Sources */,
