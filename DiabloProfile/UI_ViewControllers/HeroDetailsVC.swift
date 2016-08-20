@@ -96,6 +96,7 @@ class HeroDetailsVC: UITableViewController {
     private func loadData() {
         if let hero = hero {
             navigationItem.title = hero.name
+            
             heroNameLabel.text = hero.name
             if let classes = gameData?["class"] as? [String: AnyObject],
                 let classKey = hero.heroClass,

@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
         NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), userInfo: nil, repeats: true)
+
+        if let font = UIFont(name: "DiabloHeavy", size: 18) {
+//            let goldColor = UIColor(red: 252.0/255.0, green: 194.0/255.0, blue: 0, alpha: 1.0)
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+        }
         
         return true
     }
@@ -133,3 +138,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+//

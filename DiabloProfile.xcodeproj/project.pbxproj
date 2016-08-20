@@ -20,6 +20,8 @@
 		B23641D01D613BDD0020B16C /* ConfigurationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */; };
 		B24BDB701D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */; };
 		B25F70F41D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */; };
+		B25F70FA1D67DF2E004AEE37 /* DIABLO_H.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */; };
+		B25F70FB1D67DF2E004AEE37 /* DIABLO_L.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */; };
 		B28DA6241D6790AE00C75CFD /* SkillDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */; };
 		B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */; };
 		B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */; };
@@ -56,6 +58,8 @@
 		B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationFunctions.swift; sourceTree = "<group>"; };
 		B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_ResourceCell.swift; path = UI_ViewControllers/HeroDetailsVC_ResourceCell.swift; sourceTree = "<group>"; };
 		B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_PassiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_PassiveSkillCell.swift; sourceTree = "<group>"; };
+		B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_H.TTF; sourceTree = "<group>"; };
+		B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_L.TTF; sourceTree = "<group>"; };
 		B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC.swift; path = UI_ViewControllers/SkillDetailsVC.swift; sourceTree = "<group>"; };
 		B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_ActiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_ActiveSkillCell.swift; sourceTree = "<group>"; };
 		B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_DataCoding.swift; path = BlizzardAPI/BlizzardAPI_DataCoding.swift; sourceTree = "<group>"; };
@@ -106,11 +110,12 @@
 		B23641B01D6124EB0020B16C /* DiabloProfile */ = {
 			isa = PBXGroup;
 			children = (
-				B2F61B3F1D6688260067E83B /* CustomizeUI */,
 				B23641B11D6124EB0020B16C /* AppDelegate.swift */,
 				B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */,
+				B2F61B3F1D6688260067E83B /* CustomizeUI */,
 				B2AE25D01D6291670046C6BA /* UI_ViewControllers */,
 				B23641BB1D6124EB0020B16C /* Assets.xcassets */,
+				B25F70F71D67DEAF004AEE37 /* DiabloFonts */,
 				B23641BD1D6124EB0020B16C /* LaunchScreen.storyboard */,
 				B23641C01D6124EB0020B16C /* Info.plist */,
 				A1276C201D618C4200427BED /* GameData.plist */,
@@ -129,6 +134,15 @@
 				B23641C61D6127940020B16C /* Configuration.plist */,
 			);
 			name = BlizzardAPI;
+			sourceTree = "<group>";
+		};
+		B25F70F71D67DEAF004AEE37 /* DiabloFonts */ = {
+			isa = PBXGroup;
+			children = (
+				B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */,
+				B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */,
+			);
+			name = DiabloFonts;
 			sourceTree = "<group>";
 		};
 		B2AE25BB1D6260A00046C6BA /* DataModel */ = {
@@ -233,7 +247,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25F70FA1D67DF2E004AEE37 /* DIABLO_H.TTF in Resources */,
 				B23641BF1D6124EB0020B16C /* LaunchScreen.storyboard in Resources */,
+				B25F70FB1D67DF2E004AEE37 /* DIABLO_L.TTF in Resources */,
 				A1276C211D618C4200427BED /* GameData.plist in Resources */,
 				B23641C71D6127940020B16C /* Configuration.plist in Resources */,
 				B23641BC1D6124EB0020B16C /* Assets.xcassets in Resources */,
