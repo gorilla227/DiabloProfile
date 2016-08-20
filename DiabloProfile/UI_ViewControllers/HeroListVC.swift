@@ -18,8 +18,9 @@ class HeroListVC: UITableViewController {
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.Level, ascending: false), NSSortDescriptor(key: Hero.Keys.ParagonLevel, ascending: false)]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.BattleTag, ascending: true), NSSortDescriptor(key: Hero.Keys.Level, ascending: false)]
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: Hero.Keys.BattleTag, cacheName: nil)
         
         frc.delegate = self
         return frc
@@ -81,6 +82,10 @@ class HeroListVC: UITableViewController {
         }
     }
 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        return section.name
+    }
 
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -98,21 +103,6 @@ class HeroListVC: UITableViewController {
             }
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
@@ -143,9 +133,21 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            break
         case .Update:
+            tableView.reloadRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+        case .Move:
             break
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .Insert:
+            tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+        case .Delete:
+            tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .Update:
+            tableView.reloadSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
         case .Move:
             break
         }
