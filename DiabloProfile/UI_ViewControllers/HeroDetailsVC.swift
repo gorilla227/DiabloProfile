@@ -224,7 +224,7 @@ class HeroDetailsVC: UITableViewController {
         if let gameData = gameData {
             switch section {
             case 1: // Attributes
-                return gameData["attuributesTitle"] as? String
+                return gameData["attributesTitle"] as? String
             case 2: // Stats
                 return gameData["statsTitle"] as? String
             case 3: // Active Skills

@@ -7,183 +7,183 @@
 		<key>barbarian</key>
 		<dict>
 			<key>name</key>
-			<string>野蛮人</string>
+			<string>Barbare</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>主要</string>
+				<string>Primaires</string>
 				<key>secondary</key>
-				<string>次要</string>
+				<string>Secondaires</string>
 				<key>defensive</key>
-				<string>防御</string>
+				<string>Défensives</string>
 				<key>might</key>
-				<string>力量</string>
+				<string>Puissance</string>
 				<key>tactics</key>
-				<string>战术</string>
+				<string>Tactiques</string>
 				<key>rage</key>
-				<string>怒火</string>
+				<string>Rage</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>怒气</string>
+				<string>Fureur</string>
 			</array>
 		</dict>
 		<key>crusader</key>
 		<dict>
 			<key>name</key>
-			<string>圣教军</string>
+			<string>Croisés</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>主要</string>
+				<string>Primaires</string>
 				<key>secondary</key>
-				<string>次要</string>
+				<string>Secondaires</string>
 				<key>defensive</key>
-				<string>防御</string>
+				<string>Défensives</string>
 				<key>utility</key>
-				<string>通用</string>
+				<string>Utilitaires</string>
 				<key>laws</key>
-				<string>律法</string>
+				<string>Lois</string>
 				<key>conviction</key>
-				<string>定罪</string>
+				<string>Sentence</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>愤怒</string>
+				<string>Colère </string>
 			</array>
 		</dict>
 		<key>demon-hunter</key>
 		<dict>
 			<key>name</key>
-			<string>猎魔人</string>
+			<string>Chasseuse de Démons</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>主要</string>
+				<string>Primaires</string>
 				<key>secondary</key>
-				<string>次要</string>
+				<string>Secondaires</string>
 				<key>defensive</key>
-				<string>防御</string>
+				<string>Défensives</string>
 				<key>archery</key>
-				<string>射术</string>
+				<string>Archerie</string>
 				<key>hunting</key>
-				<string>猎杀</string>
+				<string>Chasse</string>
 				<key>devices</key>
-				<string>器械</string>
+				<string>Pièges</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>憎恨</string>
-				<string>戒律</string>
+				<string>Haine</string>
+				<string>Discipline</string>
 			</array>
 		</dict>
 		<key>monk</key>
 		<dict>
 			<key>name</key>
-			<string>武僧</string>
+			<string>Moine</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>主要</string>
+				<string>Primaires</string>
 				<key>secondary</key>
-				<string>次要</string>
+				<string>Secondaires</string>
 				<key>defensive</key>
-				<string>防御</string>
+				<string>Défensives</string>
 				<key>techniques</key>
-				<string>体术</string>
+				<string>Techniques</string>
 				<key>focus</key>
-				<string>禅想</string>
+				<string>Concentration</string>
 				<key>mantras</key>
-				<string>真言</string>
+				<string>Mantras</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>内力</string>
+				<string>Esprit</string>
 			</array>
 		</dict>
 		<key>witch-doctor</key>
 		<dict>
 			<key>name</key>
-			<string>巫医</string>
+			<string>Féticheur</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>主要</string>
+				<string>Primaires</string>
 				<key>secondary</key>
-				<string>次要</string>
+				<string>Secondaires</string>
 				<key>defensive</key>
-				<string>防御</string>
+				<string>Défensives</string>
 				<key>terror</key>
-				<string>恐惧</string>
+				<string>Terreur</string>
 				<key>decay</key>
-				<string>凋零</string>
+				<string>Flétrissure</string>
 				<key>voodoo</key>
-				<string>巫毒</string>
+				<string>Vaudou</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>法力</string>
+				<string>Mana</string>
 			</array>
 		</dict>
 		<key>wizard</key>
 		<dict>
 			<key>name</key>
-			<string>魔法师</string>
+			<string>Sorcière</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>主要</string>
+				<string>Primaires</string>
 				<key>secondary</key>
-				<string>次要</string>
+				<string>Secondaires</string>
 				<key>defensive</key>
-				<string>防御</string>
+				<string>Défensives</string>
 				<key>force</key>
-				<string>原力</string>
+				<string>Force</string>
 				<key>conjuration</key>
-				<string>护体</string>
+				<string>Invocation</string>
 				<key>mastery</key>
-				<string>驾驭</string>
+				<string>Maîtrise</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>奥能</string>
+				<string>Puissance Arcanique</string>
 			</array>
 		</dict>
 	</dict>
 	<key>stats</key>
 	<dict>
 		<key>life</key>
-		<string>生命值</string>
+		<string>Vie</string>
 		<key>damage</key>
-		<string>伤害</string>
+		<string>Dégâts</string>
 		<key>toughness</key>
-		<string>坚韧</string>
+		<string>Robustesse</string>
 		<key>healing</key>
-		<string>恢复</string>
+		<string>Récupération</string>
 		<key>attachSpeed</key>
-		<string>攻击速度</string>
+		<string>Attacks per Second</string>
 		<key>armor</key>
-		<string>护甲值</string>
+		<string>Armor</string>
 		<key>strength</key>
-		<string>力量</string>
+		<string>Force</string>
 		<key>dexterity</key>
-		<string>敏捷</string>
+		<string>Dextérité</string>
 		<key>vitality</key>
-		<string>体能</string>
+		<string>Vitalité</string>
 		<key>intelligence</key>
-		<string>智力</string>
+		<string>Intelligence</string>
 		<key>physicalResist</key>
-		<string>物理抗性</string>
+		<string>Physical Resistance</string>
 		<key>fireResist</key>
-		<string>火焰抗性</string>
+		<string>Fire Resistance</string>
 		<key>coldResist</key>
-		<string>冰霜抗性</string>
+		<string>Cold Resistance</string>
 		<key>lightningResist</key>
-		<string>闪电抗性</string>
+		<string>Lightning Resistance</string>
 		<key>poisonResist</key>
-		<string>毒性抗性</string>
+		<string>Poison Resistance</string>
 		<key>arcaneResist</key>
-		<string>奥术抗性</string>
+		<string>Arcane Resistance</string>
 		<key>critDamage</key>
 		<string>Critical Hit Damage</string>
 		<key>blockChance</key>
@@ -211,17 +211,17 @@
 		<key>lifeOnHit</key>
 		<string>Life on Hit</string>
 		<key>primaryResource</key>
-		<string>主要能量</string>
+		<string>Primaires Resource</string>
 		<key>secondaryResource</key>
-		<string>次要能量</string>
+		<string>Secondaires Resource</string>
 	</dict>
 	<key>attributesTitle</key>
-	<string>属性</string>
+	<string>Attributs</string>
 	<key>statsTitle</key>
-	<string>概要</string>
+	<string>Statistiques</string>
 	<key>activeSkillsTitle</key>
-	<string>主动技能</string>
+	<string>Compétences actives</string>
 	<key>passiveSkillsTitle</key>
-	<string>被动技能</string>
+	<string>Compétences passives</string>
 </dict>
 </plist>

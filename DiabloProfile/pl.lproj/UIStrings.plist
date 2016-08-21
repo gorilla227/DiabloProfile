@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>searchButtonTitle</key>
-	<string>Search</string>
+	<string>Szukaj</string>
 	<key>battleTagPlaceholder</key>
-	<string>Enter BattleTag, like Blizzard#1234</string>
+	<string>Podaj BattleTag, podobne do Blizzard#1234</string>
 	<key>heroListTitle</key>
-	<string>Hero List</string>
+	<string>Lista Postaci</string>
 </dict>
 </plist>
