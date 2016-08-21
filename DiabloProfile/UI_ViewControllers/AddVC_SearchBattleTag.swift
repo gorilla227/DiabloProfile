@@ -32,6 +32,7 @@ class AddVC_SearchBattleTag: UITableViewController {
         configurePickerViewLayout()
         configureSearchButtonAppearance()
         configureLoadingIndicator()
+        updateUIForLocalization()
     }
     
     private func configurePickerViewLayout() {
@@ -50,6 +51,27 @@ class AddVC_SearchBattleTag: UITableViewController {
         loadingIndicator.center = tableView.center
     }
     
+    private func updateUIForLocalization() {
+        let regionIndex = regionAndLocalePicker.selectedRowInComponent(0)
+        let localeIndex = regionAndLocalePicker.selectedRowInComponent(1)
+        if let regionDict = regionsAndLocales?[regionIndex],
+            let locales = regionDict[BlizzardAPI.BasicKeys.Locales],
+            let regionString = regionDict[BlizzardAPI.BasicKeys.Region] as? String,
+            let localeString = locales[localeIndex] as? String {
+            
+            region = regionString
+            locale = localeString
+            
+            if let uiStrings = AppDelegate.uiStrings(locale: locale),
+                let searchTitle = uiStrings["searchButtonTitle"] as? String,
+                let battleTagPlaceholder = uiStrings["battleTagPlaceholder"] as? String {
+                
+                searchButton.setTitle(searchTitle, forState: .Normal)
+                battleTagTextField.placeholder = battleTagPlaceholder
+                navigationItem.title = searchTitle
+            }
+        }
+    }
     private func loadDataUIRespond(loading: Bool) {
         AppDelegate.performUIUpdatesOnMain { 
             if loading {
@@ -83,39 +105,27 @@ class AddVC_SearchBattleTag: UITableViewController {
     
     @IBAction func searchButtonOnClicked(sender: AnyObject) {
         battleTagTextField.endEditing(true)
-        if let battleTag = battleTagTextField.text {
-            let regionIndex = regionAndLocalePicker.selectedRowInComponent(0)
-            let localeIndex = regionAndLocalePicker.selectedRowInComponent(1)
-            if let region = regionsAndLocales?[regionIndex],
-                let locales = region[BlizzardAPI.BasicKeys.Locales],
-                let regionString = region[BlizzardAPI.BasicKeys.Region] as? String,
-                let localeString = locales[localeIndex] as? String {
+        if let region = region, locale = locale, battleTag = battleTag {
+            loadDataUIRespond(true)
+            BlizzardAPI.requestCareerProfile(region, locale: locale, battleTag: battleTag, completion: { (result, error) in
+                self.loadDataUIRespond(false)
                 
-                self.region = regionString
-                self.locale = localeString
-                self.battleTag = battleTag
-                
-                loadDataUIRespond(true)
-                BlizzardAPI.requestCareerProfile(regionString, locale: localeString, battleTag: battleTag, completion: { (result, error) in
-                    self.loadDataUIRespond(false)
-                    
-                    guard error == nil else {
-                        if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
-                            let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
-                            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                            warning.addAction(okAction)
-                            AppDelegate.performUIUpdatesOnMain({ 
-                                self.presentViewController(warning, animated: true, completion: nil)
-                            })
-                        }
-                        return
+                guard error == nil else {
+                    if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
+                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
+                        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        warning.addAction(okAction)
+                        AppDelegate.performUIUpdatesOnMain({ 
+                            self.presentViewController(warning, animated: true, completion: nil)
+                        })
                     }
-                    
-                    AppDelegate.performUIUpdatesOnMain({ 
-                        self.performSegueWithIdentifier("SelectHeroSegue", sender: result)
-                    })
+                    return
+                }
+                
+                AppDelegate.performUIUpdatesOnMain({ 
+                    self.performSegueWithIdentifier("SelectHeroSegue", sender: result)
                 })
-            }
+            })
         }
     }
 }
@@ -166,6 +176,7 @@ extension AddVC_SearchBattleTag: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break
         }
+        updateUIForLocalization()
     }
 }
 
@@ -174,6 +185,9 @@ extension AddVC_SearchBattleTag: UITextFieldDelegate {
         if let string = textField.text {
             let fixString = string.stringByReplacingOccurrencesOfString(" ", withString: "").capitalizedString
             textField.text = fixString
+            battleTag = fixString
+        } else {
+            battleTag = ""
         }
     }
 }

@@ -21,11 +21,16 @@ class HeroDetailsVC: UITableViewController {
     
     var heroData: [String: AnyObject]?
     var battleTag: String?
-    var region: String?
-    var locale: String?
+//    var region: String?
+//    var locale: String?
     var hero: Hero?
     
-    let gameData = AppDelegate.gameData()
+    lazy var gameData: [String: AnyObject]? = {
+        if let hero = self.hero {
+            return AppDelegate.gameData(locale: hero.locale)
+        }
+        return nil
+    }()
     
     let mainManagedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -216,18 +221,21 @@ class HeroDetailsVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 1: // Attributes
-            return "Attributes"
-        case 2: // Stats
-            return "Stats"
-        case 3: // Active Skills
-            return "Active Skills"
-        case 4: // Passive Skills
-            return "Passive Skills"
-        default:
-            return nil
+        if let gameData = gameData {
+            switch section {
+            case 1: // Attributes
+                return gameData["attuributesTitle"] as? String
+            case 2: // Stats
+                return gameData["statsTitle"] as? String
+            case 3: // Active Skills
+                return gameData["activeSkillsTitle"] as? String
+            case 4: // Passive Skills
+                return gameData["passiveSkillsTitle"] as? String
+            default:
+                return nil
+            }
         }
+        return nil
     }
     
     func mergeToMainManagedObjectContext(notification: NSNotification) {
@@ -260,12 +268,14 @@ class HeroDetailsVC: UITableViewController {
                         skillDetailsVC.skill = skill
                         skillDetailsVC.isActiveSkill = true
                         skillDetailsVC.classKey = hero?.heroClass ?? ""
+                        skillDetailsVC.locale = hero?.locale
                     }
                 case 4: // Passive Skill
                     if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
                         skillDetailsVC.skill = skill
                         skillDetailsVC.isActiveSkill = false
                         skillDetailsVC.classKey = hero?.heroClass ?? ""
+                        skillDetailsVC.locale = hero?.locale
                     }
                 default:
                     break
