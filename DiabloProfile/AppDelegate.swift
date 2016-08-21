@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
         NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), userInfo: nil, repeats: true)
 
-        if let font = UIFont(name: "DiabloHeavy", size: 30) {
-//            let goldColor = UIColor(red: 252.0/255.0, green: 194.0/255.0, blue: 0, alpha: 1.0)
-            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+        if let font = UIFont(name: "DiabloHeavy", size: 20) {
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.brownColor()]
         }
         
         return true

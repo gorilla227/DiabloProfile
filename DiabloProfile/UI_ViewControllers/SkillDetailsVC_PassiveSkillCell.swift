@@ -14,14 +14,23 @@ class SkillDetailsVC_PassiveSkillCell: UITableViewCell {
     @IBOutlet weak var skillDescriptionLabel: UILabel!
     @IBOutlet weak var skillFlavorLabel: UILabel!
 
+    let loadingIndicator = UIActivityIndicatorView()
+    let passiveSkillIcon_unloaded = UIImage(named: "passiveskill_icon_unloaded.png")
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        // Add background image
         let bgImage = UIImage(named: "skill_bg.jpg")
         let bgImageView = UIImageView(frame: self.bounds)
         bgImageView.image = bgImage
         bgImageView.contentMode = .ScaleToFill
         self.backgroundView = bgImageView
+        
+        // Add loadingIndicator
+        loadingIndicator.color = UIColor.orangeColor()
+        loadingIndicator.hidesWhenStopped = true
+        skillIconImageView.addSubview(loadingIndicator)
     }
 
     func configureCell(skill: Skill) {
@@ -32,8 +41,12 @@ class SkillDetailsVC_PassiveSkillCell: UITableViewCell {
         
         if let skillIcon = skill.icon {
             skillIconImageView.image = UIImage(data: skillIcon)
+            loadingIndicator.stopAnimating()
             setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {
+            skillIconImageView.image = passiveSkillIcon_unloaded
+            loadingIndicator.frame = skillIconImageView.bounds
+            loadingIndicator.startAnimating()
             
             print("DownloadImage from Web")
             BlizzardAPI.downloadImage(skillIconURL, completion: { (result, error) in
@@ -46,6 +59,7 @@ class SkillDetailsVC_PassiveSkillCell: UITableViewCell {
                 
                 AppDelegate.performUIUpdatesOnMain({
                     self.skillIconImageView.image = UIImage(data: result!)
+                    self.loadingIndicator.stopAnimating()
                     self.setNeedsLayout()
                 })
             })

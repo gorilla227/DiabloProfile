@@ -17,9 +17,20 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
     @IBOutlet weak var runeNameLabel: UILabel!
     @IBOutlet weak var runeDescriptionLabel: UILabel!
     
+    let loadingIndicator = UIActivityIndicatorView()
+    
     let activeSkillIcon_unloaded = UIImage(named: "activeskill_icon_unloaded.png")
     let passiveSkillIcon_unloaded = UIImage(named: "passiveskill_icon_unloaded.png")
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        // Add loadingIndicator
+        loadingIndicator.color = UIColor.orangeColor()
+        loadingIndicator.hidesWhenStopped = true
+        skillIconImageView.addSubview(loadingIndicator)
+    }
+    
     func configureCell(skill: Skill, isActiveSkill: Bool) {
         // Set Skill
         skillNameLabel.text = skill.name
@@ -27,9 +38,13 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
         
         if let skillIcon = skill.icon {
             skillIconImageView.image = UIImage(data: skillIcon)
+            loadingIndicator.stopAnimating()
             setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {
             skillIconImageView.image = isActiveSkill ? activeSkillIcon_unloaded : passiveSkillIcon_unloaded
+            loadingIndicator.frame = skillIconImageView.bounds
+            loadingIndicator.startAnimating()
+            
             print("DownloadImage from Web")
             BlizzardAPI.downloadImage(skillIconURL, completion: { (result, error) in
                 guard error == nil && result != nil else {
@@ -41,6 +56,7 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
 
                 AppDelegate.performUIUpdatesOnMain({
                     self.skillIconImageView.image = UIImage(data: result!)
+                    self.loadingIndicator.stopAnimating()
                     self.setNeedsLayout()
                 })
             })
