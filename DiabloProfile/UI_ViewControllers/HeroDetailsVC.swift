@@ -36,6 +36,7 @@ class HeroDetailsVC: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let backgroundManagedObjectContext = appDelegate.backgroundManagedObjectContext
         let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         moc.parentContext = backgroundManagedObjectContext
         return moc
     }()

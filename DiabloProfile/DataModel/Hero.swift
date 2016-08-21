@@ -25,6 +25,14 @@ class Hero: NSManagedObject {
             self.battleTag = battleTag
         }
         
+        if let region = dictionary[Keys.Region] as? String {
+            self.region = region
+        }
+        
+        if let locale = dictionary[Keys.Locale] as? String {
+            self.locale = locale
+        }
+        
         if let id = dictionary[Keys.ID] as? NSNumber {
             self.id = id
         }
@@ -125,6 +133,8 @@ class Hero: NSManagedObject {
 extension Hero {
     struct Keys {
         static let EntityName = "Hero"
+        static let Region = "region"
+        static let Locale = "locale"
         static let BattleTag = "battleTag"
         static let ID = "id"
         static let Dead = "dead"

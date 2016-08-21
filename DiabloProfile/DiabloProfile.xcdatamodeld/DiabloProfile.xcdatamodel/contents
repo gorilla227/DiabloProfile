@@ -9,8 +9,10 @@
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="lastUpdated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="level" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="locale" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="paragonLevel" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="region" attributeType="String" syncable="YES"/>
         <attribute name="seasonal" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="seasonCreated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="activeSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroA" inverseEntity="Skill" syncable="YES"/>
@@ -60,7 +62,7 @@
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="stats" inverseEntity="Hero" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Hero" positionX="-63" positionY="-18" width="128" height="270"/>
+        <element name="Hero" positionX="-63" positionY="-18" width="128" height="300"/>
         <element name="Rune" positionX="-18" positionY="153" width="128" height="75"/>
         <element name="Skill" positionX="-27" positionY="144" width="128" height="150"/>
         <element name="Spell" positionX="-36" positionY="135" width="128" height="105"/>

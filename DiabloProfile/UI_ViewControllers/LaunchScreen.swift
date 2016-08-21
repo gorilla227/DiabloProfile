@@ -28,7 +28,7 @@ class LaunchScreen: UIViewController {
     }
     
     func animationToShowMainScreen() {
-        UIView.animateWithDuration(1, animations: {
+        UIView.animateWithDuration(2, animations: {
             self.launchScreenImageView.alpha = 0
             }) { (isCompleted) in
                 if isCompleted {

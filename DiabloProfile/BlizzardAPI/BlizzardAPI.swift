@@ -150,7 +150,9 @@ class BlizzardAPI {
                     
                     if let responseBody = result as? [String: String], let _ = responseBody[ResponseKeys.ErrorCode], let _ = responseBody[ResponseKeys.ErrorReason] {
                         completion(result: nil, error: NSError(domain: PathKeys.HeroProfile, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
-                    } else if let result = result, let hero = self.decodeHeroProfile(result) {
+                    } else if let result = result, var hero = self.decodeHeroProfile(result) {
+                        hero[Hero.Keys.Region] = region
+                        hero[Hero.Keys.Locale] = locale
                         completion(result: hero, error: nil)
                     } else {
                         completion(result: nil, error: error)

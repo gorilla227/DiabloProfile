@@ -2,8 +2,8 @@
 //  Hero+CoreDataProperties.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/16/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/8/20.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
@@ -14,6 +14,7 @@ import CoreData
 
 extension Hero {
 
+    @NSManaged var battleTag: String?
     @NSManaged var dead: NSNumber?
     @NSManaged var gender: NSNumber?
     @NSManaged var hardcore: NSNumber?
@@ -25,9 +26,10 @@ extension Hero {
     @NSManaged var paragonLevel: NSNumber?
     @NSManaged var seasonal: NSNumber?
     @NSManaged var seasonCreated: NSNumber?
-    @NSManaged var battleTag: String?
-    @NSManaged var activeSkills: NSMutableOrderedSet?
-    @NSManaged var passiveSkills: NSMutableOrderedSet?
+    @NSManaged var locale: String?
+    @NSManaged var region: String?
+    @NSManaged var activeSkills: NSOrderedSet?
+    @NSManaged var passiveSkills: NSOrderedSet?
     @NSManaged var stats: Stats?
 
 }
