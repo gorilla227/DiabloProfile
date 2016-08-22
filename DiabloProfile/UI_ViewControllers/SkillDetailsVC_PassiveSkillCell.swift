@@ -50,8 +50,12 @@ class SkillDetailsVC_PassiveSkillCell: UITableViewCell {
             
             print("DownloadImage from Web")
             BlizzardAPI.downloadImage(skillIconURL, completion: { (result, error) in
-                guard error == nil && result != nil else {
-                    print(error?.domain, error?.localizedDescription)
+                AppDelegate.performUIUpdatesOnMain({
+                    self.loadingIndicator.stopAnimating()
+                })
+                
+                guard error == nil else {
+                    print(error?.domain, (error?.localizedDescription)!)
                     return
                 }
                 
@@ -59,7 +63,6 @@ class SkillDetailsVC_PassiveSkillCell: UITableViewCell {
                 
                 AppDelegate.performUIUpdatesOnMain({
                     self.skillIconImageView.image = UIImage(data: result!)
-                    self.loadingIndicator.stopAnimating()
                     self.setNeedsLayout()
                 })
             })

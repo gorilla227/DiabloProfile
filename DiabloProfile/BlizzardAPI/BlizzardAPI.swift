@@ -75,7 +75,7 @@ class BlizzardAPI {
     private class func requestBlizzardAPI(request: NSURLRequest, requestKey: String, completion: (result: AnyObject?, error: NSError?) -> Void) {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
             guard error == nil else {
-                completion(result: nil, error: NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns error: \(error?.localizedDescription)"]]))
+                completion(result: nil, error: error)
                 return
             }
             
@@ -166,7 +166,7 @@ class BlizzardAPI {
         let domain = "DownloadImage"
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
             guard error == nil else {
-                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns error: \(error?.localizedDescription)"]]))
+                completion(result: nil, error: error)
                 return
             }
             

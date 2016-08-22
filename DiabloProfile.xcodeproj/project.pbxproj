@@ -12,6 +12,7 @@
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
 		A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AFF9961D699CA7006C0AF8 /* Info.plist */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
+		B218E8231D6AA59A003033B1 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218E8221D6AA59A003033B1 /* WarningView.swift */; };
 		B23641B21D6124EB0020B16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641B11D6124EB0020B16C /* AppDelegate.swift */; };
 		B23641B71D6124EB0020B16C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
 		B23641BA1D6124EB0020B16C /* DiabloProfile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23641B81D6124EB0020B16C /* DiabloProfile.xcdatamodeld */; };
@@ -54,6 +55,7 @@
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
+		B218E8221D6AA59A003033B1 /* WarningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WarningView.swift; path = CustomizeUI/WarningView.swift; sourceTree = "<group>"; };
 		B23641AE1D6124EB0020B16C /* DiabloProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiabloProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23641B11D6124EB0020B16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23641B61D6124EB0020B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F61B401D6688A90067E83B /* InsetUILabel.swift */,
+				B218E8221D6AA59A003033B1 /* WarningView.swift */,
 			);
 			name = CustomizeUI;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */,
 				B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */,
 				B28DA6241D6790AE00C75CFD /* SkillDetailsVC.swift in Sources */,
+				B218E8231D6AA59A003033B1 /* WarningView.swift in Sources */,
 				B23641D01D613BDD0020B16C /* ConfigurationFunctions.swift in Sources */,
 				B2FF15201D629A1100FBAA7B /* AddVC_SearchBattleTag.swift in Sources */,
 				B2AE25CD1D6260C70046C6BA /* Hero.swift in Sources */,
