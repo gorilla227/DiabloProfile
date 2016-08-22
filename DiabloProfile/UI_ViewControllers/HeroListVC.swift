@@ -28,10 +28,6 @@ class HeroListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let uiStrings = AppDelegate.uiStrings(locale: nil), let heroListTitle = uiStrings["heroListTitle"] as? String {
-            navigationItem.title = heroListTitle
-        }
 
         do {
             try fetchedResultsController.performFetch()

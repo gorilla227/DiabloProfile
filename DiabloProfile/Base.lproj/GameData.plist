@@ -215,8 +215,8 @@
 		<key>secondaryResource</key>
 		<string>Secondary Resource</string>
 	</dict>
-	<key>attributesTitle</key>
-	<string>Attributes</string>
+	<key>attuributesTitle</key>
+	<string>Attuributes</string>
 	<key>statsTitle</key>
 	<string>Stats</string>
 	<key>activeSkillsTitle</key>

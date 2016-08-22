@@ -215,7 +215,7 @@
 		<key>secondaryResource</key>
 		<string>次要能量</string>
 	</dict>
-	<key>attributesTitle</key>
+	<key>attuributesTitle</key>
 	<string>属性</string>
 	<key>statsTitle</key>
 	<string>概要</string>

@@ -75,30 +75,6 @@
 		B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_DataCoding.swift; path = BlizzardAPI/BlizzardAPI_DataCoding.swift; sourceTree = "<group>"; };
 		B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddVC_SelectHero.swift; path = UI_ViewControllers/AddVC_SelectHero.swift; sourceTree = "<group>"; };
 		B2AD1CBB1D6A515800D6E54C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B2AD1CBD1D6A527000D6E54C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CBE1D6A529B00D6E54C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hant"; path = "zh-Hant.lproj/UIStrings.plist"; sourceTree = "<group>"; };
-		B2AD1CBF1D6A529C00D6E54C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC01D6A529D00D6E54C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC11D6A529D00D6E54C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC21D6A529E00D6E54C /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "es-MX"; path = "es-MX.lproj/UIStrings.plist"; sourceTree = "<group>"; };
-		B2AD1CC31D6A529F00D6E54C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pt-BR"; path = "pt-BR.lproj/UIStrings.plist"; sourceTree = "<group>"; };
-		B2AD1CC41D6A52A100D6E54C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC51D6A52A100D6E54C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC61D6A52A300D6E54C /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pt-PT"; path = "pt-PT.lproj/UIStrings.plist"; sourceTree = "<group>"; };
-		B2AD1CC71D6A52A300D6E54C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC81D6A52A400D6E54C /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pl; path = pl.lproj/UIStrings.plist; sourceTree = "<group>"; };
-		B2AD1CC91D6A58D700D6E54C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CCA1D6A58DA00D6E54C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hant"; path = "zh-Hant.lproj/GameData.plist"; sourceTree = "<group>"; };
-		B2AD1CCB1D6A58DB00D6E54C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CCC1D6A58DC00D6E54C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CCD1D6A58DC00D6E54C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CCE1D6A58DD00D6E54C /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "es-MX"; path = "es-MX.lproj/GameData.plist"; sourceTree = "<group>"; };
-		B2AD1CCF1D6A58DE00D6E54C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pt-BR"; path = "pt-BR.lproj/GameData.plist"; sourceTree = "<group>"; };
-		B2AD1CD01D6A58DF00D6E54C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CD11D6A58DF00D6E54C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CD21D6A58E000D6E54C /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pt-PT"; path = "pt-PT.lproj/GameData.plist"; sourceTree = "<group>"; };
-		B2AD1CD31D6A58E100D6E54C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/GameData.plist; sourceTree = "<group>"; };
-		B2AD1CD41D6A58E200D6E54C /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pl; path = pl.lproj/GameData.plist; sourceTree = "<group>"; };
 		B2AE25BC1D6260C70046C6BA /* Stats+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stats+CoreDataProperties.swift"; path = "DataModel/Stats+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2AE25BD1D6260C70046C6BA /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stats.swift; path = DataModel/Stats.swift; sourceTree = "<group>"; };
 		B2AE25BE1D6260C70046C6BA /* Rune+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Rune+CoreDataProperties.swift"; path = "DataModel/Rune+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -357,18 +333,6 @@
 			children = (
 				A1354A3C1D6969D5002A507D /* Base */,
 				A1354A401D696ACB002A507D /* zh-Hans */,
-				B2AD1CC91D6A58D700D6E54C /* en */,
-				B2AD1CCA1D6A58DA00D6E54C /* zh-Hant */,
-				B2AD1CCB1D6A58DB00D6E54C /* es */,
-				B2AD1CCC1D6A58DC00D6E54C /* fr */,
-				B2AD1CCD1D6A58DC00D6E54C /* de */,
-				B2AD1CCE1D6A58DD00D6E54C /* es-MX */,
-				B2AD1CCF1D6A58DE00D6E54C /* pt-BR */,
-				B2AD1CD01D6A58DF00D6E54C /* ko */,
-				B2AD1CD11D6A58DF00D6E54C /* it */,
-				B2AD1CD21D6A58E000D6E54C /* pt-PT */,
-				B2AD1CD31D6A58E100D6E54C /* ru */,
-				B2AD1CD41D6A58E200D6E54C /* pl */,
 			);
 			name = GameData.plist;
 			sourceTree = "<group>";
@@ -378,18 +342,6 @@
 			children = (
 				A1680F1E1D698BB800456544 /* Base */,
 				A1680F211D698BBC00456544 /* zh-Hans */,
-				B2AD1CBD1D6A527000D6E54C /* en */,
-				B2AD1CBE1D6A529B00D6E54C /* zh-Hant */,
-				B2AD1CBF1D6A529C00D6E54C /* es */,
-				B2AD1CC01D6A529D00D6E54C /* fr */,
-				B2AD1CC11D6A529D00D6E54C /* de */,
-				B2AD1CC21D6A529E00D6E54C /* es-MX */,
-				B2AD1CC31D6A529F00D6E54C /* pt-BR */,
-				B2AD1CC41D6A52A100D6E54C /* ko */,
-				B2AD1CC51D6A52A100D6E54C /* it */,
-				B2AD1CC61D6A52A300D6E54C /* pt-PT */,
-				B2AD1CC71D6A52A300D6E54C /* ru */,
-				B2AD1CC81D6A52A400D6E54C /* pl */,
 			);
 			name = UIStrings.plist;
 			sourceTree = "<group>";

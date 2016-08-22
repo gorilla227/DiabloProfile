@@ -6,7 +6,5 @@
 	<string>Search</string>
 	<key>battleTagPlaceholder</key>
 	<string>Enter BattleTag, like Blizzard#1234</string>
-	<key>heroListTitle</key>
-	<string>Hero List</string>
 </dict>
 </plist>
