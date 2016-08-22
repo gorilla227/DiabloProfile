@@ -45,21 +45,18 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
             loadingIndicator.frame = skillIconImageView.bounds
             loadingIndicator.startAnimating()
             
-            print("Start downloading image from Web")
+            print("DownloadImage from Web")
             BlizzardAPI.downloadImage(skillIconURL, completion: { (result, error) in
-                AppDelegate.performUIUpdatesOnMain({
-                    self.loadingIndicator.stopAnimating()
-                })
-                
-                guard error == nil else {
+                guard error == nil && result != nil else {
                     print(error?.domain, error?.localizedDescription)
                     return
                 }
                 
                 skill.icon = result
-                
+
                 AppDelegate.performUIUpdatesOnMain({
                     self.skillIconImageView.image = UIImage(data: result!)
+                    self.loadingIndicator.stopAnimating()
                     self.setNeedsLayout()
                 })
             })

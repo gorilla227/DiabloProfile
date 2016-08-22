@@ -21,6 +21,8 @@ class HeroDetailsVC: UITableViewController {
     
     var heroData: [String: AnyObject]?
     var battleTag: String?
+//    var region: String?
+//    var locale: String?
     var hero: Hero?
     
     lazy var gameData: [String: AnyObject]? = {
@@ -62,6 +64,7 @@ class HeroDetailsVC: UITableViewController {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        print("HeroDetailsVC Disappear")
         
         if mainManagedObjectContext == hero?.managedObjectContext {
             AppDelegate.saveContext(mainManagedObjectContext)

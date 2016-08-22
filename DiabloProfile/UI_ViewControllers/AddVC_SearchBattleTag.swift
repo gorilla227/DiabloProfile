@@ -112,7 +112,12 @@ class AddVC_SearchBattleTag: UITableViewController {
                 
                 guard error == nil else {
                     if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
-                        self.presentWarningView(errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason])
+                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
+                        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        warning.addAction(okAction)
+                        AppDelegate.performUIUpdatesOnMain({ 
+                            self.presentViewController(warning, animated: true, completion: nil)
+                        })
                     }
                     return
                 }
