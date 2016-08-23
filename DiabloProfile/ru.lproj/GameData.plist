@@ -7,171 +7,171 @@
 		<key>barbarian</key>
 		<dict>
 			<key>name</key>
-			<string>Barbarian</string>
+			<string>Bapbap</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Основное</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Вспомогательное</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Защита</string>
 				<key>might</key>
-				<string>Might</string>
+				<string>Сила</string>
 				<key>tactics</key>
-				<string>Tactics</string>
+				<string>Тактика</string>
 				<key>rage</key>
-				<string>Rage</string>
+				<string>Ярость</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Fury</string>
+				<string>Ярость</string>
 			</array>
 		</dict>
 		<key>crusader</key>
 		<dict>
 			<key>name</key>
-			<string>Crusader</string>
+			<string>Крестоносeц</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Основное</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Вспомогательное</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Защита</string>
 				<key>utility</key>
-				<string>Utility</string>
+				<string>Поддержка</string>
 				<key>laws</key>
-				<string>Laws</string>
+				<string>Принципы</string>
 				<key>conviction</key>
-				<string>Conviction</string>
+				<string>Суд</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Wrath</string>
+				<string>Гнев</string>
 			</array>
 		</dict>
 		<key>demon-hunter</key>
 		<dict>
 			<key>name</key>
-			<string>Demon Hunter</string>
+			<string>Охотник на Демонов</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Основное</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Вспомогательное</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Защита</string>
 				<key>archery</key>
-				<string>Archery</string>
+				<string>Стрельба</string>
 				<key>hunting</key>
-				<string>Hunting</string>
+				<string>Выслеживание</string>
 				<key>devices</key>
-				<string>Devices</string>
+				<string>Приспособления</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Hatred</string>
-				<string>Discipline</string>
+				<string>Ненависть</string>
+				<string>Концентрация</string>
 			</array>
 		</dict>
 		<key>monk</key>
 		<dict>
 			<key>name</key>
-			<string>Monk</string>
+			<string>Монах</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Основное</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Вспомогательное</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Защита</string>
 				<key>techniques</key>
-				<string>Techniques</string>
+				<string>Приемы</string>
 				<key>focus</key>
-				<string>Focus</string>
+				<string>Сосредоточенность</string>
 				<key>mantras</key>
-				<string>Mantras</string>
+				<string>Мантры</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Spirit</string>
+				<string>Дух</string>
 			</array>
 		</dict>
 		<key>witch-doctor</key>
 		<dict>
 			<key>name</key>
-			<string>Witch Doctor</string>
+			<string>Колдун</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Основное</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Вспомогательное</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Защита</string>
 				<key>terror</key>
-				<string>Terror</string>
+				<string>Устрашение</string>
 				<key>decay</key>
-				<string>Decay</string>
+				<string>Разложение</string>
 				<key>voodoo</key>
-				<string>Voodoo</string>
+				<string>Вудуизм</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Mana</string>
+				<string>Мана</string>
 			</array>
 		</dict>
 		<key>wizard</key>
 		<dict>
 			<key>name</key>
-			<string>Wizard</string>
+			<string>Чародейka</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Основное</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Вспомогательное</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Защита</string>
 				<key>force</key>
-				<string>Force</string>
+				<string>Сила</string>
 				<key>conjuration</key>
-				<string>Conjuration</string>
+				<string>Чары</string>
 				<key>mastery</key>
-				<string>Mastery</string>
+				<string>Искусность</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Arcane Power</string>
+				<string>Магическая Энергия</string>
 			</array>
 		</dict>
 	</dict>
 	<key>stats</key>
 	<dict>
 		<key>life</key>
-		<string>Life</string>
+		<string>Здоровье</string>
 		<key>damage</key>
-		<string>Damage</string>
+		<string>Урон</string>
 		<key>toughness</key>
-		<string>Toughness</string>
+		<string>Стойкость</string>
 		<key>healing</key>
-		<string>Recovery</string>
+		<string>Восстановление</string>
 		<key>attachSpeed</key>
 		<string>Attacks per Second</string>
 		<key>armor</key>
 		<string>Armor</string>
 		<key>strength</key>
-		<string>Strength</string>
+		<string>Сила</string>
 		<key>dexterity</key>
-		<string>Dexterity</string>
+		<string>Ловкость</string>
 		<key>vitality</key>
-		<string>Vitality</string>
+		<string>Живучесть</string>
 		<key>intelligence</key>
-		<string>Intelligence</string>
+		<string>Интеллект</string>
 		<key>physicalResist</key>
 		<string>Physical Resistance</string>
 		<key>fireResist</key>
@@ -211,17 +211,17 @@
 		<key>lifeOnHit</key>
 		<string>Life on Hit</string>
 		<key>primaryResource</key>
-		<string>Primary Resource</string>
+		<string>Основное Resource</string>
 		<key>secondaryResource</key>
-		<string>Secondary Resource</string>
+		<string>Вспомогательное Resource</string>
 	</dict>
 	<key>attributesTitle</key>
-	<string>Attributes</string>
+	<string>Характеристики</string>
 	<key>statsTitle</key>
-	<string>Stats</string>
+	<string>Показатели</string>
 	<key>activeSkillsTitle</key>
-	<string>Active Skills</string>
+	<string>Активные умения</string>
 	<key>passiveSkillsTitle</key>
-	<string>Passive Skills</string>
+	<string>Пассивные умения</string>
 </dict>
 </plist>

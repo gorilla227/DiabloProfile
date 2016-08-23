@@ -7,116 +7,116 @@
 		<key>barbarian</key>
 		<dict>
 			<key>name</key>
-			<string>Barbarian</string>
+			<string>Barbarzyńca</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Podstawowe</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Dodatkowe</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Obronne</string>
 				<key>might</key>
-				<string>Might</string>
+				<string>Siła</string>
 				<key>tactics</key>
-				<string>Tactics</string>
+				<string>Taktyka</string>
 				<key>rage</key>
-				<string>Rage</string>
+				<string>Szał</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Fury</string>
+				<string>Furia</string>
 			</array>
 		</dict>
 		<key>crusader</key>
 		<dict>
 			<key>name</key>
-			<string>Crusader</string>
+			<string>Krzyżowiec</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Podstawowe</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Dodatkowe</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Obronne</string>
 				<key>utility</key>
-				<string>Utility</string>
+				<string>Użytkowe</string>
 				<key>laws</key>
-				<string>Laws</string>
+				<string>Kanony</string>
 				<key>conviction</key>
-				<string>Conviction</string>
+				<string>Przekonanie</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Wrath</string>
+				<string>Gniew</string>
 			</array>
 		</dict>
 		<key>demon-hunter</key>
 		<dict>
 			<key>name</key>
-			<string>Demon Hunter</string>
+			<string>Łowczyni Demonów</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Podstawowe</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Dodatkowe</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Obronne</string>
 				<key>archery</key>
-				<string>Archery</string>
+				<string>Łucznictwo</string>
 				<key>hunting</key>
-				<string>Hunting</string>
+				<string>Łowiectwo</string>
 				<key>devices</key>
-				<string>Devices</string>
+				<string>Urządzenia</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Hatred</string>
-				<string>Discipline</string>
+				<string>Nienawiści</string>
+				<string>Dyscyplina</string>
 			</array>
 		</dict>
 		<key>monk</key>
 		<dict>
 			<key>name</key>
-			<string>Monk</string>
+			<string>Mnich</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Podstawowe</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Dodatkowe</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Obronne</string>
 				<key>techniques</key>
-				<string>Techniques</string>
+				<string>Techniki</string>
 				<key>focus</key>
-				<string>Focus</string>
+				<string>Koncentracja</string>
 				<key>mantras</key>
-				<string>Mantras</string>
+				<string>Mantry</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Spirit</string>
+				<string>Siła Duchowa</string>
 			</array>
 		</dict>
 		<key>witch-doctor</key>
 		<dict>
 			<key>name</key>
-			<string>Witch Doctor</string>
+			<string>Szaman</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Podstawowe</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Dodatkowe</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Obronne</string>
 				<key>terror</key>
-				<string>Terror</string>
+				<string>Groza</string>
 				<key>decay</key>
-				<string>Decay</string>
+				<string>Rozkład</string>
 				<key>voodoo</key>
 				<string>Voodoo</string>
 			</dict>
@@ -128,50 +128,50 @@
 		<key>wizard</key>
 		<dict>
 			<key>name</key>
-			<string>Wizard</string>
+			<string>Czarownica</string>
 			<key>skillCategory</key>
 			<dict>
 				<key>primary</key>
-				<string>Primary</string>
+				<string>Podstawowe</string>
 				<key>secondary</key>
-				<string>Secondary</string>
+				<string>Dodatkowe</string>
 				<key>defensive</key>
-				<string>Defensive</string>
+				<string>Obronne</string>
 				<key>force</key>
-				<string>Force</string>
+				<string>Moc</string>
 				<key>conjuration</key>
-				<string>Conjuration</string>
+				<string>Przywoływanie</string>
 				<key>mastery</key>
-				<string>Mastery</string>
+				<string>Mistrzostwo</string>
 			</dict>
 			<key>resource</key>
 			<array>
-				<string>Arcane Power</string>
+				<string>Moc Tajemna</string>
 			</array>
 		</dict>
 	</dict>
 	<key>stats</key>
 	<dict>
 		<key>life</key>
-		<string>Life</string>
+		<string>Życie</string>
 		<key>damage</key>
-		<string>Damage</string>
+		<string>Obrażenia</string>
 		<key>toughness</key>
-		<string>Toughness</string>
+		<string>Wytrzymałość</string>
 		<key>healing</key>
-		<string>Recovery</string>
+		<string>Regeneracja</string>
 		<key>attachSpeed</key>
 		<string>Attacks per Second</string>
 		<key>armor</key>
 		<string>Armor</string>
 		<key>strength</key>
-		<string>Strength</string>
+		<string>Siła</string>
 		<key>dexterity</key>
-		<string>Dexterity</string>
+		<string>Zręczność</string>
 		<key>vitality</key>
-		<string>Vitality</string>
+		<string>Witalność</string>
 		<key>intelligence</key>
-		<string>Intelligence</string>
+		<string>Inteligencja</string>
 		<key>physicalResist</key>
 		<string>Physical Resistance</string>
 		<key>fireResist</key>
@@ -211,17 +211,17 @@
 		<key>lifeOnHit</key>
 		<string>Life on Hit</string>
 		<key>primaryResource</key>
-		<string>Primary Resource</string>
+		<string>Podstawowe Resource</string>
 		<key>secondaryResource</key>
-		<string>Secondary Resource</string>
+		<string>Dodatkowe Resource</string>
 	</dict>
 	<key>attributesTitle</key>
-	<string>Attributes</string>
+	<string>Współczynniki</string>
 	<key>statsTitle</key>
-	<string>Stats</string>
+	<string>Współczynniki</string>
 	<key>activeSkillsTitle</key>
-	<string>Active Skills</string>
+	<string>Umiejętności aktywne</string>
 	<key>passiveSkillsTitle</key>
-	<string>Passive Skills</string>
+	<string>Umiejętności pasywne</string>
 </dict>
 </plist>

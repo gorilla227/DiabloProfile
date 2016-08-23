@@ -173,6 +173,7 @@ extension AddVC_SearchBattleTag: UIPickerViewDelegate, UIPickerViewDataSource {
         switch component {
         case 0:
             pickerView.reloadComponent(1)
+            pickerView.selectRow(0, inComponent: 1, animated: true)
         default:
             break
         }
