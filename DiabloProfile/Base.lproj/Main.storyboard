@@ -166,7 +166,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="TAr-Im-07F">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TB9-X0-5jW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="TB9-X0-5jW">
                             <connections>
                                 <action selector="cancelButtonOnClicked:" destination="BiA-py-mHs" id="Otv-wc-YyX"/>
                             </connections>
@@ -205,16 +205,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UPp-PW-fVs">
-                                    <rect key="frame" x="10" y="0.0" width="590" height="105"/>
+                                    <rect key="frame" x="10" y="0.0" width="540" height="105"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-cq-9nt">
-                                            <rect key="frame" x="0.0" y="0.0" width="590" height="53"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-cq-9nt">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="53"/>
                                             <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="50"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level(ParagonLevel) Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjR-ew-OgC">
-                                            <rect key="frame" x="0.0" y="53" width="590" height="52"/>
+                                            <rect key="frame" x="0.0" y="53" width="540" height="52"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -243,6 +243,7 @@
                                 <constraint firstItem="euN-3e-SU3" firstAttribute="top" secondItem="AjU-O1-Zi1" secondAttribute="top" id="WvS-tT-td7"/>
                                 <constraint firstAttribute="trailing" secondItem="D9p-Ff-izN" secondAttribute="trailing" constant="10" id="ZTQ-G4-XQc"/>
                                 <constraint firstItem="D9p-Ff-izN" firstAttribute="height" secondItem="AjU-O1-Zi1" secondAttribute="height" multiplier="1:3" id="dqT-ts-gZD"/>
+                                <constraint firstItem="FAo-lF-4JU" firstAttribute="leading" secondItem="UPp-PW-fVs" secondAttribute="trailing" constant="5" id="i9m-LD-Gwe"/>
                                 <constraint firstAttribute="trailing" secondItem="UPp-PW-fVs" secondAttribute="trailing" id="js2-cv-oG8"/>
                                 <constraint firstItem="FAo-lF-4JU" firstAttribute="height" secondItem="AjU-O1-Zi1" secondAttribute="height" multiplier="1:3" id="krn-gV-Gvy"/>
                                 <constraint firstAttribute="bottom" secondItem="D9p-Ff-izN" secondAttribute="bottom" id="rFr-FK-mCv"/>
@@ -251,6 +252,11 @@
                                 <constraint firstItem="euN-3e-SU3" firstAttribute="leading" secondItem="AjU-O1-Zi1" secondAttribute="leading" id="s3k-N0-pFK"/>
                                 <constraint firstItem="FAo-lF-4JU" firstAttribute="top" secondItem="AjU-O1-Zi1" secondAttribute="top" id="yhE-mK-etT"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="js2-cv-oG8"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StatCell" textLabel="RyD-de-xqt" detailTextLabel="2sd-sl-G9I" style="IBUITableViewCellStyleValue1" id="Kd0-Cq-sCW">

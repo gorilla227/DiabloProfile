@@ -26,8 +26,6 @@ class HeroListVC: UITableViewController {
         return frc
     }()
     
-    let gameData = AppDelegate.gameData()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +40,7 @@ class HeroListVC: UITableViewController {
         cell.textLabel?.text = hero.name
         if let level = hero.level,
             let heroClassKey = hero.heroClass,
-            let gameData = gameData, let heroClasses = gameData["class"] as? [String: [String: AnyObject]],
+            let gameData = AppDelegate.gameData(locale: hero.locale), let heroClasses = gameData["class"] as? [String: [String: AnyObject]],
             let heroClass = heroClasses[heroClassKey],
             let heroClassName = heroClass["name"] {
             

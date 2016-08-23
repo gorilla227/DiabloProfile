@@ -150,18 +150,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>skills</key>
-	<dict>
-		<key>active</key>
-		<string>Active</string>
-		<key>passive</key>
-		<string>Passive</string>
-	</dict>
-	<key>gender</key>
-	<array>
-		<string>Male</string>
-		<string>Female</string>
-	</array>
 	<key>stats</key>
 	<dict>
 		<key>life</key>
@@ -227,5 +215,13 @@
 		<key>secondaryResource</key>
 		<string>Secondary Resource</string>
 	</dict>
+	<key>attuributesTitle</key>
+	<string>Attuributes</string>
+	<key>statsTitle</key>
+	<string>Stats</string>
+	<key>activeSkillsTitle</key>
+	<string>Active Skills</string>
+	<key>passiveSkillsTitle</key>
+	<string>Passive Skills</string>
 </dict>
 </plist>

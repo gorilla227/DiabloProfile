@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1276C211D618C4200427BED /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1276C201D618C4200427BED /* GameData.plist */; };
+		A1354A3B1D6969D5002A507D /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1354A3D1D6969D5002A507D /* GameData.plist */; };
+		A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
+		A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AFF9961D699CA7006C0AF8 /* Info.plist */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
 		B23641B21D6124EB0020B16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641B11D6124EB0020B16C /* AppDelegate.swift */; };
 		B23641B71D6124EB0020B16C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
@@ -27,6 +29,7 @@
 		B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */; };
 		B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */; };
 		B297A6301D63C92A00CE71A7 /* AddVC_SelectHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */; };
+		B2AD1CBC1D6A515800D6E54C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B2AD1CBB1D6A515800D6E54C /* README.md */; };
 		B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BC1D6260C70046C6BA /* Stats+CoreDataProperties.swift */; };
 		B2AE25C71D6260C70046C6BA /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BD1D6260C70046C6BA /* Stats.swift */; };
 		B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BE1D6260C70046C6BA /* Rune+CoreDataProperties.swift */; };
@@ -44,8 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1276C201D618C4200427BED /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
+		A1354A3C1D6969D5002A507D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/GameData.plist; sourceTree = "<group>"; };
+		A1354A401D696ACB002A507D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/GameData.plist"; sourceTree = "<group>"; };
+		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
+		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
+		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
 		B23641AE1D6124EB0020B16C /* DiabloProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiabloProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23641B11D6124EB0020B16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +60,6 @@
 		B23641B91D6124EB0020B16C /* DiabloProfile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiabloProfile.xcdatamodel; sourceTree = "<group>"; };
 		B23641BB1D6124EB0020B16C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B23641BE1D6124EB0020B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B23641C01D6124EB0020B16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23641C61D6127940020B16C /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		B23641C81D61334C0020B16C /* BlizzardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI.swift; path = BlizzardAPI/BlizzardAPI.swift; sourceTree = "<group>"; };
 		B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_Constants.swift; path = BlizzardAPI/BlizzardAPI_Constants.swift; sourceTree = "<group>"; };
@@ -66,6 +72,7 @@
 		B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_ActiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_ActiveSkillCell.swift; sourceTree = "<group>"; };
 		B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_DataCoding.swift; path = BlizzardAPI/BlizzardAPI_DataCoding.swift; sourceTree = "<group>"; };
 		B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddVC_SelectHero.swift; path = UI_ViewControllers/AddVC_SelectHero.swift; sourceTree = "<group>"; };
+		B2AD1CBB1D6A515800D6E54C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B2AE25BC1D6260C70046C6BA /* Stats+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stats+CoreDataProperties.swift"; path = "DataModel/Stats+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2AE25BD1D6260C70046C6BA /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stats.swift; path = DataModel/Stats.swift; sourceTree = "<group>"; };
 		B2AE25BE1D6260C70046C6BA /* Rune+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Rune+CoreDataProperties.swift"; path = "DataModel/Rune+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -98,6 +105,7 @@
 			children = (
 				B23641B01D6124EB0020B16C /* DiabloProfile */,
 				B23641AF1D6124EB0020B16C /* Products */,
+				B2AD1CBB1D6A515800D6E54C /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,10 +125,10 @@
 				B2F61B3F1D6688260067E83B /* CustomizeUI */,
 				B2AE25D01D6291670046C6BA /* UI_ViewControllers */,
 				B23641BB1D6124EB0020B16C /* Assets.xcassets */,
+				A1AFF9961D699CA7006C0AF8 /* Info.plist */,
 				B25F70F71D67DEAF004AEE37 /* DiabloFonts */,
 				B23641BD1D6124EB0020B16C /* LaunchScreen.storyboard */,
-				B23641C01D6124EB0020B16C /* Info.plist */,
-				A1276C201D618C4200427BED /* GameData.plist */,
+				A1354A3D1D6969D5002A507D /* GameData.plist */,
 				B23641CA1D6133510020B16C /* BlizzardAPI */,
 				B2AE25BB1D6260A00046C6BA /* DataModel */,
 			);
@@ -168,6 +176,7 @@
 		B2AE25D01D6291670046C6BA /* UI_ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A1680F1F1D698BB800456544 /* UIStrings.plist */,
 				B23641B51D6124EB0020B16C /* Main.storyboard */,
 				B2FF151F1D629A1100FBAA7B /* AddVC_SearchBattleTag.swift */,
 				B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */,
@@ -234,6 +243,18 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				es,
+				fr,
+				de,
+				"es-MX",
+				"pt-BR",
+				ko,
+				it,
+				"pt-PT",
+				ru,
+				pl,
 			);
 			mainGroup = B23641A51D6124EB0020B16C;
 			productRefGroup = B23641AF1D6124EB0020B16C /* Products */;
@@ -251,9 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25F70FA1D67DF2E004AEE37 /* DIABLO_H.TTF in Resources */,
+				A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */,
+				A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */,
 				B23641BF1D6124EB0020B16C /* LaunchScreen.storyboard in Resources */,
 				B25F70FB1D67DF2E004AEE37 /* DIABLO_L.TTF in Resources */,
-				A1276C211D618C4200427BED /* GameData.plist in Resources */,
+				A1354A3B1D6969D5002A507D /* GameData.plist in Resources */,
 				B23641C71D6127940020B16C /* Configuration.plist in Resources */,
 				B23641BC1D6124EB0020B16C /* Assets.xcassets in Resources */,
 				B23641B71D6124EB0020B16C /* Main.storyboard in Resources */,
@@ -277,6 +300,7 @@
 				B2AE25CC1D6260C70046C6BA /* Hero+CoreDataProperties.swift in Sources */,
 				B2AE25CA1D6260C70046C6BA /* Spell+CoreDataProperties.swift in Sources */,
 				B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */,
+				B2AD1CBC1D6A515800D6E54C /* README.md in Sources */,
 				B2AE25C71D6260C70046C6BA /* Stats.swift in Sources */,
 				A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */,
 				B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */,
@@ -300,6 +324,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A1354A3D1D6969D5002A507D /* GameData.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1354A3C1D6969D5002A507D /* Base */,
+				A1354A401D696ACB002A507D /* zh-Hans */,
+			);
+			name = GameData.plist;
+			sourceTree = "<group>";
+		};
+		A1680F1F1D698BB800456544 /* UIStrings.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1680F1E1D698BB800456544 /* Base */,
+				A1680F211D698BBC00456544 /* zh-Hans */,
+			);
+			name = UIStrings.plist;
+			sourceTree = "<group>";
+		};
 		B23641B51D6124EB0020B16C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

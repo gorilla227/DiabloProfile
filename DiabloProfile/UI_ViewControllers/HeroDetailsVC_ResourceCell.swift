@@ -16,7 +16,7 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
     @IBOutlet weak var resourceOrbImageView: UIImageView!
 
     func configureCell(hero: Hero) {
-        if let gameData = AppDelegate.gameData(), let stats = gameData[Hero.Keys.Stats] as? [String: String] {
+        if let gameData = AppDelegate.gameData(locale: hero.locale), let stats = gameData[Hero.Keys.Stats] as? [String: String] {
             lifeTitleLabel.text = stats[Stats.Keys.Life]
             lifeValueLabel.text = hero.stats?.life?.stringValue ?? nil
             if let classes = gameData["class"] as? [String: AnyObject], let classKey = hero.heroClass, let heroClass = classes[classKey] as? [String: AnyObject], let resourceNames = heroClass["resource"] as? [String] {

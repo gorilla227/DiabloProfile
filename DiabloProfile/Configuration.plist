@@ -61,6 +61,37 @@
 			</array>
 		</dict>
 	</array>
+	<key>LanguageCodeMatching</key>
+	<dict>
+		<key>en_US</key>
+		<string>Base</string>
+		<key>zh_CN</key>
+		<string>zh-Hans</string>
+		<key>zh_TW</key>
+		<string>zh-Hant</string>
+		<key>ko_KR</key>
+		<string>ko</string>
+		<key>pt_BR</key>
+		<string>pt-BR</string>
+		<key>es_MX</key>
+		<string>es-MX</string>
+		<key>en_GB</key>
+		<string>en</string>
+		<key>de_DE</key>
+		<string>de</string>
+		<key>es_ES</key>
+		<string>es</string>
+		<key>fr_FR</key>
+		<string>fr</string>
+		<key>it_IT</key>
+		<string>it</string>
+		<key>pl_PL</key>
+		<string>pl</string>
+		<key>pt_PT</key>
+		<string>pt-PT</string>
+		<key>ru_RU</key>
+		<string>ru</string>
+	</dict>
 	<key>Host</key>
 	<dict>
 		<key>CN</key>

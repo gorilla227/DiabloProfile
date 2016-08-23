@@ -11,12 +11,15 @@ import UIKit
 class AddVC_SelectHero: UITableViewController {
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
-    let gameData = AppDelegate.gameData()
     var heroes: [[String: AnyObject]]?
     var battleTag: String?
     var region: String?
     var locale: String?
 
+    lazy var gameData: [String: AnyObject]? = {
+        return AppDelegate.gameData(locale: self.locale)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,8 +122,8 @@ class AddVC_SelectHero: UITableViewController {
         if segue.identifier == "HeroDetailSegue" {
             let heroDetailVC = segue.destinationViewController as! HeroDetailsVC
             heroDetailVC.battleTag = battleTag
-            heroDetailVC.region = region
-            heroDetailVC.locale = locale
+//            heroDetailVC.region = region
+//            heroDetailVC.locale = locale
             heroDetailVC.heroData = sender as? [String: AnyObject]
         }
     }

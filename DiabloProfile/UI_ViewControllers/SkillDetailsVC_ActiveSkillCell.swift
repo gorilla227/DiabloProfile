@@ -37,12 +37,11 @@ class SkillDetailsVC_ActiveSkillCell: UITableViewCell {
         skillIconImageView.addSubview(loadingIndicator)
     }
 
-    func configureCell(skill: Skill, classKey: String) {
+    func configureCell(skill: Skill, classKey: String, gameData: [String: AnyObject]) {
         // Set Skill
         skillNameLabel.text = skill.name
         skillDescriptionLabel.text = skill.fullDescription
         if let categorySlug = skill.categorySlug,
-            let gameData = AppDelegate.gameData(),
             let heroClasses = gameData["class"] as? [String: AnyObject],
             let heroClass = heroClasses[classKey] as? [String: AnyObject],
             let skillCategories = heroClass["skillCategory"] as? [String: String],
