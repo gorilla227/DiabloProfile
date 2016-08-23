@@ -6,5 +6,7 @@
 	<string>搜索</string>
 	<key>battleTagPlaceholder</key>
 	<string>请输入战网昵称，比如Blizzard#1234</string>
+	<key>heroListTitle</key>
+	<string>英雄列表</string>
 </dict>
 </plist>
