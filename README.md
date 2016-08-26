@@ -4,6 +4,7 @@ Find Diablo3 hero profile from Blizzard and save to local device.
 https://dev.battle.net/
 - Career Profile - `GET /D3/PROFILE/:BATTLETAG/`
 - Hero Profile - `GET /D3/PROFILE/:BATTLETAG/HERO/:ID`
+
 ## Example
 1. Choose Server and Locale
 2. Enter the [BattleTag](http://us.battle.net/en/battletag/)
