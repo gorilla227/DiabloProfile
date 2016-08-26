@@ -14,5 +14,6 @@ https://dev.battle.net/
 ### Test BattleTag
  - US: Pirlo#1588
  - CN: A11#51842
+
 ## KnownIssue
 - Error message is not localized
