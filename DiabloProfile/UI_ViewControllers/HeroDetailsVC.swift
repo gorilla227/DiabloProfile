@@ -21,16 +21,8 @@ class HeroDetailsVC: UITableViewController {
     
     var heroData: [String: AnyObject]?
     var battleTag: String?
-//    var region: String?
-//    var locale: String?
     var hero: Hero?
-    
-    lazy var gameData: [String: AnyObject]? = {
-        if let hero = self.hero {
-            return AppDelegate.gameData(locale: hero.locale)
-        }
-        return nil
-    }()
+    var gameData: [String: AnyObject]?
     
     let mainManagedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -40,7 +32,7 @@ class HeroDetailsVC: UITableViewController {
     lazy var privateManagedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let backgroundManagedObjectContext = appDelegate.backgroundManagedObjectContext
-        let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         moc.parentContext = backgroundManagedObjectContext
         return moc
@@ -58,8 +50,6 @@ class HeroDetailsVC: UITableViewController {
         tableView.layoutIfNeeded()
         
         configureHeaderViewLayout()
-        
-        loadData()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -73,10 +63,22 @@ class HeroDetailsVC: UITableViewController {
     
     private func initializeHeroObject() {
         if let heroData = heroData {
-            hero = Hero(dictionary: heroData, context: privateManagedObjectContext)
-            hero?.battleTag = battleTag
+            privateManagedObjectContext.performBlock({
+                let hero = Hero(dictionary: heroData, context: self.privateManagedObjectContext)
+                hero.battleTag = self.battleTag
+                self.gameData = AppDelegate.gameData(locale: hero.locale)
+                AppDelegate.performUIUpdatesOnMain({
+                    self.hero = hero
+                    self.loadData()
+                })
+            })
+            
             navigationItem.rightBarButtonItem = addToCollectionButton
         } else {
+            if let hero = self.hero {
+                gameData = AppDelegate.gameData(locale: hero.locale)
+                loadData()
+            }
             navigationItem.rightBarButtonItem = removeButton
         }
     }
@@ -130,7 +132,7 @@ class HeroDetailsVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return (hero != nil) ? 5 : 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

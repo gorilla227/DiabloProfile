@@ -51,10 +51,9 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
                     print(error?.domain, error?.localizedDescription)
                     return
                 }
-                
-                skill.icon = result
 
                 AppDelegate.performUIUpdatesOnMain({
+                    skill.icon = result
                     self.skillIconImageView.image = UIImage(data: result!)
                     self.loadingIndicator.stopAnimating()
                     self.setNeedsLayout()
