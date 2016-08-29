@@ -1,5 +1,5 @@
 //
-//  Set.swift
+//  ItemSet.swift
 //  DiabloProfile
 //
 //  Created by Andy Xu on 8/29/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Set: NSManagedObject {
+class ItemSet: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
@@ -49,7 +49,7 @@ class Set: NSManagedObject {
     }
 }
 
-extension Set {
+extension ItemSet {
     struct Keys {
         static let EntityName = "Set"
         static let Name = "name"

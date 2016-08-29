@@ -25,6 +25,6 @@ extension BasicItem {
     @NSManaged var detailItem: DetailItem?
     @NSManaged var gem: Gem?
     @NSManaged var hero: Hero?
-    @NSManaged var set: Set?
+    @NSManaged var set: ItemSet?
 
 }

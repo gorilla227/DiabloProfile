@@ -12,7 +12,7 @@
         <relationship name="detailItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="basicItem" inverseEntity="DetailItem" syncable="YES"/>
         <relationship name="gem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gem" inverseName="basicItem" inverseEntity="Gem" syncable="YES"/>
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="items" inverseEntity="Hero" syncable="YES"/>
-        <relationship name="set" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ItemSet" inverseName="items" inverseEntity="ItemSet" syncable="YES"/>
     </entity>
     <entity name="DetailItem" representedClassName=".DetailItem" syncable="YES">
         <attribute name="accountBound" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -81,11 +81,7 @@
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="attributes" inverseEntity="DetailItem" syncable="YES"/>
         <relationship name="setBonus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetBonus" inverseName="attributes" inverseEntity="SetBonus" syncable="YES"/>
     </entity>
-    <entity name="Rune" representedClassName=".Rune" parentEntity="Spell" syncable="YES">
-        <attribute name="runeType" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="Skill" inverseName="rune" inverseEntity="Skill" syncable="YES"/>
-    </entity>
-    <entity name="Set" representedClassName=".Set" syncable="YES">
+    <entity name="ItemSet" representedClassName=".ItemSet" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="slug" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BasicItem" inverseName="set" inverseEntity="BasicItem" syncable="YES"/>
@@ -96,10 +92,14 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="Rune" representedClassName=".Rune" parentEntity="Spell" syncable="YES">
+        <attribute name="runeType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="Skill" inverseName="rune" inverseEntity="Skill" syncable="YES"/>
+    </entity>
     <entity name="SetBonus" representedClassName=".SetBonus" syncable="YES">
         <attribute name="required" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="setBonus" inverseEntity="ItemAttribute" syncable="YES"/>
-        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="setBonus" inverseEntity="Set" syncable="YES"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemSet" inverseName="setBonus" inverseEntity="ItemSet" syncable="YES"/>
     </entity>
     <entity name="Skill" representedClassName=".Skill" parentEntity="Spell" syncable="YES">
         <attribute name="categorySlug" optional="YES" attributeType="String" syncable="YES"/>
@@ -141,7 +141,7 @@
         <element name="Hero" positionX="-758" positionY="180" width="128" height="315"/>
         <element name="ItemAttribute" positionX="-506" positionY="9" width="128" height="148"/>
         <element name="Rune" positionX="-1242" positionY="108" width="128" height="75"/>
-        <element name="Set" positionX="-119" positionY="486" width="128" height="105"/>
+        <element name="ItemSet" positionX="-119" positionY="486" width="128" height="103"/>
         <element name="SetBonus" positionX="106" positionY="378" width="128" height="88"/>
         <element name="Skill" positionX="-956" positionY="147" width="128" height="150"/>
         <element name="Spell" positionX="-956" positionY="-0" width="128" height="105"/>

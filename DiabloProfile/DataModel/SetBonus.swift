@@ -34,7 +34,7 @@ class SetBonus: NSManagedObject {
             self.attributes = NSSet(array: itemAttributes)
         }
         
-        if let set = dictionary[Keys.Set] as? Set {
+        if let set = dictionary[Keys.Set] as? ItemSet {
             self.set = set
         }
     }

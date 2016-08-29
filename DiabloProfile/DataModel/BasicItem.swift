@@ -65,7 +65,7 @@ class BasicItem: NSManagedObject {
             self.hero = hero
         }
         
-        if let set = dictionary[Keys.Set] as? Set {
+        if let set = dictionary[Keys.Set] as? ItemSet {
             self.set = set
         }
     }

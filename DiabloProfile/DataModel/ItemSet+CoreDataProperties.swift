@@ -1,5 +1,5 @@
 //
-//  Set+CoreDataProperties.swift
+//  ItemSet+CoreDataProperties.swift
 //  DiabloProfile
 //
 //  Created by Andy Xu on 8/29/16.
@@ -12,7 +12,7 @@
 import Foundation
 import CoreData
 
-extension Set {
+extension ItemSet {
 
     @NSManaged var name: String?
     @NSManaged var slug: String?

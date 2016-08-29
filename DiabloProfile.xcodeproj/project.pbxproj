@@ -42,8 +42,8 @@
 		B2AE25CF1D6260C70046C6BA /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C51D6260C70046C6BA /* Skill.swift */; };
 		B2D41A0B1D7495130024A445 /* BasicItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D419FF1D7495130024A445 /* BasicItem+CoreDataProperties.swift */; };
 		B2D41A0C1D7495130024A445 /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A001D7495130024A445 /* BasicItem.swift */; };
-		B2D41A0D1D7495130024A445 /* Set+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A011D7495130024A445 /* Set+CoreDataProperties.swift */; };
-		B2D41A0E1D7495130024A445 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A021D7495130024A445 /* Set.swift */; };
+		B2D41A0D1D7495130024A445 /* ItemSet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A011D7495130024A445 /* ItemSet+CoreDataProperties.swift */; };
+		B2D41A0E1D7495130024A445 /* ItemSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A021D7495130024A445 /* ItemSet.swift */; };
 		B2D41A0F1D7495130024A445 /* Gem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A031D7495130024A445 /* Gem+CoreDataProperties.swift */; };
 		B2D41A101D7495130024A445 /* Gem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A041D7495130024A445 /* Gem.swift */; };
 		B2D41A111D7495130024A445 /* DetailItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A051D7495130024A445 /* DetailItem+CoreDataProperties.swift */; };
@@ -121,8 +121,8 @@
 		B2AE25C51D6260C70046C6BA /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Skill.swift; path = DataModel/Skill.swift; sourceTree = "<group>"; };
 		B2D419FF1D7495130024A445 /* BasicItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BasicItem+CoreDataProperties.swift"; path = "DataModel/BasicItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2D41A001D7495130024A445 /* BasicItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicItem.swift; path = DataModel/BasicItem.swift; sourceTree = "<group>"; };
-		B2D41A011D7495130024A445 /* Set+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+CoreDataProperties.swift"; path = "DataModel/Set+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B2D41A021D7495130024A445 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Set.swift; path = DataModel/Set.swift; sourceTree = "<group>"; };
+		B2D41A011D7495130024A445 /* ItemSet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ItemSet+CoreDataProperties.swift"; path = "DataModel/ItemSet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2D41A021D7495130024A445 /* ItemSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSet.swift; path = DataModel/ItemSet.swift; sourceTree = "<group>"; };
 		B2D41A031D7495130024A445 /* Gem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Gem+CoreDataProperties.swift"; path = "DataModel/Gem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2D41A041D7495130024A445 /* Gem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gem.swift; path = DataModel/Gem.swift; sourceTree = "<group>"; };
 		B2D41A051D7495130024A445 /* DetailItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DetailItem+CoreDataProperties.swift"; path = "DataModel/DetailItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 			children = (
 				B2D419FF1D7495130024A445 /* BasicItem+CoreDataProperties.swift */,
 				B2D41A001D7495130024A445 /* BasicItem.swift */,
-				B2D41A011D7495130024A445 /* Set+CoreDataProperties.swift */,
-				B2D41A021D7495130024A445 /* Set.swift */,
+				B2D41A011D7495130024A445 /* ItemSet+CoreDataProperties.swift */,
+				B2D41A021D7495130024A445 /* ItemSet.swift */,
 				B2D41A031D7495130024A445 /* Gem+CoreDataProperties.swift */,
 				B2D41A041D7495130024A445 /* Gem.swift */,
 				B2D41A051D7495130024A445 /* DetailItem+CoreDataProperties.swift */,
@@ -352,7 +352,7 @@
 			files = (
 				B23641BA1D6124EB0020B16C /* DiabloProfile.xcdatamodeld in Sources */,
 				B2D41A0F1D7495130024A445 /* Gem+CoreDataProperties.swift in Sources */,
-				B2D41A0D1D7495130024A445 /* Set+CoreDataProperties.swift in Sources */,
+				B2D41A0D1D7495130024A445 /* ItemSet+CoreDataProperties.swift in Sources */,
 				B23641C91D61334C0020B16C /* BlizzardAPI.swift in Sources */,
 				B23641CC1D61339E0020B16C /* BlizzardAPI_Constants.swift in Sources */,
 				B25F70F41D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift in Sources */,
@@ -369,7 +369,7 @@
 				B2D41A151D7495130024A445 /* SetBonus+CoreDataProperties.swift in Sources */,
 				A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */,
 				B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */,
-				B2D41A0E1D7495130024A445 /* Set.swift in Sources */,
+				B2D41A0E1D7495130024A445 /* ItemSet.swift in Sources */,
 				B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */,
 				B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */,
 				B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */,

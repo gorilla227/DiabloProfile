@@ -16,6 +16,6 @@ extension SetBonus {
 
     @NSManaged var required: NSNumber?
     @NSManaged var attributes: NSSet?
-    @NSManaged var set: Set?
+    @NSManaged var set: ItemSet?
 
 }
