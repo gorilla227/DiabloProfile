@@ -113,7 +113,7 @@ class HeroListVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ViewHeroDetailsSegue" {
-            let heroDetialsVC = segue.destinationViewController as! HeroDetailsVC
+            let heroDetialsVC = segue.destinationViewController as! HeroDetailsTabBarController
             heroDetialsVC.hero = sender as? Hero
         }
     }

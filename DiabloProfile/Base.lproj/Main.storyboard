@@ -84,7 +84,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="LJL-0t-tb0" kind="show" identifier="ViewHeroDetailsSegue" id="so6-dP-ymA"/>
+                        <segue destination="DtD-iE-BLx" kind="show" identifier="ViewHeroDetailsSegue" id="so6-dP-ymA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwx-PA-Xe5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -530,32 +530,21 @@
                             <outlet property="delegate" destination="LJL-0t-tb0" id="0ir-UG-cqQ"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Basic" image="rune_a" id="gEe-aP-5NT"/>
                     <navigationItem key="navigationItem" title="Hero Name" id="xzF-sS-eM2"/>
                     <connections>
-                        <outlet property="addToCollectionButton" destination="eht-Z2-IfF" id="YsA-ln-p09"/>
                         <outlet property="hardcoreImageView" destination="FAo-lF-4JU" id="8GQ-lc-ZcY"/>
                         <outlet property="headView" destination="AjU-O1-Zi1" id="NfO-bo-pXD"/>
                         <outlet property="heroLevelClassLabel" destination="jjR-ew-OgC" id="rwE-2D-rgh"/>
                         <outlet property="heroNameLabel" destination="eBG-cq-9nt" id="UpH-LZ-EgH"/>
-                        <outlet property="removeButton" destination="v0h-pg-Ynv" id="Yfp-zW-dI0"/>
                         <outlet property="seasonImageView" destination="D9p-Ff-izN" id="sHH-87-ZyY"/>
                         <outlet property="titleBackgroundImageView" destination="euN-3e-SU3" id="zDL-ES-Dlx"/>
                         <segue destination="S0b-1a-i2o" kind="show" identifier="SkillDetailsSegue" id="h2F-q2-KeP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21I-eo-oRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="bookmarks" id="eht-Z2-IfF">
-                    <connections>
-                        <action selector="addToCollectionButtonOnClicked:" destination="LJL-0t-tb0" id="vtY-Gs-RAs"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem systemItem="trash" id="v0h-pg-Ynv">
-                    <connections>
-                        <action selector="removeButtonOnClicked:" destination="LJL-0t-tb0" id="Y05-p3-oRY"/>
-                    </connections>
-                </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="1737" y="519"/>
+            <point key="canvasLocation" x="2549" y="519"/>
         </scene>
         <!--Class Name-->
         <scene sceneID="UJq-Kt-ydN">
@@ -760,7 +749,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJZ-EO-bTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2572" y="519"/>
+            <point key="canvasLocation" x="3384" y="519"/>
         </scene>
         <!--BattleTag-->
         <scene sceneID="J9q-iw-9WL">
@@ -804,7 +793,7 @@
                     <navigationItem key="navigationItem" title="BattleTag" id="Y0V-g8-I8o"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="ZIT-uy-wtQ" id="0iC-Wo-ENV"/>
-                        <segue destination="LJL-0t-tb0" kind="show" identifier="HeroDetailSegue" id="fBV-NK-rbE"/>
+                        <segue destination="DtD-iE-BLx" kind="show" identifier="HeroDetailSegue" id="fBV-NK-rbE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ojh-Yd-jR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,6 +855,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CjR-7O-UhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-719" y="519"/>
+        </scene>
+        <!--Hero Details Tab Bar Controller-->
+        <scene sceneID="UjZ-M2-SWf">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DtD-iE-BLx" customClass="HeroDetailsTabBarController" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Twd-vD-lAn">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="addToCollectionButton" destination="Xd0-aN-ZeO" id="44C-XZ-d07"/>
+                        <outlet property="removeButton" destination="kga-rq-9xr" id="Moy-U4-6OH"/>
+                        <segue destination="LJL-0t-tb0" kind="relationship" relationship="viewControllers" id="Afq-uv-z1i"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sU-RA-oGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="bookmarks" id="Xd0-aN-ZeO">
+                    <connections>
+                        <action selector="addToCollectionButtonOnClicked:" destination="DtD-iE-BLx" id="AJ1-5W-59x"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="trash" id="kga-rq-9xr">
+                    <connections>
+                        <action selector="removeButtonOnClicked:" destination="DtD-iE-BLx" id="ReI-DN-wop"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="1737" y="519"/>
         </scene>
     </scenes>
     <resources>

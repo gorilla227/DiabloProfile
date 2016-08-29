@@ -16,34 +16,16 @@ class HeroDetailsVC: UITableViewController {
     @IBOutlet weak var hardcoreImageView: UIImageView!
     @IBOutlet weak var seasonImageView: UIImageView!
     @IBOutlet weak var headView: UIView!
-    @IBOutlet var addToCollectionButton: UIBarButtonItem!
-    @IBOutlet var removeButton: UIBarButtonItem!
     
-    var heroData: [String: AnyObject]?
-    var battleTag: String?
     var hero: Hero?
     var gameData: [String: AnyObject]?
-    
-    let mainManagedObjectContext: NSManagedObjectContext = {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.mainManagedObjectContext
-    }()
-    
-    lazy var privateManagedObjectContext: NSManagedObjectContext = {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let backgroundManagedObjectContext = appDelegate.backgroundManagedObjectContext
-        let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        moc.parentContext = backgroundManagedObjectContext
-        return moc
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: privateManagedObjectContext)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveBackgroundManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
         
-        initializeHeroObject()
+        if let tabBarController = tabBarController as? HeroDetailsTabBarController, let hero = tabBarController.hero {
+            loadData(hero)
+        }
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
@@ -52,80 +34,35 @@ class HeroDetailsVC: UITableViewController {
         configureHeaderViewLayout()
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("HeroDetailsVC Disappear")
-        
-        if mainManagedObjectContext == hero?.managedObjectContext {
-            AppDelegate.saveContext(mainManagedObjectContext)
-        }
-    }
-    
-    private func initializeHeroObject() {
-        if let heroData = heroData {
-            privateManagedObjectContext.performBlock({
-                let hero = Hero(dictionary: heroData, context: self.privateManagedObjectContext)
-                hero.battleTag = self.battleTag
-                self.gameData = AppDelegate.gameData(locale: hero.locale)
-                AppDelegate.performUIUpdatesOnMain({
-                    self.hero = hero
-                    self.loadData()
-                })
-            })
-            
-            navigationItem.rightBarButtonItem = addToCollectionButton
-        } else {
-            if let hero = self.hero {
-                gameData = AppDelegate.gameData(locale: hero.locale)
-                loadData()
-            }
-            navigationItem.rightBarButtonItem = removeButton
-        }
-    }
-    
-    private func isHeroExistedInCollection() -> Bool {
-        if let hero = hero, let id = hero.id {
-            let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
-            fetchRequest.predicate = NSPredicate(format: "\(Hero.Keys.ID) == %@", id)
-            
-            var error: NSError?
-            let numOfExistedObject = mainManagedObjectContext.countForFetchRequest(fetchRequest, error: &error)
-            return numOfExistedObject > 0
-        }
-        return false
-    }
-    
     private func configureHeaderViewLayout() {
         var frame = headView.frame
         frame.size.height = frame.size.width / 3
         headView.frame = frame
     }
     
-    private func loadData() {
-        if let hero = hero {
-            navigationItem.title = hero.name
+    func loadData(hero: Hero) {
+        self.hero = hero
+        gameData = AppDelegate.gameData(locale: hero.locale)
+        
+        heroNameLabel.text = hero.name
+        if let classes = gameData?["class"] as? [String: AnyObject],
+            let classKey = hero.heroClass,
+            let heroClass = classes[classKey] as? [String: AnyObject],
+            let className = heroClass["name"] {
+            heroLevelClassLabel.text = "\(hero.level!) (\(hero.paragonLevel!)) \(className)"
             
-            heroNameLabel.text = hero.name
-            if let classes = gameData?["class"] as? [String: AnyObject],
-                let classKey = hero.heroClass,
-                let heroClass = classes[classKey] as? [String: AnyObject],
-                let className = heroClass["name"] {
-                heroLevelClassLabel.text = "\(hero.level!) (\(hero.paragonLevel!)) \(className)"
-                
-                if let imagePath = hero.titleBackgroundImagePath() {
-                    titleBackgroundImageView.image = UIImage(named: imagePath)
-                }
+            if let imagePath = hero.titleBackgroundImagePath() {
+                titleBackgroundImageView.image = UIImage(named: imagePath)
             }
-            if let isHardcore = hero.hardcore?.boolValue {
-                hardcoreImageView.hidden = !isHardcore
-            }
-            if let isSeasonal = hero.seasonal?.boolValue {
-                seasonImageView.hidden = !isSeasonal
-            }
-            
-            addToCollectionButton.enabled = !isHeroExistedInCollection()
-            tableView.reloadData()
         }
+        if let isHardcore = hero.hardcore?.boolValue {
+            hardcoreImageView.hidden = !isHardcore
+        }
+        if let isSeasonal = hero.seasonal?.boolValue {
+            seasonImageView.hidden = !isSeasonal
+        }
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -239,22 +176,6 @@ class HeroDetailsVC: UITableViewController {
         }
         return nil
     }
-    
-    func mergeToMainManagedObjectContext(notification: NSNotification) {
-        mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
-        print("mergeToMainManagedObjectContext")
-
-        AppDelegate.performUIUpdatesOnMain {
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        }
-    }
-    
-    func saveBackgroundManagedObjectContext(notification: NSNotification) {
-        if let moc = notification.object as? NSManagedObjectContext, let parentMOC = moc.parentContext {
-            AppDelegate.saveContext(parentMOC)
-            print("Save backgroundManagedObjectContext from HeroDetailsVC")
-        }
-    }
 
     // MARK: - Navigation
 
@@ -283,18 +204,6 @@ class HeroDetailsVC: UITableViewController {
                     break
                 }
             }
-        }
-    }
-    
-    @IBAction func addToCollectionButtonOnClicked(sender: AnyObject) {
-        AppDelegate.saveContext(privateManagedObjectContext)
-    }
-
-    @IBAction func removeButtonOnClicked(sender: AnyObject) {
-        mainManagedObjectContext.deleteObject(hero!)
-        AppDelegate.saveContext(mainManagedObjectContext)
-        AppDelegate.performUIUpdatesOnMain { 
-            self.navigationController?.popViewControllerAnimated(true)
         }
     }
 }
