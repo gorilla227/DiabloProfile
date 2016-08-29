@@ -99,6 +99,15 @@ class Hero: NSManagedObject {
             let stats = Stats(dictionary: statsDict, context: context)
             self.stats = stats
         }
+        
+        if let items = dictionary[Keys.Items] as? [[String: AnyObject]] {
+            var basicItems = [BasicItem]()
+            for itemDict in items {
+                let basicItem = BasicItem(dictionary: itemDict, context: context)
+                basicItems.append(basicItem)
+            }
+            self.items = NSSet(array: basicItems)
+        }
     }
     
     class func titleBackgroundImagePath(classKey classKey: String, genderKey: String) -> String {
@@ -150,5 +159,6 @@ extension Hero {
         static let ActiveSkills = "activeSkills"
         static let PassiveSkills = "passiveSkills"
         static let Stats = "stats"
+        static let Items = "items"
     }
 }

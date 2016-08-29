@@ -101,6 +101,11 @@ extension BlizzardAPI {
         static let Tail = ".png"
     }
     
+    struct ItemIconURLComponents {
+        static let Head = "http://media.blizzard.com/d3/icons/items/"
+        static let Tail = ".png"
+    }
+    
     struct PathKeys {
         static let CareerProfile = "CareerProfile"
         static let HeroProfile = "HeroProfile"

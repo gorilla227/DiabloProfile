@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="BasicItem" representedClassName=".BasicItem" syncable="YES">
+        <attribute name="displayColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="iconKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="setItemsEquipped" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="slot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tooltipParams" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="detailItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="basicItem" inverseEntity="DetailItem" syncable="YES"/>
+        <relationship name="gem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gem" inverseName="basicItem" inverseEntity="Gem" syncable="YES"/>
+        <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="items" inverseEntity="Hero" syncable="YES"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
+    </entity>
+    <entity name="DetailItem" representedClassName=".DetailItem" syncable="YES">
+        <attribute name="accountBound" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="armor" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="attacksPerSecond" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="attacksPerSecondText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="damageRange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dps" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="elementalType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flavor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="iconKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requiredLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="setItemsEquipped" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="tooltipParams" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="typeID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeTwoHanded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="item" inverseEntity="ItemAttribute" syncable="YES"/>
+        <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="detailItem" inverseEntity="BasicItem" syncable="YES"/>
+    </entity>
+    <entity name="Gem" representedClassName=".Gem" syncable="YES">
+        <attribute name="isGem" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isJewel" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="jewelRank" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="jewelSecondaryEffectUnlockRank" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemAttribute" inverseName="gem" inverseEntity="ItemAttribute" syncable="YES"/>
+        <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="gem" inverseEntity="BasicItem" syncable="YES"/>
+    </entity>
     <entity name="Hero" representedClassName=".Hero" syncable="YES">
         <attribute name="battleTag" attributeType="String" syncable="YES"/>
         <attribute name="dead" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -16,6 +63,7 @@
         <attribute name="seasonal" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="seasonCreated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="activeSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroA" inverseEntity="Skill" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="hero" inverseEntity="BasicItem" syncable="YES"/>
         <relationship name="passiveSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroP" inverseEntity="Skill" syncable="YES"/>
         <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="hero" inverseEntity="Stats" syncable="YES"/>
         <uniquenessConstraints>
@@ -24,9 +72,34 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="ItemAttribute" representedClassName=".ItemAttribute" syncable="YES">
+        <attribute name="affixType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="gem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gem" inverseName="attributes" inverseEntity="Gem" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="attributes" inverseEntity="DetailItem" syncable="YES"/>
+        <relationship name="setBonus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetBonus" inverseName="attributes" inverseEntity="SetBonus" syncable="YES"/>
+    </entity>
     <entity name="Rune" representedClassName=".Rune" parentEntity="Spell" syncable="YES">
         <attribute name="runeType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="Skill" inverseName="rune" inverseEntity="Skill" syncable="YES"/>
+    </entity>
+    <entity name="Set" representedClassName=".Set" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BasicItem" inverseName="set" inverseEntity="BasicItem" syncable="YES"/>
+        <relationship name="setBonus" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="SetBonus" inverseName="set" inverseEntity="SetBonus" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="slug"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SetBonus" representedClassName=".SetBonus" syncable="YES">
+        <attribute name="required" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="setBonus" inverseEntity="ItemAttribute" syncable="YES"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="setBonus" inverseEntity="Set" syncable="YES"/>
     </entity>
     <entity name="Skill" representedClassName=".Skill" parentEntity="Spell" syncable="YES">
         <attribute name="categorySlug" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,10 +135,16 @@
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="stats" inverseEntity="Hero" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Hero" positionX="-63" positionY="-18" width="128" height="300"/>
-        <element name="Rune" positionX="-18" positionY="153" width="128" height="75"/>
-        <element name="Skill" positionX="-27" positionY="144" width="128" height="150"/>
-        <element name="Spell" positionX="-36" positionY="135" width="128" height="105"/>
-        <element name="Stats" positionX="-54" positionY="72" width="128" height="210"/>
+        <element name="BasicItem" positionX="-542" positionY="252" width="128" height="223"/>
+        <element name="DetailItem" positionX="-360" positionY="243" width="128" height="388"/>
+        <element name="Gem" positionX="-2" positionY="648" width="128" height="133"/>
+        <element name="Hero" positionX="-758" positionY="180" width="128" height="315"/>
+        <element name="ItemAttribute" positionX="-506" positionY="9" width="128" height="148"/>
+        <element name="Rune" positionX="-1242" positionY="108" width="128" height="75"/>
+        <element name="Set" positionX="-119" positionY="486" width="128" height="105"/>
+        <element name="SetBonus" positionX="106" positionY="378" width="128" height="88"/>
+        <element name="Skill" positionX="-956" positionY="147" width="128" height="150"/>
+        <element name="Spell" positionX="-956" positionY="-0" width="128" height="105"/>
+        <element name="Stats" positionX="-1053" positionY="348" width="128" height="210"/>
     </elements>
 </model>
