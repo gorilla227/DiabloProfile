@@ -117,6 +117,15 @@ class DetailItem: NSManagedObject {
         if let basicItem = dictionary[Keys.BasicItem] as? BasicItem {
             self.basicItem = basicItem
         }
+        
+        if let gems = dictionary[Keys.Gems] as? [[String: AnyObject]] {
+            var gemsArray = [Gem]()
+            for gemDict in gems {
+                let gem = Gem(dictionary: gemDict, context: context)
+                gemsArray.append(gem)
+            }
+            self.gems = NSSet(array: gemsArray)
+        }
     }
     
     // size = "small" or "large"
@@ -155,5 +164,6 @@ extension DetailItem {
         static let TypeTwoHanded = "typeTwoHanded"
         static let Attributes = "attributes"
         static let BasicItem = "basicItem"
+        static let Gems = "gems"
     }
 }

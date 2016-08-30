@@ -2,7 +2,7 @@
 //  Gem+CoreDataProperties.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/29/16.
+//  Created by Andy Xu on 8/30/16.
 //  Copyright © 2016 Andy Xu. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -20,5 +20,6 @@ extension Gem {
     @NSManaged var jewelSecondaryEffectUnlockRank: NSNumber?
     @NSManaged var attributes: NSOrderedSet?
     @NSManaged var basicItem: BasicItem?
+    @NSManaged var detailItem: DetailItem?
 
 }

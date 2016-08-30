@@ -38,6 +38,7 @@
         <attribute name="typeTwoHanded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="item" inverseEntity="ItemAttribute" syncable="YES"/>
         <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="detailItem" inverseEntity="BasicItem" syncable="YES"/>
+        <relationship name="gems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gem" inverseName="detailItem" inverseEntity="Gem" syncable="YES"/>
     </entity>
     <entity name="Gem" representedClassName=".Gem" syncable="YES">
         <attribute name="isGem" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -46,6 +47,7 @@
         <attribute name="jewelSecondaryEffectUnlockRank" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemAttribute" inverseName="gem" inverseEntity="ItemAttribute" syncable="YES"/>
         <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="gem" inverseEntity="BasicItem" syncable="YES"/>
+        <relationship name="detailItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="gems" inverseEntity="DetailItem" syncable="YES"/>
     </entity>
     <entity name="Hero" representedClassName=".Hero" syncable="YES">
         <attribute name="battleTag" attributeType="String" syncable="YES"/>
@@ -135,13 +137,13 @@
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="stats" inverseEntity="Hero" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BasicItem" positionX="-542" positionY="252" width="128" height="223"/>
-        <element name="DetailItem" positionX="-360" positionY="243" width="128" height="388"/>
-        <element name="Gem" positionX="-2" positionY="648" width="128" height="133"/>
+        <element name="BasicItem" positionX="-542" positionY="252" width="128" height="225"/>
+        <element name="DetailItem" positionX="-360" positionY="243" width="128" height="405"/>
+        <element name="Gem" positionX="-2" positionY="648" width="128" height="150"/>
         <element name="Hero" positionX="-758" positionY="180" width="128" height="315"/>
         <element name="ItemAttribute" positionX="-506" positionY="9" width="128" height="148"/>
-        <element name="Rune" positionX="-1242" positionY="108" width="128" height="75"/>
         <element name="ItemSet" positionX="-119" positionY="486" width="128" height="103"/>
+        <element name="Rune" positionX="-1242" positionY="108" width="128" height="75"/>
         <element name="SetBonus" positionX="106" positionY="378" width="128" height="88"/>
         <element name="Skill" positionX="-956" positionY="147" width="128" height="150"/>
         <element name="Spell" positionX="-956" positionY="-0" width="128" height="105"/>

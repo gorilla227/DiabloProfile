@@ -49,6 +49,10 @@ class Gem: NSManagedObject {
         if let basicItem = dictionary[Keys.BasicItem] as? [String: AnyObject] {
             self.basicItem = BasicItem(dictionary: basicItem, context: context)
         }
+        
+        if let detailItem = dictionary[Keys.DetailItem] as? DetailItem {
+            self.detailItem = detailItem
+        }
     }
 }
 
@@ -61,5 +65,6 @@ extension Gem {
         static let JewelSecondaryEffectUnlockRank = "jewelSecondaryEffectUnlockRank"
         static let Attributes = "attributes"
         static let BasicItem = "basicItem"
+        static let DetailItem = "detailItem"
     }
 }
