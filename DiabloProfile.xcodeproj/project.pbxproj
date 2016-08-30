@@ -52,6 +52,7 @@
 		B2D41A151D7495130024A445 /* SetBonus+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A091D7495130024A445 /* SetBonus+CoreDataProperties.swift */; };
 		B2D41A161D7495130024A445 /* SetBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A0A1D7495130024A445 /* SetBonus.swift */; };
 		B2D41A181D74D2320024A445 /* HeroDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A171D74D2320024A445 /* HeroDetailsTabBarController.swift */; };
+		B2D41A1A1D74F95D0024A445 /* EquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A191D74F95D0024A445 /* EquipmentVC.swift */; };
 		B2F61B3E1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */; };
 		B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B401D6688A90067E83B /* InsetUILabel.swift */; };
 		B2FF151E1D62952D00FBAA7B /* HeroListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF151D1D62952D00FBAA7B /* HeroListVC.swift */; };
@@ -131,6 +132,7 @@
 		B2D41A091D7495130024A445 /* SetBonus+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SetBonus+CoreDataProperties.swift"; path = "DataModel/SetBonus+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2D41A0A1D7495130024A445 /* SetBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBonus.swift; path = DataModel/SetBonus.swift; sourceTree = "<group>"; };
 		B2D41A171D74D2320024A445 /* HeroDetailsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsTabBarController.swift; path = UI_ViewControllers/HeroDetailsTabBarController.swift; sourceTree = "<group>"; };
+		B2D41A191D74F95D0024A445 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
 		B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_SkillCell.swift; path = UI_ViewControllers/HeroDetailsVC_SkillCell.swift; sourceTree = "<group>"; };
 		B2F61B401D6688A90067E83B /* InsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsetUILabel.swift; path = CustomizeUI/InsetUILabel.swift; sourceTree = "<group>"; };
 		B2FF151D1D62952D00FBAA7B /* HeroListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroListVC.swift; path = UI_ViewControllers/HeroListVC.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */,
 				B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */,
 				B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */,
+				B2D41A191D74F95D0024A445 /* EquipmentVC.swift */,
 				B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */,
 				B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */,
 				B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */,
@@ -364,6 +367,7 @@
 				B2AE25CC1D6260C70046C6BA /* Hero+CoreDataProperties.swift in Sources */,
 				B2AE25CA1D6260C70046C6BA /* Spell+CoreDataProperties.swift in Sources */,
 				B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */,
+				B2D41A1A1D74F95D0024A445 /* EquipmentVC.swift in Sources */,
 				B2D41A131D7495130024A445 /* ItemAttribute+CoreDataProperties.swift in Sources */,
 				B2AE25C71D6260C70046C6BA /* Stats.swift in Sources */,
 				B2D41A151D7495130024A445 /* SetBonus+CoreDataProperties.swift in Sources */,

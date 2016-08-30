@@ -189,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="909" y="1273"/>
         </scene>
-        <!--Hero Name-->
+        <!--Basic-->
         <scene sceneID="sAB-2n-Z0J">
             <objects>
                 <tableViewController id="LJL-0t-tb0" customClass="HeroDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
@@ -531,7 +531,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Basic" image="rune_a" id="gEe-aP-5NT"/>
-                    <navigationItem key="navigationItem" title="Hero Name" id="xzF-sS-eM2"/>
+                    <navigationItem key="navigationItem" title="Basic" id="xzF-sS-eM2"/>
                     <connections>
                         <outlet property="hardcoreImageView" destination="FAo-lF-4JU" id="8GQ-lc-ZcY"/>
                         <outlet property="headView" destination="AjU-O1-Zi1" id="NfO-bo-pXD"/>
@@ -545,6 +545,241 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21I-eo-oRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2549" y="519"/>
+        </scene>
+        <!--Equipments-->
+        <scene sceneID="7vP-V8-5Cg">
+            <objects>
+                <viewController id="Yl5-lU-70e" customClass="EquipmentVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CzN-SH-WCs"/>
+                        <viewControllerLayoutGuide type="bottom" id="yzt-1y-Ejw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WV8-mo-Nop">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="L8Q-uj-eHu">
+                                <rect key="frame" x="132" y="72" width="336" height="471"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-SY-L5v">
+                                        <rect key="frame" x="0.0" y="46" width="112" height="425"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="4d5-c5-Ilx">
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="97"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gao-5g-b62" userLabel="shoulders">
+                                                        <rect key="frame" x="47" y="0.0" width="65" height="97"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Gao-5g-b62" secondAttribute="height" multiplier="86:128" id="4WF-Zf-HgB"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Gao-5g-b62" firstAttribute="height" secondItem="4d5-c5-Ilx" secondAttribute="height" id="boX-MA-1zK"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rhd-AT-IHJ">
+                                                <rect key="frame" x="0.0" y="112" width="112" height="313"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="j51-sN-MO9" userLabel="hands">
+                                                        <rect key="frame" x="20" y="0.0" width="72" height="96"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="j51-sN-MO9" secondAttribute="height" multiplier="64:86" id="NMi-i1-Yqk"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="9vX-Gv-gwn" userLabel="leftFinger">
+                                                        <rect key="frame" x="34" y="111" width="44" height="44"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="9vX-Gv-gwn" secondAttribute="height" multiplier="40:40" id="RRc-8a-afo"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="c5c-uV-oYh" userLabel="mainHand">
+                                                        <rect key="frame" x="20" y="170" width="72" height="143"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="64:128" id="35Z-mm-yk2"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="9vX-Gv-gwn" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="40:128" id="dEg-oe-yrE"/>
+                                                    <constraint firstItem="j51-sN-MO9" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="86:128" id="tvq-6v-iAW"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4d5-c5-Ilx" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="86:128" id="PBN-He-S0l"/>
+                                            <constraint firstItem="Gao-5g-b62" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" id="PPF-jl-m5Y"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="PPF-jl-m5Y"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-KH-3K7">
+                                        <rect key="frame" x="112" y="27" width="112" height="444"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="sVa-9n-Asy" userLabel="head">
+                                                <rect key="frame" x="21" y="0.0" width="71" height="71"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="64:64" id="CRp-ih-CLZ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="gfF-8E-YZd" userLabel="torse">
+                                                <rect key="frame" x="12" y="76" width="88" height="125"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gfF-8E-YZd" secondAttribute="height" multiplier="80:113" id="yvN-TF-Dgi"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="K2k-ui-isO" userLabel="waist">
+                                                <rect key="frame" x="11" y="206" width="90" height="36"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="K2k-ui-isO" secondAttribute="height" multiplier="80:32" id="5Pn-yG-1yd"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4w3-Mi-cim" userLabel="legs">
+                                                <rect key="frame" x="20" y="247" width="72" height="96"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="4w3-Mi-cim" secondAttribute="height" multiplier="64:86" id="Cjz-EV-Xux"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gp9-bg-ySX" userLabel="feet">
+                                                <rect key="frame" x="20" y="348" width="72" height="96"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Gp9-bg-ySX" secondAttribute="height" multiplier="64:86" id="GHD-ub-6my"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="K2k-ui-isO" firstAttribute="height" secondItem="4w3-Mi-cim" secondAttribute="height" multiplier="32:86" id="0fo-qO-M5w"/>
+                                            <constraint firstItem="K2k-ui-isO" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="32:64" id="0nh-0A-KkD"/>
+                                            <constraint firstItem="Gp9-bg-ySX" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="86:64" id="BVN-5o-mr7"/>
+                                            <constraint firstItem="K2k-ui-isO" firstAttribute="width" secondItem="gfF-8E-YZd" secondAttribute="width" id="E8c-gJ-ms8"/>
+                                            <constraint firstItem="gfF-8E-YZd" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="113:64" id="MKR-0D-Dvg"/>
+                                            <constraint firstItem="4w3-Mi-cim" firstAttribute="height" secondItem="Gp9-bg-ySX" secondAttribute="height" id="MWa-qv-zwu"/>
+                                            <constraint firstItem="4w3-Mi-cim" firstAttribute="width" secondItem="sVa-9n-Asy" secondAttribute="width" id="h4A-34-MQZ"/>
+                                            <constraint firstItem="4w3-Mi-cim" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="86:64" id="zJy-BY-VQ2"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0fo-qO-M5w"/>
+                                                <exclude reference="E8c-gJ-ms8"/>
+                                                <exclude reference="MWa-qv-zwu"/>
+                                                <exclude reference="h4A-34-MQZ"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bgn-5O-HzZ">
+                                        <rect key="frame" x="224" y="66" width="112" height="405"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="LUA-wv-bKo">
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="60"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-oa-J8j" userLabel="neck">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Pyg-oa-J8j" secondAttribute="height" multiplier="54:54" id="tKp-Ea-Px4"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Pyg-oa-J8j" firstAttribute="height" secondItem="LUA-wv-bKo" secondAttribute="height" id="kvD-D8-MIA"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-bR-B2X">
+                                                <rect key="frame" x="0.0" y="90" width="112" height="315"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="JmZ-2k-EoE" userLabel="bracers">
+                                                        <rect key="frame" x="20" y="0.0" width="72" height="96"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="JmZ-2k-EoE" secondAttribute="height" multiplier="64:86" id="GSk-Vc-uEM"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CM8-w5-Tdq" userLabel="rightFinger">
+                                                        <rect key="frame" x="34" y="111" width="45" height="45"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="CM8-w5-Tdq" secondAttribute="height" multiplier="40:40" id="eHk-co-5NM"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-p4-DuX" userLabel="offHand">
+                                                        <rect key="frame" x="20" y="171" width="72" height="144"/>
+                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="64:128" id="vQA-gm-YwN"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="CM8-w5-Tdq" firstAttribute="height" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="40:128" id="8yp-kR-MZF"/>
+                                                    <constraint firstItem="JmZ-2k-EoE" firstAttribute="height" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="86:128" id="UTX-xc-sMI"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="LUA-wv-bKo" firstAttribute="height" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="54:128" id="kSY-cN-Col"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sVa-9n-Asy" firstAttribute="height" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="64:421" id="872-vA-aJ0"/>
+                                    <constraint firstAttribute="width" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="300:421" id="QUS-WY-Bk3"/>
+                                    <constraint firstItem="SZh-p4-DuX" firstAttribute="height" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="128:421" id="vWR-fC-48h"/>
+                                    <constraint firstItem="c5c-uV-oYh" firstAttribute="height" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="128:421" id="yZe-mk-t03"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yzt-1y-Ejw" firstAttribute="top" secondItem="L8Q-uj-eHu" secondAttribute="bottom" constant="8" id="69f-v8-Iwb"/>
+                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="top" secondItem="CzN-SH-WCs" secondAttribute="bottom" constant="8" id="6oA-UA-uXh"/>
+                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="width" relation="lessThanOrEqual" secondItem="WV8-mo-Nop" secondAttribute="width" id="I95-4s-qbg"/>
+                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="centerY" secondItem="WV8-mo-Nop" secondAttribute="centerY" id="Ori-tg-4Bg"/>
+                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="leading" secondItem="WV8-mo-Nop" secondAttribute="leading" id="Pq3-Wm-0Wt"/>
+                            <constraint firstAttribute="trailing" secondItem="L8Q-uj-eHu" secondAttribute="trailing" id="Rsd-L4-nir"/>
+                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="centerX" secondItem="WV8-mo-Nop" secondAttribute="centerX" id="ztg-BC-SEt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="I95-4s-qbg"/>
+                                <exclude reference="Ori-tg-4Bg"/>
+                                <exclude reference="Pq3-Wm-0Wt"/>
+                                <exclude reference="Rsd-L4-nir"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Equipments" image="rune_b" id="9ps-hW-qO2"/>
+                    <navigationItem key="navigationItem" title="Equipments" id="5UW-eQ-Ix5"/>
+                    <connections>
+                        <outlet property="bracersImageView" destination="JmZ-2k-EoE" id="efw-3l-Buc"/>
+                        <outlet property="feetImageView" destination="Gp9-bg-ySX" id="Gpi-B6-1It"/>
+                        <outlet property="handsImageView" destination="j51-sN-MO9" id="FjT-gY-pgR"/>
+                        <outlet property="headImageView" destination="sVa-9n-Asy" id="iey-MH-5Ka"/>
+                        <outlet property="leftFingerImageView" destination="9vX-Gv-gwn" id="Rzb-eP-TdY"/>
+                        <outlet property="legsImageView" destination="4w3-Mi-cim" id="kBh-Sc-Y3h"/>
+                        <outlet property="mainHandImageView" destination="c5c-uV-oYh" id="eHA-gJ-NLO"/>
+                        <outlet property="neckImageView" destination="Pyg-oa-J8j" id="izk-ra-ohe"/>
+                        <outlet property="offHandImageView" destination="SZh-p4-DuX" id="IjX-ON-7Qt"/>
+                        <outlet property="rightFingerImageView" destination="CM8-w5-Tdq" id="EdG-1T-oyK"/>
+                        <outlet property="shouldersImageView" destination="Gao-5g-b62" id="K1c-6d-W0D"/>
+                        <outlet property="torseImageView" destination="gfF-8E-YZd" id="uTn-Fa-BDn"/>
+                        <outlet property="waistImageView" destination="K2k-ui-isO" id="V18-Ae-61a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idz-Ya-Nik" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2549" y="-219"/>
         </scene>
         <!--Class Name-->
         <scene sceneID="UJq-Kt-ydN">
@@ -869,6 +1104,7 @@
                         <outlet property="addToCollectionButton" destination="Xd0-aN-ZeO" id="44C-XZ-d07"/>
                         <outlet property="removeButton" destination="kga-rq-9xr" id="Moy-U4-6OH"/>
                         <segue destination="LJL-0t-tb0" kind="relationship" relationship="viewControllers" id="Afq-uv-z1i"/>
+                        <segue destination="Yl5-lU-70e" kind="relationship" relationship="viewControllers" id="KiT-qq-jJe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sU-RA-oGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -897,6 +1133,7 @@
         <image name="passiveskill_icon_bg" width="51" height="51"/>
         <image name="passiveskill_icon_unloaded" width="47" height="47"/>
         <image name="rune_a" width="42" height="42"/>
+        <image name="rune_b" width="42" height="42"/>
         <image name="seasonal-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

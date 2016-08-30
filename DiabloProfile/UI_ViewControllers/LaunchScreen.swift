@@ -10,6 +10,7 @@ import UIKit
 
 class LaunchScreen: UIViewController {
     @IBOutlet weak var launchScreenImageView: UIImageView!
+    var launched = false
     
     override func viewDidAppear(animated: Bool) {
         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(animationToShowMainScreen), userInfo: nil, repeats: false)
@@ -17,8 +18,10 @@ class LaunchScreen: UIViewController {
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
-        
-        animationToShowMainScreen()
+
+        if !launched {
+            animationToShowMainScreen()
+        }
     }
     
     func animationToShowMainScreen() {
@@ -29,5 +32,6 @@ class LaunchScreen: UIViewController {
                     self.performSegueWithIdentifier("ShowMainScreen", sender: nil)
                 }
         }
+        launched = true
     }
 }
