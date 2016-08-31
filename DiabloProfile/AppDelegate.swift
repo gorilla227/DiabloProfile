@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if let font = UIFont(name: "DiabloHeavy", size: 20) {
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.brownColor()]
+            UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+            UINavigationBar.appearance().tintColor = UIColor.brownColor()
+            UITabBar.appearance().barTintColor = UIColor.blackColor()
+            UITabBar.appearance().tintColor = UIColor.brownColor()
         }
         
         return true

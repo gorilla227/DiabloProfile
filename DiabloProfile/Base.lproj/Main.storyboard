@@ -12,6 +12,7 @@
             <string>DiabloHeavy</string>
             <string>DiabloHeavy</string>
             <string>DiabloHeavy</string>
+            <string>DiabloHeavy</string>
         </mutableArray>
         <mutableArray key="DIABLO_L.TTF">
             <string>DiabloLight</string>
@@ -22,7 +23,7 @@
         <scene sceneID="BGu-19-MP7">
             <objects>
                 <navigationController id="VBK-KS-QLQ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="43k-kG-otB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="43k-kG-otB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -42,12 +43,12 @@
             <objects>
                 <tableViewController id="v7z-p7-et7" customClass="HeroListVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZFI-UK-Yfq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeroCell" textLabel="cfF-ZD-JtE" detailTextLabel="to9-z2-qWY" style="IBUITableViewCellStyleSubtitle" id="Y2a-HY-0hb">
-                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y2a-HY-0hb" id="PI7-ta-blj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -96,11 +97,11 @@
             <objects>
                 <tableViewController id="BiA-py-mHs" customClass="AddVC_SearchBattleTag" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Uni-F5-AZo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <pickerView key="tableHeaderView" contentMode="scaleToFill" id="c55-ai-Ctk">
-                            <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <outlet property="dataSource" destination="BiA-py-mHs" id="CAu-cE-faz"/>
@@ -108,7 +109,7 @@
                             </connections>
                         </pickerView>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IlH-YL-4Lg">
-                            <rect key="frame" x="0.0" y="276" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="212" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-vd-E0r">
@@ -134,7 +135,7 @@
                             <tableViewSection id="ftW-D6-vE6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YYp-HN-ip7">
-                                        <rect key="frame" x="0.0" y="214" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="150" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YYp-HN-ip7" id="dh5-BH-Pc8">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -194,14 +195,14 @@
             <objects>
                 <tableViewController id="LJL-0t-tb0" customClass="HeroDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="C3Y-rW-5hP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="AjU-O1-Zi1">
-                            <rect key="frame" x="0.0" y="64" width="600" height="105"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbarian-female-background" translatesAutoresizingMaskIntoConstraints="NO" id="euN-3e-SU3">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crusader-female-background" translatesAutoresizingMaskIntoConstraints="NO" id="euN-3e-SU3">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UPp-PW-fVs">
@@ -210,7 +211,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-cq-9nt">
                                             <rect key="frame" x="0.0" y="0.0" width="540" height="53"/>
                                             <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="50"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="0.90196078431372551" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level(ParagonLevel) Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjR-ew-OgC">
@@ -260,7 +261,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StatCell" textLabel="RyD-de-xqt" detailTextLabel="2sd-sl-G9I" style="IBUITableViewCellStyleValue1" id="Kd0-Cq-sCW">
-                                <rect key="frame" x="0.0" y="219" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="155" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kd0-Cq-sCW" id="Wie-Ch-CjQ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -285,7 +286,7 @@
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResourceCell" rowHeight="114" id="SVu-Lt-XzX" customClass="HeroDetailsVC_ResourceCell" customModule="DiabloProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="263" width="600" height="114"/>
+                                <rect key="frame" x="0.0" y="199" width="600" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SVu-Lt-XzX" id="ymd-1W-AzZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="114"/>
@@ -388,7 +389,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="226" id="qnb-dB-yOa" customClass="HeroDetailsVC_SkillCell" customModule="DiabloProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="377" width="600" height="226"/>
+                                <rect key="frame" x="0.0" y="313" width="600" height="226"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnb-dB-yOa" id="kya-2l-bOC">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="226"/>
@@ -555,226 +556,176 @@
                         <viewControllerLayoutGuide type="bottom" id="yzt-1y-Ejw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WV8-mo-Nop">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="L8Q-uj-eHu">
-                                <rect key="frame" x="132" y="72" width="336" height="471"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-SY-L5v">
-                                        <rect key="frame" x="0.0" y="46" width="112" height="425"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="4d5-c5-Ilx">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="97"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gao-5g-b62" userLabel="shoulders">
-                                                        <rect key="frame" x="47" y="0.0" width="65" height="97"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Gao-5g-b62" secondAttribute="height" multiplier="86:128" id="4WF-Zf-HgB"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="Gao-5g-b62" firstAttribute="height" secondItem="4d5-c5-Ilx" secondAttribute="height" id="boX-MA-1zK"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rhd-AT-IHJ">
-                                                <rect key="frame" x="0.0" y="112" width="112" height="313"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="j51-sN-MO9" userLabel="hands">
-                                                        <rect key="frame" x="20" y="0.0" width="72" height="96"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="j51-sN-MO9" secondAttribute="height" multiplier="64:86" id="NMi-i1-Yqk"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="9vX-Gv-gwn" userLabel="leftFinger">
-                                                        <rect key="frame" x="34" y="111" width="44" height="44"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="9vX-Gv-gwn" secondAttribute="height" multiplier="40:40" id="RRc-8a-afo"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="c5c-uV-oYh" userLabel="mainHand">
-                                                        <rect key="frame" x="20" y="170" width="72" height="143"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="64:128" id="35Z-mm-yk2"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="9vX-Gv-gwn" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="40:128" id="dEg-oe-yrE"/>
-                                                    <constraint firstItem="j51-sN-MO9" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="86:128" id="tvq-6v-iAW"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="4d5-c5-Ilx" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" multiplier="86:128" id="PBN-He-S0l"/>
-                                            <constraint firstItem="Gao-5g-b62" firstAttribute="height" secondItem="c5c-uV-oYh" secondAttribute="height" id="PPF-jl-m5Y"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="PPF-jl-m5Y"/>
-                                            </mask>
-                                        </variation>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-KH-3K7">
-                                        <rect key="frame" x="112" y="27" width="112" height="444"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="sVa-9n-Asy" userLabel="head">
-                                                <rect key="frame" x="21" y="0.0" width="71" height="71"/>
-                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="64:64" id="CRp-ih-CLZ"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="gfF-8E-YZd" userLabel="torse">
-                                                <rect key="frame" x="12" y="76" width="88" height="125"/>
-                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="gfF-8E-YZd" secondAttribute="height" multiplier="80:113" id="yvN-TF-Dgi"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="K2k-ui-isO" userLabel="waist">
-                                                <rect key="frame" x="11" y="206" width="90" height="36"/>
-                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="K2k-ui-isO" secondAttribute="height" multiplier="80:32" id="5Pn-yG-1yd"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4w3-Mi-cim" userLabel="legs">
-                                                <rect key="frame" x="20" y="247" width="72" height="96"/>
-                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="4w3-Mi-cim" secondAttribute="height" multiplier="64:86" id="Cjz-EV-Xux"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gp9-bg-ySX" userLabel="feet">
-                                                <rect key="frame" x="20" y="348" width="72" height="96"/>
-                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Gp9-bg-ySX" secondAttribute="height" multiplier="64:86" id="GHD-ub-6my"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="K2k-ui-isO" firstAttribute="height" secondItem="4w3-Mi-cim" secondAttribute="height" multiplier="32:86" id="0fo-qO-M5w"/>
-                                            <constraint firstItem="K2k-ui-isO" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="32:64" id="0nh-0A-KkD"/>
-                                            <constraint firstItem="Gp9-bg-ySX" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="86:64" id="BVN-5o-mr7"/>
-                                            <constraint firstItem="K2k-ui-isO" firstAttribute="width" secondItem="gfF-8E-YZd" secondAttribute="width" id="E8c-gJ-ms8"/>
-                                            <constraint firstItem="gfF-8E-YZd" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="113:64" id="MKR-0D-Dvg"/>
-                                            <constraint firstItem="4w3-Mi-cim" firstAttribute="height" secondItem="Gp9-bg-ySX" secondAttribute="height" id="MWa-qv-zwu"/>
-                                            <constraint firstItem="4w3-Mi-cim" firstAttribute="width" secondItem="sVa-9n-Asy" secondAttribute="width" id="h4A-34-MQZ"/>
-                                            <constraint firstItem="4w3-Mi-cim" firstAttribute="height" secondItem="sVa-9n-Asy" secondAttribute="height" multiplier="86:64" id="zJy-BY-VQ2"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="0fo-qO-M5w"/>
-                                                <exclude reference="E8c-gJ-ms8"/>
-                                                <exclude reference="MWa-qv-zwu"/>
-                                                <exclude reference="h4A-34-MQZ"/>
-                                            </mask>
-                                        </variation>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bgn-5O-HzZ">
-                                        <rect key="frame" x="224" y="66" width="112" height="405"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="LUA-wv-bKo">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="60"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-oa-J8j" userLabel="neck">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Pyg-oa-J8j" secondAttribute="height" multiplier="54:54" id="tKp-Ea-Px4"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="Pyg-oa-J8j" firstAttribute="height" secondItem="LUA-wv-bKo" secondAttribute="height" id="kvD-D8-MIA"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-bR-B2X">
-                                                <rect key="frame" x="0.0" y="90" width="112" height="315"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="JmZ-2k-EoE" userLabel="bracers">
-                                                        <rect key="frame" x="20" y="0.0" width="72" height="96"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="JmZ-2k-EoE" secondAttribute="height" multiplier="64:86" id="GSk-Vc-uEM"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CM8-w5-Tdq" userLabel="rightFinger">
-                                                        <rect key="frame" x="34" y="111" width="45" height="45"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="CM8-w5-Tdq" secondAttribute="height" multiplier="40:40" id="eHk-co-5NM"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diablo_3_logo" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-p4-DuX" userLabel="offHand">
-                                                        <rect key="frame" x="20" y="171" width="72" height="144"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="64:128" id="vQA-gm-YwN"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="CM8-w5-Tdq" firstAttribute="height" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="40:128" id="8yp-kR-MZF"/>
-                                                    <constraint firstItem="JmZ-2k-EoE" firstAttribute="height" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="86:128" id="UTX-xc-sMI"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="LUA-wv-bKo" firstAttribute="height" secondItem="SZh-p4-DuX" secondAttribute="height" multiplier="54:128" id="kSY-cN-Col"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crusader-female_item_bg" translatesAutoresizingMaskIntoConstraints="NO" id="4X7-Cy-rj7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3G9-m0-Vs5">
+                                <rect key="frame" x="168" y="56" width="266" height="30"/>
                                 <constraints>
-                                    <constraint firstItem="sVa-9n-Asy" firstAttribute="height" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="64:421" id="872-vA-aJ0"/>
-                                    <constraint firstAttribute="width" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="300:421" id="QUS-WY-Bk3"/>
-                                    <constraint firstItem="SZh-p4-DuX" firstAttribute="height" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="128:421" id="vWR-fC-48h"/>
-                                    <constraint firstItem="c5c-uV-oYh" firstAttribute="height" secondItem="L8Q-uj-eHu" secondAttribute="height" multiplier="128:421" id="yZe-mk-t03"/>
+                                    <constraint firstAttribute="width" secondItem="3G9-m0-Vs5" secondAttribute="height" multiplier="355:40" id="zvu-Eh-IMf"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.90196078431372551" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8QP-HK-UAC" userLabel="head" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="276" y="120" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8QP-HK-UAC" secondAttribute="height" multiplier="1:1" id="Bu9-kI-ZUu"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3U-RW-qgW" userLabel="hands" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="187" y="213" width="50" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b3U-RW-qgW" secondAttribute="height" multiplier="66:88" id="Kla-eM-d9p"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uT0-CD-cPR" userLabel="shoulders" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="209" y="139" width="49" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uT0-CD-cPR" secondAttribute="height" multiplier="66:88" id="HVt-BD-rkr"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kB5-nt-tb6" userLabel="neck" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="345" y="154" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kB5-nt-tb6" secondAttribute="height" id="YD5-YA-F4V"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-nv-yEO" userLabel="torso" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="270" y="172" width="62" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xUx-nv-yEO" secondAttribute="height" multiplier="82:116" id="cQD-yi-Whe"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-5k-fR7" userLabel="waist" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="270" y="263" width="62" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OSa-5k-fR7" secondAttribute="height" multiplier="82:33" id="AGA-Iy-dnh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-bl-ChB" userLabel="bracers" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="363" y="213" width="50" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="X7A-bl-ChB" secondAttribute="height" multiplier="66:88" id="lGD-4c-0cw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUF-dm-ROD" userLabel="leftFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="195" y="289" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mUF-dm-ROD" secondAttribute="height" id="46I-Qu-pZw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-9k-fBq" userLabel="rightFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="375" y="289" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GDv-9k-fBq" secondAttribute="height" id="1qb-7q-NBg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-t9-1B7" userLabel="feet" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="276" y="361" width="50" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tBu-t9-1B7" secondAttribute="height" multiplier="66:88" id="A3a-6I-fn3"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Q0-tjY" userLabel="legs" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="276" y="292" width="50" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GH8-Q0-tjY" secondAttribute="height" multiplier="66:88" id="9EQ-jn-hn3"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOy-kp-GVN" userLabel="mainHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="185" y="330" width="50" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nOy-kp-GVN" secondAttribute="height" multiplier="66:130" id="pwS-gA-9dw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-7L-6Vx" userLabel="offHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="365" y="330" width="50" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bui-7L-6Vx" secondAttribute="height" multiplier="66:130" id="PPJ-mt-T6g"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yzt-1y-Ejw" firstAttribute="top" secondItem="L8Q-uj-eHu" secondAttribute="bottom" constant="8" id="69f-v8-Iwb"/>
-                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="top" secondItem="CzN-SH-WCs" secondAttribute="bottom" constant="8" id="6oA-UA-uXh"/>
-                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="width" relation="lessThanOrEqual" secondItem="WV8-mo-Nop" secondAttribute="width" id="I95-4s-qbg"/>
-                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="centerY" secondItem="WV8-mo-Nop" secondAttribute="centerY" id="Ori-tg-4Bg"/>
-                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="leading" secondItem="WV8-mo-Nop" secondAttribute="leading" id="Pq3-Wm-0Wt"/>
-                            <constraint firstAttribute="trailing" secondItem="L8Q-uj-eHu" secondAttribute="trailing" id="Rsd-L4-nir"/>
-                            <constraint firstItem="L8Q-uj-eHu" firstAttribute="centerX" secondItem="WV8-mo-Nop" secondAttribute="centerX" id="ztg-BC-SEt"/>
+                            <constraint firstItem="GDv-9k-fBq" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="42:645" id="0hZ-g3-QH1"/>
+                            <constraint firstItem="GH8-Q0-tjY" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="0tj-cH-GIW"/>
+                            <constraint firstItem="tBu-t9-1B7" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="1rF-Ir-hQq"/>
+                            <constraint firstItem="nOy-kp-GVN" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="130:645" id="322-rf-Pe5"/>
+                            <constraint firstItem="tBu-t9-1B7" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="3Ec-Jv-NbQ"/>
+                            <constraint firstItem="nOy-kp-GVN" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="1004:645" id="3n9-3w-ftH"/>
+                            <constraint firstItem="X7A-bl-ChB" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="652:645" id="3ru-7w-W59"/>
+                            <constraint firstItem="xUx-nv-yEO" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="43a-X0-I7y"/>
+                            <constraint firstItem="GDv-9k-fBq" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="806:645" id="5KP-HT-PAJ"/>
+                            <constraint firstItem="X7A-bl-ChB" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="88" id="7D2-0J-W8x"/>
+                            <constraint firstItem="b3U-RW-qgW" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="7fD-It-EHK"/>
+                            <constraint firstItem="kB5-nt-tb6" firstAttribute="centerX" secondItem="8QP-HK-UAC" secondAttribute="centerX" constant="65" id="9cV-bF-kkf"/>
+                            <constraint firstItem="uT0-CD-cPR" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="9ca-ig-8yO"/>
+                            <constraint firstItem="kB5-nt-tb6" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="56:645" id="F36-Ys-ojS"/>
+                            <constraint firstItem="4X7-Cy-rj7" firstAttribute="leading" secondItem="WV8-mo-Nop" secondAttribute="leading" id="FSo-0p-L6h"/>
+                            <constraint firstItem="8QP-HK-UAC" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="Fj8-fI-5AE"/>
+                            <constraint firstItem="b3U-RW-qgW" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="-88" id="G0l-Tl-pms"/>
+                            <constraint firstItem="nOy-kp-GVN" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="-90" id="HWJ-vO-6At"/>
+                            <constraint firstItem="4X7-Cy-rj7" firstAttribute="top" secondItem="CzN-SH-WCs" secondAttribute="bottom" id="JoH-rT-ZCc"/>
+                            <constraint firstItem="uT0-CD-cPR" firstAttribute="centerX" secondItem="8QP-HK-UAC" secondAttribute="centerX" constant="-68" id="Jzz-l7-i01"/>
+                            <constraint firstItem="b3U-RW-qgW" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="652:645" id="Mfa-ZH-O6S"/>
+                            <constraint firstItem="8QP-HK-UAC" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="384:645" id="NEg-dR-SrH"/>
+                            <constraint firstItem="GH8-Q0-tjY" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="NWi-C8-swh"/>
+                            <constraint firstItem="xUx-nv-yEO" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="572:645" id="Tej-Cv-kyF"/>
+                            <constraint firstItem="mUF-dm-ROD" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="806:645" id="VNs-Rp-gHU"/>
+                            <constraint firstItem="3G9-m0-Vs5" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="190:645" id="Wh1-6L-Rwr"/>
+                            <constraint firstItem="3G9-m0-Vs5" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="40:645" id="Xz9-Bs-uxS"/>
+                            <constraint firstAttribute="trailing" secondItem="4X7-Cy-rj7" secondAttribute="trailing" id="eqK-Ub-LaF"/>
+                            <constraint firstItem="kB5-nt-tb6" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="462:645" id="ftx-32-8ng"/>
+                            <constraint firstItem="GDv-9k-fBq" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="90" id="g3N-hd-uno"/>
+                            <constraint firstItem="OSa-5k-fR7" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="728:645" id="gEW-8R-aIz"/>
+                            <constraint firstAttribute="bottom" secondItem="4X7-Cy-rj7" secondAttribute="bottom" id="gO6-Jn-ZRz"/>
+                            <constraint firstItem="GH8-Q0-tjY" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="860:645" id="iE3-dN-yZ2"/>
+                            <constraint firstItem="Bui-7L-6Vx" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="1004:645" id="k0o-VN-SWJ"/>
+                            <constraint firstItem="8QP-HK-UAC" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="66:645" id="lOI-vQ-aKz"/>
+                            <constraint firstItem="3G9-m0-Vs5" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="myB-cr-OCF"/>
+                            <constraint firstItem="tBu-t9-1B7" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="1044:645" id="nQj-JR-ydb"/>
+                            <constraint firstItem="mUF-dm-ROD" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="-90" id="oCt-aK-bvr"/>
+                            <constraint firstItem="xUx-nv-yEO" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="116:645" id="of6-tc-nFc"/>
+                            <constraint firstItem="Bui-7L-6Vx" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="130:645" id="p3c-1T-k0T"/>
+                            <constraint firstItem="uT0-CD-cPR" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="454:645" id="q2v-nt-nNA"/>
+                            <constraint firstItem="Bui-7L-6Vx" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="90" id="qP5-DY-GKD"/>
+                            <constraint firstItem="OSa-5k-fR7" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="33:645" id="qn9-f6-WkI"/>
+                            <constraint firstItem="mUF-dm-ROD" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="42:645" id="rrL-sg-OHX"/>
+                            <constraint firstItem="OSa-5k-fR7" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="tCr-k3-3Mh"/>
+                            <constraint firstItem="X7A-bl-ChB" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="zXu-z8-Nyb"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="I95-4s-qbg"/>
-                                <exclude reference="Ori-tg-4Bg"/>
-                                <exclude reference="Pq3-Wm-0Wt"/>
-                                <exclude reference="Rsd-L4-nir"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Equipments" image="rune_b" id="9ps-hW-qO2"/>
                     <navigationItem key="navigationItem" title="Equipments" id="5UW-eQ-Ix5"/>
                     <connections>
-                        <outlet property="bracersImageView" destination="JmZ-2k-EoE" id="efw-3l-Buc"/>
-                        <outlet property="feetImageView" destination="Gp9-bg-ySX" id="Gpi-B6-1It"/>
-                        <outlet property="handsImageView" destination="j51-sN-MO9" id="FjT-gY-pgR"/>
-                        <outlet property="headImageView" destination="sVa-9n-Asy" id="iey-MH-5Ka"/>
-                        <outlet property="leftFingerImageView" destination="9vX-Gv-gwn" id="Rzb-eP-TdY"/>
-                        <outlet property="legsImageView" destination="4w3-Mi-cim" id="kBh-Sc-Y3h"/>
-                        <outlet property="mainHandImageView" destination="c5c-uV-oYh" id="eHA-gJ-NLO"/>
-                        <outlet property="neckImageView" destination="Pyg-oa-J8j" id="izk-ra-ohe"/>
-                        <outlet property="offHandImageView" destination="SZh-p4-DuX" id="IjX-ON-7Qt"/>
-                        <outlet property="rightFingerImageView" destination="CM8-w5-Tdq" id="EdG-1T-oyK"/>
-                        <outlet property="shouldersImageView" destination="Gao-5g-b62" id="K1c-6d-W0D"/>
-                        <outlet property="torseImageView" destination="gfF-8E-YZd" id="uTn-Fa-BDn"/>
-                        <outlet property="waistImageView" destination="K2k-ui-isO" id="V18-Ae-61a"/>
+                        <outlet property="backgroundImageView" destination="4X7-Cy-rj7" id="Bc3-uB-A9F"/>
+                        <outlet property="bracersHorizonConstraint" destination="7D2-0J-W8x" id="Muq-Qe-aXr"/>
+                        <outlet property="bracersImageView" destination="X7A-bl-ChB" id="hBx-hP-cku"/>
+                        <outlet property="feetImageView" destination="tBu-t9-1B7" id="d5C-bD-oIf"/>
+                        <outlet property="handsHorizonConstraint" destination="G0l-Tl-pms" id="sI5-y9-DXA"/>
+                        <outlet property="handsImageView" destination="b3U-RW-qgW" id="iXl-NP-CZM"/>
+                        <outlet property="headImageView" destination="8QP-HK-UAC" id="YN9-8h-LfY"/>
+                        <outlet property="heroNameLabel" destination="3G9-m0-Vs5" id="PeC-NP-aah"/>
+                        <outlet property="leftFingerHorizonConstraint" destination="oCt-aK-bvr" id="fTS-gg-l6j"/>
+                        <outlet property="leftFingerImageView" destination="mUF-dm-ROD" id="aZG-pH-LqM"/>
+                        <outlet property="legsImageView" destination="GH8-Q0-tjY" id="WGm-aH-jFA"/>
+                        <outlet property="mainHandHorizonConstraint" destination="HWJ-vO-6At" id="mss-36-B7d"/>
+                        <outlet property="mainHandImageView" destination="nOy-kp-GVN" id="7qp-Vd-Tay"/>
+                        <outlet property="neckHorizonConstraint" destination="9cV-bF-kkf" id="YmM-zc-c1K"/>
+                        <outlet property="neckImageView" destination="kB5-nt-tb6" id="t3S-mR-u6K"/>
+                        <outlet property="offHandHorizonConstraint" destination="qP5-DY-GKD" id="GUt-nY-8oe"/>
+                        <outlet property="offHandImageView" destination="Bui-7L-6Vx" id="b7V-7Z-6An"/>
+                        <outlet property="rightFingerHorizonConstraint" destination="g3N-hd-uno" id="DOM-zX-FXf"/>
+                        <outlet property="rightFingerImageView" destination="GDv-9k-fBq" id="es9-4i-NT9"/>
+                        <outlet property="shouldersHorizonConstraint" destination="Jzz-l7-i01" id="8yN-bO-uPD"/>
+                        <outlet property="shouldersImageView" destination="uT0-CD-cPR" id="7OD-lm-n1s"/>
+                        <outlet property="torsoImageView" destination="xUx-nv-yEO" id="HlM-vF-QaG"/>
+                        <outlet property="waistImageView" destination="OSa-5k-fR7" id="Mfl-HJ-1jp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idz-Ya-Nik" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -786,12 +737,12 @@
             <objects>
                 <tableViewController id="S0b-1a-i2o" customClass="SkillDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="147" sectionHeaderHeight="18" sectionFooterHeight="18" id="hjC-Ca-qTj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveSkillCell" rowHeight="147" id="34Z-W5-708" customClass="SkillDetailsVC_ActiveSkillCell" customModule="DiabloProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="147"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="147"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="34Z-W5-708" id="VsY-V5-oXv">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="147"/>
@@ -826,40 +777,40 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wjL-HY-FzE">
                                                     <rect key="frame" x="133" y="0.0" width="457" height="127"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28O-6W-NU3">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" misplaced="YES" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28O-6W-NU3">
                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                                             <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="26"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wef-Ia-4Yb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wef-Ia-4Yb">
                                                             <rect key="frame" x="0.0" y="35" width="63" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldJ-zG-XbU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldJ-zG-XbU">
                                                             <rect key="frame" x="0.0" y="58" width="84" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-pJ-5Qq">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-pJ-5Qq">
                                                             <rect key="frame" x="0.0" y="83" width="213" height="44"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rune_a" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-2f-FyK">
                                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3ZF-I6-nGK">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3ZF-I6-nGK">
                                                                     <rect key="frame" x="42" y="0.0" width="171" height="44"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Rune Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDj-Kt-Tr4">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Rune Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDj-Kt-Tr4">
                                                                             <rect key="frame" x="0.0" y="0.0" width="130" height="23"/>
                                                                             <fontDescription key="fontDescription" name="DiabloLight" family="Diablo" pointSize="20"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntJ-XZ-A1H">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntJ-XZ-A1H">
                                                                             <rect key="frame" x="0.0" y="28" width="75" height="16"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -900,7 +851,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PassiveSkillCell" id="7A4-bO-nSC" customClass="SkillDetailsVC_PassiveSkillCell" customModule="DiabloProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="261" width="600" height="147"/>
+                                <rect key="frame" x="0.0" y="197" width="600" height="147"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7A4-bO-nSC" id="vax-Pj-0O0">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="147"/>
@@ -930,22 +881,22 @@
                                                         <constraint firstItem="yGQ-d5-jSc" firstAttribute="width" secondItem="cOh-m0-hGX" secondAttribute="width" multiplier="39:51" id="wRt-l9-Gao"/>
                                                     </constraints>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zox-Uv-gK3">
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zox-Uv-gK3">
                                                     <rect key="frame" x="108" y="0.0" width="482" height="77"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RgS-50-BFe">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RgS-50-BFe">
                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                                             <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="26"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-aM-cbd">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-aM-cbd">
                                                             <rect key="frame" x="0.0" y="35" width="84" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-Jg-ZOJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-Jg-ZOJ">
                                                             <rect key="frame" x="0.0" y="60" width="40" height="17"/>
                                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -991,12 +942,12 @@
             <objects>
                 <tableViewController id="AWj-MP-tMI" customClass="AddVC_SelectHero" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nnz-v5-3cW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeroCell" textLabel="Ceh-yn-0qg" detailTextLabel="My8-ZJ-J2W" style="IBUITableViewCellStyleSubtitle" id="qzp-kv-jrI">
-                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qzp-kv-jrI" id="q0p-aW-vSa">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -1045,7 +996,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="biP-Eo-auP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7i1-KL-ecO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7i1-KL-ecO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1096,7 +1047,8 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DtD-iE-BLx" customClass="HeroDetailsTabBarController" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Twd-vD-lAn">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Twd-vD-lAn">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -1125,8 +1077,9 @@
     <resources>
         <image name="activeskill_icon_bg" width="193" height="159"/>
         <image name="activeskill_icon_unloaded" width="42" height="42"/>
-        <image name="barbarian-female-background" width="414" height="138"/>
         <image name="barbarian-orb" width="194" height="162"/>
+        <image name="crusader-female-background" width="417" height="138"/>
+        <image name="crusader-female_item_bg" width="734" height="645"/>
         <image name="diablo_3_logo" width="816" height="979"/>
         <image name="hardcore-icon" width="46" height="46"/>
         <image name="life-orb" width="194" height="162"/>

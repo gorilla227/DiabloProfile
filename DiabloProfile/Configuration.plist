@@ -8,6 +8,8 @@
 		<string>/d3/profile/&lt;battletag&gt;/</string>
 		<key>HeroProfile</key>
 		<string>/d3/profile/&lt;battletag&gt;/hero/&lt;id&gt;</string>
+		<key>ItemData</key>
+		<string>/d3/data/&lt;itemTooltipParams&gt;</string>
 	</dict>
 	<key>RegionsLocales</key>
 	<array>

@@ -21,6 +21,8 @@
 		B23641C91D61334C0020B16C /* BlizzardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641C81D61334C0020B16C /* BlizzardAPI.swift */; };
 		B23641CC1D61339E0020B16C /* BlizzardAPI_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */; };
 		B23641D01D613BDD0020B16C /* ConfigurationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */; };
+		B245BE1C1D75F61600F33B1D /* ItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245BE1B1D75F61600F33B1D /* ItemImageView.swift */; };
+		B245BE1E1D761EC800F33B1D /* GemSocketImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245BE1D1D761EC800F33B1D /* GemSocketImageView.swift */; };
 		B24BDB701D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */; };
 		B25F70F41D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */; };
 		B25F70FA1D67DF2E004AEE37 /* DIABLO_H.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */; };
@@ -77,6 +79,8 @@
 		B23641C81D61334C0020B16C /* BlizzardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI.swift; path = BlizzardAPI/BlizzardAPI.swift; sourceTree = "<group>"; };
 		B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_Constants.swift; path = BlizzardAPI/BlizzardAPI_Constants.swift; sourceTree = "<group>"; };
 		B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationFunctions.swift; sourceTree = "<group>"; };
+		B245BE1B1D75F61600F33B1D /* ItemImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemImageView.swift; path = CustomizeUI/ItemImageView.swift; sourceTree = "<group>"; };
+		B245BE1D1D761EC800F33B1D /* GemSocketImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GemSocketImageView.swift; path = CustomizeUI/GemSocketImageView.swift; sourceTree = "<group>"; };
 		B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_ResourceCell.swift; path = UI_ViewControllers/HeroDetailsVC_ResourceCell.swift; sourceTree = "<group>"; };
 		B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_PassiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_PassiveSkillCell.swift; sourceTree = "<group>"; };
 		B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_H.TTF; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				B2F61B401D6688A90067E83B /* InsetUILabel.swift */,
+				B245BE1B1D75F61600F33B1D /* ItemImageView.swift */,
+				B245BE1D1D761EC800F33B1D /* GemSocketImageView.swift */,
 			);
 			name = CustomizeUI;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				B2AE25CB1D6260C70046C6BA /* Spell.swift in Sources */,
 				B2AE25CC1D6260C70046C6BA /* Hero+CoreDataProperties.swift in Sources */,
 				B2AE25CA1D6260C70046C6BA /* Spell+CoreDataProperties.swift in Sources */,
+				B245BE1C1D75F61600F33B1D /* ItemImageView.swift in Sources */,
 				B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */,
 				B2D41A1A1D74F95D0024A445 /* EquipmentVC.swift in Sources */,
 				B2D41A131D7495130024A445 /* ItemAttribute+CoreDataProperties.swift in Sources */,
@@ -387,6 +394,7 @@
 				B2AE25CF1D6260C70046C6BA /* Skill.swift in Sources */,
 				B23641B21D6124EB0020B16C /* AppDelegate.swift in Sources */,
 				B2D41A0B1D7495130024A445 /* BasicItem+CoreDataProperties.swift in Sources */,
+				B245BE1E1D761EC800F33B1D /* GemSocketImageView.swift in Sources */,
 				B2D41A111D7495130024A445 /* DetailItem+CoreDataProperties.swift in Sources */,
 				B2D41A141D7495130024A445 /* ItemAttribute.swift in Sources */,
 				B2FF151E1D62952D00FBAA7B /* HeroListVC.swift in Sources */,

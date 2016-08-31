@@ -96,4 +96,20 @@ extension BasicItem {
         static let Hero = "hero"
         static let Set = "set"
     }
+    
+    struct SlotKeys {
+        static let Head = "head"
+        static let Torso = "torso"
+        static let Feet = "feet"
+        static let Hands = "hands"
+        static let Shoulders = "shoulders"
+        static let Legs = "legs"
+        static let Bracers = "bracers"
+        static let MainHand = "mainHand"
+        static let OffHand = "offHand"
+        static let Waist = "waist"
+        static let RightFinger = "rightFinger"
+        static let LeftFinger = "leftFinger"
+        static let Neck = "neck"
+    }
 }

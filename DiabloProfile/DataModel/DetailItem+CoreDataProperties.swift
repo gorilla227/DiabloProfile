@@ -38,5 +38,6 @@ extension DetailItem {
     @NSManaged var attributes: NSSet?
     @NSManaged var basicItem: BasicItem?
     @NSManaged var gems: NSSet?
+    @NSManaged var itemSet: ItemSet?
 
 }

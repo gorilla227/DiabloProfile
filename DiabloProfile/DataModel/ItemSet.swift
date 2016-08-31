@@ -46,15 +46,20 @@ class ItemSet: NSManagedObject {
             }
             self.setBonus = NSOrderedSet(array: setBonusArray)
         }
+        
+        if let detailItem = dictionary[Keys.DetailItem] as? DetailItem {
+            self.detailItem = detailItem
+        }
     }
 }
 
 extension ItemSet {
     struct Keys {
-        static let EntityName = "Set"
+        static let EntityName = "ItemSet"
         static let Name = "name"
         static let Slug = "slug"
         static let Items = "items"
         static let SetBonus = "setBonus"
+        static let DetailItem = "detailItem"
     }
 }

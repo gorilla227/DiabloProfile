@@ -126,6 +126,10 @@ class DetailItem: NSManagedObject {
             }
             self.gems = NSSet(array: gemsArray)
         }
+        
+        if let itemSetDict = dictionary[Keys.ItemSet] as? [String: AnyObject] {
+            self.itemSet = ItemSet(dictionary: itemSetDict, context: context)
+        }
     }
     
     // size = "small" or "large"
@@ -165,5 +169,6 @@ extension DetailItem {
         static let Attributes = "attributes"
         static let BasicItem = "basicItem"
         static let Gems = "gems"
+        static let ItemSet = "itemSet"
     }
 }
