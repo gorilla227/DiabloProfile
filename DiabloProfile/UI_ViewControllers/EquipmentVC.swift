@@ -74,7 +74,7 @@ class EquipmentVC: UIViewController {
         
         // Load Hero Name
         if let heroName = hero.name {
-            heroNameLabel.text = heroName
+            heroNameLabel.text = heroName.uppercaseString
         }
         
         // Load Items

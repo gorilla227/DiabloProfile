@@ -202,9 +202,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crusader-female-background" translatesAutoresizingMaskIntoConstraints="NO" id="euN-3e-SU3">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
-                                </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UPp-PW-fVs">
                                     <rect key="frame" x="10" y="0.0" width="540" height="105"/>
                                     <subviews>
@@ -235,13 +232,11 @@
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="euN-3e-SU3" secondAttribute="bottom" id="5hl-M2-me8"/>
                                 <constraint firstItem="UPp-PW-fVs" firstAttribute="top" secondItem="AjU-O1-Zi1" secondAttribute="top" id="C9Z-7k-IhS"/>
                                 <constraint firstAttribute="trailing" secondItem="FAo-lF-4JU" secondAttribute="trailing" constant="10" id="CSs-El-R7s"/>
                                 <constraint firstAttribute="bottom" secondItem="UPp-PW-fVs" secondAttribute="bottom" id="LfB-ET-awg"/>
-                                <constraint firstItem="euN-3e-SU3" firstAttribute="top" secondItem="AjU-O1-Zi1" secondAttribute="top" id="WvS-tT-td7"/>
                                 <constraint firstAttribute="trailing" secondItem="D9p-Ff-izN" secondAttribute="trailing" constant="10" id="ZTQ-G4-XQc"/>
                                 <constraint firstItem="D9p-Ff-izN" firstAttribute="height" secondItem="AjU-O1-Zi1" secondAttribute="height" multiplier="1:3" id="dqT-ts-gZD"/>
                                 <constraint firstItem="FAo-lF-4JU" firstAttribute="leading" secondItem="UPp-PW-fVs" secondAttribute="trailing" constant="5" id="i9m-LD-Gwe"/>
@@ -249,8 +244,6 @@
                                 <constraint firstItem="FAo-lF-4JU" firstAttribute="height" secondItem="AjU-O1-Zi1" secondAttribute="height" multiplier="1:3" id="krn-gV-Gvy"/>
                                 <constraint firstAttribute="bottom" secondItem="D9p-Ff-izN" secondAttribute="bottom" id="rFr-FK-mCv"/>
                                 <constraint firstItem="UPp-PW-fVs" firstAttribute="leading" secondItem="AjU-O1-Zi1" secondAttribute="leading" constant="10" id="rG6-5l-ygE"/>
-                                <constraint firstAttribute="trailing" secondItem="euN-3e-SU3" secondAttribute="trailing" id="rlf-Ph-4P2"/>
-                                <constraint firstItem="euN-3e-SU3" firstAttribute="leading" secondItem="AjU-O1-Zi1" secondAttribute="leading" id="s3k-N0-pFK"/>
                                 <constraint firstItem="FAo-lF-4JU" firstAttribute="top" secondItem="AjU-O1-Zi1" secondAttribute="top" id="yhE-mK-etT"/>
                             </constraints>
                             <variation key="default">
@@ -283,7 +276,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResourceCell" rowHeight="114" id="SVu-Lt-XzX" customClass="HeroDetailsVC_ResourceCell" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="199" width="600" height="114"/>
@@ -379,7 +372,7 @@
                                         <constraint firstItem="qLU-W0-ue0" firstAttribute="leading" secondItem="ymd-1W-AzZ" secondAttribute="leading" id="r1c-35-Zum"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="lifeTitleLabel" destination="qDG-LI-qfV" id="Cxp-QU-LL9"/>
                                     <outlet property="lifeValueLabel" destination="qso-XA-ZrG" id="Tcm-3s-yHV"/>
@@ -514,7 +507,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.50406788793103452" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="runeDescriptionLabel" destination="SIj-wV-KDL" id="58W-6j-zYf"/>
                                     <outlet property="runeIconImageView" destination="0q0-5e-mi6" id="kjd-n3-foV"/>
@@ -539,7 +532,6 @@
                         <outlet property="heroLevelClassLabel" destination="jjR-ew-OgC" id="rwE-2D-rgh"/>
                         <outlet property="heroNameLabel" destination="eBG-cq-9nt" id="UpH-LZ-EgH"/>
                         <outlet property="seasonImageView" destination="D9p-Ff-izN" id="sHH-87-ZyY"/>
-                        <outlet property="titleBackgroundImageView" destination="euN-3e-SU3" id="zDL-ES-Dlx"/>
                         <segue destination="S0b-1a-i2o" kind="show" identifier="SkillDetailsSegue" id="h2F-q2-KeP"/>
                     </connections>
                 </tableViewController>
@@ -777,40 +769,40 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wjL-HY-FzE">
                                                     <rect key="frame" x="133" y="0.0" width="457" height="127"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" misplaced="YES" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28O-6W-NU3">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28O-6W-NU3">
                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                                             <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="26"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wef-Ia-4Yb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wef-Ia-4Yb">
                                                             <rect key="frame" x="0.0" y="35" width="63" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldJ-zG-XbU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldJ-zG-XbU">
                                                             <rect key="frame" x="0.0" y="58" width="84" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-pJ-5Qq">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-pJ-5Qq">
                                                             <rect key="frame" x="0.0" y="83" width="213" height="44"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rune_a" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-2f-FyK">
                                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3ZF-I6-nGK">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3ZF-I6-nGK">
                                                                     <rect key="frame" x="42" y="0.0" width="171" height="44"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Rune Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDj-Kt-Tr4">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Rune Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDj-Kt-Tr4">
                                                                             <rect key="frame" x="0.0" y="0.0" width="130" height="23"/>
                                                                             <fontDescription key="fontDescription" name="DiabloLight" family="Diablo" pointSize="20"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntJ-XZ-A1H">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntJ-XZ-A1H">
                                                                             <rect key="frame" x="0.0" y="28" width="75" height="16"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -881,22 +873,22 @@
                                                         <constraint firstItem="yGQ-d5-jSc" firstAttribute="width" secondItem="cOh-m0-hGX" secondAttribute="width" multiplier="39:51" id="wRt-l9-Gao"/>
                                                     </constraints>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zox-Uv-gK3">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zox-Uv-gK3">
                                                     <rect key="frame" x="108" y="0.0" width="482" height="77"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RgS-50-BFe">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RgS-50-BFe">
                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                                             <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="26"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-aM-cbd">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-aM-cbd">
                                                             <rect key="frame" x="0.0" y="35" width="84" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-Jg-ZOJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-Jg-ZOJ">
                                                             <rect key="frame" x="0.0" y="60" width="40" height="17"/>
                                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -1078,7 +1070,6 @@
         <image name="activeskill_icon_bg" width="193" height="159"/>
         <image name="activeskill_icon_unloaded" width="42" height="42"/>
         <image name="barbarian-orb" width="194" height="162"/>
-        <image name="crusader-female-background" width="417" height="138"/>
         <image name="crusader-female_item_bg" width="734" height="645"/>
         <image name="diablo_3_logo" width="816" height="979"/>
         <image name="hardcore-icon" width="46" height="46"/>

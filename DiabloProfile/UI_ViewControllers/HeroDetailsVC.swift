@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 class HeroDetailsVC: UITableViewController {
-    @IBOutlet weak var titleBackgroundImageView: UIImageView!
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroLevelClassLabel: UILabel!
     @IBOutlet weak var hardcoreImageView: UIImageView!
@@ -52,7 +51,10 @@ class HeroDetailsVC: UITableViewController {
             heroLevelClassLabel.text = "\(hero.level!) (\(hero.paragonLevel!)) \(className)"
             
             if let imagePath = hero.titleBackgroundImagePath() {
-                titleBackgroundImageView.image = UIImage(named: imagePath)
+                let backgroundImageView = UIImageView(frame: tableView.bounds)
+                backgroundImageView.image = UIImage(named: imagePath)
+                backgroundImageView.contentMode = .ScaleAspectFill
+                tableView.backgroundView = backgroundImageView
             }
         }
         if let isHardcore = hero.hardcore?.boolValue {
@@ -128,14 +130,14 @@ class HeroDetailsVC: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
             if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: true)
-                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor() : UIColor.darkGrayColor()
+                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor().colorWithAlphaComponent(0.5) : UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
             }
             return cell
         case 4: // Passive Skills
             let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
             if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: false)
-                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor() : UIColor.darkGrayColor()
+                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor().colorWithAlphaComponent(0.5) : UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
             }
             return cell
         default:
