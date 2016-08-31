@@ -278,91 +278,97 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResourceCell" rowHeight="114" id="SVu-Lt-XzX" customClass="HeroDetailsVC_ResourceCell" customModule="DiabloProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="199" width="600" height="114"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResourceCell" rowHeight="65" id="SVu-Lt-XzX" customClass="HeroDetailsVC_ResourceCell" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SVu-Lt-XzX" id="ymd-1W-AzZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="114"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qLU-W0-ue0">
-                                            <rect key="frame" x="0.0" y="5" width="600" height="221"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qLU-W0-ue0">
+                                            <rect key="frame" x="0.0" y="5" width="600" height="60"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ey-D9-JCx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="221"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Life" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDG-LI-qfV">
+                                                    <rect key="frame" x="0.0" y="20" width="150" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ey-D9-JCx">
+                                                    <rect key="frame" x="150" y="5" width="150" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life-orb" translatesAutoresizingMaskIntoConstraints="NO" id="kZm-nM-wgJ">
-                                                            <rect key="frame" x="0.0" y="59" width="194" height="162"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="kZm-nM-wgJ" secondAttribute="height" multiplier="194:162" id="d7f-Dp-FTk"/>
-                                                            </constraints>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life_orb" translatesAutoresizingMaskIntoConstraints="NO" id="kZm-nM-wgJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qso-XA-ZrG">
-                                                            <rect key="frame" x="93" y="130" width="26" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qso-XA-ZrG">
+                                                            <rect key="frame" x="62" y="14" width="26" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDG-LI-qfV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="59"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="kZm-nM-wgJ" firstAttribute="leading" secondItem="7ey-D9-JCx" secondAttribute="leading" id="8Mv-HS-v1i"/>
-                                                        <constraint firstItem="qso-XA-ZrG" firstAttribute="centerX" secondItem="kZm-nM-wgJ" secondAttribute="centerX" multiplier="106:97" id="EAG-Mj-v35"/>
-                                                        <constraint firstItem="qDG-LI-qfV" firstAttribute="bottom" secondItem="kZm-nM-wgJ" secondAttribute="top" id="GcJ-Jc-tAZ"/>
-                                                        <constraint firstItem="qDG-LI-qfV" firstAttribute="top" secondItem="7ey-D9-JCx" secondAttribute="top" id="KOx-Kh-MbS"/>
-                                                        <constraint firstItem="qDG-LI-qfV" firstAttribute="leading" secondItem="7ey-D9-JCx" secondAttribute="leading" id="MgJ-n7-kQy"/>
+                                                        <constraint firstItem="qso-XA-ZrG" firstAttribute="centerX" secondItem="kZm-nM-wgJ" secondAttribute="centerX" id="EAG-Mj-v35"/>
                                                         <constraint firstAttribute="bottom" secondItem="kZm-nM-wgJ" secondAttribute="bottom" id="bhH-NS-6ba"/>
                                                         <constraint firstItem="qso-XA-ZrG" firstAttribute="centerY" secondItem="kZm-nM-wgJ" secondAttribute="centerY" id="cJL-r0-dXT"/>
-                                                        <constraint firstAttribute="trailing" secondItem="qDG-LI-qfV" secondAttribute="trailing" id="ili-Iw-y7U"/>
                                                         <constraint firstAttribute="trailing" secondItem="kZm-nM-wgJ" secondAttribute="trailing" id="oyV-Ke-TVh"/>
+                                                        <constraint firstAttribute="width" secondItem="7ey-D9-JCx" secondAttribute="height" id="pxz-74-hVZ"/>
+                                                        <constraint firstItem="kZm-nM-wgJ" firstAttribute="top" secondItem="7ey-D9-JCx" secondAttribute="top" id="tWK-be-ine"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="pxz-74-hVZ"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOj-kA-my9">
-                                                    <rect key="frame" x="360" y="0.0" width="240" height="221"/>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yOj-kA-my9">
+                                                    <rect key="frame" x="300" y="5" width="150" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbarian-orb" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-ce-VJa">
-                                                            <rect key="frame" x="0.0" y="21" width="240" height="200"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbarian_resource_orb" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-ce-VJa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="lpQ-ce-VJa" secondAttribute="height" multiplier="194:162" id="GoA-XH-Gjw"/>
                                                             </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="GoA-XH-Gjw"/>
+                                                                </mask>
+                                                            </variation>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nvk-pf-tq2">
-                                                            <rect key="frame" x="95" y="111" width="27" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nvk-pf-tq2">
+                                                            <rect key="frame" x="62" y="15" width="27" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-h5-DPK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="lpQ-ce-VJa" firstAttribute="top" secondItem="b7X-h5-DPK" secondAttribute="bottom" id="4nE-TT-v58"/>
-                                                        <constraint firstItem="Nvk-pf-tq2" firstAttribute="centerX" secondItem="lpQ-ce-VJa" secondAttribute="centerX" multiplier="88:97" id="FCj-2y-bfS"/>
+                                                        <constraint firstItem="Nvk-pf-tq2" firstAttribute="centerX" secondItem="lpQ-ce-VJa" secondAttribute="centerX" id="FCj-2y-bfS"/>
+                                                        <constraint firstItem="lpQ-ce-VJa" firstAttribute="top" secondItem="yOj-kA-my9" secondAttribute="top" id="Hv9-kh-TfA"/>
                                                         <constraint firstItem="lpQ-ce-VJa" firstAttribute="leading" secondItem="yOj-kA-my9" secondAttribute="leading" id="LBt-r2-QhY"/>
                                                         <constraint firstAttribute="bottom" secondItem="lpQ-ce-VJa" secondAttribute="bottom" id="NWl-Zg-GNR"/>
-                                                        <constraint firstItem="b7X-h5-DPK" firstAttribute="leading" secondItem="yOj-kA-my9" secondAttribute="leading" id="e1Z-yS-AB1"/>
-                                                        <constraint firstItem="b7X-h5-DPK" firstAttribute="top" secondItem="yOj-kA-my9" secondAttribute="top" id="i6M-Ha-tjo"/>
                                                         <constraint firstAttribute="trailing" secondItem="lpQ-ce-VJa" secondAttribute="trailing" id="o7C-VP-cLa"/>
                                                         <constraint firstItem="Nvk-pf-tq2" firstAttribute="centerY" secondItem="lpQ-ce-VJa" secondAttribute="centerY" id="w6o-UN-9Iy"/>
-                                                        <constraint firstAttribute="trailing" secondItem="b7X-h5-DPK" secondAttribute="trailing" id="z9d-TD-7DT"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fury" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-h5-DPK">
+                                                    <rect key="frame" x="450" y="20" width="150" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="7ey-D9-JCx" firstAttribute="width" secondItem="qLU-W0-ue0" secondAttribute="width" multiplier="2:5" id="bHI-60-QRv"/>
-                                                <constraint firstItem="yOj-kA-my9" firstAttribute="width" secondItem="qLU-W0-ue0" secondAttribute="width" multiplier="2:5" id="ceT-KK-rMj"/>
+                                                <constraint firstItem="yOj-kA-my9" firstAttribute="top" secondItem="qLU-W0-ue0" secondAttribute="top" constant="89" id="x67-tZ-ejr"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="x67-tZ-ejr"/>
+                                                </mask>
+                                            </variation>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -382,7 +388,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="226" id="qnb-dB-yOa" customClass="HeroDetailsVC_SkillCell" customModule="DiabloProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="313" width="600" height="226"/>
+                                <rect key="frame" x="0.0" y="264" width="600" height="226"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnb-dB-yOa" id="kya-2l-bOC">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="226"/>
@@ -1069,11 +1075,11 @@
     <resources>
         <image name="activeskill_icon_bg" width="193" height="159"/>
         <image name="activeskill_icon_unloaded" width="42" height="42"/>
-        <image name="barbarian-orb" width="194" height="162"/>
+        <image name="barbarian_resource_orb" width="50" height="50"/>
         <image name="crusader-female_item_bg" width="734" height="645"/>
         <image name="diablo_3_logo" width="816" height="979"/>
         <image name="hardcore-icon" width="46" height="46"/>
-        <image name="life-orb" width="194" height="162"/>
+        <image name="life_orb" width="50" height="50"/>
         <image name="passiveskill_icon_bg" width="51" height="51"/>
         <image name="passiveskill_icon_unloaded" width="47" height="47"/>
         <image name="rune_a" width="42" height="42"/>
