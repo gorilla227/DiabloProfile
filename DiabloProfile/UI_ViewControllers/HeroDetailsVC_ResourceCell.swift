@@ -17,8 +17,15 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
 
     func configureCell(hero: Hero) {
         if let gameData = AppDelegate.gameData(locale: hero.locale), let stats = gameData[Hero.Keys.Stats] as? [String: String] {
+            if let lifeValue = hero.stats?.life {
+                if lifeValue.integerValue > 1000 {
+                    lifeValueLabel.text = "\(lifeValue.integerValue / 1000)k"
+                } else {
+                    lifeValueLabel.text = lifeValue.stringValue
+                }
+            }
             lifeTitleLabel.text = stats[Stats.Keys.Life]
-            lifeValueLabel.text = hero.stats?.life?.stringValue ?? nil
+
             if let classes = gameData["class"] as? [String: AnyObject], let classKey = hero.heroClass, let heroClass = classes[classKey] as? [String: AnyObject], let resourceNames = heroClass["resource"] as? [String] {
                 
                 var resourceTitle = String()
@@ -29,8 +36,8 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
                 }
                 
                 if resourceNames.count == 2, let secondaryResourceTitle = resourceNames.last, let secondaryResourceValue = hero.stats?.secondaryResource?.stringValue {
-                    resourceTitle += "/\(secondaryResourceTitle)"
-                    resourceValue += "/\(secondaryResourceValue)"
+                    resourceTitle += "\n\(secondaryResourceTitle)"
+                    resourceValue += "\n\(secondaryResourceValue)"
                 }
                 
                 resourceTitleLabel.text = resourceTitle
@@ -49,7 +56,7 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
     }
 
     private func resourceOrbImage(classKey: String) -> UIImage? {
-        let imageFileName = "\(classKey)-orb.png"
+        let imageFileName = "\(classKey)_resource_orb.png"
         return UIImage(named: imageFileName)
     }
 }
