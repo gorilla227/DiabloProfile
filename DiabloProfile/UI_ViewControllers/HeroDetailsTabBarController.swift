@@ -57,7 +57,7 @@ class HeroDetailsTabBarController: UITabBarController {
                 hero.battleTag = self.battleTag
                 AppDelegate.performUIUpdatesOnMain({
                     self.hero = hero
-                    self.navigationItem.title = hero.name
+                    self.navigationItem.title = hero.name?.uppercaseString ?? ""
                     self.navigationItem.rightBarButtonItem = self.addToCollectionButton
                     self.addToCollectionButton.enabled = !self.isHeroExistedInCollection()
                     
@@ -68,7 +68,7 @@ class HeroDetailsTabBarController: UITabBarController {
             })
         } else {
             if let hero = self.hero {
-                navigationItem.title = hero.name
+                navigationItem.title = hero.name?.uppercaseString ?? ""
                 navigationItem.rightBarButtonItem = removeButton
             }
         }

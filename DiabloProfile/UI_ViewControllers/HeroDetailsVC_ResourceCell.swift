@@ -24,7 +24,7 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
                     lifeValueLabel.text = lifeValue.stringValue
                 }
             }
-            lifeTitleLabel.text = stats[Stats.Keys.Life]
+            lifeTitleLabel.text = stats[Stats.Keys.Life]?.uppercaseString ?? ""
 
             if let classes = gameData["class"] as? [String: AnyObject], let classKey = hero.heroClass, let heroClass = classes[classKey] as? [String: AnyObject], let resourceNames = heroClass["resource"] as? [String] {
                 
@@ -40,7 +40,7 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
                     resourceValue += "\n\(secondaryResourceValue)"
                 }
                 
-                resourceTitleLabel.text = resourceTitle
+                resourceTitleLabel.text = resourceTitle.uppercaseString
                 resourceValueLabel.text = resourceValue
                 
                 resourceOrbImageView.image = resourceOrbImage(classKey)

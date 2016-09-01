@@ -38,11 +38,11 @@ class EquipmentVC: UIViewController {
     var hero: Hero?
     lazy var scale: CGFloat = self.backgroundImageView.bounds.height / 645
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
+        tabBarItem.selectedImage = UIImage(named: "equipments.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        tabBarItem.image = UIImage(named: "equipments_unselected.png")?.imageWithRenderingMode(.AlwaysOriginal)
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,8 +56,10 @@ class EquipmentVC: UIViewController {
         offHandHorizonConstraint.constant = 109 * scale
         print("Scale: \(scale)")
         
-        if let tabBarController = tabBarController as? HeroDetailsTabBarController, let hero = tabBarController.hero {
-            loadData(hero)
+        if hero == nil {
+            if let tabBarController = tabBarController as? HeroDetailsTabBarController, let hero = tabBarController.hero {
+                loadData(hero)
+            }
         }
     }
 

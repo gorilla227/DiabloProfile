@@ -19,6 +19,13 @@ class HeroDetailsVC: UITableViewController {
     var hero: Hero?
     var gameData: [String: AnyObject]?
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        tabBarItem.selectedImage = UIImage(named: "basic.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        tabBarItem.image = UIImage(named: "basic_unselected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +50,7 @@ class HeroDetailsVC: UITableViewController {
         self.hero = hero
         gameData = AppDelegate.gameData(locale: hero.locale)
         
-        heroNameLabel.text = hero.name
+        heroNameLabel.text = hero.name?.uppercaseString ?? ""
         if let classes = gameData?["class"] as? [String: AnyObject],
             let classKey = hero.heroClass,
             let heroClass = classes[classKey] as? [String: AnyObject],

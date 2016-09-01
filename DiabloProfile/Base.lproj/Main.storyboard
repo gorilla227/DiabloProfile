@@ -285,16 +285,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qLU-W0-ue0">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qLU-W0-ue0">
                                             <rect key="frame" x="0.0" y="5" width="600" height="60"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Life" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDG-LI-qfV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDG-LI-qfV">
                                                     <rect key="frame" x="0.0" y="20" width="150" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ey-D9-JCx">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ey-D9-JCx">
                                                     <rect key="frame" x="150" y="5" width="150" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life_orb" translatesAutoresizingMaskIntoConstraints="NO" id="kZm-nM-wgJ">
@@ -314,28 +314,14 @@
                                                         <constraint firstAttribute="bottom" secondItem="kZm-nM-wgJ" secondAttribute="bottom" id="bhH-NS-6ba"/>
                                                         <constraint firstItem="qso-XA-ZrG" firstAttribute="centerY" secondItem="kZm-nM-wgJ" secondAttribute="centerY" id="cJL-r0-dXT"/>
                                                         <constraint firstAttribute="trailing" secondItem="kZm-nM-wgJ" secondAttribute="trailing" id="oyV-Ke-TVh"/>
-                                                        <constraint firstAttribute="width" secondItem="7ey-D9-JCx" secondAttribute="height" id="pxz-74-hVZ"/>
                                                         <constraint firstItem="kZm-nM-wgJ" firstAttribute="top" secondItem="7ey-D9-JCx" secondAttribute="top" id="tWK-be-ine"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="pxz-74-hVZ"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yOj-kA-my9">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOj-kA-my9">
                                                     <rect key="frame" x="300" y="5" width="150" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbarian_resource_orb" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-ce-VJa">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="lpQ-ce-VJa" secondAttribute="height" multiplier="194:162" id="GoA-XH-Gjw"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="GoA-XH-Gjw"/>
-                                                                </mask>
-                                                            </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nvk-pf-tq2">
                                                             <rect key="frame" x="62" y="15" width="27" height="21"/>
@@ -354,7 +340,7 @@
                                                         <constraint firstItem="Nvk-pf-tq2" firstAttribute="centerY" secondItem="lpQ-ce-VJa" secondAttribute="centerY" id="w6o-UN-9Iy"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fury" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-h5-DPK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fury" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-h5-DPK">
                                                     <rect key="frame" x="450" y="20" width="150" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -530,7 +516,7 @@
                             <outlet property="delegate" destination="LJL-0t-tb0" id="0ir-UG-cqQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Basic" image="rune_a" id="gEe-aP-5NT"/>
+                    <tabBarItem key="tabBarItem" title="Basic" id="gEe-aP-5NT"/>
                     <navigationItem key="navigationItem" title="Basic" id="xzF-sS-eM2"/>
                     <connections>
                         <outlet property="hardcoreImageView" destination="FAo-lF-4JU" id="8GQ-lc-ZcY"/>
@@ -698,7 +684,7 @@
                             <constraint firstItem="X7A-bl-ChB" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="zXu-z8-Nyb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Equipments" image="rune_b" id="9ps-hW-qO2"/>
+                    <tabBarItem key="tabBarItem" title="Equipments" id="9ps-hW-qO2"/>
                     <navigationItem key="navigationItem" title="Equipments" id="5UW-eQ-Ix5"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="4X7-Cy-rj7" id="Bc3-uB-A9F"/>
@@ -1083,7 +1069,6 @@
         <image name="passiveskill_icon_bg" width="51" height="51"/>
         <image name="passiveskill_icon_unloaded" width="47" height="47"/>
         <image name="rune_a" width="42" height="42"/>
-        <image name="rune_b" width="42" height="42"/>
         <image name="seasonal-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
