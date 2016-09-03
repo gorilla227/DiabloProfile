@@ -9,7 +9,9 @@
 import UIKit
 
 class ItemImageView: UIImageView {
-    let gemStackViewContainer: UIStackView = {
+    @IBInspectable var showGem: Bool = true
+    
+    lazy var gemStackViewContainer: UIStackView = {
         let container = UIStackView()
         container.axis = .Horizontal
         container.alignment = .Center
@@ -17,7 +19,7 @@ class ItemImageView: UIImageView {
         container.spacing = 0
         return container
     }()
-    let gemStackView: UIStackView = {
+    lazy var gemStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .Vertical
         stackView.alignment = .Center
@@ -35,27 +37,53 @@ class ItemImageView: UIImageView {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
+    
+    var item: BasicItem?
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         backgroundColor = UIColor.clearColor()
         backgroundView.layer.borderWidth = 1.0
         backgroundView.layer.cornerRadius = 5.0
         backgroundView.layer.masksToBounds = true
-        equipImageView.contentMode = .ScaleAspectFill
+        equipImageView.contentMode = contentMode
         equipImageView.clipsToBounds = false
         
         addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.leadingAnchor.constraintEqualToAnchor(leadingAnchor).active = true
+        backgroundView.trailingAnchor.constraintEqualToAnchor(trailingAnchor).active = true
+        backgroundView.topAnchor.constraintEqualToAnchor(topAnchor).active = true
+        backgroundView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
+        backgroundView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+        
         addSubview(equipImageView)
-        addSubview(gemStackViewContainer)
+        equipImageView.translatesAutoresizingMaskIntoConstraints = false
+        equipImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor).active = true
+        equipImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor).active = true
+        equipImageView.topAnchor.constraintEqualToAnchor(topAnchor).active = true
+        equipImageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
+        
+        if showGem {
+            addSubview(gemStackViewContainer)
+            gemStackViewContainer.translatesAutoresizingMaskIntoConstraints = false
+            gemStackViewContainer.leadingAnchor.constraintEqualToAnchor(leadingAnchor).active = true
+            gemStackViewContainer.trailingAnchor.constraintEqualToAnchor(trailingAnchor).active = true
+            gemStackViewContainer.topAnchor.constraintEqualToAnchor(topAnchor).active = true
+            gemStackViewContainer.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
+            
+            gemStackViewContainer.addArrangedSubview(gemStackView)
+        }
         addSubview(loadingIndicator)
         
         loadingIndicator.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
         loadingIndicator.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
-        gemStackViewContainer.addArrangedSubview(gemStackView)
     }
 
     func configureItemFrame(basicItem: BasicItem, scale: CGFloat) {
+        item = basicItem
+        
         if let displayColor = basicItem.displayColor {
             backgroundView.layer.borderColor = getBorderColor(displayColor).CGColor
             
@@ -67,11 +95,11 @@ class ItemImageView: UIImageView {
             }
         }
         
-        backgroundView.frame = bounds
-        equipImageView.frame = bounds
-        
         if let icon = basicItem.icon {
-            equipImageView.image = UIImage(data: icon)
+            if let image = UIImage(data: icon) {
+                equipImageView.image = image
+                heightAnchor.constraintGreaterThanOrEqualToAnchor(widthAnchor, multiplier: image.size.height / image.size.width).active = !showGem
+            }
         } else {
             if let imageURL = basicItem.iconImageURL("large") {
                 loadingIndicator.startAnimating()
@@ -87,38 +115,42 @@ class ItemImageView: UIImageView {
                     
                     AppDelegate.performUIUpdatesOnMain({
                         basicItem.icon = result
-                        self.equipImageView.image = UIImage(data: result!)
+                        if let image = UIImage(data: result!) {
+                            self.equipImageView.image = image
+                            self.heightAnchor.constraintGreaterThanOrEqualToAnchor(self.widthAnchor, multiplier: image.size.height / image.size.width).active = !self.showGem
+                        }
                     })
                 })
             }
         }
         
-        if let detailItem = basicItem.detailItem {
-            addGemSocketImageViews(detailItem, scale: scale)
-        } else {
-            // TODO: Request DetailItem
-            if let hero = basicItem.hero, let region = hero.region, let locale = hero.locale, let itemTooltipParams = basicItem.tooltipParams {
-                loadingIndicator.startAnimating()
-                BlizzardAPI.requestItemData(region, locale: locale, itemTooltipParams: itemTooltipParams, completion: { (result, error) in
-                    AppDelegate.performUIUpdatesOnMain({ 
-                        self.loadingIndicator.stopAnimating()
-                    })
-                    
-                    guard error == nil else {
-                        print(error?.domain, error?.localizedDescription)
-                        return
-                    }
-                    
-                    if let detailItemDict = result, let managedObjectContext = basicItem.managedObjectContext {
-                        managedObjectContext.performBlock({ 
-                            let detailItem = DetailItem(dictionary: detailItemDict, context: managedObjectContext)
-                            detailItem.basicItem = basicItem
-                            AppDelegate.performUIUpdatesOnMain({ 
-                                self.addGemSocketImageViews(detailItem, scale: scale)
-                            })
+        if showGem { // Display gems in ItemImageView
+            if let detailItem = basicItem.detailItem {
+                addGemSocketImageViews(detailItem, scale: scale)
+            } else {
+                if let hero = basicItem.hero, let region = hero.region, let locale = hero.locale, let itemTooltipParams = basicItem.tooltipParams {
+                    loadingIndicator.startAnimating()
+                    BlizzardAPI.requestItemData(region, locale: locale, itemTooltipParams: itemTooltipParams, completion: { (result, error) in
+                        AppDelegate.performUIUpdatesOnMain({ 
+                            self.loadingIndicator.stopAnimating()
                         })
-                    }
-                })
+                        
+                        guard error == nil else {
+                            print(error?.domain, error?.localizedDescription)
+                            return
+                        }
+                        
+                        if let detailItemDict = result, let managedObjectContext = basicItem.managedObjectContext {
+                            managedObjectContext.performBlock({ 
+                                let detailItem = DetailItem(dictionary: detailItemDict, context: managedObjectContext)
+                                detailItem.basicItem = basicItem
+                                AppDelegate.performUIUpdatesOnMain({ 
+                                    self.addGemSocketImageViews(detailItem, scale: scale)
+                                })
+                            })
+                        }
+                    })
+                }
             }
         }
     }
@@ -130,7 +162,6 @@ class ItemImageView: UIImageView {
                 gemStackView.removeArrangedSubview(gemSocketImageView)
             }
             
-            gemStackViewContainer.frame = bounds
             // Add gemSocketImageView for each gem
             for gem in gems {
                 let gemSocketImageView = GemSocketImageView(image: UIImage(named: "gem_frame.png"))

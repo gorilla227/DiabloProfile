@@ -35,9 +35,11 @@ extension DetailItem {
     @NSManaged var typeID: String?
     @NSManaged var typeName: String?
     @NSManaged var typeTwoHanded: NSNumber?
-    @NSManaged var attributes: NSSet?
+    @NSManaged var attributes: NSOrderedSet?
     @NSManaged var basicItem: BasicItem?
     @NSManaged var gems: NSSet?
     @NSManaged var itemSet: ItemSet?
-
+    @NSManaged var blockChance: String?
+    @NSManaged var blockAmountMin: NSNumber?
+    @NSManaged var blockAmountMax: NSNumber?
 }

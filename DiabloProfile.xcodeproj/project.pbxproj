@@ -11,6 +11,7 @@
 		A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
 		A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AFF9961D699CA7006C0AF8 /* Info.plist */; };
+		A1BBF3121D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
 		B23641B21D6124EB0020B16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641B11D6124EB0020B16C /* AppDelegate.swift */; };
 		B23641B71D6124EB0020B16C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		B245BE1C1D75F61600F33B1D /* ItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245BE1B1D75F61600F33B1D /* ItemImageView.swift */; };
 		B245BE1E1D761EC800F33B1D /* GemSocketImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245BE1D1D761EC800F33B1D /* GemSocketImageView.swift */; };
 		B24BDB701D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */; };
+		B25E33041D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E33031D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift */; };
 		B25F70F41D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */; };
 		B25F70FA1D67DF2E004AEE37 /* DIABLO_H.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */; };
 		B25F70FB1D67DF2E004AEE37 /* DIABLO_L.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */; };
@@ -55,6 +57,7 @@
 		B2D41A161D7495130024A445 /* SetBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A0A1D7495130024A445 /* SetBonus.swift */; };
 		B2D41A181D74D2320024A445 /* HeroDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A171D74D2320024A445 /* HeroDetailsTabBarController.swift */; };
 		B2D41A1A1D74F95D0024A445 /* EquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41A191D74F95D0024A445 /* EquipmentVC.swift */; };
+		B2D55EFC1D78C7CA00187D11 /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D55EFB1D78C7CA00187D11 /* ItemDetailsVC.swift */; };
 		B2F61B3E1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */; };
 		B2F61B411D6688A90067E83B /* InsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B401D6688A90067E83B /* InsetUILabel.swift */; };
 		B2FF151E1D62952D00FBAA7B /* HeroListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF151D1D62952D00FBAA7B /* HeroListVC.swift */; };
@@ -68,6 +71,7 @@
 		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_AttributeCell.swift; path = UI_ViewControllers/ItemDetailsVC_AttributeCell.swift; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
 		B23641AE1D6124EB0020B16C /* DiabloProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiabloProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23641B11D6124EB0020B16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		B245BE1B1D75F61600F33B1D /* ItemImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemImageView.swift; path = CustomizeUI/ItemImageView.swift; sourceTree = "<group>"; };
 		B245BE1D1D761EC800F33B1D /* GemSocketImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GemSocketImageView.swift; path = CustomizeUI/GemSocketImageView.swift; sourceTree = "<group>"; };
 		B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_ResourceCell.swift; path = UI_ViewControllers/HeroDetailsVC_ResourceCell.swift; sourceTree = "<group>"; };
+		B25E33031D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_SummaryCell.swift; path = UI_ViewControllers/ItemDetailsVC_SummaryCell.swift; sourceTree = "<group>"; };
 		B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_PassiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_PassiveSkillCell.swift; sourceTree = "<group>"; };
 		B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_H.TTF; sourceTree = "<group>"; };
 		B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_L.TTF; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 		B2D41A0A1D7495130024A445 /* SetBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBonus.swift; path = DataModel/SetBonus.swift; sourceTree = "<group>"; };
 		B2D41A171D74D2320024A445 /* HeroDetailsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsTabBarController.swift; path = UI_ViewControllers/HeroDetailsTabBarController.swift; sourceTree = "<group>"; };
 		B2D41A191D74F95D0024A445 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
+		B2D55EFB1D78C7CA00187D11 /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC.swift; path = UI_ViewControllers/ItemDetailsVC.swift; sourceTree = "<group>"; };
 		B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_SkillCell.swift; path = UI_ViewControllers/HeroDetailsVC_SkillCell.swift; sourceTree = "<group>"; };
 		B2F61B401D6688A90067E83B /* InsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsetUILabel.swift; path = CustomizeUI/InsetUILabel.swift; sourceTree = "<group>"; };
 		B2FF151D1D62952D00FBAA7B /* HeroListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroListVC.swift; path = UI_ViewControllers/HeroListVC.swift; sourceTree = "<group>"; };
@@ -250,10 +256,13 @@
 				A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */,
 				B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */,
 				B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */,
-				B2D41A191D74F95D0024A445 /* EquipmentVC.swift */,
 				B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */,
 				B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */,
 				B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */,
+				B2D41A191D74F95D0024A445 /* EquipmentVC.swift */,
+				B2D55EFB1D78C7CA00187D11 /* ItemDetailsVC.swift */,
+				B25E33031D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift */,
+				A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */,
 				A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */,
 			);
 			name = UI_ViewControllers;
@@ -380,13 +389,16 @@
 				B2D41A151D7495130024A445 /* SetBonus+CoreDataProperties.swift in Sources */,
 				A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */,
 				B28DA6261D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift in Sources */,
+				B25E33041D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift in Sources */,
 				B2D41A0E1D7495130024A445 /* ItemSet.swift in Sources */,
 				B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */,
 				B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */,
 				B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */,
 				B2D41A121D7495130024A445 /* DetailItem.swift in Sources */,
 				B28DA6241D6790AE00C75CFD /* SkillDetailsVC.swift in Sources */,
+				A1BBF3121D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift in Sources */,
 				B23641D01D613BDD0020B16C /* ConfigurationFunctions.swift in Sources */,
+				B2D55EFC1D78C7CA00187D11 /* ItemDetailsVC.swift in Sources */,
 				B2FF15201D629A1100FBAA7B /* AddVC_SearchBattleTag.swift in Sources */,
 				B2AE25CD1D6260C70046C6BA /* Hero.swift in Sources */,
 				A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */,

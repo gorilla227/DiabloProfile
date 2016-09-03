@@ -2,6 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>Head</string>
+		<key>shoulders</key>
+		<string>Shoulders</string>
+		<key>torso</key>
+		<string>Torso</string>
+		<key>neck</key>
+		<string>Neck</string>
+		<key>hands</key>
+		<string>Hands</string>
+		<key>waist</key>
+		<string>Waist</string>
+		<key>bracers</key>
+		<string>Wrists</string>
+		<key>leftFinger</key>
+		<string>Finger</string>
+		<key>rightFinger</key>
+		<string>Finger</string>
+		<key>legs</key>
+		<string>Legs</string>
+		<key>feet</key>
+		<string>Feet</string>
+		<key>mainHand</key>
+		<string>Main-Hand</string>
+		<key>offHand</key>
+		<string>Off-Hand</string>
+	</dict>
 	<key>class</key>
 	<dict>
 		<key>barbarian</key>

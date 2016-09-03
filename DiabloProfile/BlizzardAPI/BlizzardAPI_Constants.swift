@@ -114,6 +114,10 @@ extension BlizzardAPI {
             static let DPS = "dps"
             static let AttacksPerSecond = "attacksPerSecond"
             static let AttacksPerSecondText = "attacksPerSecondText"
+            static let BlockChance = "blockChance"
+            static let AttributesRaw = "attributesRaw"
+            static let BlockAmountMin = "Block_Amount_Item_Min"
+            static let BlockAmountDelta = "Block_Amount_Item_Delta"
             
             struct AttributeKeys {
                 static let Text = "text"

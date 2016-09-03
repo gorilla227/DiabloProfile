@@ -104,6 +104,15 @@ class DetailItem: NSManagedObject {
         if let typeTwoHanded = dictionary[Keys.TypeTwoHanded] as? Bool {
             self.typeTwoHanded = NSNumber(bool: typeTwoHanded)
         }
+        if let blockChance = dictionary[Keys.BlockChance] as? String {
+            self.blockChance = blockChance
+        }
+        if let blockAmountMin = dictionary[Keys.BlockAmountMin] as? NSNumber {
+            self.blockAmountMin = blockAmountMin
+        }
+        if let blockAmountMax = dictionary[Keys.BlockAmountMax] as? NSNumber {
+            self.blockAmountMax = blockAmountMax
+        }
         
         if let attributes = dictionary[Keys.Attributes] as? [[String: AnyObject]] {
             var itemAttributes = [ItemAttribute]()
@@ -111,7 +120,7 @@ class DetailItem: NSManagedObject {
                 let itemAttribute = ItemAttribute(dictionary: attributeDict, context: context)
                 itemAttributes.append(itemAttribute)
             }
-            self.attributes = NSSet(array: itemAttributes)
+            self.attributes = NSOrderedSet(array: itemAttributes)
         }
         
         if let basicItem = dictionary[Keys.BasicItem] as? BasicItem {
@@ -170,5 +179,8 @@ extension DetailItem {
         static let BasicItem = "basicItem"
         static let Gems = "gems"
         static let ItemSet = "itemSet"
+        static let BlockChance = "blockChance"
+        static let BlockAmountMin = "blockAmountMin"
+        static let BlockAmountMax = "blockAmountMax"
     }
 }

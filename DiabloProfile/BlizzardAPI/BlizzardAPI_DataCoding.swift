@@ -292,6 +292,19 @@ extension BlizzardAPI {
             if let attacksPerSecondText = itemData[ResponseKeys.ItemKeys.AttacksPerSecondText] as? String {
                 result[DetailItem.Keys.AttacksPerSecondText] = attacksPerSecondText
             }
+            if let blockChance = itemData[ResponseKeys.ItemKeys.BlockChance] as? String {
+                result[DetailItem.Keys.BlockChance] = blockChance
+            }
+            if let attributesRaw = itemData[ResponseKeys.ItemKeys.AttributesRaw] as? [String: AnyObject] {
+                if let blockAmountMin = attributesRaw[ResponseKeys.ItemKeys.BlockAmountMin] as? [String: NSNumber], let blockAmountDelta = attributesRaw[ResponseKeys.ItemKeys.BlockAmountDelta] as? [String: NSNumber] {
+                    if let min = blockAmountMin[ResponseKeys.ItemKeys.Min], max = blockAmountMin[ResponseKeys.ItemKeys.Max] {
+                        result[DetailItem.Keys.BlockAmountMin] = NSNumber(float: (min.floatValue + max.floatValue) / 2)
+                        if let deltaMin = blockAmountDelta[ResponseKeys.ItemKeys.Min], deltaMax = blockAmountDelta[ResponseKeys.ItemKeys.Max] {
+                            result[DetailItem.Keys.BlockAmountMax] = NSNumber(float: (min.floatValue + max.floatValue) / 2 + (deltaMin.floatValue + deltaMax.floatValue) / 2)
+                        }
+                    }
+                }
+            }
             if let attributes = itemData[ResponseKeys.ItemKeys.Attributes] as? [String: [[String: AnyObject]]] {
                 result[DetailItem.Keys.Attributes] = decodeItemAttributes(attributes)
             }

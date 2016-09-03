@@ -19,6 +19,9 @@
         <attribute name="armor" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="attacksPerSecond" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="attacksPerSecondText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockAmountMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="blockAmountMin" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="blockChance" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="damageRange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dps" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -36,7 +39,7 @@
         <attribute name="typeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeTwoHanded" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="item" inverseEntity="ItemAttribute" syncable="YES"/>
+        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemAttribute" inverseName="item" inverseEntity="ItemAttribute" syncable="YES"/>
         <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="detailItem" inverseEntity="BasicItem" syncable="YES"/>
         <relationship name="gems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gem" inverseName="detailItem" inverseEntity="Gem" syncable="YES"/>
         <relationship name="itemSet" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ItemSet" inverseName="detailItem" inverseEntity="ItemSet" syncable="YES"/>
@@ -140,7 +143,7 @@
     </entity>
     <elements>
         <element name="BasicItem" positionX="-542" positionY="252" width="128" height="225"/>
-        <element name="DetailItem" positionX="-360" positionY="243" width="128" height="420"/>
+        <element name="DetailItem" positionX="-360" positionY="243" width="128" height="465"/>
         <element name="Gem" positionX="-2" positionY="648" width="128" height="150"/>
         <element name="Hero" positionX="-758" positionY="180" width="128" height="315"/>
         <element name="ItemAttribute" positionX="-506" positionY="9" width="128" height="148"/>

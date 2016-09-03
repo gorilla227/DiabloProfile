@@ -1,0 +1,191 @@
+//
+//  ItemDetailsVC.swift
+//  DiabloProfile
+//
+//  Created by Andy Xu on 9/1/16.
+//  Copyright © 2016 Andy Xu. All rights reserved.
+//
+
+import UIKit
+
+class ItemDetailsVC: UITableViewController {
+    @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    
+    var basicItem: BasicItem?
+    lazy var gameData: [String: AnyObject]? = {
+        return AppDelegate.gameData(locale: self.basicItem?.hero?.locale)
+    }()
+    
+    private var primaryAttributes = [ItemAttribute]()
+    private var seconaryAttributes = [ItemAttribute]()
+    private var gemsArray = [AnyObject]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 10.0
+        
+        tableView.addSubview(loadingIndicator)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.centerXAnchor.constraintEqualToAnchor(tableView.centerXAnchor).active = true
+        loadingIndicator.centerYAnchor.constraintEqualToAnchor(tableView.centerYAnchor).active = true
+        
+        loadData()
+    }
+    
+    func loadData() {
+        
+        if let basicItem = basicItem, let detailItem = basicItem.detailItem {
+            if let name = basicItem.name {
+                itemNameLabel.text = name.uppercaseString
+            } else {
+                itemNameLabel.text = ""
+            }
+            itemNameLabel.textColor = getTextColor(basicItem.displayColor)
+            
+            if let attributes = detailItem.attributes?.array as? [ItemAttribute] {
+                primaryAttributes.removeAll()
+                seconaryAttributes.removeAll()
+                var passiveAttributes = [ItemAttribute]()
+                for attribute in attributes {
+                    if let category = attribute.category {
+                        if category == "primary" {
+                            primaryAttributes.append(attribute)
+                        } else if category == "secondary" {
+                            seconaryAttributes.append(attribute)
+                        } else if category == "passive" {
+                            passiveAttributes.append(attribute)
+                        }
+                    }
+                }
+                seconaryAttributes.appendContentsOf(passiveAttributes)
+            }
+            
+            if let gems = detailItem.gems?.allObjects as? [Gem] {
+                gemsArray.removeAll()
+                for gem in gems {
+                    if let isJewel = gem.isJewel?.boolValue where isJewel {
+                        // Jewel
+                        gemsArray.append(gem)
+                        if let jewelAttributes = gem.attributes?.array as? [ItemAttribute] {
+                            for attribute in jewelAttributes {
+                                gemsArray.append(attribute)
+                            }
+                        }
+                    } else {
+                        // Gem
+                        gemsArray.append(gem)
+                    }
+                }
+            }
+            
+            tableView.reloadData()
+        }
+    }
+    
+    private func getTextColor(colorKey: String?) -> UIColor {
+        if let colorKey = colorKey {
+            switch colorKey {
+            case "green":
+                return UIColor.greenColor()
+            case "orange":
+                return UIColor.orangeColor()
+            case "blue":
+                return UIColor(red: 146.0 / 255.0, green: 128.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+            case "yellow":
+                return UIColor.yellowColor()
+            case "white":
+                return UIColor.whiteColor()
+            default:
+                break
+            }
+        }
+        return UIColor.whiteColor()
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 7
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        switch section {
+        case 0: // Summary
+            return 1
+        case 1: // Primary Attributes
+            return primaryAttributes.count
+        case 2: // Secondary and Passive Attributes
+            return seconaryAttributes.count
+        case 3: // Gems
+            return gemsArray.count
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0: // Summary
+            let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell", forIndexPath: indexPath) as! ItemDetailsVC_SummaryCell
+            if let basicItem = self.basicItem {
+                cell.configureCell(basicItem)
+            }
+            return cell
+        case 1: // Primary Attributes
+            let cell = tableView.dequeueReusableCellWithIdentifier("AttributeCell", forIndexPath: indexPath) as! ItemDetailsVC_AttributeCell
+            let attribute = primaryAttributes[indexPath.row]
+            cell.configureCellForAttribute(attribute)
+            return cell
+        case 2: // Secondary and Passive Attributes
+            let cell = tableView.dequeueReusableCellWithIdentifier("AttributeCell", forIndexPath: indexPath) as! ItemDetailsVC_AttributeCell
+            let attribute = seconaryAttributes[indexPath.row]
+            cell.configureCellForAttribute(attribute)
+            return cell
+        case 3: // Gems
+            let cell = tableView.dequeueReusableCellWithIdentifier("AttributeCell", forIndexPath: indexPath) as! ItemDetailsVC_AttributeCell
+            let gem = gemsArray[indexPath.row]
+            cell.configureCellForGem(gem)
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1: // Primary Attributes
+            return "Primary"
+        case 2: // Seconary and Passive Attributes
+            return "Secondary"
+        default:
+            return nil
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        switch section {
+//        case 1:
+            if let headerView = view as? UITableViewHeaderFooterView {
+                headerView.textLabel?.textColor = UIColor.whiteColor()
+            }
+//        default:
+//            break
+//        }
+    }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

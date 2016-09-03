@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UAK-aI-3OM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UAK-aI-3OM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,8 +13,10 @@
             <string>DiabloHeavy</string>
             <string>DiabloHeavy</string>
             <string>DiabloHeavy</string>
+            <string>DiabloHeavy</string>
         </mutableArray>
         <mutableArray key="DIABLO_L.TTF">
+            <string>DiabloLight</string>
             <string>DiabloLight</string>
         </mutableArray>
     </customFonts>
@@ -516,7 +518,7 @@
                             <outlet property="delegate" destination="LJL-0t-tb0" id="0ir-UG-cqQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Basic" id="gEe-aP-5NT"/>
+                    <tabBarItem key="tabBarItem" title="Basic" image="basic" id="gEe-aP-5NT"/>
                     <navigationItem key="navigationItem" title="Basic" id="xzF-sS-eM2"/>
                     <connections>
                         <outlet property="hardcoreImageView" destination="FAo-lF-4JU" id="8GQ-lc-ZcY"/>
@@ -555,84 +557,127 @@
                                 <color key="textColor" red="1" green="0.90196078431372551" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8QP-HK-UAC" userLabel="head" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="head" translatesAutoresizingMaskIntoConstraints="NO" id="8QP-HK-UAC" userLabel="head" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="276" y="120" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8QP-HK-UAC" secondAttribute="height" multiplier="1:1" id="Bu9-kI-ZUu"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3U-RW-qgW" userLabel="hands" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hands" translatesAutoresizingMaskIntoConstraints="NO" id="b3U-RW-qgW" userLabel="hands" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="187" y="213" width="50" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b3U-RW-qgW" secondAttribute="height" multiplier="66:88" id="Kla-eM-d9p"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uT0-CD-cPR" userLabel="shoulders" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="shoulders" translatesAutoresizingMaskIntoConstraints="NO" id="uT0-CD-cPR" userLabel="shoulders" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="209" y="139" width="49" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uT0-CD-cPR" secondAttribute="height" multiplier="66:88" id="HVt-BD-rkr"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kB5-nt-tb6" userLabel="neck" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="neck" translatesAutoresizingMaskIntoConstraints="NO" id="kB5-nt-tb6" userLabel="neck" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="345" y="154" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kB5-nt-tb6" secondAttribute="height" id="YD5-YA-F4V"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-nv-yEO" userLabel="torso" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="torso" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-nv-yEO" userLabel="torso" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="270" y="172" width="62" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xUx-nv-yEO" secondAttribute="height" multiplier="82:116" id="cQD-yi-Whe"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-5k-fR7" userLabel="waist" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="waist" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-5k-fR7" userLabel="waist" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="270" y="263" width="62" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OSa-5k-fR7" secondAttribute="height" multiplier="82:33" id="AGA-Iy-dnh"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-bl-ChB" userLabel="bracers" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="bracers" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-bl-ChB" userLabel="bracers" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="363" y="213" width="50" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X7A-bl-ChB" secondAttribute="height" multiplier="66:88" id="lGD-4c-0cw"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUF-dm-ROD" userLabel="leftFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="leftFinger" translatesAutoresizingMaskIntoConstraints="NO" id="mUF-dm-ROD" userLabel="leftFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="195" y="289" width="31" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mUF-dm-ROD" secondAttribute="height" id="46I-Qu-pZw"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-9k-fBq" userLabel="rightFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rightFinger" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-9k-fBq" userLabel="rightFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="375" y="289" width="31" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GDv-9k-fBq" secondAttribute="height" id="1qb-7q-NBg"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-t9-1B7" userLabel="feet" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="feet" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-t9-1B7" userLabel="feet" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="276" y="361" width="50" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tBu-t9-1B7" secondAttribute="height" multiplier="66:88" id="A3a-6I-fn3"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Q0-tjY" userLabel="legs" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="legs" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Q0-tjY" userLabel="legs" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="276" y="292" width="50" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GH8-Q0-tjY" secondAttribute="height" multiplier="66:88" id="9EQ-jn-hn3"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOy-kp-GVN" userLabel="mainHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="mainHand" translatesAutoresizingMaskIntoConstraints="NO" id="nOy-kp-GVN" userLabel="mainHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="185" y="330" width="50" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nOy-kp-GVN" secondAttribute="height" multiplier="66:130" id="pwS-gA-9dw"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-7L-6Vx" userLabel="offHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="offHand" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-7L-6Vx" userLabel="offHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
                                 <rect key="frame" x="365" y="330" width="50" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bui-7L-6Vx" secondAttribute="height" multiplier="66:130" id="PPJ-mt-T6g"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="M3L-RQ-jZK">
+                                <rect key="frame" x="282" y="225" width="37" height="37"/>
+                                <color key="color" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -659,6 +704,7 @@
                             <constraint firstItem="b3U-RW-qgW" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="652:645" id="Mfa-ZH-O6S"/>
                             <constraint firstItem="8QP-HK-UAC" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="384:645" id="NEg-dR-SrH"/>
                             <constraint firstItem="GH8-Q0-tjY" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="NWi-C8-swh"/>
+                            <constraint firstItem="M3L-RQ-jZK" firstAttribute="centerX" secondItem="WV8-mo-Nop" secondAttribute="centerX" id="OIr-Dc-hV5"/>
                             <constraint firstItem="xUx-nv-yEO" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="572:645" id="Tej-Cv-kyF"/>
                             <constraint firstItem="mUF-dm-ROD" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="806:645" id="VNs-Rp-gHU"/>
                             <constraint firstItem="3G9-m0-Vs5" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="190:645" id="Wh1-6L-Rwr"/>
@@ -678,13 +724,14 @@
                             <constraint firstItem="Bui-7L-6Vx" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="130:645" id="p3c-1T-k0T"/>
                             <constraint firstItem="uT0-CD-cPR" firstAttribute="centerY" secondItem="4X7-Cy-rj7" secondAttribute="centerY" multiplier="454:645" id="q2v-nt-nNA"/>
                             <constraint firstItem="Bui-7L-6Vx" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="90" id="qP5-DY-GKD"/>
+                            <constraint firstItem="M3L-RQ-jZK" firstAttribute="centerY" secondItem="WV8-mo-Nop" secondAttribute="centerY" id="qPs-Tm-xAt"/>
                             <constraint firstItem="OSa-5k-fR7" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="33:645" id="qn9-f6-WkI"/>
                             <constraint firstItem="mUF-dm-ROD" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="42:645" id="rrL-sg-OHX"/>
                             <constraint firstItem="OSa-5k-fR7" firstAttribute="centerX" secondItem="4X7-Cy-rj7" secondAttribute="centerX" constant="1" id="tCr-k3-3Mh"/>
                             <constraint firstItem="X7A-bl-ChB" firstAttribute="height" secondItem="4X7-Cy-rj7" secondAttribute="height" multiplier="88:645" id="zXu-z8-Nyb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Equipments" id="9ps-hW-qO2"/>
+                    <tabBarItem key="tabBarItem" title="Equipments" image="equipments" id="9ps-hW-qO2"/>
                     <navigationItem key="navigationItem" title="Equipments" id="5UW-eQ-Ix5"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="4X7-Cy-rj7" id="Bc3-uB-A9F"/>
@@ -698,6 +745,7 @@
                         <outlet property="leftFingerHorizonConstraint" destination="oCt-aK-bvr" id="fTS-gg-l6j"/>
                         <outlet property="leftFingerImageView" destination="mUF-dm-ROD" id="aZG-pH-LqM"/>
                         <outlet property="legsImageView" destination="GH8-Q0-tjY" id="WGm-aH-jFA"/>
+                        <outlet property="loadingIndicator" destination="M3L-RQ-jZK" id="San-OW-5JN"/>
                         <outlet property="mainHandHorizonConstraint" destination="HWJ-vO-6At" id="mss-36-B7d"/>
                         <outlet property="mainHandImageView" destination="nOy-kp-GVN" id="7qp-Vd-Tay"/>
                         <outlet property="neckHorizonConstraint" destination="9cV-bF-kkf" id="YmM-zc-c1K"/>
@@ -710,11 +758,319 @@
                         <outlet property="shouldersImageView" destination="uT0-CD-cPR" id="7OD-lm-n1s"/>
                         <outlet property="torsoImageView" destination="xUx-nv-yEO" id="HlM-vF-QaG"/>
                         <outlet property="waistImageView" destination="OSa-5k-fR7" id="Mfl-HJ-1jp"/>
+                        <segue destination="UQb-dr-M1p" kind="show" identifier="ShowItemDetailsSegue" id="EdX-C1-NQ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idz-Ya-Nik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2549" y="-219"/>
+        </scene>
+        <!--Item DetailsVC-->
+        <scene sceneID="NHw-DR-okQ">
+            <objects>
+                <tableViewController id="UQb-dr-M1p" customClass="ItemDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ey5-ZV-j3w">
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITEM NAME" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ObW-VQ-uS2">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="30"/>
+                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SummaryCell" rowHeight="163" id="wYF-Gx-Xsf" customClass="ItemDetailsVC_SummaryCell" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="87" width="600" height="163"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wYF-Gx-Xsf" id="m5y-WK-qqq">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="163"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ool-di-IYm">
+                                            <rect key="frame" x="8" y="8" width="584" height="147"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gzs-Jr-ptc" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="50"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g7S-P2-IQD">
+                                                    <rect key="frame" x="121" y="0.0" width="463" height="129"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="PHC-k0-p1K">
+                                                            <rect key="frame" x="0.0" y="0.0" width="463" height="17"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Item TypeName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LXe-YK-NFq">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slot" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5o-aV-wCg">
+                                                                    <rect key="frame" x="438" y="0.0" width="25" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="T7v-BA-tw9">
+                                                            <rect key="frame" x="0.0" y="25" width="463" height="64"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3624.8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4l-gk-ytp">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="463" height="47"/>
+                                                                    <fontDescription key="fontDescription" name="DiabloLight" family="Diablo" pointSize="42"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Armor or DPS Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xck-eq-ro9">
+                                                                    <rect key="frame" x="0.0" y="47" width="463" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Xw1-aL-1ax">
+                                                            <rect key="frame" x="0.0" y="97" width="463" height="32"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damage Range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-EI-620">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="463" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attacks per Second" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQU-2V-gnW">
+                                                                    <rect key="frame" x="0.0" y="16" width="463" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gzs-Jr-ptc" firstAttribute="width" secondItem="g7S-P2-IQD" secondAttribute="width" multiplier="1:4" id="1xI-bj-SjD"/>
+                                                <constraint firstItem="Gzs-Jr-ptc" firstAttribute="width" secondItem="ool-di-IYm" secondAttribute="width" multiplier="1:5" id="DXp-ER-ltc"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="DXp-ER-ltc"/>
+                                                </mask>
+                                            </variation>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ool-di-IYm" firstAttribute="top" secondItem="m5y-WK-qqq" secondAttribute="topMargin" id="5yF-n7-lfs"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ool-di-IYm" secondAttribute="bottom" id="EJa-zO-bSM"/>
+                                        <constraint firstItem="ool-di-IYm" firstAttribute="trailing" secondItem="m5y-WK-qqq" secondAttribute="trailingMargin" id="cdU-Hs-gDM"/>
+                                        <constraint firstItem="ool-di-IYm" firstAttribute="leading" secondItem="m5y-WK-qqq" secondAttribute="leadingMargin" id="tzc-Hs-llb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="attacksPerSecondLabel" destination="QQU-2V-gnW" id="Kak-Ih-Bay"/>
+                                    <outlet property="damageRangeLabel" destination="FOR-EI-620" id="VV6-hH-Dvy"/>
+                                    <outlet property="dpsArmorTitleLabel" destination="xck-eq-ro9" id="xxk-Bh-Mjq"/>
+                                    <outlet property="dpsArmorValueLabel" destination="X4l-gk-ytp" id="nRz-CC-Iw8"/>
+                                    <outlet property="itemImageView" destination="Gzs-Jr-ptc" id="J72-ZK-Ibx"/>
+                                    <outlet property="itemTypeNameLabel" destination="LXe-YK-NFq" id="hwd-DH-SKL"/>
+                                    <outlet property="slotLabel" destination="e5o-aV-wCg" id="rsn-8B-i8p"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttributeCell" id="sSh-7x-H3h" customClass="ItemDetailsVC_AttributeCell" customModule="DiabloProfile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="250" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sSh-7x-H3h" id="7v7-57-Vsj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4br-0N-TrV">
+                                            <rect key="frame" x="13" y="0.0" width="574" height="44"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gjj-cm-nAc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="7EP-1w-4an"/>
+                                                        <constraint firstAttribute="width" constant="20" id="PU2-V0-xrq"/>
+                                                        <constraint firstAttribute="width" secondItem="Gjj-cm-nAc" secondAttribute="height" id="juK-ef-gA2"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="juK-ef-gA2"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="oYb-0z-QMa">
+                                                    <rect key="frame" x="25" y="0.0" width="17" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="UQA-Dw-Z6o"/>
+                                                        <constraint firstAttribute="width" constant="17" id="bC1-R9-JTj"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUM-4u-Gbu">
+                                                    <rect key="frame" x="47" y="0.0" width="527" height="17"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Attribute">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4br-0N-TrV" firstAttribute="leading" secondItem="7v7-57-Vsj" secondAttribute="leadingMargin" constant="5" id="20z-Ao-ZCr"/>
+                                        <constraint firstItem="4br-0N-TrV" firstAttribute="top" secondItem="7v7-57-Vsj" secondAttribute="top" id="IH9-Vc-OiG"/>
+                                        <constraint firstAttribute="bottom" secondItem="4br-0N-TrV" secondAttribute="bottom" id="KtA-36-2SH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4br-0N-TrV" secondAttribute="trailing" constant="5" id="j8e-HI-BCw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="attributeTextLabel" destination="CUM-4u-Gbu" id="hdL-mC-sIL"/>
+                                    <outlet property="gemIconImageView" destination="Gjj-cm-nAc" id="rja-TV-VkM"/>
+                                    <outlet property="leadingConstraint" destination="20z-Ao-ZCr" id="Gxe-52-jSf"/>
+                                    <outlet property="listIconImageView" destination="oYb-0z-QMa" id="z1I-Nw-DT9"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetCell" textLabel="Brn-nT-XHX" detailTextLabel="yk0-bv-0Jv" style="IBUITableViewCellStyleSubtitle" id="bnx-J6-TTH">
+                                <rect key="frame" x="0.0" y="294" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnx-J6-TTH" id="5hV-UM-eWD">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Set Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Brn-nT-XHX">
+                                            <rect key="frame" x="15" y="6" width="64" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Set Items" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yk0-bv-0Jv">
+                                            <rect key="frame" x="15" y="23" width="54" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetBonusCell" textLabel="92C-Kk-pzn" detailTextLabel="o52-UH-i2O" style="IBUITableViewCellStyleSubtitle" id="Jq7-MA-SZI">
+                                <rect key="frame" x="0.0" y="338" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jq7-MA-SZI" id="BhG-fV-yad">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="(2)Set:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="92C-Kk-pzn">
+                                            <rect key="frame" x="15" y="6" width="44" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Bonus Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o52-UH-i2O">
+                                            <rect key="frame" x="15" y="23" width="104" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LevelBoundCell" rowHeight="58" id="rDS-Lw-wj0">
+                                <rect key="frame" x="0.0" y="382" width="600" height="58"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rDS-Lw-wj0" id="Dhp-Ti-Lc9">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Qy-hZT">
+                                            <rect key="frame" x="5" y="0.0" width="590" height="58"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Level: 70" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNK-GJ-iHf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="590" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.90196078431372551" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required Level: 70" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lc1-JD-JUZ">
+                                                    <rect key="frame" x="0.0" y="19" width="590" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.90196078430000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Bound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rp-zI-hdt">
+                                                    <rect key="frame" x="0.0" y="39" width="590" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.90196078430000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Y7d-Qy-hZT" secondAttribute="trailing" constant="5" id="2AV-c6-r4W"/>
+                                        <constraint firstItem="Y7d-Qy-hZT" firstAttribute="leading" secondItem="Dhp-Ti-Lc9" secondAttribute="leading" constant="5" id="9So-nC-lbd"/>
+                                        <constraint firstAttribute="bottom" secondItem="Y7d-Qy-hZT" secondAttribute="bottom" id="ERn-pB-HJM"/>
+                                        <constraint firstItem="Y7d-Qy-hZT" firstAttribute="top" secondItem="Dhp-Ti-Lc9" secondAttribute="top" id="g4W-CZ-H8Q"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlavorCell" textLabel="jDO-ks-LEu" style="IBUITableViewCellStyleDefault" id="sPw-ZF-qrO">
+                                <rect key="frame" x="0.0" y="440" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sPw-ZF-qrO" id="wSU-m1-j0k">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Flavors" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jDO-ks-LEu">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UQb-dr-M1p" id="4ec-HF-Igo"/>
+                            <outlet property="delegate" destination="UQb-dr-M1p" id="Adm-e5-KZk"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="itemNameLabel" destination="ObW-VQ-uS2" id="qWf-Ol-4Hv"/>
+                        <outlet property="loadingIndicator" destination="ibk-zm-2HL" id="2GK-ia-9tO"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSA-0v-t4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="ibk-zm-2HL">
+                    <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
+            </objects>
+            <point key="canvasLocation" x="3384" y="-219"/>
         </scene>
         <!--Class Name-->
         <scene sceneID="UJq-Kt-ydN">
@@ -1062,8 +1418,11 @@
         <image name="activeskill_icon_bg" width="193" height="159"/>
         <image name="activeskill_icon_unloaded" width="42" height="42"/>
         <image name="barbarian_resource_orb" width="50" height="50"/>
+        <image name="basic" width="25" height="25"/>
         <image name="crusader-female_item_bg" width="734" height="645"/>
+        <image name="default" width="12" height="12"/>
         <image name="diablo_3_logo" width="816" height="979"/>
+        <image name="equipments" width="25" height="25"/>
         <image name="hardcore-icon" width="46" height="46"/>
         <image name="life_orb" width="50" height="50"/>
         <image name="passiveskill_icon_bg" width="51" height="51"/>
