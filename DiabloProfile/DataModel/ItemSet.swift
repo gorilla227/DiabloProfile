@@ -46,10 +46,22 @@ class ItemSet: NSManagedObject {
             }
             self.setBonus = NSOrderedSet(array: setBonusArray)
         }
-        
-        if let detailItem = dictionary[Keys.DetailItem] as? DetailItem {
-            self.detailItem = detailItem
+    }
+    
+    class func fetchItemSet(slug: String?, context: NSManagedObjectContext) -> ItemSet? {
+        if let slug = slug {
+            let fetchRequest = NSFetchRequest(entityName: Keys.EntityName)
+            fetchRequest.predicate = NSPredicate(format: "slug == %@", slug)
+            do {
+                let result = try context.executeFetchRequest(fetchRequest)
+                if let itemSet = result.first as? ItemSet {
+                    return itemSet
+                }
+            } catch {
+                return nil
+            }
         }
+        return nil
     }
 }
 

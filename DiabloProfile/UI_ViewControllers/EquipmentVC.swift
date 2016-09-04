@@ -126,6 +126,7 @@ class EquipmentVC: UIViewController {
             for subview in view.subviews {
                 if let itemImageView = subview as? ItemImageView {
                     if CGRectContainsPoint(itemImageView.frame, touchPoint) {
+                        print(itemImageView.restorationIdentifier)
                         if let basicItem = itemImageView.item {
                             showItemDetails(basicItem)
                         }

@@ -43,8 +43,9 @@ class ItemDetailsVC: UITableViewController {
             } else {
                 itemNameLabel.text = ""
             }
-            itemNameLabel.textColor = getTextColor(basicItem.displayColor)
+            itemNameLabel.textColor = StringAndColor.getTextColor(basicItem.displayColor)
             
+            // Load Item Attributes
             if let attributes = detailItem.attributes?.array as? [ItemAttribute] {
                 primaryAttributes.removeAll()
                 seconaryAttributes.removeAll()
@@ -63,6 +64,7 @@ class ItemDetailsVC: UITableViewController {
                 seconaryAttributes.appendContentsOf(passiveAttributes)
             }
             
+            // Load Gems
             if let gems = detailItem.gems?.allObjects as? [Gem] {
                 gemsArray.removeAll()
                 for gem in gems {
@@ -81,28 +83,10 @@ class ItemDetailsVC: UITableViewController {
                 }
             }
             
+            // Load ItemSet
+            
             tableView.reloadData()
         }
-    }
-    
-    private func getTextColor(colorKey: String?) -> UIColor {
-        if let colorKey = colorKey {
-            switch colorKey {
-            case "green":
-                return UIColor.greenColor()
-            case "orange":
-                return UIColor.orangeColor()
-            case "blue":
-                return UIColor(red: 146.0 / 255.0, green: 128.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
-            case "yellow":
-                return UIColor.yellowColor()
-            case "white":
-                return UIColor.whiteColor()
-            default:
-                break
-            }
-        }
-        return UIColor.whiteColor()
     }
 
     // MARK: - Table view data source
@@ -123,6 +107,12 @@ class ItemDetailsVC: UITableViewController {
             return seconaryAttributes.count
         case 3: // Gems
             return gemsArray.count
+        case 4: // Item Set
+            if let itemSet = basicItem?.detailItem?.itemSet {
+                let numOfBonus = itemSet.setBonus?.count ?? 0
+                return numOfBonus + 1
+            }
+            return 0
         default:
             return 0
         }
@@ -151,6 +141,23 @@ class ItemDetailsVC: UITableViewController {
             let gem = gemsArray[indexPath.row]
             cell.configureCellForGem(gem)
             return cell
+        case 4: // Item Set
+            if indexPath.row == 0 { // Itemset Name and items
+                let cell = tableView.dequeueReusableCellWithIdentifier("SetCell", forIndexPath: indexPath) as! ItemDetailsVC_ItemSetCell
+                if let itemSet = basicItem?.detailItem?.itemSet, setItemsEquipped = basicItem?.detailItem?.setItemsEquipped {
+                    cell.configureCell(itemSet, setItemsEquipped: setItemsEquipped)
+                }
+                return cell
+            } else { // Itemset Bonus
+                let cell = tableView.dequeueReusableCellWithIdentifier("SetCell", forIndexPath: indexPath) as! ItemDetailsVC_ItemSetCell
+                if let itemSet = basicItem?.detailItem?.itemSet {
+                    let equipped = basicItem?.detailItem?.setItemsEquipped?.count ?? 0
+                    if let setBonus = itemSet.setBonus?.array[indexPath.row - 1] as? SetBonus {
+                        cell.configureCell(setBonus, equipped: equipped)
+                    }
+                }
+                return cell
+            }
         default:
             return UITableViewCell()
         }
@@ -168,14 +175,18 @@ class ItemDetailsVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        switch section {
-//        case 1:
-            if let headerView = view as? UITableViewHeaderFooterView {
-                headerView.textLabel?.textColor = UIColor.whiteColor()
-            }
-//        default:
-//            break
-//        }
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.textColor = UIColor.whiteColor()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 1, 2, 4:
+            return tableView.sectionHeaderHeight
+        default:
+            return 0
+        }
     }
 
     /*

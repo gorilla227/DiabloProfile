@@ -85,7 +85,7 @@ class ItemImageView: UIImageView {
         item = basicItem
         
         if let displayColor = basicItem.displayColor {
-            backgroundView.layer.borderColor = getBorderColor(displayColor).CGColor
+            backgroundView.layer.borderColor = StringAndColor.getBorderColor(displayColor).CGColor
             
             
             if let itemFrameBg = UIImage(named: "itemFrame_\(displayColor).png") {
@@ -182,22 +182,4 @@ class ItemImageView: UIImageView {
             }
         }
     }
-    
-    private func getBorderColor(colorKey: String) -> UIColor {
-        switch colorKey {
-        case "green":
-            return UIColor.greenColor()
-        case "orange":
-            return UIColor.orangeColor()
-        case "blue":
-            return UIColor.blueColor()
-        case "yellow":
-            return UIColor.yellowColor()
-        case "white":
-            return UIColor.grayColor()
-        default:
-            return UIColor.clearColor()
-        }
-    }
-
 }

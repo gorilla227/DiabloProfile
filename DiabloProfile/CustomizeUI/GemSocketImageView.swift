@@ -39,8 +39,7 @@ class GemSocketImageView: UIImageView {
         if let gemIconData = gem.basicItem?.icon {
             gemImageView.image = UIImage(data: gemIconData)
         } else {
-            // TODO: Download Gem Icon
-            gemImageView.image = UIImage(named: "rune_a.png")
+            // Download Gem Icon
             if let iconURL = gem.basicItem?.iconImageURL("small") {
                 loadingIndicator.startAnimating()
                 BlizzardAPI.downloadImage(iconURL, completion: { (result, error) in

@@ -123,10 +123,6 @@ class DetailItem: NSManagedObject {
             self.attributes = NSOrderedSet(array: itemAttributes)
         }
         
-        if let basicItem = dictionary[Keys.BasicItem] as? BasicItem {
-            self.basicItem = basicItem
-        }
-        
         if let gems = dictionary[Keys.Gems] as? [[String: AnyObject]] {
             var gemsArray = [Gem]()
             for gemDict in gems {
@@ -137,7 +133,11 @@ class DetailItem: NSManagedObject {
         }
         
         if let itemSetDict = dictionary[Keys.ItemSet] as? [String: AnyObject] {
-            self.itemSet = ItemSet(dictionary: itemSetDict, context: context)
+            if let itemSet = ItemSet.fetchItemSet(itemSetDict[ItemSet.Keys.Slug] as? String, context: context) {
+                self.itemSet = itemSet
+            } else {
+                self.itemSet = ItemSet(dictionary: itemSetDict, context: context)
+            }
         }
     }
     

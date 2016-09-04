@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A1354A3B1D6969D5002A507D /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1354A3D1D6969D5002A507D /* GameData.plist */; };
+		A14677FB1D7B7E30009A0AE2 /* ItemDetailsVC_ItemSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14677FA1D7B7E30009A0AE2 /* ItemDetailsVC_ItemSetCell.swift */; };
+		A14677FD1D7BC024009A0AE2 /* StringAndColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14677FC1D7BC024009A0AE2 /* StringAndColor.swift */; };
 		A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
 		A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AFF9961D699CA7006C0AF8 /* Info.plist */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		A1354A3C1D6969D5002A507D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/GameData.plist; sourceTree = "<group>"; };
 		A1354A401D696ACB002A507D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/GameData.plist"; sourceTree = "<group>"; };
+		A14677FA1D7B7E30009A0AE2 /* ItemDetailsVC_ItemSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_ItemSetCell.swift; path = UI_ViewControllers/ItemDetailsVC_ItemSetCell.swift; sourceTree = "<group>"; };
+		A14677FC1D7BC024009A0AE2 /* StringAndColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringAndColor.swift; path = CustomizeUI/StringAndColor.swift; sourceTree = "<group>"; };
 		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
 		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				B2D55EFB1D78C7CA00187D11 /* ItemDetailsVC.swift */,
 				B25E33031D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift */,
 				A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */,
+				A14677FA1D7B7E30009A0AE2 /* ItemDetailsVC_ItemSetCell.swift */,
 				A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */,
 			);
 			name = UI_ViewControllers;
@@ -274,6 +279,7 @@
 				B2F61B401D6688A90067E83B /* InsetUILabel.swift */,
 				B245BE1B1D75F61600F33B1D /* ItemImageView.swift */,
 				B245BE1D1D761EC800F33B1D /* GemSocketImageView.swift */,
+				A14677FC1D7BC024009A0AE2 /* StringAndColor.swift */,
 			);
 			name = CustomizeUI;
 			sourceTree = "<group>";
@@ -411,9 +417,11 @@
 				B2D41A141D7495130024A445 /* ItemAttribute.swift in Sources */,
 				B2FF151E1D62952D00FBAA7B /* HeroListVC.swift in Sources */,
 				B2D41A161D7495130024A445 /* SetBonus.swift in Sources */,
+				A14677FD1D7BC024009A0AE2 /* StringAndColor.swift in Sources */,
 				B2AE25CE1D6260C70046C6BA /* Skill+CoreDataProperties.swift in Sources */,
 				B2F61B3E1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift in Sources */,
 				B2D41A101D7495130024A445 /* Gem.swift in Sources */,
+				A14677FB1D7B7E30009A0AE2 /* ItemDetailsVC_ItemSetCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

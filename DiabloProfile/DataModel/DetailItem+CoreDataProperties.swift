@@ -30,7 +30,7 @@ extension DetailItem {
     @NSManaged var locale: String?
     @NSManaged var name: String?
     @NSManaged var requiredLevel: NSNumber?
-    @NSManaged var setItemsEquipped: NSObject?
+    @NSManaged var setItemsEquipped: [String]?
     @NSManaged var tooltipParams: String?
     @NSManaged var typeID: String?
     @NSManaged var typeName: String?

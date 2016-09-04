@@ -18,6 +18,6 @@ extension ItemSet {
     @NSManaged var slug: String?
     @NSManaged var items: NSSet?
     @NSManaged var setBonus: NSOrderedSet?
-    @NSManaged var detailItem: DetailItem?
+    @NSManaged var detailItem: NSSet?
 
 }

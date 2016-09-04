@@ -17,44 +17,17 @@ class ItemDetailsVC_SummaryCell: UITableViewCell {
     @IBOutlet weak var attacksPerSecondLabel: UILabel!
     @IBOutlet weak var slotLabel: UILabel!
     
-    private func getTextColor(colorKey: String?) -> UIColor {
-        if let colorKey = colorKey {
-            switch colorKey {
-            case "green":
-                return UIColor.greenColor()
-            case "orange":
-                return UIColor.orangeColor()
-            case "blue":
-                return UIColor(red: 146.0 / 255.0, green: 128.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
-            case "yellow":
-                return UIColor.yellowColor()
-            case "white":
-                return UIColor.whiteColor()
-            default:
-                break
-            }
-        }
-        return UIColor.whiteColor()
-    }
-    
-    private func convertNumberToString(number: NSNumber, withFractionDigits: Int) -> String? {
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.maximumFractionDigits = withFractionDigits
-        numberFormatter.minimumFractionDigits = withFractionDigits
-        return numberFormatter.stringFromNumber(number)
-    }
-    
     func configureCell(basicItem: BasicItem) {
         if let gameData = AppDelegate.gameData(locale: basicItem.hero?.locale), detailItem = basicItem.detailItem {
             itemTypeNameLabel.text = detailItem.typeName
-            itemTypeNameLabel.textColor = getTextColor(basicItem.displayColor)
+            itemTypeNameLabel.textColor = StringAndColor.getTextColor(basicItem.displayColor)
             itemImageView.configureItemFrame(basicItem, scale: 1)
             if let slotKey = basicItem.slot, let itemSlots = gameData["itemSlot"] as? [String: String], let slot = itemSlots[slotKey] {
                 slotLabel.text = slot
             }
             
             if let dps = detailItem.dps where dps.doubleValue > 0 {
-                if let dpsText = convertNumberToString(dps, withFractionDigits: 1) {
+                if let dpsText = StringAndColor.convertNumberToString(dps, withFractionDigits: 1) {
                     dpsArmorValueLabel.text = dpsText
                     dpsArmorTitleLabel.text = "Damage Per Second"
                     dpsArmorValueLabel.hidden = false
