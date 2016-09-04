@@ -153,7 +153,7 @@ class ItemDetailsVC: UITableViewController {
                 if let itemSet = basicItem?.detailItem?.itemSet {
                     let equipped = basicItem?.detailItem?.setItemsEquipped?.count ?? 0
                     if let setBonus = itemSet.setBonus?.array[indexPath.row - 1] as? SetBonus {
-                        cell.configureCell(setBonus, equipped: equipped)
+                        cell.configureCell(setBonus, equipped: equipped, gameData: gameData)
                     }
                 }
                 return cell
@@ -166,9 +166,9 @@ class ItemDetailsVC: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 1: // Primary Attributes
-            return "Primary"
+            return gameData?["primaryAttribute"] as? String
         case 2: // Seconary and Passive Attributes
-            return "Secondary"
+            return gameData?["SecondaryAttribute"] as? String
         default:
             return nil
         }

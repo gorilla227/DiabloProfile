@@ -179,6 +179,12 @@
 			</array>
 		</dict>
 	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) Set:</string>
+	<key>primaryAttribute</key>
+	<string>Primary</string>
+	<key>secondaryAttribute</key>
+	<string>Secondary</string>
 	<key>stats</key>
 	<dict>
 		<key>life</key>
@@ -246,8 +252,14 @@
 	</dict>
 	<key>attributesTitle</key>
 	<string>Attributes</string>
+	<key>damagePerSecond</key>
+	<string>Damage Per Second</string>
+	<key>armor</key>
+	<string>Armor</string>
 	<key>statsTitle</key>
 	<string>Stats</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; Block Amount</string>
 	<key>activeSkillsTitle</key>
 	<string>Active Skills</string>
 	<key>passiveSkillsTitle</key>

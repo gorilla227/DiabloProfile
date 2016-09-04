@@ -29,13 +29,13 @@ class ItemDetailsVC_SummaryCell: UITableViewCell {
             if let dps = detailItem.dps where dps.doubleValue > 0 {
                 if let dpsText = StringAndColor.convertNumberToString(dps, withFractionDigits: 1) {
                     dpsArmorValueLabel.text = dpsText
-                    dpsArmorTitleLabel.text = "Damage Per Second"
+                    dpsArmorTitleLabel.text = gameData["damagePerSecond"] as? String
                     dpsArmorValueLabel.hidden = false
                     dpsArmorTitleLabel.hidden = false
                 }
             } else if let armor = detailItem.armor where armor.doubleValue > 0 {
                 dpsArmorValueLabel.text = armor.stringValue
-                dpsArmorTitleLabel.text = "Armor"
+                dpsArmorTitleLabel.text = gameData["armor"] as? String
                 dpsArmorValueLabel.hidden = false
                 dpsArmorTitleLabel.hidden = false
             } else {
@@ -44,14 +44,21 @@ class ItemDetailsVC_SummaryCell: UITableViewCell {
             }
             
             if let blockChance = detailItem.blockChance, let blockAmountMin = detailItem.blockAmountMin, let blockAmountMax = detailItem.blockAmountMax where blockAmountMin.doubleValue > 0 && blockAmountMax.doubleValue > 0 {
-                damageRangeLabel.text = blockChance
+                damageRangeLabel.attributedText = StringAndColor.attributeString(blockChance, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: UIColor.grayColor()], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
                 damageRangeLabel.hidden = false
-                attacksPerSecondLabel.text = "\(blockAmountMin.integerValue)-\(blockAmountMax.integerValue) Block Amount"
-                attacksPerSecondLabel.hidden = false
+                if var blockAmountString = gameData["blockAmount"] as? String {
+                    blockAmountString = blockAmountString.stringByReplacingOccurrencesOfString("<min>", withString: String(blockAmountMin.integerValue))
+                    blockAmountString = blockAmountString.stringByReplacingOccurrencesOfString("<max>", withString: String(blockAmountMax.integerValue))
+                    attacksPerSecondLabel.attributedText = StringAndColor.attributeString(blockAmountString, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: UIColor.grayColor()], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+                    attacksPerSecondLabel.hidden = false
+                } else {
+                    attacksPerSecondLabel.hidden = true
+                }
+                
             } else if let damageRange = detailItem.damageRange, let attacksPerSecondText = detailItem.attacksPerSecondText {
-                damageRangeLabel.text = damageRange
+                damageRangeLabel.attributedText = StringAndColor.attributeString(damageRange, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: UIColor.grayColor()], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
                 damageRangeLabel.hidden = false
-                attacksPerSecondLabel.text = attacksPerSecondText
+                attacksPerSecondLabel.attributedText = StringAndColor.attributeString(attacksPerSecondText, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: UIColor.grayColor()], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
                 attacksPerSecondLabel.hidden = false
             } else {
                 damageRangeLabel.hidden = true

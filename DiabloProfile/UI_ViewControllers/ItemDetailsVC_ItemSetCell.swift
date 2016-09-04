@@ -38,9 +38,10 @@ class ItemDetailsVC_ItemSetCell: UITableViewCell {
         }
     }
     
-    func configureCell(setBonus: SetBonus, equipped: Int) {
-        if let requiredNumber = setBonus.required?.integerValue {
-            let attributedString = StringAndColor.attributeString("(\(requiredNumber)) Set:", characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: equipped >= requiredNumber ? UIColor.greenColor() : UIColor.grayColor()], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+    func configureCell(setBonus: SetBonus, equipped: Int, gameData: [String: AnyObject]?) {
+        if let requiredNumber = setBonus.required?.integerValue, rawString = gameData?["itemSet"] as? String {
+            let requiredString = rawString.stringByReplacingOccurrencesOfString("<required>", withString: String(requiredNumber))
+            let attributedString = StringAndColor.attributeString(requiredString, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: equipped >= requiredNumber ? UIColor.greenColor() : UIColor.grayColor()], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
             itemNameLabel.attributedText = attributedString
             
             for view in stackView.arrangedSubviews {
