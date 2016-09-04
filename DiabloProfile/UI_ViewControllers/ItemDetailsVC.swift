@@ -113,6 +113,10 @@ class ItemDetailsVC: UITableViewController {
                 return numOfBonus + 1
             }
             return 0
+        case 5: // Item Level / Required Level / Account Bound
+            return 1
+        case 6: // Flavor Text
+            return 1
         default:
             return 0
         }
@@ -158,6 +162,16 @@ class ItemDetailsVC: UITableViewController {
                 }
                 return cell
             }
+        case 5: // Item Level / Required Level / Account Bound
+            let cell = tableView.dequeueReusableCellWithIdentifier("LevelBoundCell", forIndexPath: indexPath) as! ItemDetailsVC_LevelBoundCell
+            if let detailItem = basicItem?.detailItem {
+                cell.configureCell(detailItem, gameData: gameData)
+            }
+            return cell
+        case 6: // Flavor Text
+            let cell = tableView.dequeueReusableCellWithIdentifier("FlavorCell", forIndexPath: indexPath)
+            cell.textLabel?.text = basicItem?.detailItem?.flavor
+            return cell
         default:
             return UITableViewCell()
         }
@@ -168,7 +182,7 @@ class ItemDetailsVC: UITableViewController {
         case 1: // Primary Attributes
             return gameData?["primaryAttribute"] as? String
         case 2: // Seconary and Passive Attributes
-            return gameData?["SecondaryAttribute"] as? String
+            return gameData?["secondaryAttribute"] as? String
         default:
             return nil
         }
@@ -185,10 +199,9 @@ class ItemDetailsVC: UITableViewController {
         case 1, 2, 4:
             return tableView.sectionHeaderHeight
         default:
-            return 0
+            return CGFloat.min
         }
     }
-
     /*
     // MARK: - Navigation
 

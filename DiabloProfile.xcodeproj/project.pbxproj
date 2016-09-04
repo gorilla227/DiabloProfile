@@ -12,6 +12,7 @@
 		A14677FD1D7BC024009A0AE2 /* StringAndColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14677FC1D7BC024009A0AE2 /* StringAndColor.swift */; };
 		A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
+		A1AF52F31D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF52F21D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift */; };
 		A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AFF9961D699CA7006C0AF8 /* Info.plist */; };
 		A1BBF3121D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
@@ -74,6 +75,7 @@
 		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
 		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
+		A1AF52F21D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_LevelBoundCell.swift; path = UI_ViewControllers/ItemDetailsVC_LevelBoundCell.swift; sourceTree = "<group>"; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_AttributeCell.swift; path = UI_ViewControllers/ItemDetailsVC_AttributeCell.swift; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				B25E33031D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift */,
 				A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */,
 				A14677FA1D7B7E30009A0AE2 /* ItemDetailsVC_ItemSetCell.swift */,
+				A1AF52F21D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift */,
 				A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */,
 			);
 			name = UI_ViewControllers;
@@ -398,6 +401,7 @@
 				B25E33041D7A2ADB00EA523F /* ItemDetailsVC_SummaryCell.swift in Sources */,
 				B2D41A0E1D7495130024A445 /* ItemSet.swift in Sources */,
 				B2AE25C61D6260C70046C6BA /* Stats+CoreDataProperties.swift in Sources */,
+				A1AF52F31D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift in Sources */,
 				B2AE25C81D6260C70046C6BA /* Rune+CoreDataProperties.swift in Sources */,
 				B297A62E1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift in Sources */,
 				B2D41A121D7495130024A445 /* DetailItem.swift in Sources */,

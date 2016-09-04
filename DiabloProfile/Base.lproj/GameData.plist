@@ -264,5 +264,11 @@
 	<string>Active Skills</string>
 	<key>passiveSkillsTitle</key>
 	<string>Passive Skills</string>
+	<key>itemLevel</key>
+	<string>Item Level: &lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>Required Level: &lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>Account Bound</string>
 </dict>
 </plist>
