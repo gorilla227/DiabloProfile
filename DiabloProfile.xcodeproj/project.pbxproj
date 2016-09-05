@@ -13,7 +13,6 @@
 		A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
 		A1AF52F31D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF52F21D7BF32200FF469B /* ItemDetailsVC_LevelBoundCell.swift */; };
-		A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AFF9961D699CA7006C0AF8 /* Info.plist */; };
 		A1BBF3121D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBF3111D7956020069E2F3 /* ItemDetailsVC_AttributeCell.swift */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
 		B23641B21D6124EB0020B16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641B11D6124EB0020B16C /* AppDelegate.swift */; };
@@ -360,7 +359,6 @@
 			files = (
 				B25F70FA1D67DF2E004AEE37 /* DIABLO_H.TTF in Resources */,
 				A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */,
-				A1AFF9971D699CA7006C0AF8 /* Info.plist in Resources */,
 				B23641BF1D6124EB0020B16C /* LaunchScreen.storyboard in Resources */,
 				B25F70FB1D67DF2E004AEE37 /* DIABLO_L.TTF in Resources */,
 				A1354A3B1D6969D5002A507D /* GameData.plist in Resources */,

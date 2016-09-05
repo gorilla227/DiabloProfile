@@ -8,5 +8,9 @@
 	<string>Introduce BattleTag, como Blizzard#1234</string>
 	<key>heroListTitle</key>
 	<string>Lista de Héroes</string>
+	<key>tabGeneral</key>
+	<string>General</string>
+	<key>tabEquipment</key>
+	<string>Equipo</string>
 </dict>
 </plist>

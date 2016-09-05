@@ -61,15 +61,31 @@ class HeroDetailsTabBarController: UITabBarController {
                     self.navigationItem.rightBarButtonItem = self.addToCollectionButton
                     self.addToCollectionButton.enabled = !self.isHeroExistedInCollection()
                     
-                    if let detailsVC = self.selectedViewController as? HeroDetailsVC {
-                        detailsVC.loadData(hero)
-                    }
+                    self.initialChildViewControllers(hero)
                 })
             })
         } else {
             if let hero = self.hero {
                 navigationItem.title = hero.name?.uppercaseString ?? ""
                 navigationItem.rightBarButtonItem = removeButton
+                
+                initialChildViewControllers(hero)
+            }
+        }
+    }
+    
+    func initialChildViewControllers(hero: Hero) {
+        for childViewController in childViewControllers {
+            if let heroDetailVC = childViewController as? HeroDetailsVC {
+                heroDetailVC.initialViewController(hero.locale)
+                if selectedViewController == heroDetailVC {
+                    heroDetailVC.loadData(hero)
+                }
+            } else if let equipmentVC = childViewController as? EquipmentVC {
+                equipmentVC.initialViewController(hero.locale)
+                if selectedViewController == equipmentVC {
+                    equipmentVC.loadData(hero)
+                }
             }
         }
     }

@@ -223,5 +223,52 @@
 	<string>Habilidades activas</string>
 	<key>passiveSkillsTitle</key>
 	<string>Habilidades pasivas</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>Cabeza</string>
+		<key>shoulders</key>
+		<string>Hombreras</string>
+		<key>torso</key>
+		<string>Torso</string>
+		<key>neck</key>
+		<string>Cuello</string>
+		<key>hands</key>
+		<string>Manos</string>
+		<key>waist</key>
+		<string>Cintura</string>
+		<key>bracers</key>
+		<string>Muñecas</string>
+		<key>leftFinger</key>
+		<string>Dedo</string>
+		<key>rightFinger</key>
+		<string>Dedo</string>
+		<key>legs</key>
+		<string>Piernas</string>
+		<key>feet</key>
+		<string>Pies</string>
+		<key>mainHand</key>
+		<string>Mano principal</string>
+		<key>offHand</key>
+		<string>Mano secundaria</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) de conjunto:</string>
+	<key>primaryAttribute</key>
+	<string>Primaria</string>
+	<key>secondaryAttribute</key>
+	<string>Secundaria</string>
+	<key>itemLevel</key>
+	<string>Nivel de objeto: &lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>Nivel requerido: &lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>Vinculado a la cuenta</string>
+	<key>damagePerSecond</key>
+	<string>Daño por segundo</string>
+	<key>armor</key>
+	<string>Armadura</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; Total de bloqueo</string>
 </dict>
 </plist>

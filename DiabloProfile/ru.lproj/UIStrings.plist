@@ -8,5 +8,9 @@
 	<string>Введите BattleTag, аналогичные Blizzard#1234</string>
 	<key>heroListTitle</key>
 	<string>Cписка Персонажей</string>
+	<key>tabGeneral</key>
+	<string>Общее</string>
+	<key>tabEquipment</key>
+	<string>Экипировка</string>
 </dict>
 </plist>

@@ -62,6 +62,12 @@ class EquipmentVC: UIViewController {
             }
         }
     }
+    
+    func initialViewController(locale: String?) {
+        if let uiStrings = AppDelegate.uiStrings(locale: locale) {
+            tabBarItem.title = uiStrings["tabEquipment"] as? String
+        }
+    }
 
     func loadData(hero: Hero) {
         self.hero = hero

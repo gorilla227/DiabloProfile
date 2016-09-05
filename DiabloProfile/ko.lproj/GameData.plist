@@ -223,5 +223,52 @@
 	<string>사용 기술</string>
 	<key>passiveSkillsTitle</key>
 	<string>지속 기술</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>머리</string>
+		<key>shoulders</key>
+		<string>어깨</string>
+		<key>torso</key>
+		<string>몸통</string>
+		<key>neck</key>
+		<string>목</string>
+		<key>hands</key>
+		<string>손</string>
+		<key>waist</key>
+		<string>허리</string>
+		<key>bracers</key>
+		<string>손목</string>
+		<key>leftFinger</key>
+		<string>손가락</string>
+		<key>rightFinger</key>
+		<string>손가락</string>
+		<key>legs</key>
+		<string>다리</string>
+		<key>feet</key>
+		<string>발</string>
+		<key>mainHand</key>
+		<string>주 장비</string>
+		<key>offHand</key>
+		<string>보조 장비</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) 세트:</string>
+	<key>primaryAttribute</key>
+	<string>주요 속성</string>
+	<key>secondaryAttribute</key>
+	<string>보조 속성</string>
+	<key>itemLevel</key>
+	<string>아이템 레벨: &lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>요구 레벨: &lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>계정 귀속</string>
+	<key>damagePerSecond</key>
+	<string>초당 공격력</string>
+	<key>armor</key>
+	<string>방어도</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; 방패 방어량</string>
 </dict>
 </plist>

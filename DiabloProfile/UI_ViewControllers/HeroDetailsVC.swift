@@ -46,6 +46,12 @@ class HeroDetailsVC: UITableViewController {
         headView.frame = frame
     }
     
+    func initialViewController(locale: String?) {
+        if let uiStrings = AppDelegate.uiStrings(locale: locale) {
+            tabBarItem.title = uiStrings["tabGeneral"] as? String
+        }
+    }
+    
     func loadData(hero: Hero) {
         self.hero = hero
         gameData = AppDelegate.gameData(locale: hero.locale)

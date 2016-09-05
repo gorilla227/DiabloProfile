@@ -2,35 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>itemSlot</key>
-	<dict>
-		<key>head</key>
-		<string>Head</string>
-		<key>shoulders</key>
-		<string>Shoulders</string>
-		<key>torso</key>
-		<string>Torso</string>
-		<key>neck</key>
-		<string>Neck</string>
-		<key>hands</key>
-		<string>Hands</string>
-		<key>waist</key>
-		<string>Waist</string>
-		<key>bracers</key>
-		<string>Wrists</string>
-		<key>leftFinger</key>
-		<string>Finger</string>
-		<key>rightFinger</key>
-		<string>Finger</string>
-		<key>legs</key>
-		<string>Legs</string>
-		<key>feet</key>
-		<string>Feet</string>
-		<key>mainHand</key>
-		<string>Main-Hand</string>
-		<key>offHand</key>
-		<string>Off-Hand</string>
-	</dict>
 	<key>class</key>
 	<dict>
 		<key>barbarian</key>
@@ -179,12 +150,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>itemSet</key>
-	<string>(&lt;required&gt;) Set:</string>
-	<key>primaryAttribute</key>
-	<string>Primary</string>
-	<key>secondaryAttribute</key>
-	<string>Secondary</string>
 	<key>stats</key>
 	<dict>
 		<key>life</key>
@@ -252,23 +217,58 @@
 	</dict>
 	<key>attributesTitle</key>
 	<string>Attributes</string>
-	<key>damagePerSecond</key>
-	<string>Damage Per Second</string>
-	<key>armor</key>
-	<string>Armor</string>
 	<key>statsTitle</key>
 	<string>Stats</string>
-	<key>blockAmount</key>
-	<string>&lt;min&gt;-&lt;max&gt; Block Amount</string>
 	<key>activeSkillsTitle</key>
 	<string>Active Skills</string>
 	<key>passiveSkillsTitle</key>
 	<string>Passive Skills</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>Head</string>
+		<key>shoulders</key>
+		<string>Shoulders</string>
+		<key>torso</key>
+		<string>Torso</string>
+		<key>neck</key>
+		<string>Neck</string>
+		<key>hands</key>
+		<string>Hands</string>
+		<key>waist</key>
+		<string>Waist</string>
+		<key>bracers</key>
+		<string>Wrists</string>
+		<key>leftFinger</key>
+		<string>Finger</string>
+		<key>rightFinger</key>
+		<string>Finger</string>
+		<key>legs</key>
+		<string>Legs</string>
+		<key>feet</key>
+		<string>Feet</string>
+		<key>mainHand</key>
+		<string>Main-Hand</string>
+		<key>offHand</key>
+		<string>Off-Hand</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) Set:</string>
+	<key>primaryAttribute</key>
+	<string>Primary</string>
+	<key>secondaryAttribute</key>
+	<string>Secondary</string>
 	<key>itemLevel</key>
 	<string>Item Level: &lt;lv&gt;</string>
 	<key>requiredLevel</key>
 	<string>Required Level: &lt;lv&gt;</string>
 	<key>accountBound</key>
 	<string>Account Bound</string>
+	<key>damagePerSecond</key>
+	<string>Damage Per Second</string>
+	<key>armor</key>
+	<string>Armor</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; Block Amount</string>
 </dict>
 </plist>

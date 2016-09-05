@@ -223,5 +223,52 @@
 	<string>Активные умения</string>
 	<key>passiveSkillsTitle</key>
 	<string>Пассивные умения</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>Голова</string>
+		<key>shoulders</key>
+		<string>Плечи</string>
+		<key>torso</key>
+		<string>Корпус</string>
+		<key>neck</key>
+		<string>Шея</string>
+		<key>hands</key>
+		<string>Руки</string>
+		<key>waist</key>
+		<string>Пояс</string>
+		<key>bracers</key>
+		<string>Запястья</string>
+		<key>leftFinger</key>
+		<string>Палец</string>
+		<key>rightFinger</key>
+		<string>Палец</string>
+		<key>legs</key>
+		<string>Ноги</string>
+		<key>feet</key>
+		<string>Ступни</string>
+		<key>mainHand</key>
+		<string>Правая рука</string>
+		<key>offHand</key>
+		<string>Левая рука</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) Комплект:</string>
+	<key>primaryAttribute</key>
+	<string>Основные</string>
+	<key>secondaryAttribute</key>
+	<string>Второстепенные</string>
+	<key>itemLevel</key>
+	<string>Уровень предмета: &lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>Требуемый уровень: &lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>Привязано к учетной записи</string>
+	<key>damagePerSecond</key>
+	<string>ед. урона в секунду</string>
+	<key>armor</key>
+	<string>Броня</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; Показатель блока</string>
 </dict>
 </plist>

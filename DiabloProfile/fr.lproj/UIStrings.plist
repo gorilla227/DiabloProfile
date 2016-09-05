@@ -8,5 +8,9 @@
 	<string>Saisir le BattleTag, comme Blizzard#1234</string>
 	<key>heroListTitle</key>
 	<string>Liste de Héros</string>
+	<key>tabGeneral</key>
+	<string>Général</string>
+	<key>tabEquipment</key>
+	<string>Équipement</string>
 </dict>
 </plist>
