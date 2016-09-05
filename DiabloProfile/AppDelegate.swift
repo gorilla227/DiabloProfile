@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UITabBar.appearance().tintColor = UIColor.brownColor()
         }
         
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         return true
     }
 

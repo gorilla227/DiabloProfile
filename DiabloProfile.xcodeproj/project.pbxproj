@@ -10,6 +10,63 @@
 		A1354A3B1D6969D5002A507D /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1354A3D1D6969D5002A507D /* GameData.plist */; };
 		A1680F1D1D698BB800456544 /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
 		A1701EE61D68285C00B1EFFD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
+		A17783381D7D3BCD00E841FC /* HeroDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398281D7D00F500D64D44 /* HeroDetailsTabBarController.swift */; };
+		A17783391D7D3BCD00E841FC /* DiabloProfile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23641B81D6124EB0020B16C /* DiabloProfile.xcdatamodeld */; };
+		A177833A1D7D3BCD00E841FC /* GemSocketImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398351D7D010900D64D44 /* GemSocketImageView.swift */; };
+		A177833B1D7D3BCD00E841FC /* ItemDetailsVC_LevelBoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203982B1D7D00F500D64D44 /* ItemDetailsVC_LevelBoundCell.swift */; };
+		A177833C1D7D3BCD00E841FC /* BlizzardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641C81D61334C0020B16C /* BlizzardAPI.swift */; };
+		A177833D1D7D3BCD00E841FC /* BlizzardAPI_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */; };
+		A177833E1D7D3BCD00E841FC /* SkillDetailsVC_PassiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */; };
+		A177833F1D7D3BCD00E841FC /* ItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398361D7D010900D64D44 /* ItemImageView.swift */; };
+		A17783401D7D3BCD00E841FC /* ItemAttribute+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398421D7D013800D64D44 /* ItemAttribute+CoreDataProperties.swift */; };
+		A17783411D7D3BCD00E841FC /* ItemDetailsVC_ItemSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203982A1D7D00F500D64D44 /* ItemDetailsVC_ItemSetCell.swift */; };
+		A17783421D7D3BCD00E841FC /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203983B1D7D013800D64D44 /* BasicItem.swift */; };
+		A17783431D7D3BCD00E841FC /* AddVC_SelectHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62F1D63C92A00CE71A7 /* AddVC_SelectHero.swift */; };
+		A17783441D7D3BCD00E841FC /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BF1D6260C70046C6BA /* Rune.swift */; };
+		A17783451D7D3BCD00E841FC /* SetBonus+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398461D7D013800D64D44 /* SetBonus+CoreDataProperties.swift */; };
+		A17783461D7D3BCD00E841FC /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C11D6260C70046C6BA /* Spell.swift */; };
+		A17783471D7D3BCD00E841FC /* Hero+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C21D6260C70046C6BA /* Hero+CoreDataProperties.swift */; };
+		A17783481D7D3BCD00E841FC /* Gem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398401D7D013800D64D44 /* Gem+CoreDataProperties.swift */; };
+		A17783491D7D3BCD00E841FC /* Spell+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C01D6260C70046C6BA /* Spell+CoreDataProperties.swift */; };
+		A177834A1D7D3BCD00E841FC /* InsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B401D6688A90067E83B /* InsetUILabel.swift */; };
+		A177834B1D7D3BCD00E841FC /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BD1D6260C70046C6BA /* Stats.swift */; };
+		A177834C1D7D3BCD00E841FC /* ItemSet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398441D7D013800D64D44 /* ItemSet+CoreDataProperties.swift */; };
+		A177834D1D7D3BCD00E841FC /* Gem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203983F1D7D013800D64D44 /* Gem.swift */; };
+		A177834E1D7D3BCD00E841FC /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */; };
+		A177834F1D7D3BCD00E841FC /* SkillDetailsVC_ActiveSkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */; };
+		A17783501D7D3BCD00E841FC /* DetailItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203983E1D7D013800D64D44 /* DetailItem+CoreDataProperties.swift */; };
+		A17783511D7D3BCD00E841FC /* EquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398271D7D00F500D64D44 /* EquipmentVC.swift */; };
+		A17783521D7D3BCD00E841FC /* Stats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BC1D6260C70046C6BA /* Stats+CoreDataProperties.swift */; };
+		A17783531D7D3BCD00E841FC /* BasicItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203983C1D7D013800D64D44 /* BasicItem+CoreDataProperties.swift */; };
+		A17783541D7D3BCD00E841FC /* Rune+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25BE1D6260C70046C6BA /* Rune+CoreDataProperties.swift */; };
+		A17783551D7D3BCD00E841FC /* BlizzardAPI_DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */; };
+		A17783561D7D3BCD00E841FC /* SkillDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */; };
+		A17783571D7D3BCD00E841FC /* ConfigurationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */; };
+		A17783581D7D3BCD00E841FC /* AddVC_SearchBattleTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF151F1D629A1100FBAA7B /* AddVC_SearchBattleTag.swift */; };
+		A17783591D7D3BCD00E841FC /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C31D6260C70046C6BA /* Hero.swift */; };
+		A177835A1D7D3BCD00E841FC /* StringAndColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398371D7D010900D64D44 /* StringAndColor.swift */; };
+		A177835B1D7D3BCD00E841FC /* ItemSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398431D7D013800D64D44 /* ItemSet.swift */; };
+		A177835C1D7D3BCD00E841FC /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203982D1D7D00F500D64D44 /* ItemDetailsVC.swift */; };
+		A177835D1D7D3BCD00E841FC /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
+		A177835E1D7D3BCD00E841FC /* HeroDetailsVC_ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */; };
+		A177835F1D7D3BCD00E841FC /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C51D6260C70046C6BA /* Skill.swift */; };
+		A17783601D7D3BCD00E841FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23641B11D6124EB0020B16C /* AppDelegate.swift */; };
+		A17783611D7D3BCD00E841FC /* ItemAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398411D7D013800D64D44 /* ItemAttribute.swift */; };
+		A17783621D7D3BCD00E841FC /* HeroListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF151D1D62952D00FBAA7B /* HeroListVC.swift */; };
+		A17783631D7D3BCD00E841FC /* ItemDetailsVC_SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203982C1D7D00F500D64D44 /* ItemDetailsVC_SummaryCell.swift */; };
+		A17783641D7D3BCD00E841FC /* ItemDetailsVC_AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398291D7D00F500D64D44 /* ItemDetailsVC_AttributeCell.swift */; };
+		A17783651D7D3BCD00E841FC /* SetBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398451D7D013800D64D44 /* SetBonus.swift */; };
+		A17783661D7D3BCD00E841FC /* DetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203983D1D7D013800D64D44 /* DetailItem.swift */; };
+		A17783671D7D3BCD00E841FC /* Skill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE25C41D6260C70046C6BA /* Skill+CoreDataProperties.swift */; };
+		A17783681D7D3BCD00E841FC /* HeroDetailsVC_SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */; };
+		A177836B1D7D3BCD00E841FC /* DIABLO_H.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */; };
+		A177836C1D7D3BCD00E841FC /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
+		A177836D1D7D3BCD00E841FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641BD1D6124EB0020B16C /* LaunchScreen.storyboard */; };
+		A177836E1D7D3BCD00E841FC /* DIABLO_L.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */; };
+		A177836F1D7D3BCD00E841FC /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1354A3D1D6969D5002A507D /* GameData.plist */; };
+		A17783701D7D3BCD00E841FC /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = B23641C61D6127940020B16C /* Configuration.plist */; };
+		A17783711D7D3BCD00E841FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23641BB1D6124EB0020B16C /* Assets.xcassets */; };
+		A17783721D7D3BCD00E841FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
 		A1CB0A751D64230100287C47 /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */; };
 		B203982E1D7D00F500D64D44 /* EquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398271D7D00F500D64D44 /* EquipmentVC.swift */; };
 		B203982F1D7D00F500D64D44 /* HeroDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398281D7D00F500D64D44 /* HeroDetailsTabBarController.swift */; };
@@ -72,6 +129,8 @@
 		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
 		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
+		A17783761D7D3BCD00E841FC /* Diablo Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diablo Profile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17783771D7D3BCE00E841FC /* DiabloProfile copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DiabloProfile copy-Info.plist"; path = "/Users/Andy/Dropbox/Swift/DiabloProfile/DiabloProfile copy-Info.plist"; sourceTree = "<absolute>"; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
 		B20398271D7D00F500D64D44 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
@@ -96,7 +155,7 @@
 		B20398441D7D013800D64D44 /* ItemSet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ItemSet+CoreDataProperties.swift"; path = "DataModel/ItemSet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B20398451D7D013800D64D44 /* SetBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBonus.swift; path = DataModel/SetBonus.swift; sourceTree = "<group>"; };
 		B20398461D7D013800D64D44 /* SetBonus+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SetBonus+CoreDataProperties.swift"; path = "DataModel/SetBonus+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B23641AE1D6124EB0020B16C /* DiabloProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiabloProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B23641AE1D6124EB0020B16C /* Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23641B11D6124EB0020B16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23641B61D6124EB0020B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23641B91D6124EB0020B16C /* DiabloProfile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiabloProfile.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +214,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A17783691D7D3BCD00E841FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23641AB1D6124EB0020B16C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,13 +236,15 @@
 			children = (
 				B23641B01D6124EB0020B16C /* DiabloProfile */,
 				B23641AF1D6124EB0020B16C /* Products */,
+				A17783771D7D3BCE00E841FC /* DiabloProfile copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		B23641AF1D6124EB0020B16C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B23641AE1D6124EB0020B16C /* DiabloProfile.app */,
+				B23641AE1D6124EB0020B16C /* Debug.app */,
+				A17783761D7D3BCD00E841FC /* Diablo Profile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,9 +357,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B23641AD1D6124EB0020B16C /* DiabloProfile */ = {
+		A17783361D7D3BCD00E841FC /* Diablo Profile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B23641C31D6124EB0020B16C /* Build configuration list for PBXNativeTarget "DiabloProfile" */;
+			buildConfigurationList = A17783731D7D3BCD00E841FC /* Build configuration list for PBXNativeTarget "Diablo Profile" */;
+			buildPhases = (
+				A17783371D7D3BCD00E841FC /* Sources */,
+				A17783691D7D3BCD00E841FC /* Frameworks */,
+				A177836A1D7D3BCD00E841FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Diablo Profile";
+			productName = DiabloProfile;
+			productReference = A17783761D7D3BCD00E841FC /* Diablo Profile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B23641AD1D6124EB0020B16C /* Debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B23641C31D6124EB0020B16C /* Build configuration list for PBXNativeTarget "Debug" */;
 			buildPhases = (
 				B23641AA1D6124EB0020B16C /* Sources */,
 				B23641AB1D6124EB0020B16C /* Frameworks */,
@@ -301,9 +386,9 @@
 			);
 			dependencies = (
 			);
-			name = DiabloProfile;
+			name = Debug;
 			productName = DiabloProfile;
-			productReference = B23641AE1D6124EB0020B16C /* DiabloProfile.app */;
+			productReference = B23641AE1D6124EB0020B16C /* Debug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -347,12 +432,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B23641AD1D6124EB0020B16C /* DiabloProfile */,
+				B23641AD1D6124EB0020B16C /* Debug */,
+				A17783361D7D3BCD00E841FC /* Diablo Profile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A177836A1D7D3BCD00E841FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A177836B1D7D3BCD00E841FC /* DIABLO_H.TTF in Resources */,
+				A177836C1D7D3BCD00E841FC /* UIStrings.plist in Resources */,
+				A177836D1D7D3BCD00E841FC /* LaunchScreen.storyboard in Resources */,
+				A177836E1D7D3BCD00E841FC /* DIABLO_L.TTF in Resources */,
+				A177836F1D7D3BCD00E841FC /* GameData.plist in Resources */,
+				A17783701D7D3BCD00E841FC /* Configuration.plist in Resources */,
+				A17783711D7D3BCD00E841FC /* Assets.xcassets in Resources */,
+				A17783721D7D3BCD00E841FC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23641AC1D6124EB0020B16C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,6 +472,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A17783371D7D3BCD00E841FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A17783381D7D3BCD00E841FC /* HeroDetailsTabBarController.swift in Sources */,
+				A17783391D7D3BCD00E841FC /* DiabloProfile.xcdatamodeld in Sources */,
+				A177833A1D7D3BCD00E841FC /* GemSocketImageView.swift in Sources */,
+				A177833B1D7D3BCD00E841FC /* ItemDetailsVC_LevelBoundCell.swift in Sources */,
+				A177833C1D7D3BCD00E841FC /* BlizzardAPI.swift in Sources */,
+				A177833D1D7D3BCD00E841FC /* BlizzardAPI_Constants.swift in Sources */,
+				A177833E1D7D3BCD00E841FC /* SkillDetailsVC_PassiveSkillCell.swift in Sources */,
+				A177833F1D7D3BCD00E841FC /* ItemImageView.swift in Sources */,
+				A17783401D7D3BCD00E841FC /* ItemAttribute+CoreDataProperties.swift in Sources */,
+				A17783411D7D3BCD00E841FC /* ItemDetailsVC_ItemSetCell.swift in Sources */,
+				A17783421D7D3BCD00E841FC /* BasicItem.swift in Sources */,
+				A17783431D7D3BCD00E841FC /* AddVC_SelectHero.swift in Sources */,
+				A17783441D7D3BCD00E841FC /* Rune.swift in Sources */,
+				A17783451D7D3BCD00E841FC /* SetBonus+CoreDataProperties.swift in Sources */,
+				A17783461D7D3BCD00E841FC /* Spell.swift in Sources */,
+				A17783471D7D3BCD00E841FC /* Hero+CoreDataProperties.swift in Sources */,
+				A17783481D7D3BCD00E841FC /* Gem+CoreDataProperties.swift in Sources */,
+				A17783491D7D3BCD00E841FC /* Spell+CoreDataProperties.swift in Sources */,
+				A177834A1D7D3BCD00E841FC /* InsetUILabel.swift in Sources */,
+				A177834B1D7D3BCD00E841FC /* Stats.swift in Sources */,
+				A177834C1D7D3BCD00E841FC /* ItemSet+CoreDataProperties.swift in Sources */,
+				A177834D1D7D3BCD00E841FC /* Gem.swift in Sources */,
+				A177834E1D7D3BCD00E841FC /* LaunchScreen.swift in Sources */,
+				A177834F1D7D3BCD00E841FC /* SkillDetailsVC_ActiveSkillCell.swift in Sources */,
+				A17783501D7D3BCD00E841FC /* DetailItem+CoreDataProperties.swift in Sources */,
+				A17783511D7D3BCD00E841FC /* EquipmentVC.swift in Sources */,
+				A17783521D7D3BCD00E841FC /* Stats+CoreDataProperties.swift in Sources */,
+				A17783531D7D3BCD00E841FC /* BasicItem+CoreDataProperties.swift in Sources */,
+				A17783541D7D3BCD00E841FC /* Rune+CoreDataProperties.swift in Sources */,
+				A17783551D7D3BCD00E841FC /* BlizzardAPI_DataCoding.swift in Sources */,
+				A17783561D7D3BCD00E841FC /* SkillDetailsVC.swift in Sources */,
+				A17783571D7D3BCD00E841FC /* ConfigurationFunctions.swift in Sources */,
+				A17783581D7D3BCD00E841FC /* AddVC_SearchBattleTag.swift in Sources */,
+				A17783591D7D3BCD00E841FC /* Hero.swift in Sources */,
+				A177835A1D7D3BCD00E841FC /* StringAndColor.swift in Sources */,
+				A177835B1D7D3BCD00E841FC /* ItemSet.swift in Sources */,
+				A177835C1D7D3BCD00E841FC /* ItemDetailsVC.swift in Sources */,
+				A177835D1D7D3BCD00E841FC /* HeroDetailsVC.swift in Sources */,
+				A177835E1D7D3BCD00E841FC /* HeroDetailsVC_ResourceCell.swift in Sources */,
+				A177835F1D7D3BCD00E841FC /* Skill.swift in Sources */,
+				A17783601D7D3BCD00E841FC /* AppDelegate.swift in Sources */,
+				A17783611D7D3BCD00E841FC /* ItemAttribute.swift in Sources */,
+				A17783621D7D3BCD00E841FC /* HeroListVC.swift in Sources */,
+				A17783631D7D3BCD00E841FC /* ItemDetailsVC_SummaryCell.swift in Sources */,
+				A17783641D7D3BCD00E841FC /* ItemDetailsVC_AttributeCell.swift in Sources */,
+				A17783651D7D3BCD00E841FC /* SetBonus.swift in Sources */,
+				A17783661D7D3BCD00E841FC /* DetailItem.swift in Sources */,
+				A17783671D7D3BCD00E841FC /* Skill+CoreDataProperties.swift in Sources */,
+				A17783681D7D3BCD00E841FC /* HeroDetailsVC_SkillCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23641AA1D6124EB0020B16C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,6 +648,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A17783741D7D3BCD00E841FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				INFOPLIST_FILE = "DiabloProfile copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.axu.DiabloProfile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8d7b8758-b7a2-4cda-bd40-fba5ca1601c5";
+			};
+			name = Debug;
+		};
+		A17783751D7D3BCD00E841FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				INFOPLIST_FILE = "DiabloProfile copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.axu.DiabloProfile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8d7b8758-b7a2-4cda-bd40-fba5ca1601c5";
+			};
+			name = Release;
+		};
 		B23641C11D6124EB0020B16C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -605,6 +790,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A17783731D7D3BCD00E841FC /* Build configuration list for PBXNativeTarget "Diablo Profile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A17783741D7D3BCD00E841FC /* Debug */,
+				A17783751D7D3BCD00E841FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B23641A91D6124EB0020B16C /* Build configuration list for PBXProject "DiabloProfile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -614,7 +808,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B23641C31D6124EB0020B16C /* Build configuration list for PBXNativeTarget "DiabloProfile" */ = {
+		B23641C31D6124EB0020B16C /* Build configuration list for PBXNativeTarget "Debug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B23641C41D6124EB0020B16C /* Debug */,

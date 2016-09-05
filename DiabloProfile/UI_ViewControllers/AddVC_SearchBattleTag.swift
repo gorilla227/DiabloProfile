@@ -55,10 +55,10 @@ class AddVC_SearchBattleTag: UITableViewController {
         let regionIndex = regionAndLocalePicker.selectedRowInComponent(0)
         let localeIndex = regionAndLocalePicker.selectedRowInComponent(1)
         if let regionDict = regionsAndLocales?[regionIndex],
-            let locales = regionDict[BlizzardAPI.BasicKeys.Locales],
-            let regionString = regionDict[BlizzardAPI.BasicKeys.Region] as? String,
-            let localeString = locales[localeIndex] as? String {
+        let locales = regionDict[BlizzardAPI.BasicKeys.Locales] as? [String],
+            let regionString = regionDict[BlizzardAPI.BasicKeys.Region] as? String {
             
+            let localeString = locales[localeIndex]
             region = regionString
             locale = localeString
             

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-               BuildableName = "DiabloProfile.app"
-               BlueprintName = "DiabloProfile"
+               BuildableName = "Debug.app"
+               BlueprintName = "Debug"
                ReferencedContainer = "container:DiabloProfile.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-            BuildableName = "DiabloProfile.app"
-            BlueprintName = "DiabloProfile"
+            BuildableName = "Debug.app"
+            BlueprintName = "Debug"
             ReferencedContainer = "container:DiabloProfile.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-            BuildableName = "DiabloProfile.app"
-            BlueprintName = "DiabloProfile"
+            BuildableName = "Debug.app"
+            BlueprintName = "Debug"
             ReferencedContainer = "container:DiabloProfile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-            BuildableName = "DiabloProfile.app"
-            BlueprintName = "DiabloProfile"
+            BuildableName = "Debug.app"
+            BlueprintName = "Debug"
             ReferencedContainer = "container:DiabloProfile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
