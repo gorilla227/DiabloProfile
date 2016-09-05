@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-               BuildableName = "Debug.app"
-               BlueprintName = "Debug"
+               BlueprintIdentifier = "A17783361D7D3BCD00E841FC"
+               BuildableName = "Diablo Profile.app"
+               BlueprintName = "Diablo Profile"
                ReferencedContainer = "container:DiabloProfile.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-            BuildableName = "Debug.app"
-            BlueprintName = "Debug"
-            ReferencedContainer = "container:DiabloProfile.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -55,9 +46,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-            BuildableName = "Debug.app"
-            BlueprintName = "Debug"
+            BlueprintIdentifier = "A17783361D7D3BCD00E841FC"
+            BuildableName = "Diablo Profile.app"
+            BlueprintName = "Diablo Profile"
             ReferencedContainer = "container:DiabloProfile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,16 +61,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B23641AD1D6124EB0020B16C"
-            BuildableName = "Debug.app"
-            BlueprintName = "Debug"
+            BlueprintIdentifier = "A17783361D7D3BCD00E841FC"
+            BuildableName = "Diablo Profile.app"
+            BlueprintName = "Diablo Profile"
             ReferencedContainer = "container:DiabloProfile.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
