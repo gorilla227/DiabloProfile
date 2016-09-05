@@ -120,10 +120,8 @@ class AddVC_SelectHero: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "HeroDetailSegue" {
-            let heroDetailVC = segue.destinationViewController as! HeroDetailsVC
+            let heroDetailVC = segue.destinationViewController as! HeroDetailsTabBarController
             heroDetailVC.battleTag = battleTag
-//            heroDetailVC.region = region
-//            heroDetailVC.locale = locale
             heroDetailVC.heroData = sender as? [String: AnyObject]
         }
     }

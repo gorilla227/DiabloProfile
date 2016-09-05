@@ -8,5 +8,9 @@
 	<string>请输入战网昵称，比如Blizzard#1234</string>
 	<key>heroListTitle</key>
 	<string>英雄列表</string>
+	<key>tabGeneral</key>
+	<string>综合</string>
+	<key>tabEquipment</key>
+	<string>装备</string>
 </dict>
 </plist>

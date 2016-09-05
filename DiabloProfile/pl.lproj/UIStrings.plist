@@ -8,5 +8,9 @@
 	<string>Podaj BattleTag, podobne do Blizzard#1234</string>
 	<key>heroListTitle</key>
 	<string>Lista Postaci</string>
+	<key>tabGeneral</key>
+	<string>Ogólne</string>
+	<key>tabEquipment</key>
+	<string>Wyposażenie</string>
 </dict>
 </plist>

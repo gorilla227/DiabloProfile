@@ -9,6 +9,7 @@
 import Foundation
 
 class BlizzardAPI {
+    // MARK: - Private Functions
     /* region = US/EU/CN/KR/TW,
      path is generated from class func 'generatePath', 
      parameters = [ParameterKeys.xxx: String] */
@@ -102,6 +103,7 @@ class BlizzardAPI {
         task.resume()
     }
     
+    // MARK: - API Functions
     class func requestCareerProfile(region: String, locale: String, battleTag: String, completion: (result: [[String: AnyObject]]?, error: NSError?) -> Void) {
         let convertedBattleTag = convertBattleTag(battleTag)
         if let configurations = configurations,
@@ -162,6 +164,36 @@ class BlizzardAPI {
         }
     }
     
+    class func requestItemData(region: String, locale: String, itemTooltipParams: String, completion: (result: [String: AnyObject]?, error: NSError?) -> Void) {
+        if let configurations = configurations,
+            let api_Key = configurations[BasicKeys.API_Key],
+            let path = generatePath(PathKeys.ItemData, tokens: [Token.ItemTooltipParams: itemTooltipParams]) {
+            
+            let parameters = [ParameterKeys.API_Key: api_Key, ParameterKeys.Locale: locale]
+            
+            // Create URLRequest
+            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters) {
+                // Run URLRequest
+                requestBlizzardAPI(urlRequest, requestKey: PathKeys.ItemData, completion: { (result, error) in
+                    guard error == nil && result != nil else {
+                        completion(result: nil, error: error)
+                        return
+                    }
+                    
+                    if let responseBody = result as? [String: String], let _ = responseBody[ResponseKeys.ErrorCode], let _ = responseBody[ResponseKeys.ErrorReason] {
+                        completion(result: nil, error: NSError(domain: PathKeys.ItemData, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
+                    } else if let result = result, var detailItem = self.decodeItemData(result) {
+                        detailItem[DetailItem.Keys.Locale] = locale
+                        completion(result: detailItem, error: nil)
+                    } else {
+                        completion(result: nil, error: error)
+                    }
+                })
+            }
+        }
+    }
+    
+    // MARK: - Download Image Funtion
     class func downloadImage(url: NSURL, completion: (result: NSData?, error: NSError?) -> Void) {
         let domain = "DownloadImage"
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in

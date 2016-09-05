@@ -223,5 +223,52 @@
 	<string>主动技能</string>
 	<key>passiveSkillsTitle</key>
 	<string>被动技能</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>头部</string>
+		<key>shoulders</key>
+		<string>肩部</string>
+		<key>torso</key>
+		<string>胸部</string>
+		<key>neck</key>
+		<string>颈部</string>
+		<key>hands</key>
+		<string>手部</string>
+		<key>waist</key>
+		<string>腰部</string>
+		<key>bracers</key>
+		<string>手腕</string>
+		<key>leftFinger</key>
+		<string>手指</string>
+		<key>rightFinger</key>
+		<string>手指</string>
+		<key>legs</key>
+		<string>腿部</string>
+		<key>feet</key>
+		<string>脚部</string>
+		<key>mainHand</key>
+		<string>主手</string>
+		<key>offHand</key>
+		<string>副手</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) 套装：</string>
+	<key>primaryAttribute</key>
+	<string>主要</string>
+	<key>secondaryAttribute</key>
+	<string>次要</string>
+	<key>itemLevel</key>
+	<string>物品等级：&lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>需要等级：&lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>账号绑定</string>
+	<key>damagePerSecond</key>
+	<string>每秒伤害</string>
+	<key>armor</key>
+	<string>护甲值</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; 格挡值</string>
 </dict>
 </plist>

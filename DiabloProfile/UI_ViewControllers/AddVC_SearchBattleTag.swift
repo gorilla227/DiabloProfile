@@ -99,6 +99,7 @@ class AddVC_SearchBattleTag: UITableViewController {
         }
     }
 
+    // MARK: - IBActions
     @IBAction func cancelButtonOnClicked(sender: AnyObject) {
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }

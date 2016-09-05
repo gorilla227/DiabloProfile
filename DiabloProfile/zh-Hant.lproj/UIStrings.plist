@@ -8,5 +8,9 @@
 	<string>請輸入BattleTag，例如Blizzard#1234</string>
 	<key>heroListTitle</key>
 	<string>英雄名單</string>
+	<key>tabGeneral</key>
+	<string>一般</string>
+	<key>tabEquipment</key>
+	<string>裝備</string>
 </dict>
 </plist>

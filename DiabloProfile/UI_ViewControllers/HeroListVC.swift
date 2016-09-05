@@ -113,7 +113,7 @@ class HeroListVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ViewHeroDetailsSegue" {
-            let heroDetialsVC = segue.destinationViewController as! HeroDetailsVC
+            let heroDetialsVC = segue.destinationViewController as! HeroDetailsTabBarController
             heroDetialsVC.hero = sender as? Hero
         }
     }
@@ -136,7 +136,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
-            tableView.reloadRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
         case .Move:
             break
         }

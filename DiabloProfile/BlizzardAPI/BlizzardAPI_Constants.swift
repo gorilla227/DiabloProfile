@@ -39,6 +39,7 @@ extension BlizzardAPI {
         static let Skill = "skill"
         static let Rune = "rune"
         static let Stats = "stats"
+        static let Items = "items"
         
         struct SkillRuneKeys {
             static let Slug = "slug"
@@ -84,6 +85,64 @@ extension BlizzardAPI {
             static let PrimaryResource = "primaryResource"
             static let SecondaryResource = "secondaryResource"
         }
+        
+        struct ItemKeys {
+            // BasicItemKeys
+            static let ID = "id"
+            static let Name = "name"
+            static let Icon = "icon"
+            static let DisplayColor = "displayColor"
+            static let TooltipParams = "tooltipParams"
+            static let SetItemsEquipped = "setItemsEquipped"
+            
+            // DetailItemKeys
+            static let RequiredLevel = "requiredLevel"
+            static let ItemLevel = "itemLevel"
+            static let AccountBound = "accountBound"
+            static let FlavorText = "flavorText"
+            static let TypeName = "typeName"
+            static let Type = "type"
+            static let TypeID = "id"
+            static let TypeTwoHanded = "twoHanded"
+            static let DamageRange = "damageRange"
+            static let Attributes = "attributes"
+            static let Gems = "gems"
+            static let Armor = "armor"
+            static let Min = "min"
+            static let Max = "max"
+            static let ItemSet = "set"
+            static let DPS = "dps"
+            static let AttacksPerSecond = "attacksPerSecond"
+            static let AttacksPerSecondText = "attacksPerSecondText"
+            static let BlockChance = "blockChance"
+            static let AttributesRaw = "attributesRaw"
+            static let BlockAmountMin = "Block_Amount_Item_Min"
+            static let BlockAmountDelta = "Block_Amount_Item_Delta"
+            
+            struct AttributeKeys {
+                static let Text = "text"
+                static let Color = "color"
+                static let AffixType = "affixType"
+            }
+            
+            struct GemKeys {
+                static let Item = "item"
+                static let IsGem = "isGem"
+                static let IsJewel = "isJewel"
+                static let Attributes = "attributes"
+                static let JewelRank = "jewelRank"
+                static let JewelSecondaryEffectUnlockRank = "jewelSecondaryEffectUnlockRank"
+            }
+            
+            struct SetKeys {
+                static let Name = "name"
+                static let SetItems = "items"
+                static let Slug = "slug"
+                static let Bonus = "ranks"
+                static let BonusRequired = "required"
+                static let BonusAttributes = "attributes"
+            }
+        }
     }
     
     struct Separator {
@@ -94,6 +153,7 @@ extension BlizzardAPI {
     struct Token {
         static let BattleTag_Token = "<battletag>"
         static let HeroID_Token = "<id>"
+        static let ItemTooltipParams = "<itemTooltipParams>"
     }
     
     struct SkillIconURLComponents {
@@ -101,9 +161,15 @@ extension BlizzardAPI {
         static let Tail = ".png"
     }
     
+    struct ItemIconURLComponents {
+        static let Head = "http://media.blizzard.com/d3/icons/items/"
+        static let Tail = ".png"
+    }
+    
     struct PathKeys {
         static let CareerProfile = "CareerProfile"
         static let HeroProfile = "HeroProfile"
+        static let ItemData = "ItemData"
     }
     
     struct BasicKeys {

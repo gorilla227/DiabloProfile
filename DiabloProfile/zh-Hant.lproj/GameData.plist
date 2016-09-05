@@ -223,5 +223,52 @@
 	<string>主動技能</string>
 	<key>passiveSkillsTitle</key>
 	<string>被動技能</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>頭部</string>
+		<key>shoulders</key>
+		<string>肩膀</string>
+		<key>torso</key>
+		<string>身軀</string>
+		<key>neck</key>
+		<string>頸部</string>
+		<key>hands</key>
+		<string>手掌</string>
+		<key>waist</key>
+		<string>腰部</string>
+		<key>bracers</key>
+		<string>手腕</string>
+		<key>leftFinger</key>
+		<string>手指</string>
+		<key>rightFinger</key>
+		<string>手指</string>
+		<key>legs</key>
+		<string>腿部</string>
+		<key>feet</key>
+		<string>腳部</string>
+		<key>mainHand</key>
+		<string>主手</string>
+		<key>offHand</key>
+		<string>副手</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) 套裝：</string>
+	<key>primaryAttribute</key>
+	<string>主要屬性</string>
+	<key>secondaryAttribute</key>
+	<string>次要屬性</string>
+	<key>itemLevel</key>
+	<string>物品等級：&lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>需要等級：&lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>帳號綁定</string>
+	<key>damagePerSecond</key>
+	<string>每秒傷害</string>
+	<key>armor</key>
+	<string>護甲值</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; 格擋值</string>
 </dict>
 </plist>

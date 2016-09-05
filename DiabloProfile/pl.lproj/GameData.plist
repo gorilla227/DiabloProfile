@@ -223,5 +223,52 @@
 	<string>Umiejętności aktywne</string>
 	<key>passiveSkillsTitle</key>
 	<string>Umiejętności pasywne</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>Głowa</string>
+		<key>shoulders</key>
+		<string>Ramiona</string>
+		<key>torso</key>
+		<string>Tułów</string>
+		<key>neck</key>
+		<string>Szyja</string>
+		<key>hands</key>
+		<string>Dłonie</string>
+		<key>waist</key>
+		<string>Talia</string>
+		<key>bracers</key>
+		<string>Nadgarstki</string>
+		<key>leftFinger</key>
+		<string>Palec</string>
+		<key>rightFinger</key>
+		<string>Palec</string>
+		<key>legs</key>
+		<string>Nogi</string>
+		<key>feet</key>
+		<string>Stopy</string>
+		<key>mainHand</key>
+		<string>Prawa ręka</string>
+		<key>offHand</key>
+		<string>Lewa ręka</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) Część zestawu:</string>
+	<key>primaryAttribute</key>
+	<string>Podstawowe</string>
+	<key>secondaryAttribute</key>
+	<string>Dodatkowe</string>
+	<key>itemLevel</key>
+	<string>Poziom przedmiotu: &lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>Wymagany poziom: &lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>Przypisano do konta</string>
+	<key>damagePerSecond</key>
+	<string>Obrażenia na sekundę</string>
+	<key>armor</key>
+	<string>Pancerz</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; Wartość bloku</string>
 </dict>
 </plist>

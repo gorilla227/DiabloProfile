@@ -223,5 +223,52 @@
 	<string>Abilità attive</string>
 	<key>passiveSkillsTitle</key>
 	<string>Abilità passive</string>
+	<key>itemSlot</key>
+	<dict>
+		<key>head</key>
+		<string>Testa</string>
+		<key>shoulders</key>
+		<string>Spalle</string>
+		<key>torso</key>
+		<string>Torso</string>
+		<key>neck</key>
+		<string>Collo</string>
+		<key>hands</key>
+		<string>Mani</string>
+		<key>waist</key>
+		<string>Vita</string>
+		<key>bracers</key>
+		<string>Polsi</string>
+		<key>leftFinger</key>
+		<string>Dito</string>
+		<key>rightFinger</key>
+		<string>Dito</string>
+		<key>legs</key>
+		<string>Gambe</string>
+		<key>feet</key>
+		<string>Piedi</string>
+		<key>mainHand</key>
+		<string>Mano primaria</string>
+		<key>offHand</key>
+		<string>Mano secondaria</string>
+	</dict>
+	<key>itemSet</key>
+	<string>(&lt;required&gt;) Appartenente a un completo:</string>
+	<key>primaryAttribute</key>
+	<string>Primarie</string>
+	<key>secondaryAttribute</key>
+	<string>Secondarie</string>
+	<key>itemLevel</key>
+	<string>Livello oggetto: &lt;lv&gt;</string>
+	<key>requiredLevel</key>
+	<string>Livello richiesto: &lt;lv&gt;</string>
+	<key>accountBound</key>
+	<string>Vincolato all'account</string>
+	<key>damagePerSecond</key>
+	<string>DPS</string>
+	<key>armor</key>
+	<string>Armatura</string>
+	<key>blockAmount</key>
+	<string>&lt;min&gt;-&lt;max&gt; Quantità parata</string>
 </dict>
 </plist>
