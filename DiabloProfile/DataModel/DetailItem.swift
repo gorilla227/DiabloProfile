@@ -132,8 +132,9 @@ class DetailItem: NSManagedObject {
             self.gems = NSSet(array: gemsArray)
         }
         
-        if let itemSetDict = dictionary[Keys.ItemSet] as? [String: AnyObject] {
-            if let itemSet = ItemSet.fetchItemSet(itemSetDict[ItemSet.Keys.Slug] as? String, context: context) {
+        if var itemSetDict = dictionary[Keys.ItemSet] as? [String: AnyObject] {
+            itemSetDict[ItemSet.Keys.Locale] = dictionary[Keys.Locale]
+            if let itemSet = ItemSet.fetchItemSet(itemSetDict[ItemSet.Keys.Slug] as? String, locale: itemSetDict[ItemSet.Keys.Locale] as? String, context: context) {
                 self.itemSet = itemSet
             } else {
                 self.itemSet = ItemSet(dictionary: itemSetDict, context: context)

@@ -19,5 +19,6 @@ extension ItemSet {
     @NSManaged var items: NSSet?
     @NSManaged var setBonus: NSOrderedSet?
     @NSManaged var detailItem: NSSet?
+    @NSManaged var locale: String?
 
 }

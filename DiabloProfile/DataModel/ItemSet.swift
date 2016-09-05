@@ -46,12 +46,16 @@ class ItemSet: NSManagedObject {
             }
             self.setBonus = NSOrderedSet(array: setBonusArray)
         }
+        
+        if let locale = dictionary[Keys.Locale] as? String {
+            self.locale = locale
+        }
     }
     
-    class func fetchItemSet(slug: String?, context: NSManagedObjectContext) -> ItemSet? {
-        if let slug = slug {
+    class func fetchItemSet(slug: String?, locale: String?, context: NSManagedObjectContext) -> ItemSet? {
+        if let slug = slug, locale = locale {
             let fetchRequest = NSFetchRequest(entityName: Keys.EntityName)
-            fetchRequest.predicate = NSPredicate(format: "slug == %@", slug)
+            fetchRequest.predicate = NSPredicate(format: "slug == %@ && locale == %@", slug, locale)
             do {
                 let result = try context.executeFetchRequest(fetchRequest)
                 if let itemSet = result.first as? ItemSet {
@@ -73,5 +77,6 @@ extension ItemSet {
         static let Items = "items"
         static let SetBonus = "setBonus"
         static let DetailItem = "detailItem"
+        static let Locale = "locale"
     }
 }

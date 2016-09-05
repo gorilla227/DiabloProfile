@@ -136,7 +136,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
-            tableView.reloadRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
         case .Move:
             break
         }
