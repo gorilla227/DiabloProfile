@@ -43,7 +43,7 @@
         <!--Hero List-->
         <scene sceneID="NPJ-h7-txS">
             <objects>
-                <tableViewController id="v7z-p7-et7" customClass="HeroListVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="v7z-p7-et7" customClass="HeroListVC" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZFI-UK-Yfq">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
         <!--Search-->
         <scene sceneID="FFf-U3-Ek7">
             <objects>
-                <tableViewController id="BiA-py-mHs" customClass="AddVC_SearchBattleTag" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="BiA-py-mHs" customClass="AddVC_SearchBattleTag" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Uni-F5-AZo">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +195,7 @@
         <!--General-->
         <scene sceneID="sAB-2n-Z0J">
             <objects>
-                <tableViewController id="LJL-0t-tb0" customClass="HeroDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="LJL-0t-tb0" customClass="HeroDetailsVC" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="C3Y-rW-5hP">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,7 +280,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResourceCell" rowHeight="65" id="SVu-Lt-XzX" customClass="HeroDetailsVC_ResourceCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResourceCell" rowHeight="65" id="SVu-Lt-XzX" customClass="HeroDetailsVC_ResourceCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="198.5" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SVu-Lt-XzX" id="ymd-1W-AzZ">
@@ -375,7 +375,7 @@
                                     <outlet property="resourceValueLabel" destination="Nvk-pf-tq2" id="ByW-uu-aYQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="226" id="qnb-dB-yOa" customClass="HeroDetailsVC_SkillCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="226" id="qnb-dB-yOa" customClass="HeroDetailsVC_SkillCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="263.5" width="600" height="226"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnb-dB-yOa" id="kya-2l-bOC">
@@ -408,7 +408,7 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" misplaced="YES" text="Skill Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-8U-zNy" customClass="InsetUILabel" customModule="DiabloProfile" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" misplaced="YES" text="Skill Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-8U-zNy" customClass="InsetUILabel" customModule="Diablo_Profile" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="21" width="481" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -453,7 +453,7 @@
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Rune Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-wV-KDL" customClass="InsetUILabel" customModule="DiabloProfile" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Rune Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-wV-KDL" customClass="InsetUILabel" customModule="Diablo_Profile" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="17" width="416" height="12"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,7 +536,7 @@
         <!--Equipments-->
         <scene sceneID="7vP-V8-5Cg">
             <objects>
-                <viewController id="Yl5-lU-70e" customClass="EquipmentVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yl5-lU-70e" customClass="EquipmentVC" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CzN-SH-WCs"/>
                         <viewControllerLayoutGuide type="bottom" id="yzt-1y-Ejw"/>
@@ -562,7 +562,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="head" translatesAutoresizingMaskIntoConstraints="NO" id="8QP-HK-UAC" userLabel="head" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="head" translatesAutoresizingMaskIntoConstraints="NO" id="8QP-HK-UAC" userLabel="head" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="276" y="120" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8QP-HK-UAC" secondAttribute="height" multiplier="1:1" id="Bu9-kI-ZUu"/>
@@ -571,7 +571,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hands" translatesAutoresizingMaskIntoConstraints="NO" id="b3U-RW-qgW" userLabel="hands" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hands" translatesAutoresizingMaskIntoConstraints="NO" id="b3U-RW-qgW" userLabel="hands" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="187" y="213" width="50" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b3U-RW-qgW" secondAttribute="height" multiplier="66:88" id="Kla-eM-d9p"/>
@@ -580,7 +580,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="shoulders" translatesAutoresizingMaskIntoConstraints="NO" id="uT0-CD-cPR" userLabel="shoulders" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="shoulders" translatesAutoresizingMaskIntoConstraints="NO" id="uT0-CD-cPR" userLabel="shoulders" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="209" y="139" width="49" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uT0-CD-cPR" secondAttribute="height" multiplier="66:88" id="HVt-BD-rkr"/>
@@ -589,7 +589,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="neck" translatesAutoresizingMaskIntoConstraints="NO" id="kB5-nt-tb6" userLabel="neck" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="neck" translatesAutoresizingMaskIntoConstraints="NO" id="kB5-nt-tb6" userLabel="neck" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="345" y="154" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kB5-nt-tb6" secondAttribute="height" id="YD5-YA-F4V"/>
@@ -598,7 +598,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="torso" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-nv-yEO" userLabel="torso" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="torso" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-nv-yEO" userLabel="torso" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="270" y="172" width="62" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xUx-nv-yEO" secondAttribute="height" multiplier="82:116" id="cQD-yi-Whe"/>
@@ -607,7 +607,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="waist" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-5k-fR7" userLabel="waist" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="waist" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-5k-fR7" userLabel="waist" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="270" y="263" width="62" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OSa-5k-fR7" secondAttribute="height" multiplier="82:33" id="AGA-Iy-dnh"/>
@@ -616,7 +616,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="bracers" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-bl-ChB" userLabel="bracers" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="bracers" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-bl-ChB" userLabel="bracers" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="363" y="213" width="50" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X7A-bl-ChB" secondAttribute="height" multiplier="66:88" id="lGD-4c-0cw"/>
@@ -625,7 +625,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="leftFinger" translatesAutoresizingMaskIntoConstraints="NO" id="mUF-dm-ROD" userLabel="leftFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="leftFinger" translatesAutoresizingMaskIntoConstraints="NO" id="mUF-dm-ROD" userLabel="leftFinger" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="195" y="289" width="31" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mUF-dm-ROD" secondAttribute="height" id="46I-Qu-pZw"/>
@@ -634,7 +634,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rightFinger" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-9k-fBq" userLabel="rightFinger" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rightFinger" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-9k-fBq" userLabel="rightFinger" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="375" y="289" width="31" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GDv-9k-fBq" secondAttribute="height" id="1qb-7q-NBg"/>
@@ -643,7 +643,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="feet" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-t9-1B7" userLabel="feet" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="feet" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-t9-1B7" userLabel="feet" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="276" y="361" width="50" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tBu-t9-1B7" secondAttribute="height" multiplier="66:88" id="A3a-6I-fn3"/>
@@ -652,7 +652,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="legs" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Q0-tjY" userLabel="legs" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="legs" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Q0-tjY" userLabel="legs" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="276" y="292" width="50" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GH8-Q0-tjY" secondAttribute="height" multiplier="66:88" id="9EQ-jn-hn3"/>
@@ -661,7 +661,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="mainHand" translatesAutoresizingMaskIntoConstraints="NO" id="nOy-kp-GVN" userLabel="mainHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="mainHand" translatesAutoresizingMaskIntoConstraints="NO" id="nOy-kp-GVN" userLabel="mainHand" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="185" y="330" width="50" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nOy-kp-GVN" secondAttribute="height" multiplier="66:130" id="pwS-gA-9dw"/>
@@ -670,7 +670,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="offHand" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-7L-6Vx" userLabel="offHand" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="offHand" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-7L-6Vx" userLabel="offHand" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="365" y="330" width="50" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bui-7L-6Vx" secondAttribute="height" multiplier="66:130" id="PPJ-mt-T6g"/>
@@ -778,7 +778,7 @@
         <!--Item DetailsVC-->
         <scene sceneID="NHw-DR-okQ">
             <objects>
-                <tableViewController id="UQb-dr-M1p" customClass="ItemDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="UQb-dr-M1p" customClass="ItemDetailsVC" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="ey5-ZV-j3w">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -791,7 +791,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SummaryCell" rowHeight="163" id="wYF-Gx-Xsf" customClass="ItemDetailsVC_SummaryCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SummaryCell" rowHeight="163" id="wYF-Gx-Xsf" customClass="ItemDetailsVC_SummaryCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86.5" width="600" height="163"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wYF-Gx-Xsf" id="m5y-WK-qqq">
@@ -801,7 +801,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ool-di-IYm">
                                             <rect key="frame" x="8" y="8" width="584" height="147"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gzs-Jr-ptc" customClass="ItemImageView" customModule="DiabloProfile" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gzs-Jr-ptc" customClass="ItemImageView" customModule="Diablo_Profile" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="116" height="50"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="NO"/>
@@ -893,7 +893,7 @@
                                     <outlet property="slotLabel" destination="e5o-aV-wCg" id="rsn-8B-i8p"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttributeCell" id="sSh-7x-H3h" customClass="ItemDetailsVC_AttributeCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttributeCell" id="sSh-7x-H3h" customClass="ItemDetailsVC_AttributeCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sSh-7x-H3h" id="7v7-57-Vsj">
@@ -954,7 +954,7 @@
                                     <outlet property="listIconImageView" destination="oYb-0z-QMa" id="z1I-Nw-DT9"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetCell" rowHeight="27" id="bnx-J6-TTH" customClass="ItemDetailsVC_ItemSetCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetCell" rowHeight="27" id="bnx-J6-TTH" customClass="ItemDetailsVC_ItemSetCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="293.5" width="600" height="27"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnx-J6-TTH" id="5hV-UM-eWD">
@@ -986,7 +986,7 @@
                                     <outlet property="stackView" destination="enz-5t-CgF" id="CaM-cb-q9r"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LevelBoundCell" rowHeight="58" id="rDS-Lw-wj0" customClass="ItemDetailsVC_LevelBoundCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LevelBoundCell" rowHeight="58" id="rDS-Lw-wj0" customClass="ItemDetailsVC_LevelBoundCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="320.5" width="600" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rDS-Lw-wj0" id="Dhp-Ti-Lc9">
@@ -1072,13 +1072,13 @@
         <!--Class Name-->
         <scene sceneID="UJq-Kt-ydN">
             <objects>
-                <tableViewController id="S0b-1a-i2o" customClass="SkillDetailsVC" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="S0b-1a-i2o" customClass="SkillDetailsVC" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="147" sectionHeaderHeight="18" sectionFooterHeight="18" id="hjC-Ca-qTj">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveSkillCell" rowHeight="147" id="34Z-W5-708" customClass="SkillDetailsVC_ActiveSkillCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveSkillCell" rowHeight="147" id="34Z-W5-708" customClass="SkillDetailsVC_ActiveSkillCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="49.5" width="600" height="147"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="34Z-W5-708" id="VsY-V5-oXv">
@@ -1187,7 +1187,7 @@
                                     <outlet property="skillNameLabel" destination="28O-6W-NU3" id="qGO-eI-1K4"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PassiveSkillCell" id="7A4-bO-nSC" customClass="SkillDetailsVC_PassiveSkillCell" customModule="DiabloProfile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PassiveSkillCell" id="7A4-bO-nSC" customClass="SkillDetailsVC_PassiveSkillCell" customModule="Diablo_Profile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="196.5" width="600" height="147"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7A4-bO-nSC" id="vax-Pj-0O0">
@@ -1277,7 +1277,7 @@
         <!--BattleTag-->
         <scene sceneID="J9q-iw-9WL">
             <objects>
-                <tableViewController id="AWj-MP-tMI" customClass="AddVC_SelectHero" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="AWj-MP-tMI" customClass="AddVC_SelectHero" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nnz-v5-3cW">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1349,7 +1349,7 @@
         <!--Launch Screen-->
         <scene sceneID="lFU-le-xHr">
             <objects>
-                <viewController id="UAK-aI-3OM" customClass="LaunchScreen" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UAK-aI-3OM" customClass="LaunchScreen" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NYC-lE-Nr2"/>
                         <viewControllerLayoutGuide type="bottom" id="IHU-U9-0KI"/>
@@ -1382,7 +1382,7 @@
         <!--Hero Details Tab Bar Controller-->
         <scene sceneID="UjZ-M2-SWf">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DtD-iE-BLx" customClass="HeroDetailsTabBarController" customModule="DiabloProfile" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DtD-iE-BLx" customClass="HeroDetailsTabBarController" customModule="Diablo_Profile" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Twd-vD-lAn">

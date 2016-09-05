@@ -315,6 +315,11 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Andy Xu";
+				TargetAttributes = {
+					A17783361D7D3BCD00E841FC = {
+						DevelopmentTeam = 96U9EGGZ95;
+					};
+				};
 			};
 			buildConfigurationList = B23641A91D6124EB0020B16C /* Build configuration list for PBXProject "DiabloProfile" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -495,7 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.axu.DiabloProfile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1f952691-1a2a-4703-ba4c-6cfcc29bc693";
 			};
 			name = Debug;
 		};
@@ -509,7 +514,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.axu.DiabloProfile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1f952691-1a2a-4703-ba4c-6cfcc29bc693";
 			};
 			name = Release;
 		};
