@@ -1,0 +1,6 @@
+framework module Pods_Diablo_Profile {
+  umbrella header "Pods-Diablo Profile-umbrella.h"
+
+  export *
+  module * { export * }
+}
