@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
-        NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: #selector(autoSaveBackgroundManagedObjectContext(_:)), userInfo: nil, repeats: true)
 
         if let font = UIFont(name: "DiabloHeavy", size: 20) {
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.brownColor()]
@@ -132,7 +132,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func autoSaveBackgroundManagedObjectContext(notification: NSNotification) {
         AppDelegate.saveContext(backgroundManagedObjectContext)
-        print("Auto save BackgroundManagedObjectContext")
     }
     
     // MARK: - UpdateUI 

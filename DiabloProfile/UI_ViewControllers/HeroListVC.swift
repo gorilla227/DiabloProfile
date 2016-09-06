@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class HeroListVC: UITableViewController {
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
 
     lazy var mainManagedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -28,6 +29,9 @@ class HeroListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingIndicator.center = tableView.center
+        tableView.addSubview(loadingIndicator)
         
         if let uiStrings = AppDelegate.uiStrings(locale: nil), let heroListTitle = uiStrings["heroListTitle"] as? String {
             navigationItem.title = heroListTitle
@@ -80,7 +84,46 @@ class HeroListVC: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
-            performSegueWithIdentifier("ViewHeroDetailsSegue", sender: hero)
+            if let lastUpdated = hero.lastUpdated?.doubleValue {
+                loadingIndicator.startAnimating()
+                
+                BlizzardAPI.requestHeroProfile(hero.region!, locale: hero.locale!, battleTag: hero.battleTag!, heroId: hero.id!, completion: { (result, error) in
+                    guard error == nil && result != nil else {
+                        if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
+                            let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
+                            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            warning.addAction(okAction)
+                            AppDelegate.performUIUpdatesOnMain({
+                                self.loadingIndicator.stopAnimating()
+                                self.presentViewController(warning, animated: true, completion: nil)
+                            })
+                        }
+                        return
+                    }
+                    
+                    if let newLastUpdated = result![Hero.Keys.LastUpdated] as? NSNumber {
+                        if newLastUpdated.doubleValue != lastUpdated {
+                            print("Update Offline Data")
+                            // Update Offline Data
+                            self.mainManagedObjectContext.performBlock({
+                                self.mainManagedObjectContext.deleteObject(hero)
+                                let newHero = Hero(dictionary: result!, context: self.mainManagedObjectContext)
+                                AppDelegate.saveContext(self.mainManagedObjectContext)
+                                AppDelegate.performUIUpdatesOnMain({
+                                    self.loadingIndicator.stopAnimating()
+                                    self.performSegueWithIdentifier("ViewHeroDetailsSegue", sender: newHero)
+                                })
+                            })
+                        } else {
+                            print("Offline Data was Up-to-Dated")
+                            AppDelegate.performUIUpdatesOnMain({
+                                self.loadingIndicator.stopAnimating()
+                                self.performSegueWithIdentifier("ViewHeroDetailsSegue", sender: hero)
+                            })
+                        }
+                    }
+                })
+            }
         }
     }
 

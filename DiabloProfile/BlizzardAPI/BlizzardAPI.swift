@@ -155,6 +155,7 @@ class BlizzardAPI {
                     } else if let result = result, var hero = self.decodeHeroProfile(result) {
                         hero[Hero.Keys.Region] = region
                         hero[Hero.Keys.Locale] = locale
+                        hero[Hero.Keys.BattleTag] = battleTag
                         completion(result: hero, error: nil)
                     } else {
                         completion(result: nil, error: error)
