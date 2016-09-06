@@ -72,7 +72,7 @@
 		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
 		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
-		A17783761D7D3BCD00E841FC /* Diablo Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diablo Profile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17783761D7D3BCD00E841FC /* DProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
 		B20398271D7D00F500D64D44 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		B23641AF1D6124EB0020B16C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A17783761D7D3BCD00E841FC /* Diablo Profile.app */,
+				A17783761D7D3BCD00E841FC /* DProfile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 			);
 			name = "Diablo Profile";
 			productName = DiabloProfile;
-			productReference = A17783761D7D3BCD00E841FC /* Diablo Profile.app */;
+			productReference = A17783761D7D3BCD00E841FC /* DProfile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -499,7 +499,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/DiabloProfile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.axu.DiabloProfile;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DProfile;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -513,7 +513,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/DiabloProfile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.axu.DiabloProfile;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DProfile;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
