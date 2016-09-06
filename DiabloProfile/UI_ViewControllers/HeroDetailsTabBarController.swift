@@ -14,7 +14,6 @@ class HeroDetailsTabBarController: UITabBarController {
     @IBOutlet var removeButton: UIBarButtonItem!
 
     var heroData: [String: AnyObject]?
-    var battleTag: String?
     var hero: Hero?
  
     let mainManagedObjectContext: NSManagedObjectContext = {
@@ -54,7 +53,6 @@ class HeroDetailsTabBarController: UITabBarController {
         if let heroData = heroData {
             privateManagedObjectContext.performBlock({
                 let hero = Hero(dictionary: heroData, context: self.privateManagedObjectContext)
-                hero.battleTag = self.battleTag
                 AppDelegate.performUIUpdatesOnMain({
                     self.hero = hero
                     self.navigationItem.title = hero.name?.uppercaseString ?? ""

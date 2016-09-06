@@ -13,6 +13,9 @@ class GemSocketImageView: UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = .ScaleToFill
         self.addSubview(imageView)
+        self.addSubview(self.loadingIndicator)
+        self.loadingIndicator.centerXAnchor.constraintEqualToAnchor(imageView.centerXAnchor).active = true
+        self.loadingIndicator.centerYAnchor.constraintEqualToAnchor(imageView.centerYAnchor).active = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -22,14 +25,10 @@ class GemSocketImageView: UIImageView {
         indicator.color = UIColor.orangeColor()
         indicator.hidesWhenStopped = true
         indicator.stopAnimating()
-        self.addSubview(indicator)
         indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
-        indicator.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
         return indicator
     }()
 
-    
     func configureGem(gem: Gem, scale: CGFloat) {
         gemImageView.widthAnchor.constraintEqualToConstant(20 * scale).active = true
         gemImageView.heightAnchor.constraintEqualToConstant(20 * scale).active = true
