@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062614E75B537F715233436B /* Pods_Diablo_Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE59DD1B83495C21054FAB26 /* Pods_Diablo_Profile.framework */; };
 		A17783381D7D3BCD00E841FC /* HeroDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398281D7D00F500D64D44 /* HeroDetailsTabBarController.swift */; };
 		A17783391D7D3BCD00E841FC /* DiabloProfile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23641B81D6124EB0020B16C /* DiabloProfile.xcdatamodeld */; };
 		A177833A1D7D3BCD00E841FC /* GemSocketImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398351D7D010900D64D44 /* GemSocketImageView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		896F020D76F3F1FE26F2E915 /* Pods-Diablo Profile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diablo Profile.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diablo Profile/Pods-Diablo Profile.release.xcconfig"; sourceTree = "<group>"; };
 		A1354A3C1D6969D5002A507D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/GameData.plist; sourceTree = "<group>"; };
 		A1354A401D696ACB002A507D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/GameData.plist"; sourceTree = "<group>"; };
 		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
@@ -152,6 +154,8 @@
 		B2F61B401D6688A90067E83B /* InsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsetUILabel.swift; path = CustomizeUI/InsetUILabel.swift; sourceTree = "<group>"; };
 		B2FF151D1D62952D00FBAA7B /* HeroListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroListVC.swift; path = UI_ViewControllers/HeroListVC.swift; sourceTree = "<group>"; };
 		B2FF151F1D629A1100FBAA7B /* AddVC_SearchBattleTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddVC_SearchBattleTag.swift; path = UI_ViewControllers/AddVC_SearchBattleTag.swift; sourceTree = "<group>"; };
+		C45F5D44E5B688A6222FE899 /* Pods-Diablo Profile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diablo Profile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diablo Profile/Pods-Diablo Profile.debug.xcconfig"; sourceTree = "<group>"; };
+		FE59DD1B83495C21054FAB26 /* Pods_Diablo_Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diablo_Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,17 +163,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062614E75B537F715233436B /* Pods_Diablo_Profile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DBAFC84B2297C90094CC1AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE59DD1B83495C21054FAB26 /* Pods_Diablo_Profile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		874F1745D0FC1E008613A5C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C45F5D44E5B688A6222FE899 /* Pods-Diablo Profile.debug.xcconfig */,
+				896F020D76F3F1FE26F2E915 /* Pods-Diablo Profile.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B23641A51D6124EB0020B16C = {
 			isa = PBXGroup;
 			children = (
 				B23641B01D6124EB0020B16C /* DiabloProfile */,
 				B23641AF1D6124EB0020B16C /* Products */,
+				874F1745D0FC1E008613A5C2 /* Pods */,
+				3DBAFC84B2297C90094CC1AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,9 +317,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A17783731D7D3BCD00E841FC /* Build configuration list for PBXNativeTarget "Diablo Profile" */;
 			buildPhases = (
+				CF8D7245790540E075AADE93 /* [CP] Check Pods Manifest.lock */,
 				A17783371D7D3BCD00E841FC /* Sources */,
 				A17783691D7D3BCD00E841FC /* Frameworks */,
 				A177836A1D7D3BCD00E841FC /* Resources */,
+				AD2731F88B609182E0020D4F /* [CP] Embed Pods Frameworks */,
+				39ED972118C3C722AD5BDC64 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,6 +395,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39ED972118C3C722AD5BDC64 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Diablo Profile/Pods-Diablo Profile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD2731F88B609182E0020D4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Diablo Profile/Pods-Diablo Profile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF8D7245790540E075AADE93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A17783371D7D3BCD00E841FC /* Sources */ = {
@@ -492,6 +567,7 @@
 /* Begin XCBuildConfiguration section */
 		A17783741D7D3BCD00E841FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C45F5D44E5B688A6222FE899 /* Pods-Diablo Profile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -506,6 +582,7 @@
 		};
 		A17783751D7D3BCD00E841FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 896F020D76F3F1FE26F2E915 /* Pods-Diablo Profile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
