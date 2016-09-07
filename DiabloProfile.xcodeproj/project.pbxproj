@@ -64,7 +64,7 @@
 		A17783711D7D3BCD00E841FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23641BB1D6124EB0020B16C /* Assets.xcassets */; };
 		A17783721D7D3BCD00E841FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
 		A1F62D491D7FC75E00DE02E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F62D481D7FC75E00DE02E1 /* Reachability.swift */; };
-		A1F62D4E1D7FCB9600DE02E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F62D4C1D7FCB9600DE02E1 /* LaunchScreen.storyboard */; };
+		A1F62D511D7FCC3D00DE02E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F62D4F1D7FCC3D00DE02E1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +77,7 @@
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
 		A1F62D481D7FC75E00DE02E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = DiabloProfile/ExtendLibrary/Reachability/Reachability.swift; sourceTree = "<group>"; };
-		A1F62D4D1D7FCB9600DE02E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1F62D501D7FCC3D00DE02E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20398271D7D00F500D64D44 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
 		B20398281D7D00F500D64D44 /* HeroDetailsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsTabBarController.swift; path = UI_ViewControllers/HeroDetailsTabBarController.swift; sourceTree = "<group>"; };
 		B20398291D7D00F500D64D44 /* ItemDetailsVC_AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_AttributeCell.swift; path = UI_ViewControllers/ItemDetailsVC_AttributeCell.swift; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 				B2F61B3F1D6688260067E83B /* CustomizeUI */,
 				B2AE25D01D6291670046C6BA /* UI_ViewControllers */,
 				B23641BB1D6124EB0020B16C /* Assets.xcassets */,
-				A1F62D4C1D7FCB9600DE02E1 /* LaunchScreen.storyboard */,
 				A1AFF9961D699CA7006C0AF8 /* Info.plist */,
+				A1F62D4F1D7FCC3D00DE02E1 /* LaunchScreen.storyboard */,
 				B25F70F71D67DEAF004AEE37 /* DiabloFonts */,
 				A1354A3D1D6969D5002A507D /* GameData.plist */,
 				B23641CA1D6133510020B16C /* BlizzardAPI */,
@@ -376,7 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A177836B1D7D3BCD00E841FC /* DIABLO_H.TTF in Resources */,
-				A1F62D4E1D7FCB9600DE02E1 /* LaunchScreen.storyboard in Resources */,
+				A1F62D511D7FCC3D00DE02E1 /* LaunchScreen.storyboard in Resources */,
 				A177836C1D7D3BCD00E841FC /* UIStrings.plist in Resources */,
 				A177836E1D7D3BCD00E841FC /* DIABLO_L.TTF in Resources */,
 				A177836F1D7D3BCD00E841FC /* GameData.plist in Resources */,
@@ -491,10 +491,10 @@
 			name = UIStrings.plist;
 			sourceTree = "<group>";
 		};
-		A1F62D4C1D7FCB9600DE02E1 /* LaunchScreen.storyboard */ = {
+		A1F62D4F1D7FCC3D00DE02E1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A1F62D4D1D7FCB9600DE02E1 /* Base */,
+				A1F62D501D7FCC3D00DE02E1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
