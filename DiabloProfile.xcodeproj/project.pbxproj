@@ -58,12 +58,13 @@
 		A17783681D7D3BCD00E841FC /* HeroDetailsVC_SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61B3D1D6655AF0067E83B /* HeroDetailsVC_SkillCell.swift */; };
 		A177836B1D7D3BCD00E841FC /* DIABLO_H.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */; };
 		A177836C1D7D3BCD00E841FC /* UIStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1680F1F1D698BB800456544 /* UIStrings.plist */; };
-		A177836D1D7D3BCD00E841FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641BD1D6124EB0020B16C /* LaunchScreen.storyboard */; };
 		A177836E1D7D3BCD00E841FC /* DIABLO_L.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */; };
 		A177836F1D7D3BCD00E841FC /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1354A3D1D6969D5002A507D /* GameData.plist */; };
 		A17783701D7D3BCD00E841FC /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = B23641C61D6127940020B16C /* Configuration.plist */; };
 		A17783711D7D3BCD00E841FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23641BB1D6124EB0020B16C /* Assets.xcassets */; };
 		A17783721D7D3BCD00E841FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
+		A1F62D491D7FC75E00DE02E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F62D481D7FC75E00DE02E1 /* Reachability.swift */; };
+		A1F62D4E1D7FCB9600DE02E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F62D4C1D7FCB9600DE02E1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		A17783761D7D3BCD00E841FC /* DProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
+		A1F62D481D7FC75E00DE02E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = DiabloProfile/ExtendLibrary/Reachability/Reachability.swift; sourceTree = "<group>"; };
+		A1F62D4D1D7FCB9600DE02E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20398271D7D00F500D64D44 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
 		B20398281D7D00F500D64D44 /* HeroDetailsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsTabBarController.swift; path = UI_ViewControllers/HeroDetailsTabBarController.swift; sourceTree = "<group>"; };
 		B20398291D7D00F500D64D44 /* ItemDetailsVC_AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailsVC_AttributeCell.swift; path = UI_ViewControllers/ItemDetailsVC_AttributeCell.swift; sourceTree = "<group>"; };
@@ -101,7 +104,6 @@
 		B23641B61D6124EB0020B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23641B91D6124EB0020B16C /* DiabloProfile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiabloProfile.xcdatamodel; sourceTree = "<group>"; };
 		B23641BB1D6124EB0020B16C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B23641BE1D6124EB0020B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B23641C61D6127940020B16C /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		B23641C81D61334C0020B16C /* BlizzardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI.swift; path = BlizzardAPI/BlizzardAPI.swift; sourceTree = "<group>"; };
 		B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_Constants.swift; path = BlizzardAPI/BlizzardAPI_Constants.swift; sourceTree = "<group>"; };
@@ -165,11 +167,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1F62D4A1D7FC76100DE02E1 /* ExtendLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				A1F62D4B1D7FC76E00DE02E1 /* Reachability */,
+			);
+			name = ExtendLibrary;
+			sourceTree = "<group>";
+		};
+		A1F62D4B1D7FC76E00DE02E1 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A1F62D481D7FC75E00DE02E1 /* Reachability.swift */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		B23641A51D6124EB0020B16C = {
 			isa = PBXGroup;
 			children = (
 				B23641B01D6124EB0020B16C /* DiabloProfile */,
 				B23641AF1D6124EB0020B16C /* Products */,
+				A1F62D4A1D7FC76100DE02E1 /* ExtendLibrary */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,9 +208,9 @@
 				B2F61B3F1D6688260067E83B /* CustomizeUI */,
 				B2AE25D01D6291670046C6BA /* UI_ViewControllers */,
 				B23641BB1D6124EB0020B16C /* Assets.xcassets */,
+				A1F62D4C1D7FCB9600DE02E1 /* LaunchScreen.storyboard */,
 				A1AFF9961D699CA7006C0AF8 /* Info.plist */,
 				B25F70F71D67DEAF004AEE37 /* DiabloFonts */,
-				B23641BD1D6124EB0020B16C /* LaunchScreen.storyboard */,
 				A1354A3D1D6969D5002A507D /* GameData.plist */,
 				B23641CA1D6133510020B16C /* BlizzardAPI */,
 				B2AE25BB1D6260A00046C6BA /* DataModel */,
@@ -357,8 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A177836B1D7D3BCD00E841FC /* DIABLO_H.TTF in Resources */,
+				A1F62D4E1D7FCB9600DE02E1 /* LaunchScreen.storyboard in Resources */,
 				A177836C1D7D3BCD00E841FC /* UIStrings.plist in Resources */,
-				A177836D1D7D3BCD00E841FC /* LaunchScreen.storyboard in Resources */,
 				A177836E1D7D3BCD00E841FC /* DIABLO_L.TTF in Resources */,
 				A177836F1D7D3BCD00E841FC /* GameData.plist in Resources */,
 				A17783701D7D3BCD00E841FC /* Configuration.plist in Resources */,
@@ -374,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F62D491D7FC75E00DE02E1 /* Reachability.swift in Sources */,
 				A17783381D7D3BCD00E841FC /* HeroDetailsTabBarController.swift in Sources */,
 				A17783391D7D3BCD00E841FC /* DiabloProfile.xcdatamodeld in Sources */,
 				A177833A1D7D3BCD00E841FC /* GemSocketImageView.swift in Sources */,
@@ -471,20 +491,20 @@
 			name = UIStrings.plist;
 			sourceTree = "<group>";
 		};
+		A1F62D4C1D7FCB9600DE02E1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1F62D4D1D7FCB9600DE02E1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		B23641B51D6124EB0020B16C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B23641B61D6124EB0020B16C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B23641BD1D6124EB0020B16C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B23641BE1D6124EB0020B16C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

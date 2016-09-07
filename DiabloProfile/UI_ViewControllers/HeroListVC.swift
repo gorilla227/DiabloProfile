@@ -11,6 +11,16 @@ import CoreData
 
 class HeroListVC: UITableViewController {
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    
+    // MARK: - Network Reachability
+    lazy var reachability: Reachability? = {
+        do {
+            return try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return nil
+        }
+    }()
 
     lazy var mainManagedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -82,7 +92,6 @@ class HeroListVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        
         return fetchedResultsController.sections?.count ?? 0
     }
 
@@ -102,7 +111,7 @@ class HeroListVC: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
-            if let lastUpdated = hero.lastUpdated?.doubleValue {
+            if let lastUpdated = hero.lastUpdated?.doubleValue, let reachability = reachability where reachability.isReachable() {
                 loadDataUIRespond(true, extraBlock: nil)
                 
                 BlizzardAPI.requestHeroProfile(hero.region!, locale: hero.locale!, battleTag: hero.battleTag!, heroId: hero.id!, completion: { (result, error) in
@@ -139,6 +148,8 @@ class HeroListVC: UITableViewController {
                         }
                     }
                 })
+            } else {
+                performSegueWithIdentifier("ViewHeroDetailsSegue", sender: hero)
             }
         }
     }
