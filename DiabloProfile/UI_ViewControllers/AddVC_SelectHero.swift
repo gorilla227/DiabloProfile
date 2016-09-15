@@ -58,7 +58,7 @@ class AddVC_SelectHero: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath)
-        let hero = heroes![(indexPath as NSIndexPath).row]
+        let hero = heroes![indexPath.row]
 
         // Configure the cell...
         configureCell(cell, hero: hero)
@@ -67,7 +67,7 @@ class AddVC_SelectHero: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let hero = heroes![(indexPath as NSIndexPath).row]
+        let hero = heroes![indexPath.row]
         if let region = region, let locale = locale, let battleTag = battleTag, let heroId = hero[Hero.Keys.ID] as? NSNumber {
             loadDataUIRespond(true)
             

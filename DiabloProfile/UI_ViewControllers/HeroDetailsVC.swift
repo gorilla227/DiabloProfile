@@ -106,14 +106,14 @@ class HeroDetailsVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath as NSIndexPath).section {
+        switch indexPath.section {
         case 0: // Life & Resource
             let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath) as! HeroDetailsVC_ResourceCell
             cell.configureCell(hero!)
             return cell
         case 1: // Attributes
             let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell", for: indexPath)
-            switch (indexPath as NSIndexPath).row {
+            switch indexPath.row {
             case 0:
                 configureStatCell(cell, statKey: Stats.Keys.Strength)
             case 1:
@@ -128,7 +128,7 @@ class HeroDetailsVC: UITableViewController {
             return cell
         case 2: // Stats
             let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell", for: indexPath)
-            switch (indexPath as NSIndexPath).row {
+            switch indexPath.row {
             case 0:
                 configureStatCell(cell, statKey: Stats.Keys.Damage)
             case 1:
@@ -141,16 +141,16 @@ class HeroDetailsVC: UITableViewController {
             return cell
         case 3: // Active Skills
             let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! HeroDetailsVC_SkillCell
-            if let activeSkills = hero?.activeSkills, let skill = activeSkills[(indexPath as NSIndexPath).row] as? Skill {
+            if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: true)
-                cell.backgroundColor = ((indexPath as NSIndexPath).row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
+                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
             }
             return cell
         case 4: // Passive Skills
             let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! HeroDetailsVC_SkillCell
-            if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[(indexPath as NSIndexPath).row] as? Skill {
+            if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: false)
-                cell.backgroundColor = ((indexPath as NSIndexPath).row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
+                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
             }
             return cell
         default:
@@ -169,7 +169,7 @@ class HeroDetailsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath as NSIndexPath).section == 3 || (indexPath as NSIndexPath).section == 4 {
+        if indexPath.section == 3 || indexPath.section == 4 {
             performSegue(withIdentifier: "SkillDetailsSegue", sender: indexPath)
         }
     }
@@ -200,16 +200,16 @@ class HeroDetailsVC: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "SkillDetailsSegue" {
             if let skillDetailsVC = segue.destination as? SkillDetailsVC, let indexPath = sender as? IndexPath{
-                switch (indexPath as NSIndexPath).section {
+                switch indexPath.section {
                 case 3: // Active Skill
-                    if let activeSkills = hero?.activeSkills, let skill = activeSkills[(indexPath as NSIndexPath).row] as? Skill {
+                    if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
                         skillDetailsVC.skill = skill
                         skillDetailsVC.isActiveSkill = true
                         skillDetailsVC.classKey = hero?.heroClass ?? ""
                         skillDetailsVC.locale = hero?.locale
                     }
                 case 4: // Passive Skill
-                    if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[(indexPath as NSIndexPath).row] as? Skill {
+                    if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
                         skillDetailsVC.skill = skill
                         skillDetailsVC.isActiveSkill = false
                         skillDetailsVC.classKey = hero?.heroClass ?? ""

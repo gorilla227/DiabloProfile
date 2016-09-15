@@ -123,7 +123,7 @@ class ItemDetailsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath as NSIndexPath).section {
+        switch indexPath.section {
         case 0: // Summary
             let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryCell", for: indexPath) as! ItemDetailsVC_SummaryCell
             if let basicItem = self.basicItem {
@@ -132,21 +132,21 @@ class ItemDetailsVC: UITableViewController {
             return cell
         case 1: // Primary Attributes
             let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeCell", for: indexPath) as! ItemDetailsVC_AttributeCell
-            let attribute = primaryAttributes[(indexPath as NSIndexPath).row]
+            let attribute = primaryAttributes[indexPath.row]
             cell.configureCellForAttribute(attribute)
             return cell
         case 2: // Secondary and Passive Attributes
             let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeCell", for: indexPath) as! ItemDetailsVC_AttributeCell
-            let attribute = seconaryAttributes[(indexPath as NSIndexPath).row]
+            let attribute = seconaryAttributes[indexPath.row]
             cell.configureCellForAttribute(attribute)
             return cell
         case 3: // Gems
             let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeCell", for: indexPath) as! ItemDetailsVC_AttributeCell
-            let gem = gemsArray[(indexPath as NSIndexPath).row]
+            let gem = gemsArray[indexPath.row]
             cell.configureCellForGem(gem)
             return cell
         case 4: // Item Set
-            if (indexPath as NSIndexPath).row == 0 { // Itemset Name and items
+            if indexPath.row == 0 { // Itemset Name and items
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SetCell", for: indexPath) as! ItemDetailsVC_ItemSetCell
                 if let itemSet = basicItem?.detailItem?.itemSet, let setItemsEquipped = basicItem?.detailItem?.setItemsEquipped {
                     cell.configureCell(itemSet, setItemsEquipped: setItemsEquipped)
@@ -156,7 +156,7 @@ class ItemDetailsVC: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SetCell", for: indexPath) as! ItemDetailsVC_ItemSetCell
                 if let itemSet = basicItem?.detailItem?.itemSet {
                     let equipped = basicItem?.detailItem?.setItemsEquipped?.count ?? 0
-                    if let setBonus = itemSet.setBonus?.array[(indexPath as NSIndexPath).row - 1] as? SetBonus {
+                    if let setBonus = itemSet.setBonus?.array[indexPath.row - 1] as? SetBonus {
                         cell.configureCell(setBonus, equipped: equipped, gameData: gameData)
                     }
                 }
