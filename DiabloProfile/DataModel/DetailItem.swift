@@ -13,16 +13,16 @@ import CoreData
 class DetailItem: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
-    init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName(Keys.EntityName, inManagedObjectContext: context)!
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    init(dictionary: [String: Any], context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entity(forEntityName: Keys.EntityName, in: context)!
+        super.init(entity: entity, insertInto: context)
         
         if let accountBound = dictionary[Keys.AccountBound] as? Bool {
-            self.accountBound = NSNumber(bool: accountBound)
+            self.accountBound = NSNumber(value: accountBound as Bool)
         }
         
         if let armor = dictionary[Keys.Armor] as? NSNumber {
@@ -57,7 +57,7 @@ class DetailItem: NSManagedObject {
             self.flavor = flavor
         }
         
-        if let icon = dictionary[Keys.Icon] as? NSData {
+        if let icon = dictionary[Keys.Icon] as? Data {
             self.icon = icon
         }
         
@@ -102,7 +102,7 @@ class DetailItem: NSManagedObject {
         }
         
         if let typeTwoHanded = dictionary[Keys.TypeTwoHanded] as? Bool {
-            self.typeTwoHanded = NSNumber(bool: typeTwoHanded)
+            self.typeTwoHanded = NSNumber(value: typeTwoHanded as Bool)
         }
         if let blockChance = dictionary[Keys.BlockChance] as? String {
             self.blockChance = blockChance
@@ -123,7 +123,7 @@ class DetailItem: NSManagedObject {
             self.attributes = NSOrderedSet(array: itemAttributes)
         }
         
-        if let gems = dictionary[Keys.Gems] as? [[String: AnyObject]] {
+        if let gems = dictionary[Keys.Gems] as? [[String: Any]] {
             var gemsArray = [Gem]()
             for gemDict in gems {
                 let gem = Gem(dictionary: gemDict, context: context)
@@ -132,7 +132,7 @@ class DetailItem: NSManagedObject {
             self.gems = NSSet(array: gemsArray)
         }
         
-        if var itemSetDict = dictionary[Keys.ItemSet] as? [String: AnyObject] {
+        if var itemSetDict = dictionary[Keys.ItemSet] as? [String: Any] {
             itemSetDict[ItemSet.Keys.Locale] = dictionary[Keys.Locale]
             if let itemSet = ItemSet.fetchItemSet(itemSetDict[ItemSet.Keys.Slug] as? String, locale: itemSetDict[ItemSet.Keys.Locale] as? String, context: context) {
                 self.itemSet = itemSet
@@ -143,9 +143,9 @@ class DetailItem: NSManagedObject {
     }
     
     // size = "small" or "large"
-    func iconImageURL(size: String) -> NSURL? {
+    func iconImageURL(_ size: String) -> URL? {
         if let iconKey = iconKey {
-            return NSURL(string: BlizzardAPI.ItemIconURLComponents.Head + size + "/" + iconKey + BlizzardAPI.ItemIconURLComponents.Tail)
+            return URL(string: BlizzardAPI.ItemIconURLComponents.Head + size + "/" + iconKey + BlizzardAPI.ItemIconURLComponents.Tail)
         } else {
             return nil
         }

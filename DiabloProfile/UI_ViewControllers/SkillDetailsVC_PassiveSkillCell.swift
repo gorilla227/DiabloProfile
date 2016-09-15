@@ -24,23 +24,23 @@ class SkillDetailsVC_PassiveSkillCell: UITableViewCell {
         let bgImage = UIImage(named: "skill_bg.jpg")
         let bgImageView = UIImageView(frame: self.bounds)
         bgImageView.image = bgImage
-        bgImageView.contentMode = .ScaleToFill
+        bgImageView.contentMode = .scaleToFill
         self.backgroundView = bgImageView
         
         // Add loadingIndicator
-        loadingIndicator.color = UIColor.orangeColor()
+        loadingIndicator.color = UIColor.orange
         loadingIndicator.hidesWhenStopped = true
         skillIconImageView.addSubview(loadingIndicator)
     }
 
-    func configureCell(skill: Skill) {
+    func configureCell(_ skill: Skill) {
         // Set Skill
         skillNameLabel.text = skill.name
         skillDescriptionLabel.text = skill.fullDescription
         skillFlavorLabel.text = skill.flavor
         
         if let skillIcon = skill.icon {
-            skillIconImageView.image = UIImage(data: skillIcon)
+            skillIconImageView.image = UIImage(data: skillIcon as Data)
             loadingIndicator.stopAnimating()
             setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {

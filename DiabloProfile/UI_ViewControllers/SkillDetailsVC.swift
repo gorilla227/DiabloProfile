@@ -35,26 +35,26 @@ class SkillDetailsVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isActiveSkill {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("ActiveSkillCell", forIndexPath: indexPath) as? SkillDetailsVC_ActiveSkillCell, let skill = skill, let gameData = self.gameData {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSkillCell", for: indexPath) as? SkillDetailsVC_ActiveSkillCell, let skill = skill, let gameData = self.gameData {
                 cell.configureCell(skill, classKey: classKey, gameData: gameData)
                 return cell
             }
             return UITableViewCell()
         } else {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("PassiveSkillCell", forIndexPath: indexPath) as? SkillDetailsVC_PassiveSkillCell, let skill = skill {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "PassiveSkillCell", for: indexPath) as? SkillDetailsVC_PassiveSkillCell, let skill = skill {
                 cell.configureCell(skill)
                 return cell
             }

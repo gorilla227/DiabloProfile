@@ -17,9 +17,9 @@ class ItemDetailsVC: UITableViewController {
         return AppDelegate.gameData(locale: self.basicItem?.hero?.locale)
     }()
     
-    private var primaryAttributes = [ItemAttribute]()
-    private var seconaryAttributes = [ItemAttribute]()
-    private var gemsArray = [AnyObject]()
+    fileprivate var primaryAttributes = [ItemAttribute]()
+    fileprivate var seconaryAttributes = [ItemAttribute]()
+    fileprivate var gemsArray = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,8 @@ class ItemDetailsVC: UITableViewController {
         
         tableView.addSubview(loadingIndicator)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-        loadingIndicator.centerXAnchor.constraintEqualToAnchor(tableView.centerXAnchor).active = true
-        loadingIndicator.centerYAnchor.constraintEqualToAnchor(tableView.centerYAnchor).active = true
+        loadingIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
         
         loadData()
     }
@@ -39,7 +39,7 @@ class ItemDetailsVC: UITableViewController {
         
         if let basicItem = basicItem, let detailItem = basicItem.detailItem {
             if let name = basicItem.name {
-                itemNameLabel.text = name.uppercaseString
+                itemNameLabel.text = name.uppercased()
             } else {
                 itemNameLabel.text = ""
             }
@@ -61,14 +61,14 @@ class ItemDetailsVC: UITableViewController {
                         }
                     }
                 }
-                seconaryAttributes.appendContentsOf(passiveAttributes)
+                seconaryAttributes.append(contentsOf: passiveAttributes)
             }
             
             // Load Gems
             if let gems = detailItem.gems?.allObjects as? [Gem] {
                 gemsArray.removeAll()
                 for gem in gems {
-                    if let isJewel = gem.isJewel?.boolValue where isJewel {
+                    if let isJewel = gem.isJewel?.boolValue , isJewel {
                         // Jewel
                         gemsArray.append(gem)
                         if let jewelAttributes = gem.attributes?.array as? [ItemAttribute] {
@@ -91,12 +91,12 @@ class ItemDetailsVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 7
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section {
         case 0: // Summary
@@ -122,54 +122,54 @@ class ItemDetailsVC: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch indexPath.section {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch (indexPath as NSIndexPath).section {
         case 0: // Summary
-            let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell", forIndexPath: indexPath) as! ItemDetailsVC_SummaryCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryCell", for: indexPath) as! ItemDetailsVC_SummaryCell
             if let basicItem = self.basicItem {
                 cell.configureCell(basicItem)
             }
             return cell
         case 1: // Primary Attributes
-            let cell = tableView.dequeueReusableCellWithIdentifier("AttributeCell", forIndexPath: indexPath) as! ItemDetailsVC_AttributeCell
-            let attribute = primaryAttributes[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeCell", for: indexPath) as! ItemDetailsVC_AttributeCell
+            let attribute = primaryAttributes[(indexPath as NSIndexPath).row]
             cell.configureCellForAttribute(attribute)
             return cell
         case 2: // Secondary and Passive Attributes
-            let cell = tableView.dequeueReusableCellWithIdentifier("AttributeCell", forIndexPath: indexPath) as! ItemDetailsVC_AttributeCell
-            let attribute = seconaryAttributes[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeCell", for: indexPath) as! ItemDetailsVC_AttributeCell
+            let attribute = seconaryAttributes[(indexPath as NSIndexPath).row]
             cell.configureCellForAttribute(attribute)
             return cell
         case 3: // Gems
-            let cell = tableView.dequeueReusableCellWithIdentifier("AttributeCell", forIndexPath: indexPath) as! ItemDetailsVC_AttributeCell
-            let gem = gemsArray[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeCell", for: indexPath) as! ItemDetailsVC_AttributeCell
+            let gem = gemsArray[(indexPath as NSIndexPath).row]
             cell.configureCellForGem(gem)
             return cell
         case 4: // Item Set
-            if indexPath.row == 0 { // Itemset Name and items
-                let cell = tableView.dequeueReusableCellWithIdentifier("SetCell", forIndexPath: indexPath) as! ItemDetailsVC_ItemSetCell
-                if let itemSet = basicItem?.detailItem?.itemSet, setItemsEquipped = basicItem?.detailItem?.setItemsEquipped {
+            if (indexPath as NSIndexPath).row == 0 { // Itemset Name and items
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SetCell", for: indexPath) as! ItemDetailsVC_ItemSetCell
+                if let itemSet = basicItem?.detailItem?.itemSet, let setItemsEquipped = basicItem?.detailItem?.setItemsEquipped {
                     cell.configureCell(itemSet, setItemsEquipped: setItemsEquipped)
                 }
                 return cell
             } else { // Itemset Bonus
-                let cell = tableView.dequeueReusableCellWithIdentifier("SetCell", forIndexPath: indexPath) as! ItemDetailsVC_ItemSetCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SetCell", for: indexPath) as! ItemDetailsVC_ItemSetCell
                 if let itemSet = basicItem?.detailItem?.itemSet {
                     let equipped = basicItem?.detailItem?.setItemsEquipped?.count ?? 0
-                    if let setBonus = itemSet.setBonus?.array[indexPath.row - 1] as? SetBonus {
+                    if let setBonus = itemSet.setBonus?.array[(indexPath as NSIndexPath).row - 1] as? SetBonus {
                         cell.configureCell(setBonus, equipped: equipped, gameData: gameData)
                     }
                 }
                 return cell
             }
         case 5: // Item Level / Required Level / Account Bound
-            let cell = tableView.dequeueReusableCellWithIdentifier("LevelBoundCell", forIndexPath: indexPath) as! ItemDetailsVC_LevelBoundCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LevelBoundCell", for: indexPath) as! ItemDetailsVC_LevelBoundCell
             if let detailItem = basicItem?.detailItem {
                 cell.configureCell(detailItem, gameData: gameData)
             }
             return cell
         case 6: // Flavor Text
-            let cell = tableView.dequeueReusableCellWithIdentifier("FlavorCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FlavorCell", for: indexPath)
             cell.textLabel?.text = basicItem?.detailItem?.flavor
             return cell
         default:
@@ -177,30 +177,33 @@ class ItemDetailsVC: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 1: // Primary Attributes
-            return gameData?["primaryAttribute"] as? String
+            return primaryAttributes.isEmpty ? nil : gameData?["primaryAttribute"] as? String
         case 2: // Seconary and Passive Attributes
-            return gameData?["secondaryAttribute"] as? String
+            return seconaryAttributes.isEmpty ? nil : gameData?["secondaryAttribute"] as? String
         default:
             return nil
         }
     }
     
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textColor = UIColor.whiteColor()
+            headerView.textLabel?.textColor = UIColor.white
         }
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 1, 2, 4:
-            return tableView.sectionHeaderHeight
+        case 1:
+            return primaryAttributes.isEmpty ? CGFloat.leastNormalMagnitude : tableView.sectionHeaderHeight
+        case 2:
+            return seconaryAttributes.isEmpty ? CGFloat.leastNormalMagnitude : tableView.sectionHeaderHeight
+//        case 4:
+//            return basicItem?.detailItem?.itemSet == nil ? CGFloat.leastNormalMagnitude : tableView.sectionHeaderHeight
         default:
-            return CGFloat.min
+            return CGFloat.leastNormalMagnitude
         }
     }
-
 }

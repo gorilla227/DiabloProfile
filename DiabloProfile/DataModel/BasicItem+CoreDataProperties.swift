@@ -15,7 +15,7 @@ import CoreData
 extension BasicItem {
 
     @NSManaged var displayColor: String?
-    @NSManaged var icon: NSData?
+    @NSManaged var icon: Data?
     @NSManaged var iconKey: String?
     @NSManaged var id: String?
     @NSManaged var name: String?

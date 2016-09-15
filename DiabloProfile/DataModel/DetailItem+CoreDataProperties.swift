@@ -23,7 +23,7 @@ extension DetailItem {
     @NSManaged var dps: NSNumber?
     @NSManaged var elementalType: String?
     @NSManaged var flavor: String?
-    @NSManaged var icon: NSData?
+    @NSManaged var icon: Data?
     @NSManaged var iconKey: String?
     @NSManaged var id: String?
     @NSManaged var itemLevel: NSNumber?

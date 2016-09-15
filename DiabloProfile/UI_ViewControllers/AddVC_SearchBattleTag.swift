@@ -35,25 +35,25 @@ class AddVC_SearchBattleTag: UITableViewController {
         updateUIForLocalization()
     }
     
-    private func configurePickerViewLayout() {
+    fileprivate func configurePickerViewLayout() {
         var frame = regionAndLocalePicker.frame
         frame.size.height = frame.size.width / 3
         regionAndLocalePicker.frame = frame
     }
     
-    private func configureSearchButtonAppearance() {
+    fileprivate func configureSearchButtonAppearance() {
         searchButton.layer.cornerRadius = 5.0
         searchButton.layer.masksToBounds = true
     }
     
-    private func configureLoadingIndicator() {
+    fileprivate func configureLoadingIndicator() {
         tableView.addSubview(loadingIndicator)
         loadingIndicator.center = tableView.center
     }
     
-    private func updateUIForLocalization() {
-        let regionIndex = regionAndLocalePicker.selectedRowInComponent(0)
-        let localeIndex = regionAndLocalePicker.selectedRowInComponent(1)
+    fileprivate func updateUIForLocalization() {
+        let regionIndex = regionAndLocalePicker.selectedRow(inComponent: 0)
+        let localeIndex = regionAndLocalePicker.selectedRow(inComponent: 1)
         if let regionDict = regionsAndLocales?[regionIndex],
         let locales = regionDict[BlizzardAPI.BasicKeys.Locales] as? [String],
             let regionString = regionDict[BlizzardAPI.BasicKeys.Region] as? String {
@@ -66,20 +66,20 @@ class AddVC_SearchBattleTag: UITableViewController {
                 let searchTitle = uiStrings["searchButtonTitle"] as? String,
                 let battleTagPlaceholder = uiStrings["battleTagPlaceholder"] as? String {
                 
-                searchButton.setTitle(searchTitle, forState: .Normal)
+                searchButton.setTitle(searchTitle, for: UIControlState())
                 battleTagTextField.placeholder = battleTagPlaceholder
                 navigationItem.title = searchTitle
             }
         }
     }
-    private func loadDataUIRespond(loading: Bool) {
+    fileprivate func loadDataUIRespond(_ loading: Bool) {
         AppDelegate.performUIUpdatesOnMain { 
             if loading {
                 self.loadingIndicator.startAnimating()
-                self.tableView.userInteractionEnabled = false
+                self.tableView.isUserInteractionEnabled = false
             } else {
                 self.loadingIndicator.stopAnimating()
-                self.tableView.userInteractionEnabled = true
+                self.tableView.isUserInteractionEnabled = true
             }
         }
     }
@@ -87,11 +87,11 @@ class AddVC_SearchBattleTag: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "SelectHeroSegue" {
-            let selectHeroVC = segue.destinationViewController as! AddVC_SelectHero
+            let selectHeroVC = segue.destination as! AddVC_SelectHero
             selectHeroVC.battleTag = battleTag
             selectHeroVC.heroes = sender as? [[String: AnyObject]]
             selectHeroVC.region = region
@@ -100,31 +100,31 @@ class AddVC_SearchBattleTag: UITableViewController {
     }
 
     // MARK: - IBActions
-    @IBAction func cancelButtonOnClicked(sender: AnyObject) {
-        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonOnClicked(_ sender: AnyObject) {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func searchButtonOnClicked(sender: AnyObject) {
+    @IBAction func searchButtonOnClicked(_ sender: AnyObject) {
         battleTagTextField.endEditing(true)
-        if let region = region, locale = locale, battleTag = battleTag {
+        if let region = region, let locale = locale, let battleTag = battleTag {
             loadDataUIRespond(true)
             BlizzardAPI.requestCareerProfile(region, locale: locale, battleTag: battleTag, completion: { (result, error) in
                 self.loadDataUIRespond(false)
                 
                 guard error == nil else {
                     if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
-                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
-                        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         warning.addAction(okAction)
                         AppDelegate.performUIUpdatesOnMain({ 
-                            self.presentViewController(warning, animated: true, completion: nil)
+                            self.present(warning, animated: true, completion: nil)
                         })
                     }
                     return
                 }
                 
                 AppDelegate.performUIUpdatesOnMain({ 
-                    self.performSegueWithIdentifier("SelectHeroSegue", sender: result)
+                    self.performSegue(withIdentifier: "SelectHeroSegue", sender: result)
                 })
             })
         }
@@ -132,16 +132,16 @@ class AddVC_SearchBattleTag: UITableViewController {
 }
 
 extension AddVC_SearchBattleTag: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
             return regionsAndLocales?.count ?? 0
         case 1:
-            let regionIndex = pickerView.selectedRowInComponent(0)
+            let regionIndex = pickerView.selectedRow(inComponent: 0)
             if let region = regionsAndLocales?[regionIndex],
                 let locales = region[BlizzardAPI.BasicKeys.Locales] as? [String] {
                 return locales.count
@@ -152,14 +152,14 @@ extension AddVC_SearchBattleTag: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
             if let region = regionsAndLocales?[row]{
                 return region[BlizzardAPI.BasicKeys.Region] as? String
             }
         case 1:
-            let regionIndex = pickerView.selectedRowInComponent(0)
+            let regionIndex = pickerView.selectedRow(inComponent: 0)
             if let region = regionsAndLocales?[regionIndex],
                 let locales = region[BlizzardAPI.BasicKeys.Locales] as? [String] {
                 return locales[row]
@@ -170,7 +170,7 @@ extension AddVC_SearchBattleTag: UIPickerViewDelegate, UIPickerViewDataSource {
         return nil
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
             pickerView.reloadComponent(1)
@@ -183,9 +183,9 @@ extension AddVC_SearchBattleTag: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension AddVC_SearchBattleTag: UITextFieldDelegate {
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if let string = textField.text {
-            let fixString = string.stringByReplacingOccurrencesOfString(" ", withString: "").capitalizedString
+            let fixString = string.replacingOccurrences(of: " ", with: "").capitalized
             textField.text = fixString
             battleTag = fixString
         } else {

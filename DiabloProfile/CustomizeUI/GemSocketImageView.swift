@@ -11,32 +11,32 @@ import UIKit
 class GemSocketImageView: UIImageView {
     lazy var gemImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .ScaleToFill
+        imageView.contentMode = .scaleToFill
         self.addSubview(imageView)
         self.addSubview(self.loadingIndicator)
-        self.loadingIndicator.centerXAnchor.constraintEqualToAnchor(imageView.centerXAnchor).active = true
-        self.loadingIndicator.centerYAnchor.constraintEqualToAnchor(imageView.centerYAnchor).active = true
+        self.loadingIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+        self.loadingIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy var loadingIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
-        indicator.color = UIColor.orangeColor()
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        indicator.color = UIColor.orange
         indicator.hidesWhenStopped = true
         indicator.stopAnimating()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
 
-    func configureGem(gem: Gem, scale: CGFloat) {
-        gemImageView.widthAnchor.constraintEqualToConstant(20 * scale).active = true
-        gemImageView.heightAnchor.constraintEqualToConstant(20 * scale).active = true
-        gemImageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
-        gemImageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+    func configureGem(_ gem: Gem, scale: CGFloat) {
+        gemImageView.widthAnchor.constraint(equalToConstant: 20 * scale).isActive = true
+        gemImageView.heightAnchor.constraint(equalToConstant: 20 * scale).isActive = true
+        gemImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        gemImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
         if let gemIconData = gem.basicItem?.icon {
-            gemImageView.image = UIImage(data: gemIconData)
+            gemImageView.image = UIImage(data: gemIconData as Data)
         } else {
             // Download Gem Icon
             if let iconURL = gem.basicItem?.iconImageURL("small") {

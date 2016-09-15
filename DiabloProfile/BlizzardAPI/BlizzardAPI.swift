@@ -13,48 +13,48 @@ class BlizzardAPI {
     /* region = US/EU/CN/KR/TW,
      path is generated from class func 'generatePath', 
      parameters = [ParameterKeys.xxx: String] */
-    private class func generateURLRequest(httpMethod: String, region: String, path: String, parameters: [String: AnyObject]?) -> NSURLRequest? {
+    fileprivate class func generateURLRequest(_ httpMethod: String, region: String, path: String, parameters: [String: AnyObject]?) -> URLRequest? {
         if let configurations = configurations {
-            let urlComponent = NSURLComponents()
+            var urlComponent = URLComponents()
             urlComponent.scheme = configurations[BasicKeys.Scheme] as? String
             urlComponent.host = (configurations[BasicKeys.Host] as! [String: String])[region]
             urlComponent.path = path
             
             if let parameters = parameters {
-                var queryItems = [NSURLQueryItem]()
+                var queryItems = [URLQueryItem]()
                 for (key, value) in parameters {
-                    let queryItem = NSURLQueryItem(name: key, value: value as? String)
+                    let queryItem = URLQueryItem(name: key, value: value as? String)
                     queryItems.append(queryItem)
                 }
                     
                 urlComponent.queryItems = queryItems
             }
             
-            if let url = urlComponent.URL {
-                let urlRequest = NSMutableURLRequest(URL: url)
-                urlRequest.HTTPMethod = httpMethod
-                return urlRequest
+            if let url = urlComponent.url {
+                let urlRequest = NSMutableURLRequest(url: url)
+                urlRequest.httpMethod = httpMethod
+                return urlRequest as URLRequest
             }
         }
         return nil
     }
     
     /* Convert "Pirlo#1588" to "Pirlo-1588" */
-    private class func convertBattleTag(original: String) -> String {
-        let result = original.stringByReplacingOccurrencesOfString(Separator.BattleTag_OriginalSeparator, withString: Separator.BattleTag_APISepartor)
+    fileprivate class func convertBattleTag(_ original: String) -> String {
+        let result = original.replacingOccurrences(of: Separator.BattleTag_OriginalSeparator, with: Separator.BattleTag_APISepartor)
         return result
     }
     
     /* pathKey = BasicKeys.PathKeys.xxx
      tokens = [Token.xxx: String] */
-    private class func generatePath(pathKey: String, tokens: [String: String]?) -> String? {
+    fileprivate class func generatePath(_ pathKey: String, tokens: [String: String]?) -> String? {
         if let configurations = configurations,
             let paths = configurations[BasicKeys.Path] as? [String: String],
             var pathString = paths[pathKey] {
             
             if let tokens = tokens {
                 for (token, replacement) in tokens {
-                    pathString = pathString.stringByReplacingOccurrencesOfString(token, withString: replacement)
+                    pathString = pathString.replacingOccurrences(of: token, with: replacement)
                 }
             }
             
@@ -64,130 +64,131 @@ class BlizzardAPI {
         return nil
     }
     
-    private class func deserializeJSONData(data: NSData) throws -> AnyObject? {
+    fileprivate class func deserializeJSONData(_ data: Data) throws -> AnyObject? {
         do {
-            let result = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-            return result
+            let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            return result as AnyObject?
         } catch {
             throw error
         }
     }
     
-    private class func requestBlizzardAPI(request: NSURLRequest, requestKey: String, completion: (result: AnyObject?, error: NSError?) -> Void) {
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+    fileprivate class func requestBlizzardAPI(_ request: URLRequest, requestKey: String, completion: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard error == nil else {
-                completion(result: nil, error: NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: error!.localizedDescription]]))
+                completion(nil, NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: error!.localizedDescription]]))
                 return
             }
             
-            guard let statusCode: Int = (response as? NSHTTPURLResponse)!.statusCode where statusCode >= 200 && statusCode < 300 else {
-                completion(result: nil, error: NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns un-successful StatusCode"]]))
+            let statusCode = (response as? HTTPURLResponse)!.statusCode
+            guard statusCode >= 200 && statusCode < 300 else {
+                completion(nil, NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns un-successful StatusCode"]]))
                 return
             }
             
             guard let data = data else {
-                completion(result: nil, error: NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Return empty data"]]))
+                completion(nil, NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Return empty data"]]))
                 return
             }
             
             // Take care response data
             do {
                 let result = try self.deserializeJSONData(data)
-                completion(result: result, error: nil)
+                completion(result, nil)
             } catch {
-                completion(result: nil, error: NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Failed to deserialize JSON response"]]))
+                completion(nil, NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Failed to deserialize JSON response"]]))
                 return
             }
-        }
+        }) 
         
         task.resume()
     }
     
     // MARK: - API Functions
-    class func requestCareerProfile(region: String, locale: String, battleTag: String, completion: (result: [[String: AnyObject]]?, error: NSError?) -> Void) {
+    class func requestCareerProfile(_ region: String, locale: String, battleTag: String, completion: @escaping (_ result: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
         let convertedBattleTag = convertBattleTag(battleTag)
         if let configurations = configurations,
             let api_key = configurations[BasicKeys.API_Key],
             let path = generatePath(PathKeys.CareerProfile, tokens: [Token.BattleTag_Token: convertedBattleTag]) {
             
-            let parameters = [ParameterKeys.API_Key: api_key, ParameterKeys.Locale: locale]
+            let parameters = [ParameterKeys.API_Key: api_key, ParameterKeys.Locale: locale] as [String : Any]
             
             // Create URLRequest
-            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters) {
+            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters as [String : AnyObject]?) {
                 // Run URLRequest
                 requestBlizzardAPI(urlRequest, requestKey: PathKeys.CareerProfile, completion: { (result, error) in
                     guard error == nil && result != nil else {
-                        completion(result: nil, error: error)
+                        completion(nil, error)
                         return
                     }
                     
                     if let responseBody = result as? [String: String], let _ = responseBody[ResponseKeys.ErrorCode], let _ = responseBody[ResponseKeys.ErrorReason] {
-                        completion(result: nil, error: NSError(domain: PathKeys.CareerProfile, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
+                        completion(nil, NSError(domain: PathKeys.CareerProfile, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
                     } else if let result = result, let heroes = self.decodeCareerProfile(result) {
-                        completion(result: heroes, error: nil)
+                        completion(heroes, nil)
                     } else {
-                        completion(result: nil, error: error)
+                        completion(nil, error)
                     }
                 })
             }
         }
     }
     
-    class func requestHeroProfile(region: String, locale: String, battleTag: String, heroId: NSNumber, completion: (result: [String: AnyObject]?, error: NSError?) -> Void) {
+    class func requestHeroProfile(_ region: String, locale: String, battleTag: String, heroId: NSNumber, completion: @escaping (_ result: [String: Any]?, _ error: NSError?) -> Void) {
         let convertedBattleTag = convertBattleTag(battleTag)
         if let configurations = configurations,
             let api_key = configurations[BasicKeys.API_Key],
             let path = generatePath(PathKeys.HeroProfile, tokens: [Token.BattleTag_Token: convertedBattleTag, Token.HeroID_Token: heroId.stringValue]) {
             
-            let parameters = [ParameterKeys.API_Key: api_key, ParameterKeys.Locale: locale]
+            let parameters = [ParameterKeys.API_Key: api_key, ParameterKeys.Locale: locale] as [String : Any]
             
             // Create URLRequest
-            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters) {
+            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters as [String : AnyObject]?) {
                 // Run URLRequest
                 requestBlizzardAPI(urlRequest, requestKey: PathKeys.HeroProfile, completion: { (result, error) in
                     guard error == nil && result != nil else {
-                        completion(result: nil, error: error)
+                        completion(nil, error)
                         return
                     }
                     
                     if let responseBody = result as? [String: String], let _ = responseBody[ResponseKeys.ErrorCode], let _ = responseBody[ResponseKeys.ErrorReason] {
-                        completion(result: nil, error: NSError(domain: PathKeys.HeroProfile, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
+                        completion(nil, NSError(domain: PathKeys.HeroProfile, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
                     } else if let result = result, var hero = self.decodeHeroProfile(result) {
                         hero[Hero.Keys.Region] = region
                         hero[Hero.Keys.Locale] = locale
                         hero[Hero.Keys.BattleTag] = battleTag
-                        completion(result: hero, error: nil)
+                        completion(hero, nil)
                     } else {
-                        completion(result: nil, error: error)
+                        completion(nil, error)
                     }
                 })
             }
         }
     }
     
-    class func requestItemData(region: String, locale: String, itemTooltipParams: String, completion: (result: [String: AnyObject]?, error: NSError?) -> Void) {
+    class func requestItemData(_ region: String, locale: String, itemTooltipParams: String, completion: @escaping (_ result: [String: Any]?, _ error: NSError?) -> Void) {
         if let configurations = configurations,
             let api_Key = configurations[BasicKeys.API_Key],
             let path = generatePath(PathKeys.ItemData, tokens: [Token.ItemTooltipParams: itemTooltipParams]) {
             
-            let parameters = [ParameterKeys.API_Key: api_Key, ParameterKeys.Locale: locale]
+            let parameters = [ParameterKeys.API_Key: api_Key, ParameterKeys.Locale: locale] as [String : Any]
             
             // Create URLRequest
-            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters) {
+            if let urlRequest = generateURLRequest(HttpMethod.Get, region: region, path: path, parameters: parameters as [String : AnyObject]?) {
                 // Run URLRequest
                 requestBlizzardAPI(urlRequest, requestKey: PathKeys.ItemData, completion: { (result, error) in
                     guard error == nil && result != nil else {
-                        completion(result: nil, error: error)
+                        completion(nil, error)
                         return
                     }
                     
                     if let responseBody = result as? [String: String], let _ = responseBody[ResponseKeys.ErrorCode], let _ = responseBody[ResponseKeys.ErrorReason] {
-                        completion(result: nil, error: NSError(domain: PathKeys.ItemData, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
+                        completion(nil, NSError(domain: PathKeys.ItemData, code: 1, userInfo: [NSLocalizedDescriptionKey: responseBody]))
                     } else if let result = result, var detailItem = self.decodeItemData(result) {
                         detailItem[DetailItem.Keys.Locale] = locale
-                        completion(result: detailItem, error: nil)
+                        completion(detailItem, nil)
                     } else {
-                        completion(result: nil, error: error)
+                        completion(nil, error)
                     }
                 })
             }
@@ -195,26 +196,27 @@ class BlizzardAPI {
     }
     
     // MARK: - Download Image Funtion
-    class func downloadImage(url: NSURL, completion: (result: NSData?, error: NSError?) -> Void) {
+    class func downloadImage(_ url: URL, completion: @escaping (_ result: Data?, _ error: NSError?) -> Void) {
         let domain = "DownloadImage"
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             guard error == nil else {
-                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns error: \(error?.localizedDescription)"]]))
+                completion(nil, NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns error: \(error?.localizedDescription)"]]))
                 return
             }
             
-            guard let statusCode: Int = (response as? NSHTTPURLResponse)!.statusCode where statusCode >= 200 && statusCode < 300 else {
-                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns un-successful StatusCode"]]))
+            let statusCode: Int = (response as? HTTPURLResponse)!.statusCode
+            guard statusCode >= 200 && statusCode < 300 else {
+                completion(nil, NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Request returns un-successful StatusCode"]]))
                 return
             }
             
             guard let data = data else {
-                completion(result: nil, error: NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Return empty data"]]))
+                completion(nil, NSError(domain: domain, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: "Return empty data"]]))
                 return
             }
             
-            completion(result: data, error: nil)
-        }
+            completion(data, nil)
+        }) 
         
         task.resume()
     }

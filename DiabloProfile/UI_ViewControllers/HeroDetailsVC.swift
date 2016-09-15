@@ -22,8 +22,8 @@ class HeroDetailsVC: UITableViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        tabBarItem.selectedImage = UIImage(named: "basic.png")?.imageWithRenderingMode(.AlwaysOriginal)
-        tabBarItem.image = UIImage(named: "basic_unselected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        tabBarItem.selectedImage = UIImage(named: "basic.png")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.image = UIImage(named: "basic_unselected.png")?.withRenderingMode(.alwaysOriginal)
     }
     
     override func viewDidLoad() {
@@ -40,23 +40,23 @@ class HeroDetailsVC: UITableViewController {
         configureHeaderViewLayout()
     }
     
-    private func configureHeaderViewLayout() {
+    fileprivate func configureHeaderViewLayout() {
         var frame = headView.frame
         frame.size.height = frame.size.width / 3
         headView.frame = frame
     }
     
-    func initialViewController(locale: String?) {
+    func initialViewController(_ locale: String?) {
         if let uiStrings = AppDelegate.uiStrings(locale: locale) {
             tabBarItem.title = uiStrings["tabGeneral"] as? String
         }
     }
     
-    func loadData(hero: Hero) {
+    func loadData(_ hero: Hero) {
         self.hero = hero
         gameData = AppDelegate.gameData(locale: hero.locale)
         
-        heroNameLabel.text = hero.name?.uppercaseString ?? ""
+        heroNameLabel.text = hero.name?.uppercased() ?? ""
         if let classes = gameData?["class"] as? [String: AnyObject],
             let classKey = hero.heroClass,
             let heroClass = classes[classKey] as? [String: AnyObject],
@@ -66,15 +66,15 @@ class HeroDetailsVC: UITableViewController {
             if let imagePath = hero.titleBackgroundImagePath() {
                 let backgroundImageView = UIImageView(frame: tableView.bounds)
                 backgroundImageView.image = UIImage(named: imagePath)
-                backgroundImageView.contentMode = .ScaleAspectFill
+                backgroundImageView.contentMode = .scaleAspectFill
                 tableView.backgroundView = backgroundImageView
             }
         }
         if let isHardcore = hero.hardcore?.boolValue {
-            hardcoreImageView.hidden = !isHardcore
+            hardcoreImageView.isHidden = !isHardcore
         }
         if let isSeasonal = hero.seasonal?.boolValue {
-            seasonImageView.hidden = !isSeasonal
+            seasonImageView.isHidden = !isSeasonal
         }
         
         tableView.reloadData()
@@ -82,12 +82,12 @@ class HeroDetailsVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return (hero != nil) ? 5 : 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section {
         case 0: // Life & Resource
@@ -105,15 +105,15 @@ class HeroDetailsVC: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch indexPath.section {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch (indexPath as NSIndexPath).section {
         case 0: // Life & Resource
-            let cell = tableView.dequeueReusableCellWithIdentifier("ResourceCell", forIndexPath: indexPath) as! HeroDetailsVC_ResourceCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath) as! HeroDetailsVC_ResourceCell
             cell.configureCell(hero!)
             return cell
         case 1: // Attributes
-            let cell = tableView.dequeueReusableCellWithIdentifier("StatCell", forIndexPath: indexPath)
-            switch indexPath.row {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell", for: indexPath)
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 configureStatCell(cell, statKey: Stats.Keys.Strength)
             case 1:
@@ -127,8 +127,8 @@ class HeroDetailsVC: UITableViewController {
             }
             return cell
         case 2: // Stats
-            let cell = tableView.dequeueReusableCellWithIdentifier("StatCell", forIndexPath: indexPath)
-            switch indexPath.row {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell", for: indexPath)
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 configureStatCell(cell, statKey: Stats.Keys.Damage)
             case 1:
@@ -140,17 +140,17 @@ class HeroDetailsVC: UITableViewController {
             }
             return cell
         case 3: // Active Skills
-            let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
-            if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! HeroDetailsVC_SkillCell
+            if let activeSkills = hero?.activeSkills, let skill = activeSkills[(indexPath as NSIndexPath).row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: true)
-                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor().colorWithAlphaComponent(0.5) : UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
+                cell.backgroundColor = ((indexPath as NSIndexPath).row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
             }
             return cell
         case 4: // Passive Skills
-            let cell = tableView.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! HeroDetailsVC_SkillCell
-            if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! HeroDetailsVC_SkillCell
+            if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[(indexPath as NSIndexPath).row] as? Skill {
                 cell.configureCell(skill, isActiveSkill: false)
-                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.grayColor().colorWithAlphaComponent(0.5) : UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
+                cell.backgroundColor = ((indexPath as NSIndexPath).row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
             }
             return cell
         default:
@@ -159,22 +159,22 @@ class HeroDetailsVC: UITableViewController {
         return UITableViewCell()
     }
     
-    private func configureStatCell(cell: UITableViewCell, statKey: String) {
+    fileprivate func configureStatCell(_ cell: UITableViewCell, statKey: String) {
         if let stats = gameData?[Hero.Keys.Stats] as? [String: String] {
             cell.textLabel?.text = stats[statKey]
-            if let value = hero?.stats?.valueForKey(statKey) as? NSNumber {
+            if let value = hero?.stats?.value(forKey: statKey) as? NSNumber {
                 cell.detailTextLabel?.text = value.stringValue
             }
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 3 || indexPath.section == 4 {
-            performSegueWithIdentifier("SkillDetailsSegue", sender: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 3 || (indexPath as NSIndexPath).section == 4 {
+            performSegue(withIdentifier: "SkillDetailsSegue", sender: indexPath)
         }
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let gameData = gameData {
             switch section {
             case 1: // Attributes
@@ -195,21 +195,21 @@ class HeroDetailsVC: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "SkillDetailsSegue" {
-            if let skillDetailsVC = segue.destinationViewController as? SkillDetailsVC, let indexPath = sender as? NSIndexPath{
-                switch indexPath.section {
+            if let skillDetailsVC = segue.destination as? SkillDetailsVC, let indexPath = sender as? IndexPath{
+                switch (indexPath as NSIndexPath).section {
                 case 3: // Active Skill
-                    if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
+                    if let activeSkills = hero?.activeSkills, let skill = activeSkills[(indexPath as NSIndexPath).row] as? Skill {
                         skillDetailsVC.skill = skill
                         skillDetailsVC.isActiveSkill = true
                         skillDetailsVC.classKey = hero?.heroClass ?? ""
                         skillDetailsVC.locale = hero?.locale
                     }
                 case 4: // Passive Skill
-                    if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
+                    if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[(indexPath as NSIndexPath).row] as? Skill {
                         skillDetailsVC.skill = skill
                         skillDetailsVC.isActiveSkill = false
                         skillDetailsVC.classKey = hero?.heroClass ?? ""

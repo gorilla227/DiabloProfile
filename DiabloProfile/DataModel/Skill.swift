@@ -13,8 +13,8 @@ import CoreData
 class Skill: Spell {
 
 // Insert code here to add functionality to your managed object subclass
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
     override init(dictionary: [String : AnyObject], entityName: String, context: NSManagedObjectContext) {
@@ -32,7 +32,7 @@ class Skill: Spell {
             self.iconURL = iconURL
         }
         
-        if let icon = dictionary[Keys.Icon] as? NSData {
+        if let icon = dictionary[Keys.Icon] as? Data {
             self.icon = icon
         }
         
@@ -50,9 +50,9 @@ class Skill: Spell {
         }
     }
     
-    func skillIconImageURL() -> NSURL? {
+    func skillIconImageURL() -> URL? {
         if let iconURL = iconURL {
-            return NSURL(string: BlizzardAPI.SkillIconURLComponents.Head + iconURL + BlizzardAPI.SkillIconURLComponents.Tail)
+            return URL(string: BlizzardAPI.SkillIconURLComponents.Head + iconURL + BlizzardAPI.SkillIconURLComponents.Tail)
         } else {
             return nil
         }

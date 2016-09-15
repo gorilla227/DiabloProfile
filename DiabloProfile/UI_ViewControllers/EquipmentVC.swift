@@ -42,8 +42,8 @@ class EquipmentVC: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        tabBarItem.selectedImage = UIImage(named: "equipments.png")?.imageWithRenderingMode(.AlwaysOriginal)
-        tabBarItem.image = UIImage(named: "equipments_unselected.png")?.imageWithRenderingMode(.AlwaysOriginal)
+        tabBarItem.selectedImage = UIImage(named: "equipments.png")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.image = UIImage(named: "equipments_unselected.png")?.withRenderingMode(.alwaysOriginal)
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,13 +63,13 @@ class EquipmentVC: UIViewController {
         }
     }
     
-    func initialViewController(locale: String?) {
+    func initialViewController(_ locale: String?) {
         if let uiStrings = AppDelegate.uiStrings(locale: locale) {
             tabBarItem.title = uiStrings["tabEquipment"] as? String
         }
     }
 
-    func loadData(hero: Hero) {
+    func loadData(_ hero: Hero) {
         self.hero = hero
         
         // Load Background
@@ -82,7 +82,7 @@ class EquipmentVC: UIViewController {
         
         // Load Hero Name
         if let heroName = hero.name {
-            heroNameLabel.text = heroName.uppercaseString
+            heroNameLabel.text = heroName.uppercased()
         }
         
         // Load Items
@@ -124,14 +124,14 @@ class EquipmentVC: UIViewController {
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
         if let touch = touches.first {
-            let touchPoint = touch.locationInView(view)
+            let touchPoint = touch.location(in: view)
             for subview in view.subviews {
                 if let itemImageView = subview as? ItemImageView {
-                    if CGRectContainsPoint(itemImageView.frame, touchPoint) {
+                    if itemImageView.frame.contains(touchPoint) {
                         print(itemImageView.restorationIdentifier)
                         if let basicItem = itemImageView.item {
                             showItemDetails(basicItem)
@@ -142,9 +142,9 @@ class EquipmentVC: UIViewController {
         }
     }
     
-    private func showItemDetails(basicItem: BasicItem) {
+    fileprivate func showItemDetails(_ basicItem: BasicItem) {
         if basicItem.detailItem != nil {
-            performSegueWithIdentifier("ShowItemDetailsSegue", sender: basicItem)
+            performSegue(withIdentifier: "ShowItemDetailsSegue", sender: basicItem)
         } else {
             // Request item details
             if let hero = basicItem.hero, let region = hero.region, let locale = hero.locale, let itemTooltipParams = basicItem.tooltipParams {
@@ -160,11 +160,11 @@ class EquipmentVC: UIViewController {
                     }
                     
                     if let detailItemDict = result, let managedObjectContext = basicItem.managedObjectContext {
-                        managedObjectContext.performBlock({
+                        managedObjectContext.perform({
                             let detailItem = DetailItem(dictionary: detailItemDict, context: managedObjectContext)
                             detailItem.basicItem = basicItem
                             AppDelegate.performUIUpdatesOnMain({
-                                self.performSegueWithIdentifier("ShowItemDetailsSegue", sender: basicItem)
+                                self.performSegue(withIdentifier: "ShowItemDetailsSegue", sender: basicItem)
                             })
                         })
                     }
@@ -176,11 +176,11 @@ class EquipmentVC: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowItemDetailsSegue" {
-            if let detailVC = segue.destinationViewController as? ItemDetailsVC, let basicItem = sender as? BasicItem {
+            if let detailVC = segue.destination as? ItemDetailsVC, let basicItem = sender as? BasicItem {
                 detailVC.basicItem = basicItem
             }
         }

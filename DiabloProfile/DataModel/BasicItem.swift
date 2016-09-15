@@ -13,13 +13,13 @@ import CoreData
 class BasicItem: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
 
     init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName(Keys.EntityName, inManagedObjectContext: context)!
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+        let entity = NSEntityDescription.entity(forEntityName: Keys.EntityName, in: context)!
+        super.init(entity: entity, insertInto: context)
         
         if let id = dictionary[Keys.ID] as? String {
             self.id = id
@@ -37,7 +37,7 @@ class BasicItem: NSManagedObject {
             self.iconKey = iconKey
         }
         
-        if let icon = dictionary[Keys.Icon] as? NSData {
+        if let icon = dictionary[Keys.Icon] as? Data {
             self.icon = icon
         }
         
@@ -71,9 +71,9 @@ class BasicItem: NSManagedObject {
     }
     
     // size = "small" or "large"
-    func iconImageURL(size: String) -> NSURL? {
+    func iconImageURL(_ size: String) -> URL? {
         if let iconKey = iconKey {
-            return NSURL(string: BlizzardAPI.ItemIconURLComponents.Head + size + "/" + iconKey + BlizzardAPI.ItemIconURLComponents.Tail)
+            return URL(string: BlizzardAPI.ItemIconURLComponents.Head + size + "/" + iconKey + BlizzardAPI.ItemIconURLComponents.Tail)
         } else {
             return nil
         }

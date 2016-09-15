@@ -13,20 +13,20 @@ import CoreData
 class Gem: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
-    init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName(Keys.EntityName, inManagedObjectContext: context)!
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    init(dictionary: [String: Any], context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entity(forEntityName: Keys.EntityName, in: context)!
+        super.init(entity: entity, insertInto: context)
         
         if let isGem = dictionary[Keys.IsGem] as? Bool {
-            self.isGem = NSNumber(bool: isGem)
+            self.isGem = NSNumber(value: isGem as Bool)
         }
         
         if let isJewel = dictionary[Keys.IsJewel] as? Bool {
-            self.isJewel = NSNumber(bool: isJewel)
+            self.isJewel = NSNumber(value: isJewel as Bool)
         }
         
         if let jewelRank = dictionary[Keys.JewelRank] as? NSNumber {

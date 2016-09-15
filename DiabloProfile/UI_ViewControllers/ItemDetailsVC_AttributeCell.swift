@@ -14,37 +14,37 @@ class ItemDetailsVC_AttributeCell: UITableViewCell {
     @IBOutlet weak var attributeTextLabel: UILabel!
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
-    func configureCellForAttribute(attribute: ItemAttribute) {
+    func configureCellForAttribute(_ attribute: ItemAttribute) {
         if let rawString = attribute.text {
             attributeTextLabel.attributedText = StringAndColor.attributeString(rawString, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: StringAndColor.getTextColor(attribute.color)], specialAttributes: [NSForegroundColorAttributeName: UIColor(red: 158.0 / 255.0, green: 150 / 255.0, blue: 205.0 / 255.0, alpha: 1.0)])
             listIconImageView.image = imageForAttributeListIcon(attribute.affixType)
-            listIconImageView.hidden = false
-            gemIconImageView.hidden = true
+            listIconImageView.isHidden = false
+            gemIconImageView.isHidden = true
             indentationLevel = 0
         }
     }
     
-    func configureCellForGem(obj: AnyObject) {
-        if let gem = obj as? Gem, isJewel = gem.isJewel?.boolValue {
+    func configureCellForGem(_ obj: AnyObject) {
+        if let gem = obj as? Gem, let isJewel = gem.isJewel?.boolValue {
             if isJewel {
                 // Jewel Name
-                if let gemItem = gem.basicItem, rank = gem.jewelRank {
-                    if let name = gemItem.name, colorKey = gemItem.displayColor {
+                if let gemItem = gem.basicItem, let rank = gem.jewelRank {
+                    if let name = gemItem.name, let colorKey = gemItem.displayColor {
                         let attributeString = NSMutableAttributedString(string: name, attributes: [NSForegroundColorAttributeName: StringAndColor.getTextColor(colorKey)])
-                        attributeString.appendAttributedString(NSAttributedString(string: " - Rank \(rank)", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()]))
+                        attributeString.append(NSAttributedString(string: " - Rank \(rank)", attributes: [NSForegroundColorAttributeName: UIColor.lightGray]))
                         attributeTextLabel.attributedText = attributeString
                     }
                 }
             } else {
                 // Gem Attribute
-                if let gemAttribute = gem.attributes?.array.first as? ItemAttribute, attributeString = gemAttribute.text {
+                if let gemAttribute = gem.attributes?.array.first as? ItemAttribute, let attributeString = gemAttribute.text {
                     attributeTextLabel.text = attributeString
-                    attributeTextLabel.textColor = UIColor.whiteColor()
+                    attributeTextLabel.textColor = UIColor.white
                 }
             }
             
-            if let gemItem = gem.basicItem, icon = gemItem.icon {
-                gemIconImageView.image = UIImage(data: icon)
+            if let gemItem = gem.basicItem, let icon = gemItem.icon {
+                gemIconImageView.image = UIImage(data: icon as Data)
             } else {
                 // TODO: Download GemIcon
                 // Download Gem Icon
@@ -63,23 +63,23 @@ class ItemDetailsVC_AttributeCell: UITableViewCell {
                     })
                 }
             }
-            gemIconImageView.hidden = false
-            listIconImageView.hidden = true
+            gemIconImageView.isHidden = false
+            listIconImageView.isHidden = true
             indentationLevel = 0
         } else if let jewelAttribute = obj as? ItemAttribute {
             // Jewel Attributes
-            if let rawString = jewelAttribute.text, colorKey = jewelAttribute.color {
-                let attributedText = NSMutableAttributedString(attributedString: StringAndColor.attributeString(rawString, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: StringAndColor.getTextColor(colorKey)], specialAttributes: [NSForegroundColorAttributeName: UIColor.whiteColor()]))
+            if let rawString = jewelAttribute.text, let colorKey = jewelAttribute.color {
+                let attributedText = NSMutableAttributedString(attributedString: StringAndColor.attributeString(rawString, characterSet: StringAndColor.NumbersCharacterSet, defaultAttributes: [NSForegroundColorAttributeName: StringAndColor.getTextColor(colorKey)], specialAttributes: [NSForegroundColorAttributeName: UIColor.white]))
                 
                 // Set (Required Rank XX) to redColor
                 if let range = StringAndColor.rangeOfLastRoundBracketString(rawString) {
-                    attributedText.setAttributes([NSForegroundColorAttributeName: UIColor.redColor()], range: range)
+                    attributedText.setAttributes([NSForegroundColorAttributeName: UIColor.red], range: range)
                 }
                 attributeTextLabel.attributedText = attributedText
             }
             listIconImageView.image = imageForAttributeListIcon(jewelAttribute.affixType)
-            listIconImageView.hidden = false
-            gemIconImageView.hidden = true
+            listIconImageView.isHidden = false
+            gemIconImageView.isHidden = true
             indentationLevel = 1
         }
     }
@@ -90,7 +90,7 @@ class ItemDetailsVC_AttributeCell: UITableViewCell {
         leadingConstraint.constant = CGFloat(indentationLevel) * indentationWidth + 5.0
     }
     
-    private func imageForAttributeListIcon(affixType: String?) -> UIImage? {
+    fileprivate func imageForAttributeListIcon(_ affixType: String?) -> UIImage? {
         if let affixType = affixType {
             return UIImage(named: affixType + ".png")
         }

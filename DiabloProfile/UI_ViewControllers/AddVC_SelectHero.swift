@@ -28,37 +28,37 @@ class AddVC_SelectHero: UITableViewController {
         configureLoadingIndicator()
     }
     
-    private func configureLoadingIndicator() {
+    fileprivate func configureLoadingIndicator() {
         tableView.addSubview(loadingIndicator)
         loadingIndicator.center = tableView.center
     }
     
-    private func loadDataUIRespond(loading: Bool) {
+    fileprivate func loadDataUIRespond(_ loading: Bool) {
         AppDelegate.performUIUpdatesOnMain {
             if loading {
                 self.loadingIndicator.startAnimating()
-                self.tableView.userInteractionEnabled = false
+                self.tableView.isUserInteractionEnabled = false
             } else {
                 self.loadingIndicator.stopAnimating()
-                self.tableView.userInteractionEnabled = true
+                self.tableView.isUserInteractionEnabled = true
             }
         }
     }
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return heroes?.count ?? 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HeroCell", forIndexPath: indexPath)
-        let hero = heroes![indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath)
+        let hero = heroes![(indexPath as NSIndexPath).row]
 
         // Configure the cell...
         configureCell(cell, hero: hero)
@@ -66,8 +66,8 @@ class AddVC_SelectHero: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let hero = heroes![indexPath.row]
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hero = heroes![(indexPath as NSIndexPath).row]
         if let region = region, let locale = locale, let battleTag = battleTag, let heroId = hero[Hero.Keys.ID] as? NSNumber {
             loadDataUIRespond(true)
             
@@ -76,24 +76,24 @@ class AddVC_SelectHero: UITableViewController {
                 
                 guard error == nil else {
                     if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
-                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
-                        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         warning.addAction(okAction)
                         AppDelegate.performUIUpdatesOnMain({
-                            self.presentViewController(warning, animated: true, completion: nil)
+                            self.present(warning, animated: true, completion: nil)
                         })
                     }
                     return
                 }
                 
                 AppDelegate.performUIUpdatesOnMain({
-                    self.performSegueWithIdentifier("HeroDetailSegue", sender: result)
+                    self.performSegue(withIdentifier: "HeroDetailSegue", sender: result)
                 })
             })
         }
     }
 
-    private func configureCell(cell: UITableViewCell, hero: [String: AnyObject]) {
+    fileprivate func configureCell(_ cell: UITableViewCell, hero: [String: AnyObject]) {
         if let name = hero[Hero.Keys.Name] as? String {
             cell.textLabel?.text = name
         }
@@ -115,11 +115,11 @@ class AddVC_SelectHero: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "HeroDetailSegue" {
-            let heroDetailVC = segue.destinationViewController as! HeroDetailsTabBarController
+            let heroDetailVC = segue.destination as! HeroDetailsTabBarController
             heroDetailVC.heroData = sender as? [String: AnyObject]
         }
     }

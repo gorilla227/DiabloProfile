@@ -13,13 +13,13 @@ import CoreData
 class Hero: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
-    init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName(Keys.EntityName, inManagedObjectContext: context)!
-        super.init(entity:entity, insertIntoManagedObjectContext: context)
+    init(dictionary: [String: Any], context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entity(forEntityName: Keys.EntityName, in: context)!
+        super.init(entity:entity, insertInto: context)
         
         if let battleTag = dictionary[Keys.BattleTag] as? String {
             self.battleTag = battleTag
@@ -38,15 +38,15 @@ class Hero: NSManagedObject {
         }
         
         if let dead = dictionary[Keys.Dead] as? Bool {
-            self.dead = NSNumber(bool: dead)
+            self.dead = NSNumber(value: dead as Bool)
         }
         
         if let gender = dictionary[Keys.Gender] as? Bool {
-            self.gender = NSNumber(bool: gender)
+            self.gender = NSNumber(value: gender as Bool)
         }
         
         if let hardcore = dictionary[Keys.Hardcore] as? Bool {
-            self.hardcore = NSNumber(bool: hardcore)
+            self.hardcore = NSNumber(value: hardcore as Bool)
         }
         
         if let heroClass = dictionary[Keys.HeroClass] as? String {
@@ -70,7 +70,7 @@ class Hero: NSManagedObject {
         }
         
         if let seasonal = dictionary[Keys.Seasonal] as? Bool {
-            self.seasonal = NSNumber(bool: seasonal)
+            self.seasonal = NSNumber(value: seasonal as Bool)
         }
         
         if let seasonCreated = dictionary[Keys.SeasonCreated] as? NSNumber {
@@ -110,7 +110,7 @@ class Hero: NSManagedObject {
         }
     }
     
-    class func titleBackgroundImagePath(classKey classKey: String, genderKey: String) -> String {
+    class func titleBackgroundImagePath(classKey: String, genderKey: String) -> String {
         let imageFilePath = "\(classKey)-\(genderKey)-background.jpg"
         return imageFilePath
     }
@@ -124,7 +124,7 @@ class Hero: NSManagedObject {
         }
     }
     
-    class func classIconImagePath(classKey classKey: String, genderKey: String) -> String {
+    class func classIconImagePath(classKey: String, genderKey: String) -> String {
         let imageFilePath = "\(classKey)_\(genderKey).png"
         return imageFilePath
     }

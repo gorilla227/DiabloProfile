@@ -101,7 +101,7 @@ extension BlizzardAPI {
             static let AccountBound = "accountBound"
             static let FlavorText = "flavorText"
             static let TypeName = "typeName"
-            static let Type = "type"
+            static let TypeKey = "type"
             static let TypeID = "id"
             static let TypeTwoHanded = "twoHanded"
             static let DamageRange = "damageRange"

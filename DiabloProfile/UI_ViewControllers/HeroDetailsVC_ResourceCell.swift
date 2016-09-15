@@ -15,16 +15,16 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
     @IBOutlet weak var resourceTitleLabel: UILabel!
     @IBOutlet weak var resourceOrbImageView: UIImageView!
 
-    func configureCell(hero: Hero) {
+    func configureCell(_ hero: Hero) {
         if let gameData = AppDelegate.gameData(locale: hero.locale), let stats = gameData[Hero.Keys.Stats] as? [String: String] {
             if let lifeValue = hero.stats?.life {
-                if lifeValue.integerValue > 1000 {
-                    lifeValueLabel.text = "\(lifeValue.integerValue / 1000)k"
+                if lifeValue.intValue > 1000 {
+                    lifeValueLabel.text = "\(lifeValue.intValue / 1000)k"
                 } else {
                     lifeValueLabel.text = lifeValue.stringValue
                 }
             }
-            lifeTitleLabel.text = stats[Stats.Keys.Life]?.uppercaseString ?? ""
+            lifeTitleLabel.text = stats[Stats.Keys.Life]?.uppercased() ?? ""
 
             if let classes = gameData["class"] as? [String: AnyObject], let classKey = hero.heroClass, let heroClass = classes[classKey] as? [String: AnyObject], let resourceNames = heroClass["resource"] as? [String] {
                 
@@ -40,22 +40,22 @@ class HeroDetailsVC_ResourceCell: UITableViewCell {
                     resourceValue += "\n\(secondaryResourceValue)"
                 }
                 
-                resourceTitleLabel.text = resourceTitle.uppercaseString
+                resourceTitleLabel.text = resourceTitle.uppercased()
                 resourceValueLabel.text = resourceValue
                 
                 resourceOrbImageView.image = resourceOrbImage(classKey)
                 
                 switch classKey {
                 case "monk", "crusader" :
-                    resourceValueLabel.textColor = UIColor.blackColor()
+                    resourceValueLabel.textColor = UIColor.black
                 default:
-                    resourceValueLabel.textColor = UIColor.whiteColor()
+                    resourceValueLabel.textColor = UIColor.white
                 }
             }
         }
     }
 
-    private func resourceOrbImage(classKey: String) -> UIImage? {
+    fileprivate func resourceOrbImage(_ classKey: String) -> UIImage? {
         let imageFileName = "\(classKey)_resource_orb.png"
         return UIImage(named: imageFileName)
     }

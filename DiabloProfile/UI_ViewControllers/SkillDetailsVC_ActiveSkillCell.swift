@@ -28,16 +28,16 @@ class SkillDetailsVC_ActiveSkillCell: UITableViewCell {
         let bgImage = UIImage(named: "skill_bg.jpg")
         let bgImageView = UIImageView(frame: self.bounds)
         bgImageView.image = bgImage
-        bgImageView.contentMode = .ScaleToFill
+        bgImageView.contentMode = .scaleToFill
         self.backgroundView = bgImageView
         
         // Add loadingIndicator
-        loadingIndicator.color = UIColor.orangeColor()
+        loadingIndicator.color = UIColor.orange
         loadingIndicator.hidesWhenStopped = true
         skillIconImageView.addSubview(loadingIndicator)
     }
 
-    func configureCell(skill: Skill, classKey: String, gameData: [String: AnyObject]) {
+    func configureCell(_ skill: Skill, classKey: String, gameData: [String: AnyObject]) {
         // Set Skill
         skillNameLabel.text = skill.name
         skillDescriptionLabel.text = skill.fullDescription
@@ -51,7 +51,7 @@ class SkillDetailsVC_ActiveSkillCell: UITableViewCell {
         }
         
         if let skillIcon = skill.icon {
-            skillIconImageView.image = UIImage(data: skillIcon)
+            skillIconImageView.image = UIImage(data: skillIcon as Data)
             loadingIndicator.stopAnimating()
             setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {
@@ -78,7 +78,7 @@ class SkillDetailsVC_ActiveSkillCell: UITableViewCell {
         
         // Set Rune
         if let rune = skill.rune {
-            runeView.hidden = false
+            runeView.isHidden = false
             
             runeNameLabel.text = rune.name
             runeDescriptionLabel.text = rune.fullDescription
@@ -87,7 +87,7 @@ class SkillDetailsVC_ActiveSkillCell: UITableViewCell {
                 runeIconImageView.image = UIImage(named: runeIconImagePath)
             }
         } else {
-            runeView.hidden = true
+            runeView.isHidden = true
         }
     }
 

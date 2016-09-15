@@ -10,86 +10,85 @@ import Foundation
 import UIKit
 
 class StringAndColor {
-    class func getBorderColor(colorKey: String) -> UIColor {
+    class func getBorderColor(_ colorKey: String) -> UIColor {
         switch colorKey {
         case "green":
-            return UIColor.greenColor()
+            return UIColor.green
         case "orange":
-            return UIColor.orangeColor()
+            return UIColor.orange
         case "blue":
-            return UIColor.blueColor()
+            return UIColor.blue
         case "yellow":
-            return UIColor.yellowColor()
+            return UIColor.yellow
         case "white":
-            return UIColor.grayColor()
+            return UIColor.gray
         default:
-            return UIColor.clearColor()
+            return UIColor.clear
         }
     }
     
-    class func getTextColor(colorKey: String?) -> UIColor {
+    class func getTextColor(_ colorKey: String?) -> UIColor {
         if let colorKey = colorKey {
             switch colorKey {
             case "green":
-                return UIColor.greenColor()
+                return UIColor.green
             case "orange":
-                return UIColor.orangeColor()
+                return UIColor.orange
             case "blue":
                 return UIColor(red: 146.0 / 255.0, green: 128.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
             case "yellow":
-                return UIColor.yellowColor()
+                return UIColor.yellow
             case "white":
-                return UIColor.whiteColor()
+                return UIColor.white
             case "gray":
-                return UIColor.grayColor()
+                return UIColor.gray
             default:
                 break
             }
         }
-        return UIColor.whiteColor()
+        return UIColor.white
     }
     
-    class func convertNumberToString(number: NSNumber, withFractionDigits: Int) -> String? {
-        let numberFormatter = NSNumberFormatter()
+    class func convertNumberToString(_ number: NSNumber, withFractionDigits: Int) -> String? {
+        let numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = withFractionDigits
         numberFormatter.minimumFractionDigits = withFractionDigits
-        return numberFormatter.stringFromNumber(number)
+        return numberFormatter.string(from: number)
     }
     
-    class func rangeOfLastRoundBracketString(rawString: String) -> NSRange? {
-        if let startIndex = rawString.rangeOfString("(", options: .BackwardsSearch, range: nil, locale: nil)?.startIndex,
-            endIndex = rawString.rangeOfString(")", options: .BackwardsSearch, range: nil, locale: nil)?.endIndex {
-            
-            return NSMakeRange(rawString.characters.startIndex.distanceTo(startIndex), startIndex.distanceTo(endIndex))
+    class func rangeOfLastRoundBracketString(_ rawString: String) -> NSRange? {
+        if let startIndex = rawString.range(of: "(", options: .backwards, range: nil, locale: nil)?.lowerBound,
+            let endIndex = rawString.range(of: ")", options: .backwards, range: nil, locale: nil)?.upperBound {
+            return NSMakeRange(rawString.characters.distance(from: rawString.startIndex, to: startIndex), rawString.characters.distance(from: startIndex, to: endIndex))
         }
         return nil
     }
     
-    class func attributeString(rawString: String, characterSet: NSCharacterSet, defaultAttributes: [String: AnyObject], specialAttributes: [String: AnyObject]) -> NSAttributedString {
+    class func attributeString(_ rawString: String, characterSet: CharacterSet, defaultAttributes: [String: AnyObject], specialAttributes: [String: AnyObject]) -> NSAttributedString {
         let result = NSMutableAttributedString(string: rawString, attributes: defaultAttributes)
         var startIndex = rawString.startIndex
         
-        while let rangeOfSpecialCharacter = rawString.rangeOfCharacterFromSet(characterSet, options: .ForcedOrderingSearch, range: startIndex..<rawString.endIndex) {
-            if String(rawString.characters[rangeOfSpecialCharacter.startIndex]) == "." {
-                if rangeOfSpecialCharacter.startIndex == rawString.characters.endIndex.predecessor() {
+        while let rangeOfSpecialCharacter = rawString.rangeOfCharacter(from: characterSet, options: .forcedOrdering, range: startIndex..<rawString.endIndex) {
+            if String(rawString.characters[rangeOfSpecialCharacter.lowerBound]) == "." {
+                if rangeOfSpecialCharacter.lowerBound == rawString.characters.index(before: rawString.characters.endIndex) {
                     break
                 }
-
-                let successorString = String(rawString.characters[rangeOfSpecialCharacter.startIndex.successor()])
-                if !characterSet.characterIsMember(successorString.utf16.first!){
-                    startIndex = rangeOfSpecialCharacter.startIndex.successor()
+                
+                let successorString = String(rawString.characters[rawString.characters.index(after: rangeOfSpecialCharacter.lowerBound)])
+                if !characterSet.contains(UnicodeScalar(successorString.utf16.first!)!){
+                    startIndex = rawString.characters.index(after: rangeOfSpecialCharacter.lowerBound)
                     continue
                 }
             }
             
-            let loc = rawString.characters.startIndex.distanceTo(rangeOfSpecialCharacter.startIndex)
+            let loc = rawString.characters.distance(from: rawString.characters.startIndex, to: rangeOfSpecialCharacter.lowerBound)
             result.setAttributes(specialAttributes, range: NSMakeRange(loc, 1))
-            startIndex = rangeOfSpecialCharacter.startIndex.successor()
+            startIndex = rawString.characters.index(after: rangeOfSpecialCharacter.lowerBound)
         }
         return result
     }
 }
 
 extension StringAndColor {
-    static let NumbersCharacterSet = NSCharacterSet(charactersInString: "1234567890.%+")
+    static let NumbersCharacterSet = CharacterSet(charactersIn: "1234567890.%+")
 }

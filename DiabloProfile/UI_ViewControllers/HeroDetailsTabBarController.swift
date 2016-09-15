@@ -17,16 +17,16 @@ class HeroDetailsTabBarController: UITabBarController {
     var hero: Hero?
  
     let mainManagedObjectContext: NSManagedObjectContext = {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.mainManagedObjectContext
     }()
     
     lazy var privateManagedObjectContext: NSManagedObjectContext = {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let backgroundManagedObjectContext = appDelegate.backgroundManagedObjectContext
-        let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        moc.parentContext = backgroundManagedObjectContext
+        moc.parent = backgroundManagedObjectContext
         return moc
     }()
     
@@ -34,13 +34,13 @@ class HeroDetailsTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: privateManagedObjectContext)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveBackgroundManagedObjectContext(_:)), name: NSManagedObjectContextDidSaveNotification, object: mainManagedObjectContext)
+        NotificationCenter.default.addObserver(self, selector: #selector(mergeToMainManagedObjectContext(_:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: privateManagedObjectContext)
+        NotificationCenter.default.addObserver(self, selector: #selector(saveBackgroundManagedObjectContext(_:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: mainManagedObjectContext)
 
         initializeHeroObject()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("HeroDetailsVC Disappear")
         
@@ -49,22 +49,22 @@ class HeroDetailsTabBarController: UITabBarController {
         }
     }
     
-    private func initializeHeroObject() {
+    fileprivate func initializeHeroObject() {
         if let heroData = heroData {
-            privateManagedObjectContext.performBlock({
+            privateManagedObjectContext.perform({
                 let hero = Hero(dictionary: heroData, context: self.privateManagedObjectContext)
                 AppDelegate.performUIUpdatesOnMain({
                     self.hero = hero
-                    self.navigationItem.title = hero.name?.uppercaseString ?? ""
+                    self.navigationItem.title = hero.name?.uppercased() ?? ""
                     self.navigationItem.rightBarButtonItem = self.addToCollectionButton
-                    self.addToCollectionButton.enabled = !self.isHeroExistedInCollection()
+                    self.addToCollectionButton.isEnabled = !self.isHeroExistedInCollection()
                     
                     self.initialChildViewControllers(hero)
                 })
             })
         } else {
             if let hero = self.hero {
-                navigationItem.title = hero.name?.uppercaseString ?? ""
+                navigationItem.title = hero.name?.uppercased() ?? ""
                 navigationItem.rightBarButtonItem = removeButton
                 
                 initialChildViewControllers(hero)
@@ -72,7 +72,7 @@ class HeroDetailsTabBarController: UITabBarController {
         }
     }
     
-    func initialChildViewControllers(hero: Hero) {
+    func initialChildViewControllers(_ hero: Hero) {
         for childViewController in childViewControllers {
             if let heroDetailVC = childViewController as? HeroDetailsVC {
                 heroDetailVC.initialViewController(hero.locale)
@@ -88,29 +88,33 @@ class HeroDetailsTabBarController: UITabBarController {
         }
     }
     
-    private func isHeroExistedInCollection() -> Bool {
+    fileprivate func isHeroExistedInCollection() -> Bool {
         if let hero = hero, let id = hero.id {
-            let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
+            let fetchRequest = NSFetchRequest<Hero>(entityName: Hero.Keys.EntityName)
             fetchRequest.predicate = NSPredicate(format: "\(Hero.Keys.ID) == %@", id)
             
-            var error: NSError?
-            let numOfExistedObject = mainManagedObjectContext.countForFetchRequest(fetchRequest, error: &error)
-            return numOfExistedObject > 0
+            do {
+                let numOfExistedObject = try mainManagedObjectContext.count(for: fetchRequest)
+                return numOfExistedObject > 0
+            } catch {
+                print("Fetch 'isHeroExistedInCollection' request failed")
+                return false
+            }
         }
         return false
     }
     
-    func mergeToMainManagedObjectContext(notification: NSNotification) {
-        mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+    func mergeToMainManagedObjectContext(_ notification: Notification) {
+        mainManagedObjectContext.mergeChanges(fromContextDidSave: notification)
         print("mergeToMainManagedObjectContext")
         
         AppDelegate.performUIUpdatesOnMain {
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
     
-    func saveBackgroundManagedObjectContext(notification: NSNotification) {
-        if let moc = notification.object as? NSManagedObjectContext, let parentMOC = moc.parentContext {
+    func saveBackgroundManagedObjectContext(_ notification: Notification) {
+        if let moc = notification.object as? NSManagedObjectContext, let parentMOC = moc.parent {
             AppDelegate.saveContext(parentMOC)
             print("Save backgroundManagedObjectContext from HeroDetailsVC")
         }
@@ -118,15 +122,15 @@ class HeroDetailsTabBarController: UITabBarController {
     
     
     // MARK: - IBActions
-    @IBAction func addToCollectionButtonOnClicked(sender: AnyObject) {
+    @IBAction func addToCollectionButtonOnClicked(_ sender: AnyObject) {
         AppDelegate.saveContext(privateManagedObjectContext)
     }
     
-    @IBAction func removeButtonOnClicked(sender: AnyObject) {
-        mainManagedObjectContext.deleteObject(hero!)
+    @IBAction func removeButtonOnClicked(_ sender: AnyObject) {
+        mainManagedObjectContext.delete(hero!)
         AppDelegate.saveContext(mainManagedObjectContext)
         AppDelegate.performUIUpdatesOnMain {
-            self.navigationController?.popViewControllerAnimated(true)
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
     

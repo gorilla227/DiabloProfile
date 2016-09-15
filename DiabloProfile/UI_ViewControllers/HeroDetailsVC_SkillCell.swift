@@ -26,18 +26,18 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
         super.awakeFromNib()
 
         // Add loadingIndicator
-        loadingIndicator.color = UIColor.orangeColor()
+        loadingIndicator.color = UIColor.orange
         loadingIndicator.hidesWhenStopped = true
         skillIconImageView.addSubview(loadingIndicator)
     }
     
-    func configureCell(skill: Skill, isActiveSkill: Bool) {
+    func configureCell(_ skill: Skill, isActiveSkill: Bool) {
         // Set Skill
         skillNameLabel.text = skill.name
         skillDescriptionLabel.text = isActiveSkill ? skill.simpleDescription : skill.fullDescription
         
         if let skillIcon = skill.icon {
-            skillIconImageView.image = UIImage(data: skillIcon)
+            skillIconImageView.image = UIImage(data: skillIcon as Data)
             loadingIndicator.stopAnimating()
             setNeedsLayout()
         } else if let skillIconURL = skill.skillIconImageURL() {
@@ -63,7 +63,7 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
         
         // Set Rune
         if let rune = skill.rune {
-            runeView.hidden = false
+            runeView.isHidden = false
             
             runeNameLabel.text = rune.name
             runeDescriptionLabel.text = rune.simpleDescription
@@ -72,7 +72,7 @@ class HeroDetailsVC_SkillCell: UITableViewCell {
                 runeIconImageView.image = UIImage(named: runeIconImagePath)
             }
         } else {
-            runeView.hidden = true
+            runeView.isHidden = true
         }
     }
 }

@@ -13,13 +13,13 @@ import CoreData
 class ItemSet: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
-    init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName(Keys.EntityName, inManagedObjectContext: context)!
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    init(dictionary: [String: Any], context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entity(forEntityName: Keys.EntityName, in: context)!
+        super.init(entity: entity, insertInto: context)
         
         if let name = dictionary[Keys.Name] as? String {
             self.name = name
@@ -52,13 +52,13 @@ class ItemSet: NSManagedObject {
         }
     }
     
-    class func fetchItemSet(slug: String?, locale: String?, context: NSManagedObjectContext) -> ItemSet? {
-        if let slug = slug, locale = locale {
-            let fetchRequest = NSFetchRequest(entityName: Keys.EntityName)
+    class func fetchItemSet(_ slug: String?, locale: String?, context: NSManagedObjectContext) -> ItemSet? {
+        if let slug = slug, let locale = locale {
+            let fetchRequest: NSFetchRequest<ItemSet> = self.fetchRequest() as! NSFetchRequest<ItemSet>
             fetchRequest.predicate = NSPredicate(format: "slug == %@ && locale == %@", slug, locale)
             do {
-                let result = try context.executeFetchRequest(fetchRequest)
-                if let itemSet = result.first as? ItemSet {
+                let result = try context.fetch(fetchRequest)
+                if let itemSet = result.first  {
                     return itemSet
                 }
             } catch {

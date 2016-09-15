@@ -17,7 +17,7 @@ extension Skill {
     @NSManaged var iconURL: String?
     @NSManaged var categorySlug: String?
     @NSManaged var flavor: String?
-    @NSManaged var icon: NSData?
+    @NSManaged var icon: Data?
     @NSManaged var rune: Rune?
     @NSManaged var heroA: Hero?
     @NSManaged var heroP: Hero?

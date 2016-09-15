@@ -13,22 +13,15 @@ class HeroListVC: UITableViewController {
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: - Network Reachability
-    lazy var reachability: Reachability? = {
-        do {
-            return try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return nil
-        }
-    }()
+    lazy var reachability: Reachability? = Reachability()
 
     lazy var mainManagedObjectContext: NSManagedObjectContext = {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.mainManagedObjectContext
     }()
     
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        let fetchRequest = NSFetchRequest(entityName: Hero.Keys.EntityName)
+    lazy var fetchedResultsController: NSFetchedResultsController<Hero> = {
+        let fetchRequest = Hero.fetchRequest() as! NSFetchRequest<Hero>
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.BattleTag, ascending: true), NSSortDescriptor(key: Hero.Keys.Level, ascending: false)]
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: Hero.Keys.BattleTag, cacheName: nil)
@@ -54,7 +47,7 @@ class HeroListVC: UITableViewController {
         }
     }
 
-    private func configureCell(cell: UITableViewCell, hero: Hero) {
+    fileprivate func configureCell(_ cell: UITableViewCell, hero: Hero) {
         cell.textLabel?.text = hero.name
         if let level = hero.level,
             let heroClassKey = hero.heroClass,
@@ -70,17 +63,17 @@ class HeroListVC: UITableViewController {
         }
     }
     
-    private func loadDataUIRespond(loading: Bool, extraBlock:(() -> Void)?) {
+    fileprivate func loadDataUIRespond(_ loading: Bool, extraBlock:(() -> Void)?) {
         AppDelegate.performUIUpdatesOnMain {
             if loading {
                 self.loadingIndicator.startAnimating()
-                self.tableView.userInteractionEnabled = false
+                self.tableView.isUserInteractionEnabled = false
                 if let block = extraBlock {
                     block()
                 }
             } else {
                 self.loadingIndicator.stopAnimating()
-                self.tableView.userInteractionEnabled = true
+                self.tableView.isUserInteractionEnabled = true
                 if let block = extraBlock {
                     block()
                 }
@@ -90,100 +83,97 @@ class HeroListVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return fetchedResultsController.sections?.count ?? 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let section = fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-        return section.numberOfObjects ?? 0
+        return section.numberOfObjects 
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HeroCell", forIndexPath: indexPath)
-        if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
-            configureCell(cell, hero: hero)
-        }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath)
+        let hero = fetchedResultsController.object(at: indexPath)
+        configureCell(cell, hero: hero)
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
-            if let lastUpdated = hero.lastUpdated?.doubleValue, let reachability = reachability where reachability.isReachable() {
-                loadDataUIRespond(true, extraBlock: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hero = fetchedResultsController.object(at: indexPath)
+        if let lastUpdated = hero.lastUpdated?.doubleValue, let reachability = reachability , reachability.isReachable {
+            loadDataUIRespond(true, extraBlock: nil)
+            
+            BlizzardAPI.requestHeroProfile(hero.region!, locale: hero.locale!, battleTag: hero.battleTag!, heroId: hero.id!, completion: { (result, error) in
+                guard error == nil && result != nil else {
+                    if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
+                        let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        warning.addAction(okAction)
+                        
+                        self.loadDataUIRespond(false, extraBlock: {
+                            self.present(warning, animated: true, completion: nil)
+                        })
+                    }
+                    return
+                }
                 
-                BlizzardAPI.requestHeroProfile(hero.region!, locale: hero.locale!, battleTag: hero.battleTag!, heroId: hero.id!, completion: { (result, error) in
-                    guard error == nil && result != nil else {
-                        if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
-                            let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .Alert)
-                            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                            warning.addAction(okAction)
-                            
+                if let newLastUpdated = result![Hero.Keys.LastUpdated] as? NSNumber {
+                    if newLastUpdated.doubleValue != lastUpdated {
+                        print("Update Offline Data")
+                        // Update Offline Data
+                        self.mainManagedObjectContext.perform({
+                            self.mainManagedObjectContext.delete(hero)
+                            let newHero = Hero(dictionary: result!, context: self.mainManagedObjectContext)
+                            AppDelegate.saveContext(self.mainManagedObjectContext)
                             self.loadDataUIRespond(false, extraBlock: {
-                                self.presentViewController(warning, animated: true, completion: nil)
+                                self.performSegue(withIdentifier: "ViewHeroDetailsSegue", sender: newHero)
                             })
-                        }
-                        return
+                        })
+                    } else {
+                        print("Offline Data was Up-to-Dated")
+                        self.loadDataUIRespond(false, extraBlock: { 
+                            self.performSegue(withIdentifier: "ViewHeroDetailsSegue", sender: hero)
+                        })
                     }
-                    
-                    if let newLastUpdated = result![Hero.Keys.LastUpdated] as? NSNumber {
-                        if newLastUpdated.doubleValue != lastUpdated {
-                            print("Update Offline Data")
-                            // Update Offline Data
-                            self.mainManagedObjectContext.performBlock({
-                                self.mainManagedObjectContext.deleteObject(hero)
-                                let newHero = Hero(dictionary: result!, context: self.mainManagedObjectContext)
-                                AppDelegate.saveContext(self.mainManagedObjectContext)
-                                self.loadDataUIRespond(false, extraBlock: {
-                                    self.performSegueWithIdentifier("ViewHeroDetailsSegue", sender: newHero)
-                                })
-                            })
-                        } else {
-                            print("Offline Data was Up-to-Dated")
-                            self.loadDataUIRespond(false, extraBlock: { 
-                                self.performSegueWithIdentifier("ViewHeroDetailsSegue", sender: hero)
-                            })
-                        }
-                    }
-                })
-            } else {
-                performSegueWithIdentifier("ViewHeroDetailsSegue", sender: hero)
-            }
+                }
+            })
+        } else {
+            performSegue(withIdentifier: "ViewHeroDetailsSegue", sender: hero)
         }
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
         return section.name
     }
 
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            if let hero = fetchedResultsController.objectAtIndexPath(indexPath) as? Hero {
-                mainManagedObjectContext.deleteObject(hero)
-                AppDelegate.saveContext(mainManagedObjectContext)
-            }
+            let hero = fetchedResultsController.object(at: indexPath)
+            mainManagedObjectContext.delete(hero)
+            AppDelegate.saveContext(mainManagedObjectContext)
         }
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ViewHeroDetailsSegue" {
-            let heroDetialsVC = segue.destinationViewController as! HeroDetailsTabBarController
+            let heroDetialsVC = segue.destination as! HeroDetailsTabBarController
             heroDetialsVC.hero = sender as? Hero
         }
     }
@@ -191,36 +181,36 @@ class HeroListVC: UITableViewController {
 }
 
 extension HeroListVC: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .Insert:
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
-        case .Delete:
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Update:
-            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
-        case .Move:
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+        case .move:
             break
         }
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .Insert:
-            tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-        case .Delete:
-            tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        case .Update:
-            tableView.reloadSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-        case .Move:
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .update:
+            tableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .move:
             break
         }
     }
