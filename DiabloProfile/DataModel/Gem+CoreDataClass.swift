@@ -1,18 +1,18 @@
 //
-//  Gem.swift
+//  Gem+CoreDataClass.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/29/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
 
-class Gem: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+public class Gem: NSManagedObject {
+    
+    // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }

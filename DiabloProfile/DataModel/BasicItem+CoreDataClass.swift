@@ -1,22 +1,22 @@
 //
-//  BasicItem.swift
+//  BasicItem+CoreDataClass.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/29/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
 
-class BasicItem: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+public class BasicItem: NSManagedObject {
+    
+    // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }
-
+    
     init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entity(forEntityName: Keys.EntityName, in: context)!
         super.init(entity: entity, insertInto: context)

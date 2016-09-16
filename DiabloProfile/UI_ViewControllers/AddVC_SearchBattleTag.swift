@@ -93,7 +93,7 @@ class AddVC_SearchBattleTag: UITableViewController {
         if segue.identifier == "SelectHeroSegue" {
             let selectHeroVC = segue.destination as! AddVC_SelectHero
             selectHeroVC.battleTag = battleTag
-            selectHeroVC.heroes = sender as? [[String: AnyObject]]
+            selectHeroVC.heroes = sender as? [[String: Any]]
             selectHeroVC.region = region
             selectHeroVC.locale = locale
         }

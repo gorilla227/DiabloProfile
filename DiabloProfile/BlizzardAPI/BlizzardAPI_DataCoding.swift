@@ -45,6 +45,10 @@ extension BlizzardAPI {
                 if let lastUpdated = hero[ResponseKeys.LastUpdated] as? NSNumber {
                     heroDict[Hero.Keys.LastUpdated] = lastUpdated
                 }
+                if let kills = hero[ResponseKeys.Kills] as? [String: NSNumber],
+                    let elites = kills[ResponseKeys.Elites] {
+                    heroDict[Hero.Keys.ElitesKills] = elites
+                }
                 
                 result.append(heroDict)
             }
@@ -88,6 +92,10 @@ extension BlizzardAPI {
             }
             if let seasonCreated = heroProfile[ResponseKeys.SeasonCreated] as? NSNumber {
                 result[Hero.Keys.SeasonCreated] = seasonCreated
+            }
+            if let kills = heroProfile[ResponseKeys.Kills] as? [String: NSNumber],
+                let elites = kills[ResponseKeys.Elites] {
+                result[Hero.Keys.ElitesKills] = elites
             }
             // Skills
             if let skills = heroProfile[ResponseKeys.Skills] as? [String: Any] {
@@ -221,6 +229,19 @@ extension BlizzardAPI {
                     itemsArray.append(itemDict)
                 }
                 result[Hero.Keys.Items] = itemsArray
+            }
+            
+            // LegendaryPowers
+            if let powers = heroProfile[ResponseKeys.LegendaryPowers] as? [Any] {
+                var powersArray = [[String: Any]]()
+                for power in powers {
+                    var powerDict = [String: Any]()
+                    if let power = power as? [String: Any] {
+                        powerDict = decodeLegendaryPower(power)
+                    }
+                    powersArray.append(powerDict)
+                }
+                result[Hero.Keys.LegendaryPowers] = powersArray
             }
             return result
         }
@@ -418,6 +439,26 @@ extension BlizzardAPI {
         }
         if let attributes = gemDict[ResponseKeys.ItemKeys.GemKeys.Attributes] as? [String: [[String: Any]]] {
             result[Gem.Keys.Attributes] = decodeItemAttributes(attributes)
+        }
+        return result
+    }
+    
+    class func decodeLegendaryPower(_ powerDict: [String: Any]) -> [String: Any] {
+        var result = [String: Any]()
+        if let id = powerDict[ResponseKeys.LegendaryPowerKeys.ID] as? String {
+            result[LegendaryPower.Keys.ID] = id
+        }
+        if let name = powerDict[ResponseKeys.LegendaryPowerKeys.Name] as? String {
+            result[LegendaryPower.Keys.Name] = name
+        }
+        if let icon = powerDict[ResponseKeys.LegendaryPowerKeys.IconKey] as? String {
+            result[LegendaryPower.Keys.IconKey] = icon
+        }
+        if let displayColor = powerDict[ResponseKeys.LegendaryPowerKeys.DisplayColor] as? String {
+            result[LegendaryPower.Keys.DisplayColor] = displayColor
+        }
+        if let tooltipParams = powerDict[ResponseKeys.LegendaryPowerKeys.TooltipParams] as? String {
+            result[LegendaryPower.Keys.TooltipParams] = tooltipParams
         }
         return result
     }

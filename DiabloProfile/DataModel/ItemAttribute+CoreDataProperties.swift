@@ -2,24 +2,27 @@
 //  ItemAttribute+CoreDataProperties.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/29/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
+
 extension ItemAttribute {
 
-    @NSManaged var affixType: String?
-    @NSManaged var category: String?
-    @NSManaged var color: String?
-    @NSManaged var text: String?
-    @NSManaged var gem: Gem?
-    @NSManaged var item: DetailItem?
-    @NSManaged var setBonus: SetBonus?
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<ItemAttribute> {
+        return NSFetchRequest<ItemAttribute>(entityName: "ItemAttribute");
+    }
+
+    @NSManaged public var affixType: String?
+    @NSManaged public var category: String?
+    @NSManaged public var color: String?
+    @NSManaged public var text: String?
+    @NSManaged public var gem: Gem?
+    @NSManaged public var item: DetailItem?
+    @NSManaged public var legendaryPower: LegendaryPower?
+    @NSManaged public var setBonus: SetBonus?
 
 }

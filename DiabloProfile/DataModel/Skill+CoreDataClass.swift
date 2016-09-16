@@ -1,23 +1,23 @@
 //
-//  Skill.swift
+//  Skill+CoreDataClass.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/15/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
 
-class Skill: Spell {
-
-// Insert code here to add functionality to your managed object subclass
+public class Skill: Spell {
+    
+    // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }
     
-    override init(dictionary: [String : AnyObject], entityName: String, context: NSManagedObjectContext) {
+    override init(dictionary: [String : Any], entityName: String, context: NSManagedObjectContext) {
         super.init(dictionary: dictionary, entityName: entityName, context: context)
         
         if let categorySlug = dictionary[Keys.CategorySlug] as? String {

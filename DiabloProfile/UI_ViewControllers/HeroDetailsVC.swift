@@ -76,7 +76,11 @@ class HeroDetailsVC: UITableViewController {
         if let isSeasonal = hero.seasonal?.boolValue {
             seasonImageView.isHidden = !isSeasonal
         }
-        
+//        for p in hero.legendaryPowers! {
+//            if let power = p as? LegendaryPower {
+//                print(power)
+//            }
+//        }
         tableView.reloadData()
     }
 

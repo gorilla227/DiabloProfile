@@ -1,23 +1,23 @@
 //
-//  Spell.swift
+//  Spell+CoreDataClass.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/15/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
 
-class Spell: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+public class Spell: NSManagedObject {
+    
+    // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }
     
-    init(dictionary: [String: AnyObject], entityName: String, context: NSManagedObjectContext) {
+    init(dictionary: [String: Any], entityName: String, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)!
         super.init(entity: entity, insertInto: context)
         

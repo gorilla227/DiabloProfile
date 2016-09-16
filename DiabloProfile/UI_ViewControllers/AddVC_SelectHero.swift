@@ -11,15 +11,11 @@ import UIKit
 class AddVC_SelectHero: UITableViewController {
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
-    var heroes: [[String: AnyObject]]?
+    var heroes: [[String: Any]]?
     var battleTag: String?
     var region: String?
     var locale: String?
 
-    lazy var gameData: [String: AnyObject]? = {
-        return AppDelegate.gameData(locale: self.locale)
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,11 +53,11 @@ class AddVC_SelectHero: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath) as! HeorListVC_HeroCell
         let hero = heroes![indexPath.row]
 
         // Configure the cell...
-        configureCell(cell, hero: hero)
+        cell.configureCell(heroData: hero, locale: locale)
 
         return cell
     }
@@ -90,25 +86,6 @@ class AddVC_SelectHero: UITableViewController {
                     self.performSegue(withIdentifier: "HeroDetailSegue", sender: result)
                 })
             })
-        }
-    }
-
-    fileprivate func configureCell(_ cell: UITableViewCell, hero: [String: AnyObject]) {
-        if let name = hero[Hero.Keys.Name] as? String {
-            cell.textLabel?.text = name
-        }
-        if let level = hero[Hero.Keys.Level] as? NSNumber,
-            let heroClassKey = hero[Hero.Keys.HeroClass] as? String,
-            let gameData = gameData, let heroClasses = gameData["class"] as? [String: [String: AnyObject]],
-            let heroClass = heroClasses[heroClassKey],
-            let heroClassName = heroClass["name"] {
-            
-            cell.detailTextLabel?.text = "\(level) \(heroClassName)"
-            
-            if let gender = hero[Hero.Keys.Gender] as? Bool {
-                let genderKey = gender ? "female" : "male"
-                cell.imageView?.image = UIImage(named: Hero.classIconImagePath(classKey: heroClassKey, genderKey: genderKey))
-            }
         }
     }
     

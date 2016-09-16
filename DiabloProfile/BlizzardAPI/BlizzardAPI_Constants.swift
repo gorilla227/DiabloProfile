@@ -40,6 +40,9 @@ extension BlizzardAPI {
         static let Rune = "rune"
         static let Stats = "stats"
         static let Items = "items"
+        static let Kills = "kills"
+        static let Elites = "elites"
+        static let LegendaryPowers = "legendaryPowers"
         
         struct SkillRuneKeys {
             static let Slug = "slug"
@@ -142,6 +145,14 @@ extension BlizzardAPI {
                 static let BonusRequired = "required"
                 static let BonusAttributes = "attributes"
             }
+        }
+        
+        struct LegendaryPowerKeys {
+            static let ID = "id"
+            static let DisplayColor = "displayColor"
+            static let Name = "name"
+            static let TooltipParams = "tooltipParams"
+            static let IconKey = "iconKey"
         }
     }
     

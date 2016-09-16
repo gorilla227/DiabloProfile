@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1004" minimumToolsVersion="Automatic">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BasicItem" representedClassName=".BasicItem" syncable="YES">
         <attribute name="displayColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
@@ -15,61 +15,63 @@
         <relationship name="set" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ItemSet" inverseName="items" inverseEntity="ItemSet" syncable="YES"/>
     </entity>
     <entity name="DetailItem" representedClassName=".DetailItem" syncable="YES">
-        <attribute name="accountBound" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="armor" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="attacksPerSecond" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="accountBound" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="armor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="attacksPerSecond" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="attacksPerSecondText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="blockAmountMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="blockAmountMin" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="blockAmountMax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="blockAmountMin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="blockChance" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="damageRange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dps" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dps" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="elementalType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="flavor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="iconKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="requiredLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="requiredLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="setItemsEquipped" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="tooltipParams" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="typeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="typeTwoHanded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="typeTwoHanded" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemAttribute" inverseName="item" inverseEntity="ItemAttribute" syncable="YES"/>
         <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="detailItem" inverseEntity="BasicItem" syncable="YES"/>
         <relationship name="gems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gem" inverseName="detailItem" inverseEntity="Gem" syncable="YES"/>
         <relationship name="itemSet" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ItemSet" inverseName="detailItem" inverseEntity="ItemSet" syncable="YES"/>
     </entity>
     <entity name="Gem" representedClassName=".Gem" syncable="YES">
-        <attribute name="isGem" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="isJewel" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="jewelRank" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="jewelSecondaryEffectUnlockRank" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="isGem" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isJewel" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="jewelRank" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="jewelSecondaryEffectUnlockRank" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemAttribute" inverseName="gem" inverseEntity="ItemAttribute" syncable="YES"/>
         <relationship name="basicItem" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="gem" inverseEntity="BasicItem" syncable="YES"/>
         <relationship name="detailItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="gems" inverseEntity="DetailItem" syncable="YES"/>
     </entity>
     <entity name="Hero" representedClassName=".Hero" syncable="YES">
         <attribute name="battleTag" attributeType="String" syncable="YES"/>
-        <attribute name="dead" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="gender" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="hardcore" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="dead" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="elitesKills" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gender" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hardcore" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heroClass" attributeType="String" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
-        <attribute name="lastUpdated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="level" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
+        <attribute name="lastUpdated" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="level" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="locale" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="paragonLevel" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="paragonLevel" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="region" attributeType="String" syncable="YES"/>
-        <attribute name="seasonal" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="seasonCreated" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="seasonal" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="seasonCreated" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="activeSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroA" inverseEntity="Skill" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BasicItem" inverseName="hero" inverseEntity="BasicItem" syncable="YES"/>
+        <relationship name="legendaryPowers" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="LegendaryPower" inverseName="hero" inverseEntity="LegendaryPower" syncable="YES"/>
         <relationship name="passiveSkills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="heroP" inverseEntity="Skill" syncable="YES"/>
         <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="hero" inverseEntity="Stats" syncable="YES"/>
         <uniquenessConstraints>
@@ -85,6 +87,7 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="gem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gem" inverseName="attributes" inverseEntity="Gem" syncable="YES"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailItem" inverseName="attributes" inverseEntity="DetailItem" syncable="YES"/>
+        <relationship name="legendaryPower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegendaryPower" inverseName="attribute" inverseEntity="LegendaryPower" syncable="YES"/>
         <relationship name="setBonus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetBonus" inverseName="attributes" inverseEntity="SetBonus" syncable="YES"/>
     </entity>
     <entity name="ItemSet" representedClassName=".ItemSet" syncable="YES">
@@ -95,12 +98,22 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BasicItem" inverseName="set" inverseEntity="BasicItem" syncable="YES"/>
         <relationship name="setBonus" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="SetBonus" inverseName="set" inverseEntity="SetBonus" syncable="YES"/>
     </entity>
+    <entity name="LegendaryPower" representedClassName="LegendaryPower" syncable="YES">
+        <attribute name="displayColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="iconKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tooltipParams" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attribute" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="legendaryPower" inverseEntity="ItemAttribute" syncable="YES"/>
+        <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="legendaryPowers" inverseEntity="Hero" syncable="YES"/>
+    </entity>
     <entity name="Rune" representedClassName=".Rune" parentEntity="Spell" syncable="YES">
         <attribute name="runeType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="Skill" inverseName="rune" inverseEntity="Skill" syncable="YES"/>
     </entity>
     <entity name="SetBonus" representedClassName=".SetBonus" syncable="YES">
-        <attribute name="required" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="required" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemAttribute" inverseName="setBonus" inverseEntity="ItemAttribute" syncable="YES"/>
         <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemSet" inverseName="setBonus" inverseEntity="ItemSet" syncable="YES"/>
     </entity>
@@ -125,25 +138,26 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Stats" representedClassName=".Stats" syncable="YES">
-        <attribute name="damage" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="dexterity" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="healing" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="intelligence" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="life" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="primaryResource" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="secondaryResource" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="strength" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="toughness" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="vitality" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="damage" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dexterity" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="healing" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="intelligence" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="life" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="primaryResource" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="secondaryResource" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="strength" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="toughness" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="vitality" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="stats" inverseEntity="Hero" syncable="YES"/>
     </entity>
     <elements>
         <element name="BasicItem" positionX="-542" positionY="252" width="128" height="225"/>
         <element name="DetailItem" positionX="-360" positionY="243" width="128" height="465"/>
         <element name="Gem" positionX="-2" positionY="648" width="128" height="150"/>
-        <element name="Hero" positionX="-758" positionY="180" width="128" height="315"/>
-        <element name="ItemAttribute" positionX="-506" positionY="9" width="128" height="148"/>
+        <element name="Hero" positionX="-758" positionY="180" width="128" height="345"/>
+        <element name="ItemAttribute" positionX="-506" positionY="9" width="128" height="165"/>
         <element name="ItemSet" positionX="-119" positionY="486" width="128" height="135"/>
+        <element name="LegendaryPower" positionX="-1035" positionY="153" width="128" height="165"/>
         <element name="Rune" positionX="-1242" positionY="108" width="128" height="75"/>
         <element name="SetBonus" positionX="106" positionY="378" width="128" height="88"/>
         <element name="Skill" positionX="-956" positionY="147" width="128" height="150"/>

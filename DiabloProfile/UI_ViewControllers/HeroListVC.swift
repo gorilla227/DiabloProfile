@@ -21,8 +21,8 @@ class HeroListVC: UITableViewController {
     }()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Hero> = {
-        let fetchRequest = Hero.fetchRequest() as! NSFetchRequest<Hero>
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.BattleTag, ascending: true), NSSortDescriptor(key: Hero.Keys.Level, ascending: false)]
+        let fetchRequest: NSFetchRequest<Hero> = Hero.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: Hero.Keys.ElitesKills, ascending: false), NSSortDescriptor(key: Hero.Keys.BattleTag, ascending: true), NSSortDescriptor(key: Hero.Keys.Level, ascending: false)]
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.mainManagedObjectContext, sectionNameKeyPath: Hero.Keys.BattleTag, cacheName: nil)
         
@@ -44,22 +44,6 @@ class HeroListVC: UITableViewController {
             try fetchedResultsController.performFetch()
         } catch {
             print("Load local hero list failed")
-        }
-    }
-
-    fileprivate func configureCell(_ cell: UITableViewCell, hero: Hero) {
-        cell.textLabel?.text = hero.name
-        if let level = hero.level,
-            let heroClassKey = hero.heroClass,
-            let gameData = AppDelegate.gameData(locale: hero.locale), let heroClasses = gameData["class"] as? [String: [String: AnyObject]],
-            let heroClass = heroClasses[heroClassKey],
-            let heroClassName = heroClass["name"] {
-            
-            cell.detailTextLabel?.text = "\(level) \(heroClassName)"
-            
-            if let classIconImagePath = hero.classIconImagePath() {
-                cell.imageView?.image = UIImage(named: classIconImagePath)
-            }
         }
     }
     
@@ -95,9 +79,9 @@ class HeroListVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath) as! HeorListVC_HeroCell
         let hero = fetchedResultsController.object(at: indexPath)
-        configureCell(cell, hero: hero)
+        cell.configureCell(hero: hero)
         return cell
     }
     
@@ -196,7 +180,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            tableView.reloadRows(at: [indexPath!], with: .automatic)
+            tableView.reloadRows(at: [indexPath!], with: .fade)
         case .move:
             break
         }
@@ -209,7 +193,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .delete:
             tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         case .update:
-            tableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
+            tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
         case .move:
             break
         }

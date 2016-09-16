@@ -1,18 +1,18 @@
 //
-//  ItemSet.swift
+//  ItemSet+CoreDataClass.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/29/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
 
-class ItemSet: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+public class ItemSet: NSManagedObject {
+    
+    // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }
@@ -54,7 +54,7 @@ class ItemSet: NSManagedObject {
     
     class func fetchItemSet(_ slug: String?, locale: String?, context: NSManagedObjectContext) -> ItemSet? {
         if let slug = slug, let locale = locale {
-            let fetchRequest: NSFetchRequest<ItemSet> = self.fetchRequest() as! NSFetchRequest<ItemSet>
+            let fetchRequest: NSFetchRequest<ItemSet> = ItemSet.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "slug == %@ && locale == %@", slug, locale)
             do {
                 let result = try context.fetch(fetchRequest)

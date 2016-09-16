@@ -1,18 +1,18 @@
 //
-//  Hero.swift
+//  Hero+CoreDataClass.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/15/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
 
-class Hero: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+public class Hero: NSManagedObject {
+    
+    // Insert code here to add functionality to your managed object subclass
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }
@@ -108,6 +108,18 @@ class Hero: NSManagedObject {
             }
             self.items = NSSet(array: basicItems)
         }
+        
+        if let elitesKills = dictionary[Keys.ElitesKills] as? NSNumber {
+            self.elitesKills = elitesKills
+        }
+        if let powers = dictionary[Keys.LegendaryPowers] as? [[String: Any]] {
+            var legendaryPowers = [LegendaryPower]()
+            for power in powers {
+                let legendaryPower = LegendaryPower(dictionary: power, context: context)
+                legendaryPowers.append(legendaryPower)
+            }
+            self.legendaryPowers = NSOrderedSet(array: legendaryPowers)
+        }
     }
     
     class func titleBackgroundImagePath(classKey: String, genderKey: String) -> String {
@@ -160,5 +172,7 @@ extension Hero {
         static let PassiveSkills = "passiveSkills"
         static let Stats = "stats"
         static let Items = "items"
+        static let ElitesKills = "elitesKills"
+        static let LegendaryPowers = "legendaryPowers"
     }
 }

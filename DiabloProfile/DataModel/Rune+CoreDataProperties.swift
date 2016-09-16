@@ -2,19 +2,21 @@
 //  Rune+CoreDataProperties.swift
 //  DiabloProfile
 //
-//  Created by Andy Xu on 8/18/16.
-//  Copyright © 2016 Andy Xu. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
+//  Created by Andy on 16/9/15.
+//  Copyright © 2016年 Andy Xu. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
+
 extension Rune {
 
-    @NSManaged var runeType: String?
-    @NSManaged var skill: Skill?
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Rune> {
+        return NSFetchRequest<Rune>(entityName: "Rune");
+    }
+
+    @NSManaged public var runeType: String?
+    @NSManaged public var skill: Skill?
 
 }
