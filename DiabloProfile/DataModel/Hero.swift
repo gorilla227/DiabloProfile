@@ -38,15 +38,15 @@ class Hero: NSManagedObject {
         }
         
         if let dead = dictionary[Keys.Dead] as? Bool {
-            self.dead = NSNumber(value: dead as Bool)
+            self.dead = NSNumber(value: dead)
         }
         
         if let gender = dictionary[Keys.Gender] as? Bool {
-            self.gender = NSNumber(value: gender as Bool)
+            self.gender = NSNumber(value: gender)
         }
         
         if let hardcore = dictionary[Keys.Hardcore] as? Bool {
-            self.hardcore = NSNumber(value: hardcore as Bool)
+            self.hardcore = NSNumber(value: hardcore)
         }
         
         if let heroClass = dictionary[Keys.HeroClass] as? String {
@@ -70,7 +70,7 @@ class Hero: NSManagedObject {
         }
         
         if let seasonal = dictionary[Keys.Seasonal] as? Bool {
-            self.seasonal = NSNumber(value: seasonal as Bool)
+            self.seasonal = NSNumber(value: seasonal)
         }
         
         if let seasonCreated = dictionary[Keys.SeasonCreated] as? NSNumber {

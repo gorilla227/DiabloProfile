@@ -22,11 +22,11 @@ class Gem: NSManagedObject {
         super.init(entity: entity, insertInto: context)
         
         if let isGem = dictionary[Keys.IsGem] as? Bool {
-            self.isGem = NSNumber(value: isGem as Bool)
+            self.isGem = NSNumber(value: isGem)
         }
         
         if let isJewel = dictionary[Keys.IsJewel] as? Bool {
-            self.isJewel = NSNumber(value: isJewel as Bool)
+            self.isJewel = NSNumber(value: isJewel)
         }
         
         if let jewelRank = dictionary[Keys.JewelRank] as? NSNumber {

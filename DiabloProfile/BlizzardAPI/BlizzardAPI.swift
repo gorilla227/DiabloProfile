@@ -64,16 +64,16 @@ class BlizzardAPI {
         return nil
     }
     
-    fileprivate class func deserializeJSONData(_ data: Data) throws -> AnyObject? {
+    fileprivate class func deserializeJSONData(_ data: Data) throws -> Any {
         do {
             let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            return result as AnyObject?
+            return result
         } catch {
             throw error
         }
     }
     
-    fileprivate class func requestBlizzardAPI(_ request: URLRequest, requestKey: String, completion: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    fileprivate class func requestBlizzardAPI(_ request: URLRequest, requestKey: String, completion: @escaping (_ result: Any?, _ error: NSError?) -> Void) {
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard error == nil else {
                 completion(nil, NSError(domain: requestKey, code: 1, userInfo: [NSLocalizedDescriptionKey: [ResponseKeys.ErrorReason: error!.localizedDescription]]))
@@ -105,7 +105,7 @@ class BlizzardAPI {
     }
     
     // MARK: - API Functions
-    class func requestCareerProfile(_ region: String, locale: String, battleTag: String, completion: @escaping (_ result: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
+    class func requestCareerProfile(_ region: String, locale: String, battleTag: String, completion: @escaping (_ result: [[String: Any]]?, _ error: NSError?) -> Void) {
         let convertedBattleTag = convertBattleTag(battleTag)
         if let configurations = configurations,
             let api_key = configurations[BasicKeys.API_Key],

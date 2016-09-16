@@ -102,7 +102,7 @@ class DetailItem: NSManagedObject {
         }
         
         if let typeTwoHanded = dictionary[Keys.TypeTwoHanded] as? Bool {
-            self.typeTwoHanded = NSNumber(value: typeTwoHanded as Bool)
+            self.typeTwoHanded = NSNumber(value: typeTwoHanded)
         }
         if let blockChance = dictionary[Keys.BlockChance] as? String {
             self.blockChance = blockChance
