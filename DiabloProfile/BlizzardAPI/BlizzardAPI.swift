@@ -104,6 +104,7 @@ class BlizzardAPI {
         task.resume()
     }
     
+    
     // MARK: - API Functions
     class func requestCareerProfile(_ region: String, locale: String, battleTag: String, completion: @escaping (_ result: [[String: Any]]?, _ error: NSError?) -> Void) {
         let convertedBattleTag = convertBattleTag(battleTag)
@@ -219,5 +220,15 @@ class BlizzardAPI {
         }) 
         
         task.resume()
+    }
+    
+    // MARK: - Host Reachability
+    class func reachability(region: String) -> Bool {
+        if let configurations = configurations,
+            let host = (configurations[BasicKeys.Host] as! [String: String])[region],
+            let reachability = Reachability(hostname: host) {
+            return reachability.isReachable
+        }
+        return false
     }
 }

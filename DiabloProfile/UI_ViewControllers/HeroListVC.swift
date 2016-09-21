@@ -11,9 +11,6 @@ import CoreData
 
 class HeroListVC: UITableViewController {
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
-    
-    // MARK: - Network Reachability
-    lazy var reachability: Reachability? = Reachability()
 
     lazy var mainManagedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -87,14 +84,21 @@ class HeroListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hero = fetchedResultsController.object(at: indexPath)
-        if let lastUpdated = hero.lastUpdated?.doubleValue, let reachability = reachability , reachability.isReachable {
+        
+        if let lastUpdated = hero.lastUpdated?.doubleValue,
+            let region = hero.region,
+            BlizzardAPI.reachability(region: region) {
             loadDataUIRespond(true, extraBlock: nil)
             
             BlizzardAPI.requestHeroProfile(hero.region!, locale: hero.locale!, battleTag: hero.battleTag!, heroId: hero.id!, completion: { (result, error) in
                 guard error == nil && result != nil else {
                     if let errorInfo = error?.userInfo[NSLocalizedDescriptionKey] as? [String: String] {
                         let warning = UIAlertController(title: errorInfo[BlizzardAPI.ResponseKeys.ErrorCode], message: errorInfo[BlizzardAPI.ResponseKeys.ErrorReason], preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            AppDelegate.performUIUpdatesOnMain {
+                                self.performSegue(withIdentifier: "ViewHeroDetailsSegue", sender: hero)
+                            }
+                        })
                         warning.addAction(okAction)
                         
                         self.loadDataUIRespond(false, extraBlock: {

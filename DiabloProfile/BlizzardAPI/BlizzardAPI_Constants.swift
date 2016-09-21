@@ -152,7 +152,7 @@ extension BlizzardAPI {
             static let DisplayColor = "displayColor"
             static let Name = "name"
             static let TooltipParams = "tooltipParams"
-            static let IconKey = "iconKey"
+            static let IconKey = "icon"
         }
     }
     

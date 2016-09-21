@@ -8,9 +8,25 @@
 
 import UIKit
 
+protocol ItemImageViewDelegate {
+    func itemImageViewTapped(itemImageView: ItemImageView)
+}
+
 class ItemImageView: UIImageView {
     @IBInspectable var showGem: Bool = true
+    @IBInspectable var itemScale: CGFloat = 1.0
+    @IBInspectable var allowItemOutOfWireFrame: Bool = false
     
+    var delegate: ItemImageViewDelegate?
+    lazy var tapGesture: UITapGestureRecognizer = {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureTapped))
+        tapGesture.numberOfTouchesRequired = 1
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.cancelsTouchesInView = true
+        tapGesture.delaysTouchesBegan = true
+        tapGesture.delaysTouchesEnded = false
+        return tapGesture
+    }()
     lazy var gemStackViewContainer: UIStackView = {
         let container = UIStackView()
         container.axis = .horizontal
@@ -39,10 +55,12 @@ class ItemImageView: UIImageView {
     }()
     
     var item: BasicItem?
+    var legendaryPower: LegendaryPower?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        addGestureRecognizer(tapGesture)
         backgroundColor = UIColor.clear
         backgroundView.layer.borderWidth = 1.0
         backgroundView.layer.cornerRadius = 5.0
@@ -56,14 +74,13 @@ class ItemImageView: UIImageView {
         backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         backgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         addSubview(equipImageView)
         equipImageView.translatesAutoresizingMaskIntoConstraints = false
-        equipImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        equipImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        equipImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        equipImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        equipImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        equipImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        equipImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: itemScale).isActive = true
+        equipImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: itemScale).isActive = allowItemOutOfWireFrame
         
         if showGem {
             addSubview(gemStackViewContainer)
@@ -96,7 +113,7 @@ class ItemImageView: UIImageView {
         }
         
         if let icon = basicItem.icon {
-            if let image = UIImage(data: icon as Data) {
+            if let image = UIImage(data: icon) {
                 equipImageView.image = image
                 heightAnchor.constraint(greaterThanOrEqualTo: widthAnchor, multiplier: image.size.height / image.size.width).isActive = !showGem
             }
@@ -155,6 +172,52 @@ class ItemImageView: UIImageView {
         }
     }
     
+    func configureLegendaryPower(_ legendaryPower: LegendaryPower, type: Int) {
+        self.legendaryPower = legendaryPower
+        backgroundView.layer.borderColor = UIColor.clear.cgColor
+        
+        if legendaryPower.iconKey != nil {
+            image = UIImage(named: "legendaryPowersBG_active.png")
+            
+            if let icon = legendaryPower.icon, let image = UIImage(data: icon) {
+                equipImageView.image = image
+            } else {
+                if let imageURL = legendaryPower.iconImageURL("large") {
+                    loadingIndicator.startAnimating()
+                    BlizzardAPI.downloadImage(imageURL, completion: { (result, error) in
+                        AppDelegate.performUIUpdatesOnMain({
+                            self.loadingIndicator.stopAnimating()
+                        })
+                        
+                        guard error == nil && result != nil else {
+                            print(error?.domain, error?.localizedDescription)
+                            return
+                        }
+                        
+                        AppDelegate.performUIUpdatesOnMain({
+                            legendaryPower.icon = result
+                            if let image = UIImage(data: result!) {
+                                self.equipImageView.image = image
+                            }
+                        })
+                    })
+                }
+            }
+        } else {
+            equipImageView.image = nil
+            switch type {
+            case 0:
+                image = UIImage(named: "legendaryPowers_weapon.png")
+            case 1:
+                image = UIImage(named: "legendaryPowers_armor.png")
+            case 2:
+                image = UIImage(named: "legendaryPowers_jewelry.png")
+            default:
+                break
+            }
+        }
+    }
+    
     fileprivate func addGemSocketImageViews(_ detailItem: DetailItem, scale: CGFloat) {
         if let gems = detailItem.gems?.allObjects as? [Gem] {
             // Remove all existed gemSocketImageView in stackView
@@ -180,6 +243,12 @@ class ItemImageView: UIImageView {
                 gemSocketImageView.widthAnchor.constraint(equalToConstant: 32.0 * scale).isActive = true
                 gemSocketImageView.heightAnchor.constraint(equalToConstant: 32.0 * scale).isActive = true
             }
+        }
+    }
+    
+    func tapGestureTapped() {
+        if let delegate = delegate {
+            delegate.itemImageViewTapped(itemImageView: self)
         }
     }
 }

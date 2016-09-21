@@ -43,6 +43,15 @@ public class LegendaryPower: NSManagedObject {
             self.hero = hero
         }
     }
+    
+    // size = "small" or "large"
+    func iconImageURL(_ size: String) -> URL? {
+        if let iconKey = iconKey {
+            return URL(string: BlizzardAPI.ItemIconURLComponents.Head + size + "/" + iconKey + BlizzardAPI.ItemIconURLComponents.Tail)
+        } else {
+            return nil
+        }
+    }
 }
 
 extension LegendaryPower {

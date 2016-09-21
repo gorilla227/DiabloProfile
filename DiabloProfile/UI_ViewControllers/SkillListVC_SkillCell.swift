@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeroDetailsVC_SkillCell: UITableViewCell {
+class SkillListVC_SkillCell: UITableViewCell {
     @IBOutlet weak var skillIconImageView: UIImageView!
     @IBOutlet weak var skillNameLabel: UILabel!
     @IBOutlet weak var skillDescriptionLabel: UILabel!

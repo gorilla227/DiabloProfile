@@ -222,10 +222,10 @@
         <scene sceneID="sAB-2n-Z0J">
             <objects>
                 <tableViewController id="LJL-0t-tb0" customClass="HeroDetailsVC" customModule="DProfile" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="C3Y-rW-5hP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="C3Y-rW-5hP">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="AjU-O1-Zi1">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -385,130 +385,108 @@
                                     <outlet property="resourceValueLabel" destination="Nvk-pf-tq2" id="ByW-uu-aYQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="226" id="qnb-dB-yOa" customClass="HeroDetailsVC_SkillCell" customModule="DProfile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="270" width="375" height="226"/>
+                            <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LPCell" rowHeight="200" id="mIr-8m-IMN" customClass="HeroDetailsVC_LPCell" customModule="DProfile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="270" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnb-dB-yOa" id="kya-2l-bOC">
-                                    <frame key="frameInset" width="375" height="226"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mIr-8m-IMN" id="UsJ-2h-yjO">
+                                    <frame key="frameInset" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QP5-PK-B3r">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lCd-P1-bW3">
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activeskill_icon_unloaded" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-o4-F9V">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="1rc-o4-F9V" secondAttribute="height" multiplier="1:1" id="gMZ-AP-TtW"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="gMZ-AP-TtW"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1j0-eu-sao">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="la9-3c-Jji">
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R4g-2n-cy0">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="yx6-NP-Pwk">
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-vg-vua">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Skill Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-8U-zNy" customClass="InsetUILabel" customModule="DProfile" customModuleProvider="target">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
+                                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="legendaryPowers_weapon" translatesAutoresizingMaskIntoConstraints="NO" id="j0J-Os-TMt" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsTop">
-                                                                            <real key="value" value="0.0"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="NO"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                                                            <real key="value" value="0.5"/>
                                                                         </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsLeft">
-                                                                            <real key="value" value="5"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsRight">
-                                                                            <real key="value" value="0.0"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsBottom">
-                                                                            <real key="value" value="0.0"/>
-                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="NO"/>
                                                                     </userDefinedRuntimeAttributes>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weapon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sNH-Bq-EHe">
+                                                                    <fontDescription key="fontDescription" name="DiabloLight" family="Diablo" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-kO-beZ">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="1RI-6l-hts">
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rune_a" translatesAutoresizingMaskIntoConstraints="NO" id="0q0-5e-mi6">
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="0q0-5e-mi6" secondAttribute="height" multiplier="1:1" id="G5M-H3-Jab"/>
-                                                                    </constraints>
-                                                                    <variation key="default">
-                                                                        <mask key="constraints">
-                                                                            <exclude reference="G5M-H3-Jab"/>
-                                                                        </mask>
-                                                                    </variation>
+                                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="legendaryPowers_armor" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-8C-07d" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="NO"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                                                            <real key="value" value="0.5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="NO"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B8p-Sl-aZq">
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rune Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poP-6E-sas">
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Rune Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-wV-KDL" customClass="InsetUILabel" customModule="DProfile" customModuleProvider="target">
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsTop">
-                                                                                    <real key="value" value="0.0"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsLeft">
-                                                                                    <real key="value" value="5"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsRight">
-                                                                                    <real key="value" value="0.0"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsBottom">
-                                                                                    <real key="value" value="0.0"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Armor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EnT-fg-uEw">
+                                                                    <fontDescription key="fontDescription" name="DiabloLight" family="Diablo" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="0q0-5e-mi6" firstAttribute="width" secondItem="WSf-kO-beZ" secondAttribute="width" multiplier="1:8" id="AcU-K7-xsV"/>
-                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="00e-kc-byb">
+                                                            <subviews>
+                                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="legendaryPowers_jewelry" translatesAutoresizingMaskIntoConstraints="NO" id="bqZ-Bs-IeH" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
+                                                                    <gestureRecognizers/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="NO"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                                                            <real key="value" value="0.5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="NO"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jewelry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-od-CE3">
+                                                                    <fontDescription key="fontDescription" name="DiabloLight" family="Diablo" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="la9-3c-Jji" secondAttribute="height" multiplier="2:1" id="Yof-Pz-iqw"/>
+                                                    </constraints>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eMY-XG-4r8">
+                                                    <fontDescription key="fontDescription" name="DiabloHeavy" family="Diablo" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66n-Jd-dwO">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="1rc-o4-F9V" firstAttribute="width" secondItem="QP5-PK-B3r" secondAttribute="width" multiplier="1:6" id="WHe-sY-usF"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="QP5-PK-B3r" secondAttribute="trailing" constant="5" id="4fr-0C-cIP"/>
-                                        <constraint firstItem="1rc-o4-F9V" firstAttribute="width" secondItem="kya-2l-bOC" secondAttribute="width" multiplier="1:6" id="7Pu-Sl-02w"/>
-                                        <constraint firstAttribute="bottom" secondItem="QP5-PK-B3r" secondAttribute="bottom" constant="5" id="8qL-sX-q6x"/>
-                                        <constraint firstItem="QP5-PK-B3r" firstAttribute="top" secondItem="kya-2l-bOC" secondAttribute="top" constant="5" id="M05-sX-4Vk"/>
-                                        <constraint firstItem="QP5-PK-B3r" firstAttribute="leading" secondItem="kya-2l-bOC" secondAttribute="leading" constant="5" id="O1y-v3-7kJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="lCd-P1-bW3" secondAttribute="bottom" id="Ga7-HU-Rcm"/>
+                                        <constraint firstItem="lCd-P1-bW3" firstAttribute="top" secondItem="UsJ-2h-yjO" secondAttribute="topMargin" id="aQY-AZ-TsA"/>
+                                        <constraint firstItem="lCd-P1-bW3" firstAttribute="leading" secondItem="UsJ-2h-yjO" secondAttribute="leadingMargin" id="duq-RC-bqg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="lCd-P1-bW3" secondAttribute="trailing" id="k7Z-t0-SZx"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="7Pu-Sl-02w"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.50406788793103452" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="runeDescriptionLabel" destination="SIj-wV-KDL" id="58W-6j-zYf"/>
-                                    <outlet property="runeIconImageView" destination="0q0-5e-mi6" id="kjd-n3-foV"/>
-                                    <outlet property="runeNameLabel" destination="poP-6E-sas" id="0qp-0L-uCb"/>
-                                    <outlet property="runeView" destination="WSf-kO-beZ" id="iZK-d3-5TE"/>
-                                    <outlet property="skillDescriptionLabel" destination="4gj-8U-zNy" id="17h-SP-8dx"/>
-                                    <outlet property="skillIconImageView" destination="1rc-o4-F9V" id="ggw-es-uzZ"/>
-                                    <outlet property="skillNameLabel" destination="uLM-vg-vua" id="PmI-ln-NK3"/>
+                                    <outlet property="armorImageView" destination="eC0-8C-07d" id="YGw-kx-pLG"/>
+                                    <outlet property="armorLabel" destination="EnT-fg-uEw" id="Qu4-2c-LU0"/>
+                                    <outlet property="jewelryImageView" destination="bqZ-Bs-IeH" id="d5p-4k-ucJ"/>
+                                    <outlet property="jewelryLabel" destination="7kz-od-CE3" id="Aof-dc-n4L"/>
+                                    <outlet property="legendaryPowerDescriptionLabel" destination="66n-Jd-dwO" id="Liq-Yd-QPx"/>
+                                    <outlet property="legendaryPowerNameLabel" destination="eMY-XG-4r8" id="wzg-dd-ddu"/>
+                                    <outlet property="weaponImageView" destination="j0J-Os-TMt" id="bOc-nY-Xab"/>
+                                    <outlet property="weaponLabel" destination="sNH-Bq-EHe" id="s1l-Le-MVS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -525,10 +503,10 @@
                         <outlet property="heroLevelClassLabel" destination="jjR-ew-OgC" id="rwE-2D-rgh"/>
                         <outlet property="heroNameLabel" destination="eBG-cq-9nt" id="UpH-LZ-EgH"/>
                         <outlet property="seasonImageView" destination="D9p-Ff-izN" id="sHH-87-ZyY"/>
-                        <segue destination="S0b-1a-i2o" kind="show" identifier="SkillDetailsSegue" id="h2F-q2-KeP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21I-eo-oRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aOD-H7-8m7"/>
             </objects>
             <point key="canvasLocation" x="2549" y="519"/>
         </scene>
@@ -564,6 +542,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="hands" translatesAutoresizingMaskIntoConstraints="NO" id="b3U-RW-qgW" userLabel="hands" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -572,6 +554,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="shoulders" translatesAutoresizingMaskIntoConstraints="NO" id="uT0-CD-cPR" userLabel="shoulders" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -580,6 +566,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="neck" translatesAutoresizingMaskIntoConstraints="NO" id="kB5-nt-tb6" userLabel="neck" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -588,6 +578,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="torso" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-nv-yEO" userLabel="torso" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -596,6 +590,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="waist" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-5k-fR7" userLabel="waist" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -604,6 +602,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="bracers" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-bl-ChB" userLabel="bracers" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -612,6 +614,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="leftFinger" translatesAutoresizingMaskIntoConstraints="NO" id="mUF-dm-ROD" userLabel="leftFinger" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -620,6 +626,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rightFinger" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-9k-fBq" userLabel="rightFinger" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -628,6 +638,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="feet" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-t9-1B7" userLabel="feet" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -636,6 +650,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="legs" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Q0-tjY" userLabel="legs" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -644,6 +662,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="mainHand" translatesAutoresizingMaskIntoConstraints="NO" id="nOy-kp-GVN" userLabel="mainHand" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -652,6 +674,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="offHand" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-7L-6Vx" userLabel="offHand" customClass="ItemImageView" customModule="DProfile" customModuleProvider="target">
@@ -660,6 +686,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showGem" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowItemOutOfWireFrame" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="M3L-RQ-jZK">
@@ -1206,7 +1236,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJZ-EO-bTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3384" y="519"/>
+            <point key="canvasLocation" x="3383" y="1270"/>
         </scene>
         <!--BattleTag-->
         <scene sceneID="J9q-iw-9WL">
@@ -1288,6 +1318,156 @@
             </objects>
             <point key="canvasLocation" x="1737" y="1273"/>
         </scene>
+        <!--Skills-->
+        <scene sceneID="JUU-Rm-2ke">
+            <objects>
+                <tableViewController id="z6w-0N-SBB" customClass="SkillListVC" customModule="DProfile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="112" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dl6-Pb-H8U">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="112" id="qnb-dB-yOa" customClass="SkillListVC_SkillCell" customModule="DProfile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="375" height="112"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnb-dB-yOa" id="kya-2l-bOC">
+                                    <frame key="frameInset" width="375" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QP5-PK-B3r">
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activeskill_icon_unloaded" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-o4-F9V">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1rc-o4-F9V" secondAttribute="height" multiplier="1:1" id="gMZ-AP-TtW"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="gMZ-AP-TtW"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1j0-eu-sao">
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R4g-2n-cy0">
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-vg-vua">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Skill Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-8U-zNy" customClass="InsetUILabel" customModule="DProfile" customModuleProvider="target">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsTop">
+                                                                            <real key="value" value="0.0"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsLeft">
+                                                                            <real key="value" value="5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsRight">
+                                                                            <real key="value" value="0.0"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetsBottom">
+                                                                            <real key="value" value="0.0"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-kO-beZ">
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rune_a" translatesAutoresizingMaskIntoConstraints="NO" id="0q0-5e-mi6">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="0q0-5e-mi6" secondAttribute="height" multiplier="1:1" id="G5M-H3-Jab"/>
+                                                                    </constraints>
+                                                                    <variation key="default">
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="G5M-H3-Jab"/>
+                                                                        </mask>
+                                                                    </variation>
+                                                                </imageView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B8p-Sl-aZq">
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rune Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poP-6E-sas">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Rune Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-wV-KDL" customClass="InsetUILabel" customModule="DProfile" customModuleProvider="target">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsTop">
+                                                                                    <real key="value" value="0.0"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsLeft">
+                                                                                    <real key="value" value="5"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsRight">
+                                                                                    <real key="value" value="0.0"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="insetsBottom">
+                                                                                    <real key="value" value="0.0"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="0q0-5e-mi6" firstAttribute="width" secondItem="WSf-kO-beZ" secondAttribute="width" multiplier="1:8" id="AcU-K7-xsV"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1rc-o4-F9V" firstAttribute="width" secondItem="QP5-PK-B3r" secondAttribute="width" multiplier="1:6" id="WHe-sY-usF"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="QP5-PK-B3r" secondAttribute="trailing" constant="5" id="4fr-0C-cIP"/>
+                                        <constraint firstItem="1rc-o4-F9V" firstAttribute="width" secondItem="kya-2l-bOC" secondAttribute="width" multiplier="1:6" id="7Pu-Sl-02w"/>
+                                        <constraint firstAttribute="bottom" secondItem="QP5-PK-B3r" secondAttribute="bottom" constant="5" id="8qL-sX-q6x"/>
+                                        <constraint firstItem="QP5-PK-B3r" firstAttribute="top" secondItem="kya-2l-bOC" secondAttribute="top" constant="5" id="M05-sX-4Vk"/>
+                                        <constraint firstItem="QP5-PK-B3r" firstAttribute="leading" secondItem="kya-2l-bOC" secondAttribute="leading" constant="5" id="O1y-v3-7kJ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="7Pu-Sl-02w"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.50406788793103452" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="runeDescriptionLabel" destination="SIj-wV-KDL" id="58W-6j-zYf"/>
+                                    <outlet property="runeIconImageView" destination="0q0-5e-mi6" id="kjd-n3-foV"/>
+                                    <outlet property="runeNameLabel" destination="poP-6E-sas" id="0qp-0L-uCb"/>
+                                    <outlet property="runeView" destination="WSf-kO-beZ" id="iZK-d3-5TE"/>
+                                    <outlet property="skillDescriptionLabel" destination="4gj-8U-zNy" id="17h-SP-8dx"/>
+                                    <outlet property="skillIconImageView" destination="1rc-o4-F9V" id="ggw-es-uzZ"/>
+                                    <outlet property="skillNameLabel" destination="uLM-vg-vua" id="PmI-ln-NK3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="z6w-0N-SBB" id="f35-HT-Rde"/>
+                            <outlet property="delegate" destination="z6w-0N-SBB" id="M6D-ec-yC7"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Skills" id="odk-WJ-Mea"/>
+                    <connections>
+                        <segue destination="S0b-1a-i2o" kind="show" identifier="SkillDetailsSegue" id="2Jy-gQ-OIy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3q-pA-j6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2547.826086956522" y="1270.108695652174"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kon-0g-mGH">
             <objects>
@@ -1353,6 +1533,7 @@
                         <outlet property="removeButton" destination="kga-rq-9xr" id="Moy-U4-6OH"/>
                         <segue destination="LJL-0t-tb0" kind="relationship" relationship="viewControllers" id="Afq-uv-z1i"/>
                         <segue destination="Yl5-lU-70e" kind="relationship" relationship="viewControllers" id="KiT-qq-jJe"/>
+                        <segue destination="z6w-0N-SBB" kind="relationship" relationship="viewControllers" id="zVh-Z1-xXK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sU-RA-oGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1380,6 +1561,9 @@
         <image name="diablo_3_logo" width="816" height="979"/>
         <image name="equipments" width="25" height="25"/>
         <image name="hardcore-icon" width="46" height="46"/>
+        <image name="legendaryPowers_armor" width="115" height="190"/>
+        <image name="legendaryPowers_jewelry" width="115" height="190"/>
+        <image name="legendaryPowers_weapon" width="115" height="190"/>
         <image name="life_orb" width="50" height="50"/>
         <image name="passiveskill_icon_bg" width="51" height="51"/>
         <image name="passiveskill_icon_unloaded" width="47" height="47"/>

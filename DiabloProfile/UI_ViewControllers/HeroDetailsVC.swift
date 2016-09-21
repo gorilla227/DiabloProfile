@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class HeroDetailsVC: UITableViewController {
     @IBOutlet weak var heroNameLabel: UILabel!
@@ -17,6 +16,7 @@ class HeroDetailsVC: UITableViewController {
     @IBOutlet weak var headView: UIView!
     
     var hero: Hero?
+    var selectedLegendaryPower: LegendaryPower?
     var gameData: [String: AnyObject]?
 
     override func awakeFromNib() {
@@ -64,7 +64,7 @@ class HeroDetailsVC: UITableViewController {
             heroLevelClassLabel.text = "\(hero.level!) (\(hero.paragonLevel!)) \(className)"
             
             if let imagePath = hero.titleBackgroundImagePath() {
-                let backgroundImageView = UIImageView(frame: tableView.bounds)
+                let backgroundImageView = UIImageView(frame: tableView.frame)
                 backgroundImageView.image = UIImage(named: imagePath)
                 backgroundImageView.contentMode = .scaleAspectFill
                 tableView.backgroundView = backgroundImageView
@@ -76,11 +76,6 @@ class HeroDetailsVC: UITableViewController {
         if let isSeasonal = hero.seasonal?.boolValue {
             seasonImageView.isHidden = !isSeasonal
         }
-//        for p in hero.legendaryPowers! {
-//            if let power = p as? LegendaryPower {
-//                print(power)
-//            }
-//        }
         tableView.reloadData()
     }
 
@@ -88,7 +83,7 @@ class HeroDetailsVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return (hero != nil) ? 5 : 0
+        return (hero != nil) ? 4 : 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,10 +95,9 @@ class HeroDetailsVC: UITableViewController {
             return 4
         case 2: // Stats
             return 3
-        case 3: // Active Skills
-            return hero?.activeSkills?.count ?? 0
-        case 4: // Passive Skills
-            return hero?.passiveSkills?.count ?? 0
+        case 3: // Legendary Powers
+//            return selectedLegendaryPower?.name == nil ? 1 : 2
+            return 1
         default:
             return 0
         }
@@ -143,24 +137,15 @@ class HeroDetailsVC: UITableViewController {
                 break
             }
             return cell
-        case 3: // Active Skills
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! HeroDetailsVC_SkillCell
-            if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
-                cell.configureCell(skill, isActiveSkill: true)
-                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
-            }
-            return cell
-        case 4: // Passive Skills
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! HeroDetailsVC_SkillCell
-            if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
-                cell.configureCell(skill, isActiveSkill: false)
-                cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.gray.withAlphaComponent(0.5) : UIColor.darkGray.withAlphaComponent(0.5)
+        case 3: // Legendary Powers
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LPCell", for: indexPath) as! HeroDetailsVC_LPCell
+            if let powers = hero?.legendaryPowers?.array as? [LegendaryPower] {
+                cell.configureCell(powers, selectedLegendaryPower: selectedLegendaryPower, delegate: self)
             }
             return cell
         default:
-            break
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
     
     fileprivate func configureStatCell(_ cell: UITableViewCell, statKey: String) {
@@ -171,12 +156,6 @@ class HeroDetailsVC: UITableViewController {
             }
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 3 || indexPath.section == 4 {
-            performSegue(withIdentifier: "SkillDetailsSegue", sender: indexPath)
-        }
-    }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let gameData = gameData {
@@ -185,42 +164,48 @@ class HeroDetailsVC: UITableViewController {
                 return gameData["attributesTitle"] as? String
             case 2: // Stats
                 return gameData["statsTitle"] as? String
-            case 3: // Active Skills
-                return gameData["activeSkillsTitle"] as? String
-            case 4: // Passive Skills
-                return gameData["passiveSkillsTitle"] as? String
+            case 3: // Legendary Powers
+                return "Kanai's Cube Powers"
             default:
                 return nil
             }
         }
         return nil
     }
+}
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "SkillDetailsSegue" {
-            if let skillDetailsVC = segue.destination as? SkillDetailsVC, let indexPath = sender as? IndexPath{
-                switch indexPath.section {
-                case 3: // Active Skill
-                    if let activeSkills = hero?.activeSkills, let skill = activeSkills[indexPath.row] as? Skill {
-                        skillDetailsVC.skill = skill
-                        skillDetailsVC.isActiveSkill = true
-                        skillDetailsVC.classKey = hero?.heroClass ?? ""
-                        skillDetailsVC.locale = hero?.locale
-                    }
-                case 4: // Passive Skill
-                    if let passiveSkills = hero?.passiveSkills, let skill = passiveSkills[indexPath.row] as? Skill {
-                        skillDetailsVC.skill = skill
-                        skillDetailsVC.isActiveSkill = false
-                        skillDetailsVC.classKey = hero?.heroClass ?? ""
-                        skillDetailsVC.locale = hero?.locale
-                    }
-                default:
-                    break
+extension HeroDetailsVC: ItemImageViewDelegate {
+    func itemImageViewTapped(itemImageView: ItemImageView) {
+        selectedLegendaryPower = itemImageView.legendaryPower
+        if let selectedLegendaryPower = itemImageView.legendaryPower {
+            if let attributes = selectedLegendaryPower.attribute?.allObjects as? [ItemAttribute], attributes.count > 0 {
+                // Display attribute
+                UIView.performWithoutAnimation {
+                    self.tableView.reloadSections(IndexSet(integer: 3), with: .none)
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 3), at: .top, animated: false)
+                }
+            } else {
+                // Request Attribute
+                if let tooltipParams = selectedLegendaryPower.tooltipParams, let region = selectedLegendaryPower.hero?.region, let locale = selectedLegendaryPower.hero?.locale {
+                    BlizzardAPI.requestItemData(region, locale: locale, itemTooltipParams: tooltipParams, completion: { (result, error) in
+                        guard error == nil else {
+                            print(error?.domain, error?.localizedDescription)
+                            return
+                        }
+                        
+                        if let attributesArray = result?[BlizzardAPI.ResponseKeys.ItemKeys.Attributes] as? [[String: AnyObject]], let moc = selectedLegendaryPower.hero?.managedObjectContext {
+                            for attributeDict in attributesArray {
+                                let attribute = ItemAttribute(dictionary: attributeDict, context: moc)
+                                selectedLegendaryPower.addToAttribute(attribute)
+                            }
+                            AppDelegate.performUIUpdatesOnMain {
+                                UIView.performWithoutAnimation {
+                                    self.tableView.reloadSections(IndexSet(integer: 3), with: .none)
+                                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 3), at: .top, animated: false)
+                                }
+                            }
+                        }
+                    })
                 }
             }
         }
