@@ -10,21 +10,24 @@ import Foundation
 import UIKit
 
 class StringAndColor {
-    class func getBorderColor(_ colorKey: String) -> UIColor {
-        switch colorKey {
-        case "green":
-            return UIColor.green
-        case "orange":
-            return UIColor.orange
-        case "blue":
-            return UIColor.blue
-        case "yellow":
-            return UIColor.yellow
-        case "white":
-            return UIColor.gray
-        default:
-            return UIColor.clear
+    class func getBorderColor(_ colorKey: String?) -> UIColor {
+        if let colorKey = colorKey {
+            switch colorKey {
+            case "green":
+                return UIColor.green
+            case "orange":
+                return UIColor.orange
+            case "blue":
+                return UIColor.blue
+            case "yellow":
+                return UIColor.yellow
+            case "white":
+                return UIColor.gray
+            default:
+                return UIColor.clear
+            }
         }
+        return UIColor.clear
     }
     
     class func getTextColor(_ colorKey: String?) -> UIColor {

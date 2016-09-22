@@ -36,6 +36,27 @@ class HeroDetailsVC_LPCell: UITableViewCell {
             jewelryImageView.configureLegendaryPower(legendaryPower_Jewelry, type: 2)
             jewelryImageView.delegate = delegate
         }
+        
+        if let power = selectedLegendaryPower, let index = legendaryPowers.index(of: power) {
+            switch index {
+            case 0:
+                weaponImageView.backgroundView.layer.borderColor = StringAndColor.getBorderColor(power.displayColor!).cgColor
+                armorImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+                jewelryImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+            case 1:
+                weaponImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+                armorImageView.backgroundView.layer.borderColor = StringAndColor.getBorderColor(power.displayColor!).cgColor
+                jewelryImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+            case 2:
+                weaponImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+                armorImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+                jewelryImageView.backgroundView.layer.borderColor = StringAndColor.getBorderColor(power.displayColor!).cgColor
+            default:
+                weaponImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+                armorImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+                jewelryImageView.backgroundView.layer.borderColor = UIColor.clear.cgColor
+            }
+        }
         legendaryPowerSelected(selectedLegendaryPower: selectedLegendaryPower)
     }
     
