@@ -219,8 +219,10 @@
 	<string>Характеристики</string>
 	<key>statsTitle</key>
 	<string>Показатели</string>
-	<key>activeSkillsTitle</key>
-	<string>Активные умения</string>
+	<key>mouseSkillsTitle</key>
+	<string>Умения на кнопках мыши</string>
+	<key>actionBarSkillsTitle</key>
+	<string>Умения на панели</string>
 	<key>passiveSkillsTitle</key>
 	<string>Пассивные умения</string>
 	<key>itemSlot</key>

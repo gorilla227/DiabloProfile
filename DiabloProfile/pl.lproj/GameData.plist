@@ -219,8 +219,10 @@
 	<string>Współczynniki</string>
 	<key>statsTitle</key>
 	<string>Współczynniki</string>
-	<key>activeSkillsTitle</key>
-	<string>Umiejętności aktywne</string>
+	<key>mouseSkillsTitle</key>
+	<string>Umiejętności przypisane do myszy</string>
+	<key>actionBarSkillsTitle</key>
+	<string>Umiejętności na pasku akcji</string>
 	<key>passiveSkillsTitle</key>
 	<string>Umiejętności pasywne</string>
 	<key>itemSlot</key>

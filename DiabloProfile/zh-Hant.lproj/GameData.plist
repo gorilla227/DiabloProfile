@@ -219,8 +219,10 @@
 	<string>屬性</string>
 	<key>statsTitle</key>
 	<string>人物屬性</string>
-	<key>activeSkillsTitle</key>
-	<string>主動技能</string>
+	<key>mouseSkillsTitle</key>
+	<string>滑鼠技能</string>
+	<key>actionBarSkillsTitle</key>
+	<string>快捷列技能</string>
 	<key>passiveSkillsTitle</key>
 	<string>被動技能</string>
 	<key>itemSlot</key>

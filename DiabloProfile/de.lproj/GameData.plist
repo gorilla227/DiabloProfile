@@ -219,8 +219,10 @@
 	<string>Attribute</string>
 	<key>statsTitle</key>
 	<string>Werte</string>
-	<key>activeSkillsTitle</key>
-	<string>Aktive Fertigkeiten</string>
+	<key>mouseSkillsTitle</key>
+	<string>Mausfertigkeiten</string>
+	<key>actionBarSkillsTitle</key>
+	<string>Aktionsleistenfertigkeiten</string>
 	<key>passiveSkillsTitle</key>
 	<string>Passive Fertigkeiten</string>
 	<key>itemSlot</key>

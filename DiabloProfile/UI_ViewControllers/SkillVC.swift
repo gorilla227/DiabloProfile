@@ -161,11 +161,11 @@ class SkillVC: UITableViewController {
             switch section {
             case 0: // Mouse Skills
                 if let count = hero?.activeSkills?.count {
-                    return count > 0 ? "Mouse Skills" : nil
+                    return count > 0 ? gameData["mouseSkillsTitle"] as? String : nil
                 }
             case 1: // Action Bar Skills
                 if let count = hero?.activeSkills?.count {
-                    return count > 2 ? "Action Bar Skills" : nil
+                    return count > 2 ? gameData["actionBarSkillsTitle"] as? String : nil
                 }
             case 2: // Passive Skills
                 if let count = hero?.passiveSkills?.count {

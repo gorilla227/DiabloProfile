@@ -98,7 +98,7 @@ class SkillListVC: UITableViewController {
         if let gameData = gameData {
             switch section {
             case 0: // Active Skills
-                return gameData["activeSkillsTitle"] as? String
+                return gameData["mouseSkillsTitle"] as? String
             case 1: // Passive Skills
                 return gameData["passiveSkillsTitle"] as? String
             default:

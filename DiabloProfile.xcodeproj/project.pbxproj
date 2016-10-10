@@ -77,7 +77,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1148DE41D8D06B7009C5A65 /* SkillListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillListVC.swift; path = UI_ViewControllers/SkillListVC.swift; sourceTree = "<group>"; };
+		A1148DE41D8D06B7009C5A65 /* SkillListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = SkillListVC.swift; path = UI_ViewControllers/SkillListVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A1354A3C1D6969D5002A507D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/GameData.plist; sourceTree = "<group>"; };
 		A1354A401D696ACB002A507D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/GameData.plist"; sourceTree = "<group>"; };
 		A144D5C91D8BA47A00569DE2 /* Hero+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hero+CoreDataClass.swift"; path = "DataModel/Hero+CoreDataClass.swift"; sourceTree = "<group>"; };

@@ -219,8 +219,10 @@
 	<string>Caratteristiche</string>
 	<key>statsTitle</key>
 	<string>Statistiche</string>
-	<key>activeSkillsTitle</key>
-	<string>Abilità attive</string>
+	<key>mouseSkillsTitle</key>
+	<string>Abilità mouse</string>
+	<key>actionBarSkillsTitle</key>
+	<string>Abilità barra delle azioni</string>
 	<key>passiveSkillsTitle</key>
 	<string>Abilità passive</string>
 	<key>itemSlot</key>
@@ -263,7 +265,7 @@
 	<key>requiredLevel</key>
 	<string>Livello richiesto: &lt;lv&gt;</string>
 	<key>accountBound</key>
-	<string>Vincolato all'account</string>
+	<string>Vincolato all&apos;account</string>
 	<key>damagePerSecond</key>
 	<string>DPS</string>
 	<key>armor</key>

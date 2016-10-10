@@ -219,8 +219,10 @@
 	<string>Atributos</string>
 	<key>statsTitle</key>
 	<string>Estadísticas</string>
-	<key>activeSkillsTitle</key>
-	<string>Habilidades activas</string>
+	<key>mouseSkillsTitle</key>
+	<string>Habilidades del mouse</string>
+	<key>actionBarSkillsTitle</key>
+	<string>Habilidades de la barra de acción</string>
 	<key>passiveSkillsTitle</key>
 	<string>Habilidades pasivas</string>
 	<key>itemSlot</key>
