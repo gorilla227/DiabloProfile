@@ -68,7 +68,7 @@ class SkillListVC_SkillCell: UITableViewCell {
             runeNameLabel.text = rune.name
             runeDescriptionLabel.text = rune.simpleDescription
             
-            if let runeIconImagePath = rune.runeIconImagePath() {
+            if let runeIconImagePath = rune.runeIconImagePath(false) {
                 runeIconImageView.image = UIImage(named: runeIconImagePath)
             }
         } else {

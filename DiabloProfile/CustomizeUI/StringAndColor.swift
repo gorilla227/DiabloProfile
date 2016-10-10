@@ -71,7 +71,7 @@ class StringAndColor {
         let result = NSMutableAttributedString(string: rawString, attributes: defaultAttributes)
         var startIndex = rawString.startIndex
         
-        while let rangeOfSpecialCharacter = rawString.rangeOfCharacter(from: characterSet, options: .forcedOrdering, range: startIndex..<rawString.endIndex) {
+        while let rangeOfSpecialCharacter = rawString.rangeOfCharacter(from: characterSet, options: [], range: startIndex..<rawString.endIndex) {
             if String(rawString.characters[rangeOfSpecialCharacter.lowerBound]) == "." {
                 if rangeOfSpecialCharacter.lowerBound == rawString.characters.index(before: rawString.characters.endIndex) {
                     break
@@ -83,9 +83,7 @@ class StringAndColor {
                     continue
                 }
             }
-            
-            let loc = rawString.characters.distance(from: rawString.characters.startIndex, to: rangeOfSpecialCharacter.lowerBound)
-            result.setAttributes(specialAttributes, range: NSMakeRange(loc, 1))
+            result.setAttributes(specialAttributes, range: rawString.nsRange(from: rangeOfSpecialCharacter))
             startIndex = rawString.characters.index(after: rangeOfSpecialCharacter.lowerBound)
         }
         return result
@@ -94,4 +92,21 @@ class StringAndColor {
 
 extension StringAndColor {
     static let NumbersCharacterSet = CharacterSet(charactersIn: "1234567890.%+")
+}
+
+extension String {
+    func nsRange(from range: Range<String.Index>) -> NSRange {
+        let from = range.lowerBound.samePosition(in: utf16)
+        let to = range.upperBound.samePosition(in: utf16)
+        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from), length: utf16.distance(from: from, to: to))
+    }
+    
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
+            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
+            let from = String.Index(from16, within: self),
+            let to = String.Index(to16, within: self)
+            else { return nil }
+        return from..<to
+    }
 }

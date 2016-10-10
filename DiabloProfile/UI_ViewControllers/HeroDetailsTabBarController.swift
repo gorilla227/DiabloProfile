@@ -84,10 +84,15 @@ class HeroDetailsTabBarController: UITabBarController {
                 if selectedViewController == equipmentVC {
                     equipmentVC.loadData(hero)
                 }
-            } else if let skillListVC = childViewController as? SkillListVC {
-                skillListVC.initialViewController(hero.locale)
-                if selectedViewController == skillListVC {
-                    skillListVC.loadData(hero)
+//            } else if let skillListVC = childViewController as? SkillListVC {
+//                skillListVC.initialViewController(hero.locale)
+//                if selectedViewController == skillListVC {
+//                    skillListVC.loadData(hero)
+//                }
+            } else if let skillVC = childViewController as? SkillListVC {
+                skillVC.initialViewController(hero.locale)
+                if selectedViewController == skillVC {
+                    skillVC.loadData(hero)
                 }
             }
         }

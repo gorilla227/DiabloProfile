@@ -184,7 +184,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            tableView.reloadRows(at: [indexPath!], with: .fade)
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
         case .move:
             break
         }
@@ -197,7 +197,7 @@ extension HeroListVC: NSFetchedResultsControllerDelegate {
         case .delete:
             tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         case .update:
-            tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
+            tableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
         case .move:
             break
         }

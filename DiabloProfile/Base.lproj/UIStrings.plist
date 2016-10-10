@@ -12,5 +12,7 @@
 	<string>General</string>
 	<key>tabEquipment</key>
 	<string>Equipment</string>
+	<key>tabSkill</key>
+	<string>Skill</string>
 </dict>
 </plist>

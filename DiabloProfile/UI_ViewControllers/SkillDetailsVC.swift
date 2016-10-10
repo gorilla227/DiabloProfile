@@ -31,6 +31,14 @@ class SkillDetailsVC: UITableViewController {
             let className = heroClass["name"] as? String {
             navigationItem.title = className
         }
+        
+        
+        if let hero = isActiveSkill ? skill?.heroA : skill?.heroP, let imagePath = hero.titleBackgroundImagePath() {
+            let backgroundImageView = UIImageView(frame: tableView.bounds)
+            backgroundImageView.image = UIImage(named: imagePath)
+            backgroundImageView.contentMode = .scaleAspectFill
+            tableView.backgroundView = backgroundImageView
+        }
     }
 
     // MARK: - Table view data source
@@ -42,7 +50,7 @@ class SkillDetailsVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
 
     
@@ -51,15 +59,14 @@ class SkillDetailsVC: UITableViewController {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSkillCell", for: indexPath) as? SkillDetailsVC_ActiveSkillCell, let skill = skill, let gameData = self.gameData {
                 cell.configureCell(skill, classKey: classKey, gameData: gameData)
                 return cell
-            }
-            return UITableViewCell()
+            }            
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PassiveSkillCell", for: indexPath) as? SkillDetailsVC_PassiveSkillCell, let skill = skill {
                 cell.configureCell(skill)
                 return cell
             }
-            return UITableViewCell()
         }
+        return UITableViewCell()
     }
 
 }

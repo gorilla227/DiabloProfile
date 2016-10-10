@@ -28,11 +28,19 @@ public class Rune: Spell {
         }
     }
     
-    func runeIconImagePath() -> String? {
-        if let runeType = runeType {
-            return "rune_\(runeType).png"
+    func runeIconImagePath(_ small: Bool) -> String? {
+        if small {
+            if let runeType = runeType {
+                return "rune_\(runeType)_small.png"
+            } else {
+                return nil
+            }
         } else {
-            return nil
+            if let runeType = runeType {
+                return "rune_\(runeType).png"
+            } else {
+                return nil
+            }
         }
     }
 }

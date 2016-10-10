@@ -21,6 +21,7 @@
 		A144D5E01D8BAC2500569DE2 /* Gem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144D5D71D8BAC2500569DE2 /* Gem+CoreDataClass.swift */; };
 		A144D5E11D8BAC2500569DE2 /* SetBonus+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144D5D81D8BAC2500569DE2 /* SetBonus+CoreDataClass.swift */; };
 		A144D5E21D8BAC2500569DE2 /* Rune+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144D5D91D8BAC2500569DE2 /* Rune+CoreDataClass.swift */; };
+		A157B65B1D94F497003A7414 /* SkillVC_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157B65A1D94F497003A7414 /* SkillVC_Cell.swift */; };
 		A17783381D7D3BCD00E841FC /* HeroDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398281D7D00F500D64D44 /* HeroDetailsTabBarController.swift */; };
 		A17783391D7D3BCD00E841FC /* DiabloProfile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23641B81D6124EB0020B16C /* DiabloProfile.xcdatamodeld */; };
 		A177833A1D7D3BCD00E841FC /* GemSocketImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20398351D7D010900D64D44 /* GemSocketImageView.swift */; };
@@ -66,10 +67,13 @@
 		A17783701D7D3BCD00E841FC /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = B23641C61D6127940020B16C /* Configuration.plist */; };
 		A17783711D7D3BCD00E841FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23641BB1D6124EB0020B16C /* Assets.xcassets */; };
 		A17783721D7D3BCD00E841FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23641B51D6124EB0020B16C /* Main.storyboard */; };
+		A1E619121D97A43B00C862DB /* SkillVC_PassiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E619111D97A43B00C862DB /* SkillVC_PassiveCell.swift */; };
 		A1F62D491D7FC75E00DE02E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F62D481D7FC75E00DE02E1 /* Reachability.swift */; };
 		A1F62D511D7FCC3D00DE02E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F62D4F1D7FCC3D00DE02E1 /* LaunchScreen.storyboard */; };
+		B24B79581D9C96BC00B41A37 /* SkillDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B79561D9C96BC00B41A37 /* SkillDetails.swift */; };
 		B24B89CC1D8CA07D00F06E44 /* HeorListVC_HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B89CB1D8CA07D00F06E44 /* HeorListVC_HeroCell.swift */; };
 		B24DD7151D8DE27300B63B31 /* HeroDetailsVC_LPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DD7141D8DE27300B63B31 /* HeroDetailsVC_LPCell.swift */; };
+		B2869A041D94AA12002248F9 /* SkillVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2869A031D94AA12002248F9 /* SkillVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,12 +93,14 @@
 		A144D5D71D8BAC2500569DE2 /* Gem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Gem+CoreDataClass.swift"; path = "DataModel/Gem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A144D5D81D8BAC2500569DE2 /* SetBonus+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SetBonus+CoreDataClass.swift"; path = "DataModel/SetBonus+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A144D5D91D8BAC2500569DE2 /* Rune+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Rune+CoreDataClass.swift"; path = "DataModel/Rune+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A157B65A1D94F497003A7414 /* SkillVC_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillVC_Cell.swift; sourceTree = "<group>"; };
 		A1680F1E1D698BB800456544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/UIStrings.plist; sourceTree = "<group>"; };
 		A1680F211D698BBC00456544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/UIStrings.plist"; sourceTree = "<group>"; };
 		A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = UI_ViewControllers/LaunchScreen.swift; sourceTree = "<group>"; };
 		A17783761D7D3BCD00E841FC /* DProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AFF9961D699CA7006C0AF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC.swift; path = UI_ViewControllers/HeroDetailsVC.swift; sourceTree = "<group>"; };
+		A1E619111D97A43B00C862DB /* SkillVC_PassiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillVC_PassiveCell.swift; path = UI_ViewControllers/SkillVC_PassiveCell.swift; sourceTree = "<group>"; };
 		A1F62D481D7FC75E00DE02E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = DiabloProfile/ExtendLibrary/Reachability/Reachability.swift; sourceTree = "<group>"; };
 		A1F62D501D7FCC3D00DE02E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20398271D7D00F500D64D44 /* EquipmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquipmentVC.swift; path = UI_ViewControllers/EquipmentVC.swift; sourceTree = "<group>"; };
@@ -121,12 +127,14 @@
 		B23641C81D61334C0020B16C /* BlizzardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI.swift; path = BlizzardAPI/BlizzardAPI.swift; sourceTree = "<group>"; };
 		B23641CB1D61339E0020B16C /* BlizzardAPI_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_Constants.swift; path = BlizzardAPI/BlizzardAPI_Constants.swift; sourceTree = "<group>"; };
 		B23641CF1D613BDD0020B16C /* ConfigurationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationFunctions.swift; sourceTree = "<group>"; };
+		B24B79561D9C96BC00B41A37 /* SkillDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetails.swift; path = UI_ViewControllers/SkillDetails.swift; sourceTree = "<group>"; };
 		B24B89CB1D8CA07D00F06E44 /* HeorListVC_HeroCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeorListVC_HeroCell.swift; path = UI_ViewControllers/HeorListVC_HeroCell.swift; sourceTree = "<group>"; };
 		B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_ResourceCell.swift; path = UI_ViewControllers/HeroDetailsVC_ResourceCell.swift; sourceTree = "<group>"; };
 		B24DD7141D8DE27300B63B31 /* HeroDetailsVC_LPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsVC_LPCell.swift; path = UI_ViewControllers/HeroDetailsVC_LPCell.swift; sourceTree = "<group>"; };
 		B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_PassiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_PassiveSkillCell.swift; sourceTree = "<group>"; };
 		B25F70F81D67DF2E004AEE37 /* DIABLO_H.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_H.TTF; sourceTree = "<group>"; };
 		B25F70F91D67DF2E004AEE37 /* DIABLO_L.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIABLO_L.TTF; sourceTree = "<group>"; };
+		B2869A031D94AA12002248F9 /* SkillVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillVC.swift; path = UI_ViewControllers/SkillVC.swift; sourceTree = "<group>"; };
 		B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC.swift; path = UI_ViewControllers/SkillDetailsVC.swift; sourceTree = "<group>"; };
 		B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillDetailsVC_ActiveSkillCell.swift; path = UI_ViewControllers/SkillDetailsVC_ActiveSkillCell.swift; sourceTree = "<group>"; };
 		B297A62D1D63C1C800CE71A7 /* BlizzardAPI_DataCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlizzardAPI_DataCoding.swift; path = BlizzardAPI/BlizzardAPI_DataCoding.swift; sourceTree = "<group>"; };
@@ -177,6 +185,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1D0B75A1DA8D46100507908 /* Discard */ = {
+			isa = PBXGroup;
+			children = (
+				A1148DE41D8D06B7009C5A65 /* SkillListVC.swift */,
+				B2F61B3D1D6655AF0067E83B /* SkillListVC_SkillCell.swift */,
+				B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */,
+				B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */,
+				B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */,
+			);
+			name = Discard;
+			sourceTree = "<group>";
+		};
 		A1F62D4A1D7FC76100DE02E1 /* ExtendLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +303,7 @@
 		B2AE25D01D6291670046C6BA /* UI_ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A1D0B75A1DA8D46100507908 /* Discard */,
 				A1680F1F1D698BB800456544 /* UIStrings.plist */,
 				B23641B51D6124EB0020B16C /* Main.storyboard */,
 				B2FF151F1D629A1100FBAA7B /* AddVC_SearchBattleTag.swift */,
@@ -293,17 +314,16 @@
 				A1CB0A741D64230100287C47 /* HeroDetailsVC.swift */,
 				B24BDB6F1D64BB490098E33D /* HeroDetailsVC_ResourceCell.swift */,
 				B24DD7141D8DE27300B63B31 /* HeroDetailsVC_LPCell.swift */,
-				B28DA6231D6790AE00C75CFD /* SkillDetailsVC.swift */,
-				B28DA6251D67A40100C75CFD /* SkillDetailsVC_ActiveSkillCell.swift */,
-				B25F70F31D67C477004AEE37 /* SkillDetailsVC_PassiveSkillCell.swift */,
 				B20398271D7D00F500D64D44 /* EquipmentVC.swift */,
 				B20398291D7D00F500D64D44 /* ItemDetailsVC_AttributeCell.swift */,
 				B203982A1D7D00F500D64D44 /* ItemDetailsVC_ItemSetCell.swift */,
 				B203982B1D7D00F500D64D44 /* ItemDetailsVC_LevelBoundCell.swift */,
 				B203982C1D7D00F500D64D44 /* ItemDetailsVC_SummaryCell.swift */,
 				B203982D1D7D00F500D64D44 /* ItemDetailsVC.swift */,
-				A1148DE41D8D06B7009C5A65 /* SkillListVC.swift */,
-				B2F61B3D1D6655AF0067E83B /* SkillListVC_SkillCell.swift */,
+				B2869A031D94AA12002248F9 /* SkillVC.swift */,
+				A157B65A1D94F497003A7414 /* SkillVC_Cell.swift */,
+				A1E619111D97A43B00C862DB /* SkillVC_PassiveCell.swift */,
+				B24B79561D9C96BC00B41A37 /* SkillDetails.swift */,
 				A1701EE51D68285C00B1EFFD /* LaunchScreen.swift */,
 			);
 			name = UI_ViewControllers;
@@ -411,14 +431,17 @@
 			files = (
 				A1F62D491D7FC75E00DE02E1 /* Reachability.swift in Sources */,
 				A17783381D7D3BCD00E841FC /* HeroDetailsTabBarController.swift in Sources */,
+				B24B79581D9C96BC00B41A37 /* SkillDetails.swift in Sources */,
 				A17783391D7D3BCD00E841FC /* DiabloProfile.xcdatamodeld in Sources */,
 				A144D5DC1D8BAC2500569DE2 /* Skill+CoreDataClass.swift in Sources */,
 				A177833A1D7D3BCD00E841FC /* GemSocketImageView.swift in Sources */,
 				A177833B1D7D3BCD00E841FC /* ItemDetailsVC_LevelBoundCell.swift in Sources */,
 				A177833C1D7D3BCD00E841FC /* BlizzardAPI.swift in Sources */,
 				A177833D1D7D3BCD00E841FC /* BlizzardAPI_Constants.swift in Sources */,
+				B2869A041D94AA12002248F9 /* SkillVC.swift in Sources */,
 				A177833E1D7D3BCD00E841FC /* SkillDetailsVC_PassiveSkillCell.swift in Sources */,
 				A177833F1D7D3BCD00E841FC /* ItemImageView.swift in Sources */,
+				A157B65B1D94F497003A7414 /* SkillVC_Cell.swift in Sources */,
 				A17783401D7D3BCD00E841FC /* ItemAttribute+CoreDataProperties.swift in Sources */,
 				A17783411D7D3BCD00E841FC /* ItemDetailsVC_ItemSetCell.swift in Sources */,
 				A17783431D7D3BCD00E841FC /* AddVC_SelectHero.swift in Sources */,
@@ -461,6 +484,7 @@
 				A144D5D01D8BA47A00569DE2 /* LegendaryPower+CoreDataProperties.swift in Sources */,
 				A17783621D7D3BCD00E841FC /* HeroListVC.swift in Sources */,
 				A17783631D7D3BCD00E841FC /* ItemDetailsVC_SummaryCell.swift in Sources */,
+				A1E619121D97A43B00C862DB /* SkillVC_PassiveCell.swift in Sources */,
 				A17783641D7D3BCD00E841FC /* ItemDetailsVC_AttributeCell.swift in Sources */,
 				A17783671D7D3BCD00E841FC /* Skill+CoreDataProperties.swift in Sources */,
 				A17783681D7D3BCD00E841FC /* SkillListVC_SkillCell.swift in Sources */,

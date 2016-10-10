@@ -16,8 +16,8 @@ class SkillListVC: UITableViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        tabBarItem.selectedImage = UIImage(named: "basic.png")?.withRenderingMode(.alwaysOriginal)
-        tabBarItem.image = UIImage(named: "basic_unselected.png")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.selectedImage = UIImage(named: "skill.png")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.image = UIImage(named: "skill_unselected.png")?.withRenderingMode(.alwaysOriginal)
     }
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class SkillListVC: UITableViewController {
     
     func initialViewController(_ locale: String?) {
         if let uiStrings = AppDelegate.uiStrings(locale: locale) {
-            tabBarItem.title = uiStrings["tabGeneral"] as? String
+            tabBarItem.title = uiStrings["tabSkill"] as? String
         }
     }
     

@@ -83,7 +83,7 @@ class SkillDetailsVC_ActiveSkillCell: UITableViewCell {
             runeNameLabel.text = rune.name
             runeDescriptionLabel.text = rune.fullDescription
             
-            if let runeIconImagePath = rune.runeIconImagePath() {
+            if let runeIconImagePath = rune.runeIconImagePath(false) {
                 runeIconImageView.image = UIImage(named: runeIconImagePath)
             }
         } else {
