@@ -139,7 +139,7 @@
                             </connections>
                         </pickerView>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IlH-YL-4Lg">
-                            <rect key="frame" x="0.0" y="212" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="212" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-vd-E0r">

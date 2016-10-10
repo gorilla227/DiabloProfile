@@ -44,6 +44,10 @@ class AddVC_SearchBattleTag: UITableViewController {
     fileprivate func configureSearchButtonAppearance() {
         searchButton.layer.cornerRadius = 5.0
         searchButton.layer.masksToBounds = true
+        
+        if let tableFooterView = tableView.tableFooterView {
+            tableFooterView.heightAnchor.constraint(greaterThanOrEqualTo: tableFooterView.widthAnchor, multiplier: 50 / 375).isActive = true
+        }
     }
     
     fileprivate func configureLoadingIndicator() {
