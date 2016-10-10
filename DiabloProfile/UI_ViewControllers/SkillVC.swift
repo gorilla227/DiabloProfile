@@ -123,8 +123,6 @@ class SkillVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("start: \(Date())")
-        
         popoverVC.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
         let popoverController = popoverVC.popoverPresentationController!
         popoverController.delegate = self
@@ -154,9 +152,7 @@ class SkillVC: UITableViewController {
             UIView.animate(withDuration: 0.2, animations: {
                 self.blurEffectView.effect = self.blurEffect
             })
-            self.present(self.popoverVC, animated: true, completion:  {
-//                    print("end: \(Date())")
-            })
+            self.present(self.popoverVC, animated: true, completion: nil)
         }
     }
     
@@ -169,7 +165,7 @@ class SkillVC: UITableViewController {
                 }
             case 1: // Action Bar Skills
                 if let count = hero?.activeSkills?.count {
-                    return count > 2 ? "Mouse Skills" : nil
+                    return count > 2 ? "Action Bar Skills" : nil
                 }
             case 2: // Passive Skills
                 if let count = hero?.passiveSkills?.count {
