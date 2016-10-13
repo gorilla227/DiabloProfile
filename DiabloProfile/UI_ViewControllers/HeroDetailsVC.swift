@@ -96,7 +96,6 @@ class HeroDetailsVC: UITableViewController {
         case 2: // Stats
             return 3
         case 3: // Legendary Powers
-//            return selectedLegendaryPower?.name == nil ? 1 : 2
             return 1
         default:
             return 0
@@ -194,6 +193,7 @@ extension HeroDetailsVC: ItemImageViewDelegate {
                         }
                         
                         if let attributesArray = result?[BlizzardAPI.ResponseKeys.ItemKeys.Attributes] as? [[String: AnyObject]], let moc = selectedLegendaryPower.hero?.managedObjectContext {
+                            selectedLegendaryPower.attribute = NSSet(array: [ItemAttribute]())
                             for attributeDict in attributesArray {
                                 let attribute = ItemAttribute(dictionary: attributeDict, context: moc)
                                 selectedLegendaryPower.addToAttribute(attribute)
